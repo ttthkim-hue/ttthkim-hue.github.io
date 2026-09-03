@@ -28,45 +28,56 @@
     </div>
   </header>
   <main id="top">
-    <section class="hero">
-      <p class="kicker" id="deptLine"></p>
-      <h1 id="heroTitle"></h1>
-      <p class="lede" id="heroLede"></p>
-      <div class="hero-actions">
-        <a class="btn solid" href="#research" id="ctaResearch"></a>
-        <a class="btn ghost" href="#join" id="ctaJoin"></a>
+    <section class="landing" id="landing">
+      <div class="landing-copy">
+        <p class="kicker reveal" id="deptLine"></p>
+        <h1 class="reveal d1" id="heroTitle"></h1>
+        <p class="spin-line reveal d2"><span id="spinLabel"></span><em id="spinWord"></em></p>
+        <p class="lede reveal d3" id="heroLede"></p>
+        <div class="hero-actions reveal d4">
+          <a class="btn solid" href="#research" id="ctaResearch"></a>
+          <a class="btn ghost" href="#join" id="ctaJoin"></a>
+        </div>
+        <div class="stat-row reveal d5" id="metrics"></div>
       </div>
-      <div class="hero-split">
-        <figure class="pi-card">
-          <img class="portrait" alt="김진겸 조교수" width="280" height="350"
-               src="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg">
-          <figcaption>
-            <strong id="piName"></strong>
-            <span id="piRole"></span>
-          </figcaption>
-        </figure>
-        <div class="stat-row" id="metrics"></div>
+      <div class="landing-stage reveal d2">
+        <div class="stage-frame">
+          <svg class="teng" viewBox="0 0 280 340" aria-hidden="true">
+            <g class="plate top">
+              <rect x="40" y="70" width="200" height="28" rx="4"/>
+              <text x="140" y="89" text-anchor="middle">+ charge</text>
+            </g>
+            <g class="sparks">
+              <circle class="s1" cx="90" cy="128" r="3"/>
+              <circle class="s2" cx="140" cy="118" r="2.2"/>
+              <circle class="s3" cx="190" cy="130" r="3"/>
+            </g>
+            <g class="plate bot">
+              <rect x="40" y="220" width="200" height="28" rx="4"/>
+              <text x="140" y="239" text-anchor="middle">− charge</text>
+            </g>
+            <path class="arc" d="M90 100 C90 160 190 160 190 220"/>
+          </svg>
+          <figure class="pi-card">
+            <img class="portrait" alt="김진겸 조교수" width="220" height="275"
+                 src="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg">
+            <figcaption>
+              <strong id="piName"></strong>
+              <span id="piRole"></span>
+            </figcaption>
+          </figure>
+        </div>
+        <p class="stage-cap" id="stageCap"></p>
       </div>
+      <a class="scroll-cue" href="#research">scroll</a>
     </section>
     <section id="research">
-      <header class="sec-head">
-        <p class="idx">01</p>
-        <div>
-          <h2 id="researchH"></h2>
-          <p class="sec-sub" id="researchSub"></p>
-        </div>
-      </header>
+      <header class="sec-head"><p class="idx">01</p><div><h2 id="researchH"></h2><p class="sec-sub" id="researchSub"></p></div></header>
       <div class="pillar-grid" id="pillarNav"></div>
       <article class="stage" id="pillarStage"></article>
     </section>
     <section id="work">
-      <header class="sec-head">
-        <p class="idx">02</p>
-        <div>
-          <h2 id="workH"></h2>
-          <p class="sec-sub" id="workSub"></p>
-        </div>
-      </header>
+      <header class="sec-head"><p class="idx">02</p><div><h2 id="workH"></h2><p class="sec-sub" id="workSub"></p></div></header>
       <div class="featured" id="featured"></div>
       <div class="filters">
         <input id="pubQuery" type="search" placeholder="Search title, venue, author">
@@ -78,49 +89,25 @@
       <ol class="pub-list" id="patentList"></ol>
     </section>
     <section id="pi">
-      <header class="sec-head">
-        <p class="idx">03</p>
-        <div>
-          <h2 id="piH"></h2>
-          <p class="sec-sub" id="piSub"></p>
-        </div>
-      </header>
+      <header class="sec-head"><p class="idx">03</p><div><h2 id="piH"></h2><p class="sec-sub" id="piSub"></p></div></header>
       <div class="pi-grid">
         <div id="aboutBody" class="prose"></div>
         <aside>
-          <h3 id="eduH"></h3>
-          <ol class="timeline" id="eduList"></ol>
-          <h3 id="careerH"></h3>
-          <ol class="timeline" id="careerList"></ol>
+          <h3 id="eduH"></h3><ol class="timeline" id="eduList"></ol>
+          <h3 id="careerH"></h3><ol class="timeline" id="careerList"></ol>
         </aside>
       </div>
     </section>
     <section id="join">
-      <header class="sec-head">
-        <p class="idx">04</p>
-        <div>
-          <h2 id="joinH"></h2>
-          <p class="sec-sub" id="joinSub"></p>
-        </div>
-      </header>
+      <header class="sec-head"><p class="idx">04</p><div><h2 id="joinH"></h2><p class="sec-sub" id="joinSub"></p></div></header>
       <div class="join-grid" id="joinBody"></div>
     </section>
     <section id="news">
-      <header class="sec-head">
-        <p class="idx">05</p>
-        <div>
-          <h2 id="newsH"></h2>
-        </div>
-      </header>
+      <header class="sec-head"><p class="idx">05</p><div><h2 id="newsH"></h2></div></header>
       <ul class="news-list" id="newsList"></ul>
     </section>
     <section id="contact">
-      <header class="sec-head">
-        <p class="idx">06</p>
-        <div>
-          <h2 id="contactH"></h2>
-        </div>
-      </header>
+      <header class="sec-head"><p class="idx">06</p><div><h2 id="contactH"></h2></div></header>
       <div class="contact-grid" id="contactBody"></div>
     </section>
   </main>
