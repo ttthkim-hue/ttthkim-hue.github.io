@@ -3,50 +3,132 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>김진겸 조교수 · Jin-Kyeom Kim | 국립한국해양대학교 해양신소재융합공학과</title>
-  <meta name="description" content="국립한국해양대학교 해양신소재융합공학과 김진겸 조교수. EnerMAKER Lab. 공식 교수소개 teaSn=5782.">
+  <title>EnerMAKER Lab · 김진겸 조교수 | 국립한국해양대학교</title>
+  <meta name="description" content="EnerMAKER Lab — self-powered energy materials, intelligent bioelectronics, and AI-driven marine device design. Assistant Professor Jin-Kyeom Kim, KMOU.">
   <link rel="canonical" href="https://ttthkim-hue.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <header class="top">
-    <a class="brand" href="#top">EnerMAKER</a>
-    <nav>
-      <a href="#about" data-i="navAbout">소개</a>
-      <a href="#cv" data-i="navCv">학력·경력</a>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <header class="nav">
+    <a class="mark" href="#top">EnerMAKER</a>
+    <nav id="menu">
       <a href="#research" data-i="navResearch">연구</a>
-      <a href="#pubs" data-i="navPubs">논문</a>
-      <a href="#patents" data-i="navPatents">특허</a>
+      <a href="#work" data-i="navWork">성과</a>
+      <a href="#pi" data-i="navPi">PI</a>
+      <a href="#join" data-i="navJoin">합류</a>
       <a href="#contact" data-i="navContact">연락</a>
     </nav>
-    <button id="langBtn" type="button">EN</button>
+    <div class="nav-tools">
+      <button id="langBtn" type="button">EN</button>
+      <button id="menuBtn" type="button" aria-label="Menu">Menu</button>
+    </div>
   </header>
   <main id="top">
     <section class="hero">
-      <div class="portrait-wrap">
-        <img class="portrait" alt="김진겸 조교수" width="220" height="275"
-             src="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg">
-        <p class="photo-credit">Photo: KMOU faculty directory</p>
+      <p class="kicker" id="deptLine"></p>
+      <h1 id="heroTitle"></h1>
+      <p class="lede" id="heroLede"></p>
+      <div class="hero-actions">
+        <a class="btn solid" href="#research" id="ctaResearch"></a>
+        <a class="btn ghost" href="#join" id="ctaJoin"></a>
       </div>
-      <div class="hero-copy">
-        <p class="kicker" id="deptLine"></p>
-        <h1 id="name">김진겸</h1>
-        <p class="hanja" id="hanja"></p>
-        <p class="title" id="titleLine"></p>
-        <p class="tag" id="tagline"></p>
-        <p class="links" id="links"></p>
-        <div class="metric-row" id="metrics"></div>
+      <div class="hero-split">
+        <figure class="pi-card">
+          <img class="portrait" alt="김진겸 조교수" width="280" height="350"
+               src="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg">
+          <figcaption>
+            <strong id="piName"></strong>
+            <span id="piRole"></span>
+          </figcaption>
+        </figure>
+        <div class="stat-row" id="metrics"></div>
       </div>
     </section>
-    <section id="about"><h2 id="aboutH">소개</h2><div class="about-grid"><div id="aboutBody"></div><aside class="factcard" id="factcard"></aside></div></section>
-    <section id="cv"><h2 id="cvH">학력·경력</h2><div class="cv-grid"><div><h3 id="eduH">학력</h3><ol class="timeline" id="eduList"></ol></div><div><h3 id="careerH">경력</h3><ol class="timeline" id="careerList"></ol></div></div></section>
-    <section id="research"><h2 id="researchH">연구</h2><div class="grid" id="researchList"></div></section>
-    <section id="pubs"><h2 id="pubsH">논문</h2><p class="hint" id="pubsHint"></p><ol id="pubList"></ol></section>
-    <section id="patents"><h2 id="patentsH">특허</h2><ol id="patentList"></ol></section>
-    <section id="news"><h2 id="newsH">소식</h2><ul id="newsList"></ul></section>
-    <section id="contact"><h2 id="contactH">연락</h2><div class="contact-grid" id="contactBody"></div></section>
+    <section id="research">
+      <header class="sec-head">
+        <p class="idx">01</p>
+        <div>
+          <h2 id="researchH"></h2>
+          <p class="sec-sub" id="researchSub"></p>
+        </div>
+      </header>
+      <div class="pillar-grid" id="pillarNav"></div>
+      <article class="stage" id="pillarStage"></article>
+    </section>
+    <section id="work">
+      <header class="sec-head">
+        <p class="idx">02</p>
+        <div>
+          <h2 id="workH"></h2>
+          <p class="sec-sub" id="workSub"></p>
+        </div>
+      </header>
+      <div class="featured" id="featured"></div>
+      <div class="filters">
+        <input id="pubQuery" type="search" placeholder="Search title, venue, author">
+        <div class="chips" id="yearChips"></div>
+        <label class="check"><input id="firstOnly" type="checkbox"> <span id="firstLabel">First author</span></label>
+      </div>
+      <ol class="pub-list" id="pubList"></ol>
+      <h3 id="patentH" class="subh"></h3>
+      <ol class="pub-list" id="patentList"></ol>
+    </section>
+    <section id="pi">
+      <header class="sec-head">
+        <p class="idx">03</p>
+        <div>
+          <h2 id="piH"></h2>
+          <p class="sec-sub" id="piSub"></p>
+        </div>
+      </header>
+      <div class="pi-grid">
+        <div id="aboutBody" class="prose"></div>
+        <aside>
+          <h3 id="eduH"></h3>
+          <ol class="timeline" id="eduList"></ol>
+          <h3 id="careerH"></h3>
+          <ol class="timeline" id="careerList"></ol>
+        </aside>
+      </div>
+    </section>
+    <section id="join">
+      <header class="sec-head">
+        <p class="idx">04</p>
+        <div>
+          <h2 id="joinH"></h2>
+          <p class="sec-sub" id="joinSub"></p>
+        </div>
+      </header>
+      <div class="join-grid" id="joinBody"></div>
+    </section>
+    <section id="news">
+      <header class="sec-head">
+        <p class="idx">05</p>
+        <div>
+          <h2 id="newsH"></h2>
+        </div>
+      </header>
+      <ul class="news-list" id="newsList"></ul>
+    </section>
+    <section id="contact">
+      <header class="sec-head">
+        <p class="idx">06</p>
+        <div>
+          <h2 id="contactH"></h2>
+        </div>
+      </header>
+      <div class="contact-grid" id="contactBody"></div>
+    </section>
   </main>
-  <footer><span id="updated"></span> · Source: <a href="https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782">KMOU teaSn=5782</a> · <a href="https://ttthkim-hue.github.io/">ttthkim-hue.github.io</a></footer>
+  <footer>
+    <span id="updated"></span>
+    · Source: <a href="https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782">KMOU teaSn=5782</a>
+    · <a href="https://ttthkim-hue.github.io/">ttthkim-hue.github.io</a>
+  </footer>
   <script src="./app.js"></script>
 </body>
 </html>
