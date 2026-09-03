@@ -40,12 +40,12 @@ function render() {
   const m = d.metrics || {};
   document.documentElement.lang = state.lang;
   setText("deptLine", t(p.deptKo, p.deptEn));
-  setText("heroTitle", t(d.heroTitleKo, d.heroTitleEn));
-  setText("heroLede", t(d.heroLedeKo, d.heroLedeEn));
+  setText("heroTitle", t(d.heroTitleKo || d.taglineKo || "EnerMAKER Lab", d.heroTitleEn || d.taglineEn || "EnerMAKER Lab"));
+  setText("heroLede", t(d.heroLedeKo || (d.aboutKo||[])[0], d.heroLedeEn || (d.aboutEn||[])[0]));
   setText("ctaResearch", t("연구 축 보기", "See research"));
   setText("ctaJoin", t("연구실 합류", "Join the lab"));
   setText("piName", t(p.nameKo, p.nameEn));
-  setText("piRole", t(p.titleKo + " · EnerMAKER Lab", p.titleEn + " · EnerMAKER Lab"));
+  setText("piRole", t((p.titleKo || "") + " · EnerMAKER Lab", (p.titleEn || "") + " · EnerMAKER Lab"));
   setHtml("metrics",
     metric(m.citations, t("인용", "citations")) +
     metric(m.hIndex, "h-index") +
@@ -83,7 +83,12 @@ function render() {
   setHtml("aboutBody", arr(t(d.aboutKo, d.aboutEn)).map((x) => `<p>${x}</p>`).join(""));
   setHtml("eduList", arr(d.education).map((e) => `<li><span class="year">${e.year}</span>${t(e.ko, e.en)}</li>`).join(""));
   setHtml("careerList", arr(d.career).map((e) => `<li><span class="year">${e.year}</span>${t(e.ko, e.en)}</li>`).join(""));
-  setHtml("joinBody", arr(d.join).map((j) => `<article class="join-card"><h3>${t(j.ko, j.en)}</h3><p>${t(j.detailKo, j.detailEn)}</p></article>`).join(""));
+  const join = arr(d.join).length ? d.join : [
+    {ko:"대학원생",en:"Graduate students",detailKo:"에너지 하베스팅·나노소재·바이오전자·디지털 트윈.",detailEn:"Energy harvesting, nanomaterials, bioelectronics, digital twins."},
+    {ko:"학부연구생",en:"Undergraduates",detailKo:"소자 제작·측정 또는 시뮬레이션.",detailEn:"Device fabrication, measurement, or simulation."},
+    {ko:"박사후연구원",en:"Postdocs",detailKo:"공개 실적 기준으로 논의합니다.",detailEn:"Discussed from the public record."}
+  ];
+  setHtml("joinBody", join.map((j) => `<article class="join-card"><h3>${t(j.ko, j.en)}</h3><p>${t(j.detailKo, j.detailEn)}</p></article>`).join(""));
   setHtml("newsList", arr(d.news).map((n) => {
     const body = n.url ? `<a href="${n.url}">${t(n.ko, n.en)}</a>` : t(n.ko, n.en);
     return `<li><strong>${n.date}</strong> — ${body}</li>`;
@@ -115,9 +120,7 @@ function renderPillars() {
     });
   });
   const cur = items[state.pillar];
-  if (cur) {
-    setHtml("pillarStage", `<h3>${t(cur.ko, cur.en)}</h3><p>${t(cur.detailKo, cur.detailEn)}</p>`);
-  }
+  if (cur) setHtml("pillarStage", `<h3>${t(cur.ko, cur.en)}</h3><p>${t(cur.detailKo, cur.detailEn)}</p>`);
 }
 
 function renderFeatured() {
@@ -186,12 +189,7 @@ function field() {
   resize();
   addEventListener("resize", resize);
   for (let i = 0; i < 48; i++) {
-    dots.push({
-      x: Math.random() * innerWidth,
-      y: Math.random() * innerHeight,
-      vx: (Math.random() - .5) * .35,
-      vy: (Math.random() - .5) * .35
-    });
+    dots.push({ x: Math.random() * innerWidth, y: Math.random() * innerHeight, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35 });
   }
   const tick = () => {
     ctx.clearRect(0, 0, c.width, c.height);
@@ -204,8 +202,7 @@ function field() {
       ctx.beginPath(); ctx.arc(a.x, a.y, 1.4, 0, Math.PI * 2); ctx.fill();
       for (let j = i + 1; j < dots.length; j++) {
         const b = dots[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const dist = Math.hypot(dx, dy);
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
         if (dist < 140) {
           ctx.globalAlpha = 1 - dist / 140;
           ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
