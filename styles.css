@@ -49,7 +49,7 @@ h2{margin:0;font-size:clamp(1.6rem,3vw,2.2rem)}
 .stage{margin-top:.8rem;padding:1.3rem 1.4rem;border:1px solid var(--line);background:linear-gradient(135deg,#101826,#0a1018 60%);min-height:8rem}
 .stage h3{margin:0 0 .4rem;font-size:1.5rem}
 .stage p{margin:0;color:var(--muted);max-width:50rem}
-.featured{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.2rem}
+.featured,.home-selected{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.2rem}
 .feat{padding:1rem;border:1px solid var(--line);background:var(--card)}
 .feat .yr{color:var(--gold);font-size:.78rem}
 .feat a{color:var(--ink);text-decoration:none}
@@ -106,13 +106,15 @@ footer{padding:1.2rem 6vw 2.4rem;color:var(--muted);font-size:.82rem;border-top:
 @keyframes flow{to{stroke-dashoffset:-56}}
 .landing .pi-card{position:absolute;right:0;bottom:12px;width:168px;margin:0;z-index:2;background:#0b1018;padding:6px;border:1px solid var(--line)}
 .stage-cap{margin:.7rem 0 0;color:var(--muted);font-size:.78rem}
-.scroll-cue{position:absolute;left:0;bottom:.2rem;color:var(--gold2);text-decoration:none;letter-spacing:.16em;font-size:.72rem;text-transform:uppercase;animation:bob 1.8s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(6px);opacity:.55}}
+.view{display:none;margin:0;padding:1.2rem 0 2rem}
+.view.on{display:block}
+.view.landing.on{display:grid;min-height:calc(100svh - 58px)}
+.home-selected{grid-column:1/-1}
 @media(max-width:900px){
-  .pillar-grid,.featured,.join-grid,.pi-grid,.contact-grid,.stat-row{grid-template-columns:1fr}
+  .pillar-grid,.featured,.home-selected,.join-grid,.pi-grid,.contact-grid,.stat-row{grid-template-columns:1fr}
   nav{display:none} nav.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#0b1018;padding:1rem 6vw}
   #menuBtn{display:block}
-  .landing{grid-template-columns:1fr;min-height:auto;padding-top:1.2rem}
+  .landing,.view.landing.on{grid-template-columns:1fr;min-height:auto}
   .landing .pi-card{position:relative;width:180px;bottom:auto;right:auto;margin-top:1rem}
   .teng{position:relative;width:100%;inset:auto}
 }
