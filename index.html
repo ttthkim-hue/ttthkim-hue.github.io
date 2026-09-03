@@ -3,61 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jin-Kyeom Kim · 김진겸</title>
-  <meta name="description" content="Academic page of Jin-Kyeom Kim — interfacial TENG physics, humidity-resistant tribomaerials, self-powered sensing and bioelectronics. University of Wisconsin–Madison.">
-  <meta name="author" content="Jin-Kyeom Kim">
+  <title>김진겸 조교수 · Jin-Kyeom Kim | 국립한국해양대학교 해양신소재융합공학과</title>
+  <meta name="description" content="국립한국해양대학교 해양신소재융합공학과 김진겸 조교수. EnerMAKER Lab.">
   <link rel="canonical" href="https://ttthkim-hue.github.io/">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <header class="top">
-    <a class="brand" href="#top">JKK</a>
+    <a class="brand" href="#top">EnerMAKER</a>
     <nav>
       <a href="#about" data-i="navAbout">소개</a>
+      <a href="#cv" data-i="navCv">학력·경력</a>
       <a href="#research" data-i="navResearch">연구</a>
       <a href="#pubs" data-i="navPubs">논문</a>
       <a href="#patents" data-i="navPatents">특허</a>
-      <a href="#news" data-i="navNews">소식</a>
+      <a href="#contact" data-i="navContact">연락</a>
     </nav>
     <button id="langBtn" type="button">EN</button>
   </header>
   <main id="top">
     <section class="hero">
-      <p class="kicker" id="statusBadge">PUBLIC</p>
-      <h1 id="name">김진겸</h1>
-      <p class="title" id="titleLine">재료공학 박사 · 박사후연구원</p>
-      <p class="tag" id="tagline"></p>
-      <p class="aff" id="affiliation"></p>
-      <p class="links" id="links"></p>
-      <div class="metric-row" id="metrics"></div>
+      <div class="portrait-wrap">
+        <img class="portrait" alt="김진겸 조교수" src="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg">
+      </div>
+      <div class="hero-copy">
+        <p class="kicker" id="deptLine"></p>
+        <h1 id="name">김진겸</h1>
+        <p class="hanja" id="hanja"></p>
+        <p class="title" id="titleLine"></p>
+        <p class="tag" id="tagline"></p>
+        <p class="links" id="links"></p>
+        <div class="metric-row" id="metrics"></div>
+      </div>
     </section>
-    <section id="about">
-      <h2 id="aboutH">소개</h2>
-      <div id="aboutBody"></div>
-    </section>
-    <section id="research">
-      <h2 id="researchH">연구</h2>
-      <div class="grid" id="researchList"></div>
-    </section>
-    <section id="pubs">
-      <h2 id="pubsH">논문</h2>
-      <p class="hint" id="pubsHint"></p>
-      <ol id="pubList"></ol>
-    </section>
-    <section id="patents">
-      <h2 id="patentsH">특허</h2>
-      <ol id="patentList"></ol>
-    </section>
-    <section id="news">
-      <h2 id="newsH">소식</h2>
-      <ul id="newsList"></ul>
-    </section>
+    <section id="about"><h2 id="aboutH">소개</h2><div class="about-grid"><div id="aboutBody"></div><aside class="factcard" id="factcard"></aside></div></section>
+    <section id="cv"><h2 id="cvH">학력·경력</h2><div class="cv-grid"><div><h3 id="eduH">학력</h3><ol class="timeline" id="eduList"></ol></div><div><h3 id="careerH">경력</h3><ol class="timeline" id="careerList"></ol></div></div></section>
+    <section id="research"><h2 id="researchH">연구</h2><div class="grid" id="researchList"></div></section>
+    <section id="pubs"><h2 id="pubsH">논문</h2><p class="hint" id="pubsHint"></p><ol id="pubList"></ol></section>
+    <section id="patents"><h2 id="patentsH">특허</h2><ol id="patentList"></ol></section>
+    <section id="news"><h2 id="newsH">소식</h2><ul id="newsList"></ul></section>
+    <section id="contact"><h2 id="contactH">연락</h2><div class="contact-grid" id="contactBody"></div></section>
   </main>
-  <footer>
-    <span id="updated"></span>
-    · Public records only
-    · <a href="https://ttthkim-hue.github.io/">ttthkim-hue.github.io</a>
-  </footer>
+  <footer><span id="updated"></span> · Source: KMOU faculty page teaSn=5782 · <a href="https://ttthkim-hue.github.io/">ttthkim-hue.github.io</a></footer>
   <script src="./app.js"></script>
 </body>
 </html>
