@@ -3,93 +3,122 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EnerMAKER Lab · 김진겸 조교수 | 국립한국해양대학교</title>
-  <meta name="description" content="EnerMAKER Lab at KMOU. Self-powered energy materials, bioelectronics, AI digital twin.">
+  <title>Jin-Kyeom Kim · EnerMAKER Lab · KMOU</title>
+  <meta name="description" content="Assistant Professor Jin-Kyeom Kim, EnerMAKER Lab, Korea Maritime & Ocean University. Self-powered energy materials, bioelectronics, nanomaterials, digital twins.">
   <link rel="canonical" href="https://ttthkim-hue.github.io/">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <canvas id="field" aria-hidden="true"></canvas>
-  <header class="nav">
-    <a class="mark" href="#/">EnerMAKER</a>
-    <nav id="menu">
-      <a href="#/" data-route="/">Home</a>
-      <a href="#/research" data-route="/research">Research</a>
-      <a href="#/work" data-route="/work">Work</a>
-      <a href="#/pi" data-route="/pi">PI</a>
-      <a href="#/join" data-route="/join">Join</a>
-      <a href="#/news" data-route="/news">News</a>
-    </nav>
-    <div class="nav-tools">
-      <button id="langBtn" type="button">EN</button>
-      <button id="menuBtn" type="button" aria-label="Menu">Menu</button>
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="#/">EnerMAKER</a>
+      <nav id="menu" aria-label="Primary">
+        <a href="#/" data-route="/">About</a>
+        <a href="#/research" data-route="/research">Research</a>
+        <a href="#/work" data-route="/work">Publications</a>
+        <a href="#/pi" data-route="/pi">PI</a>
+        <a href="#/join" data-route="/join">Join</a>
+        <a href="#/news" data-route="/news">News</a>
+      </nav>
+      <div class="nav-tools">
+        <button id="langBtn" type="button" class="icon-btn" title="Language">EN</button>
+        <button id="themeBtn" type="button" class="icon-btn" title="Theme"><i class="bi bi-moon"></i></button>
+        <button id="menuBtn" type="button" class="icon-btn" aria-label="Menu"><i class="bi bi-list"></i></button>
+      </div>
     </div>
   </header>
   <main id="top">
-    <section class="view landing" data-view="/">
-      <div class="landing-copy">
-        <p class="kicker reveal" id="deptLine"></p>
-        <h1 class="reveal d1" id="heroTitle"></h1>
-        <p class="spin-line reveal d2"><span id="spinLabel"></span><em id="spinWord"></em></p>
-        <p class="lede reveal d3" id="heroLede"></p>
-        <div class="hero-actions reveal d4">
-          <a class="btn solid" href="#/research" id="ctaResearch"></a>
-          <a class="btn ghost" href="#/join" id="ctaJoin"></a>
+    <section class="view" data-view="/">
+      <div class="about-grid">
+        <aside class="profile">
+          <img class="portrait" alt="김진겸 조교수" width="280" height="350"
+               src="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg">
+          <h1 id="piName"></h1>
+          <p class="rank" id="piRank"></p>
+          <p class="affil" id="piAffil"></p>
+          <p class="mail"><a id="mailLink" href="mailto:jingyeom0825@kmou.ac.kr">jingyeom0825@kmou.ac.kr</a></p>
+          <div class="icons" id="social"></div>
+          <ul class="facts" id="facts"></ul>
+        </aside>
+        <div class="about-main">
+          <div class="prose" id="aboutBody"></div>
+          <h2 class="block-title" id="newsH">News</h2>
+          <ul class="news-compact" id="homeNews"></ul>
+          <h2 class="block-title" id="selH">Selected publications</h2>
+          <ol class="pub-list" id="homePubs"></ol>
         </div>
-        <div class="stat-row reveal d5" id="metrics"></div>
       </div>
-      <div class="landing-stage reveal d2">
-        <div class="stage-frame">
-          <svg class="teng" viewBox="0 0 280 340" aria-hidden="true">
-            <g class="plate top"><rect x="40" y="70" width="200" height="28" rx="4"/><text x="140" y="89" text-anchor="middle">+ charge</text></g>
-            <g class="sparks"><circle class="s1" cx="90" cy="128" r="3"/><circle class="s2" cx="140" cy="118" r="2.2"/><circle class="s3" cx="190" cy="130" r="3"/></g>
-            <g class="plate bot"><rect x="40" y="220" width="200" height="28" rx="4"/><text x="140" y="239" text-anchor="middle">− charge</text></g>
-            <path class="arc" d="M90 100 C90 160 190 160 190 220"/>
-          </svg>
-          <figure class="pi-card">
-            <img class="portrait" alt="김진겸 조교수" width="220" height="275" src="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg">
-            <figcaption><strong id="piName"></strong><span id="piRole"></span></figcaption>
-          </figure>
-        </div>
-        <p class="stage-cap" id="stageCap"></p>
-      </div>
-      <div class="home-selected" id="homeSelected"></div>
     </section>
     <section class="view page" data-view="/research">
-      <header class="sec-head"><p class="idx">01</p><div><h2 id="researchH"></h2><p class="sec-sub" id="researchSub"></p></div></header>
-      <div class="pillar-grid" id="pillarNav"></div>
-      <article class="stage" id="pillarStage"></article>
+      <header class="page-head">
+        <h1 id="researchH">Research</h1>
+        <p class="lede" id="researchSub"></p>
+      </header>
+      <div class="project-grid" id="pillarGrid"></div>
     </section>
     <section class="view page" data-view="/work">
-      <header class="sec-head"><p class="idx">02</p><div><h2 id="workH"></h2><p class="sec-sub" id="workSub"></p></div></header>
-      <div class="featured" id="featured"></div>
+      <header class="page-head">
+        <h1 id="workH">Publications</h1>
+        <p class="lede" id="workSub"></p>
+      </header>
       <div class="filters">
         <input id="pubQuery" type="search" placeholder="Search title, venue, author">
         <div class="chips" id="yearChips"></div>
         <label class="check"><input id="firstOnly" type="checkbox"> <span id="firstLabel">First author</span></label>
+        <a class="bib-link" href="./papers.bib">papers.bib</a>
       </div>
-      <ol class="pub-list" id="pubList"></ol>
-      <h3 id="patentH" class="subh"></h3>
+      <div id="pubList"></div>
+      <h2 class="block-title" id="patentH">Patents</h2>
       <ol class="pub-list" id="patentList"></ol>
     </section>
     <section class="view page" data-view="/pi">
-      <header class="sec-head"><p class="idx">03</p><div><h2 id="piH"></h2><p class="sec-sub" id="piSub"></p></div></header>
-      <div class="pi-grid"><div id="aboutBody" class="prose"></div><aside><h3 id="eduH"></h3><ol class="timeline" id="eduList"></ol><h3 id="careerH"></h3><ol class="timeline" id="careerList"></ol></aside></div>
+      <header class="page-head">
+        <h1 id="piH">Principal investigator</h1>
+        <p class="lede" id="piSub"></p>
+      </header>
+      <div class="two-col">
+        <div class="prose" id="piAbout"></div>
+        <aside>
+          <h2 class="block-title" id="eduH">Education</h2>
+          <ol class="timeline" id="eduList"></ol>
+          <h2 class="block-title" id="careerH">Appointments</h2>
+          <ol class="timeline" id="careerList"></ol>
+        </aside>
+      </div>
     </section>
     <section class="view page" data-view="/join">
-      <header class="sec-head"><p class="idx">04</p><div><h2 id="joinH"></h2><p class="sec-sub" id="joinSub"></p></div></header>
+      <header class="page-head">
+        <h1 id="joinH">Join the lab</h1>
+        <p class="lede" id="joinSub"></p>
+      </header>
       <div class="join-grid" id="joinBody"></div>
     </section>
     <section class="view page" data-view="/news">
-      <header class="sec-head"><p class="idx">05</p><div><h2 id="newsH"></h2></div></header>
+      <header class="page-head">
+        <h1 id="newsPageH">News</h1>
+      </header>
       <ul class="news-list" id="newsList"></ul>
+      <h2 class="block-title" id="contactH">Contact</h2>
       <div class="contact-grid" id="contactBody"></div>
     </section>
   </main>
-  <footer><span id="updated"></span> · Source: <a href="https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782">KMOU teaSn=5782</a> · IA: CDFG-style routed lab</footer>
+  <footer>
+    <div class="foot-inner">
+      <p id="updated"></p>
+      <p>Sources: <a href="https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&amp;teaSn=5782">KMOU teaSn=5782</a> ·
+        <a href="https://scholar.google.com/citations?user=k4WJ_DMAAAAJ">Scholar</a> ·
+        <a href="https://orcid.org/0000-0003-0824-2373">ORCID</a>.
+        Layout follows al-folio / Academic Pages IA. Plugins via CDN (Bootstrap, Academicons).</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
