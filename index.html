@@ -3,122 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jin-Kyeom Kim · EnerMAKER Lab · KMOU</title>
-  <meta name="description" content="Assistant Professor Jin-Kyeom Kim, EnerMAKER Lab, Korea Maritime & Ocean University. Self-powered energy materials, bioelectronics, nanomaterials, digital twins.">
+  <title>EnerMAKER Lab · Jin-Kyeom Kim · KMOU</title>
+  <meta name="description" content="국립한국해양대학교 EnerMAKER Lab: 자가발전 에너지 하베스팅, 지능형 바이오전자, 기능성 나노소재, AI 기반 해양환경 디지털 트윈 연구.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:title" content="EnerMAKER Lab · Jin-Kyeom Kim">
+  <meta property="og:description" content="Materials that harvest energy. AI that designs devices.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ttthkim-hue.github.io/">
+  <meta property="og:image" content="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg">
+  <meta name="theme-color" content="#07111f">
   <link rel="canonical" href="https://ttthkim-hue.github.io/">
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;1,8..60,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
-  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#07111f;--bg2:#0b1728;--panel:rgba(11,23,40,.78);--panel2:rgba(15,32,55,.72);--ink:#edf7ff;--muted:#a8bbce;--line:rgba(163,205,255,.18);--accent:#62e6ff;--accent2:#b98cff;--warm:#ffe08a;--ok:#8ff2c7;--shadow:0 24px 80px rgba(0,0,0,.35);--max:1180px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 5%,rgba(98,230,255,.16),transparent 34rem),radial-gradient(circle at 80% 8%,rgba(185,140,255,.18),transparent 32rem),linear-gradient(180deg,var(--bg),#091322 48%,#08111e);color:var(--ink);font-family:"IBM Plex Sans KR",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65;letter-spacing:-.015em}a{color:inherit}::selection{background:rgba(98,230,255,.28)}.nav{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);backdrop-filter:blur(18px);background:rgba(7,17,31,.74)}.nav-inner{max-width:var(--max);margin:auto;padding:14px 22px;display:flex;align-items:center;gap:18px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800}.mark{width:34px;height:34px;border:1px solid rgba(98,230,255,.5);border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(98,230,255,.2),rgba(185,140,255,.18));font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--accent)}nav{margin-left:auto;display:flex;gap:18px}nav a{text-decoration:none;color:var(--muted);font-size:.92rem}nav a:hover{color:var(--ink)}.hero{position:relative;overflow:hidden;min-height:calc(100vh - 64px);padding:78px 22px 64px;border-bottom:1px solid var(--line)}#field{position:absolute;inset:0;width:100%;height:100%;opacity:.72}.hero:after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(180deg,transparent,rgba(7,17,31,.92));pointer-events:none}.hero-grid{position:relative;z-index:1;max-width:var(--max);margin:auto;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(320px,.88fr);gap:32px;align-items:center}.eyebrow{font-family:"IBM Plex Mono",monospace;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-size:.76rem;font-weight:600}.hero h1{margin:.35rem 0 1rem;font-size:clamp(2.75rem,7vw,6.2rem);line-height:.98;letter-spacing:-.065em}.lead{max-width:760px;color:#d8e7f6;font-size:clamp(1.05rem,1.8vw,1.34rem)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}.btn{border:1px solid var(--line);border-radius:999px;padding:11px 16px;text-decoration:none;color:var(--ink);background:rgba(255,255,255,.05)}.btn.primary{border-color:rgba(98,230,255,.65);background:linear-gradient(135deg,rgba(98,230,255,.18),rgba(185,140,255,.16))}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:24px;max-width:620px}.metric{border:1px solid var(--line);border-radius:18px;padding:15px;background:rgba(255,255,255,.045)}.metric b{display:block;font-family:"IBM Plex Mono",monospace;font-size:1.35rem;color:var(--ink)}.metric span{color:var(--muted);font-size:.86rem}.panel{position:relative;border:1px solid var(--line);border-radius:34px;background:linear-gradient(180deg,rgba(10,25,43,.86),rgba(12,20,36,.58));box-shadow:var(--shadow);padding:22px;overflow:hidden}.portrait{width:100%;max-height:350px;object-fit:cover;border-radius:24px;border:1px solid var(--line);filter:saturate(1.02) contrast(1.02)}.signal{margin-top:14px;border:1px solid var(--line);border-radius:22px;padding:16px;background:rgba(255,255,255,.045)}.signal strong{display:block;font-size:1.05rem}.signal p{margin:.35rem 0 0;color:var(--muted)}main{max-width:var(--max);margin:auto;padding:0 22px 80px}.section{padding:76px 0;border-bottom:1px solid var(--line)}.head{display:grid;grid-template-columns:.42fr 1fr;gap:26px;margin-bottom:28px}.head h2{margin:0;font-size:clamp(1.8rem,3.4vw,3.1rem);line-height:1.1;letter-spacing:-.04em}.head p{margin:0;color:var(--muted);font-size:1.02rem}.loop{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step}.loop li{list-style:none;min-height:168px;border:1px solid var(--line);border-radius:24px;padding:18px;background:var(--panel);position:relative}.loop li:before{counter-increment:step;content:"0"counter(step);font-family:"IBM Plex Mono",monospace;color:var(--accent);font-size:.8rem}.loop strong{display:block;margin:18px 0 8px;font-size:1.15rem}.loop p,.card p,.path p,.pub p,.source p{color:var(--muted);margin:.45rem 0 0}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:26px;padding:21px;background:linear-gradient(180deg,var(--panel),rgba(11,23,40,.52));min-height:260px}.card h3{margin:8px 0 10px;font-size:1.15rem}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}.tag{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--accent);border:1px solid rgba(98,230,255,.3);border-radius:999px;padding:4px 8px;background:rgba(98,230,255,.06)}.split{display:grid;grid-template-columns:.92fr 1.08fr;gap:18px}.demo,.news,.source{border:1px solid var(--line);border-radius:24px;padding:18px;background:var(--panel2);margin-bottom:12px}.news time{font-family:"IBM Plex Mono",monospace;color:var(--accent);font-size:.8rem}.pubs{display:grid;gap:12px}.pub{border:1px solid var(--line);border-radius:22px;padding:17px;background:rgba(255,255,255,.04)}.pub a{text-decoration:none}.pub b{color:var(--ink)}.role{color:var(--warm);font-family:"IBM Plex Mono",monospace;font-size:.76rem;margin-left:8px}.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.path{border:1px solid var(--line);border-radius:26px;padding:22px;background:linear-gradient(180deg,rgba(98,230,255,.08),rgba(255,255,255,.035))}.contact{display:grid;grid-template-columns:.78fr 1.22fr;gap:18px}.facts{border:1px solid var(--line);border-radius:26px;background:var(--panel);padding:20px}.facts dl{margin:0}.facts div{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid rgba(163,205,255,.1)}.facts div:last-child{border-bottom:0}.facts dt{color:var(--accent);font-family:"IBM Plex Mono",monospace;font-size:.82rem}.facts dd{margin:0;color:#dbeafa}.footer{max-width:var(--max);margin:auto;padding:28px 22px 54px;color:var(--muted);font-size:.9rem}.footer a{color:var(--accent)}@media(max-width:900px){nav{display:none}.hero-grid,.head,.split,.contact{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.loop{grid-template-columns:1fr 1fr}.paths{grid-template-columns:1fr}.hero{min-height:auto}.metrics{grid-template-columns:1fr 1fr 1fr}}@media(max-width:620px){.hero h1{font-size:2.65rem}.grid,.loop,.metrics{grid-template-columns:1fr}.panel{border-radius:24px}.section{padding:54px 0}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#field{display:none}}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Jin-Kyeom Kim","alternateName":["김진겸","金珍謙","Kim Jin-Kyeom"],"jobTitle":"Assistant Professor","affiliation":{"@type":"CollegeOrUniversity","name":"Korea Maritime & Ocean University"},"email":"mailto:jingyeom0825@kmou.ac.kr","url":"https://ttthkim-hue.github.io/","sameAs":["https://scholar.google.com/citations?user=k4WJ_DMAAAAJ","https://orcid.org/0000-0003-0824-2373"]}</script>
 </head>
 <body>
-  <header class="site-nav">
-    <div class="nav-inner">
-      <a class="brand" href="#/">EnerMAKER</a>
-      <nav id="menu" aria-label="Primary">
-        <a href="#/" data-route="/">About</a>
-        <a href="#/research" data-route="/research">Research</a>
-        <a href="#/work" data-route="/work">Publications</a>
-        <a href="#/pi" data-route="/pi">PI</a>
-        <a href="#/join" data-route="/join">Join</a>
-        <a href="#/news" data-route="/news">News</a>
-      </nav>
-      <div class="nav-tools">
-        <button id="langBtn" type="button" class="icon-btn" title="Language">EN</button>
-        <button id="themeBtn" type="button" class="icon-btn" title="Theme"><i class="bi bi-moon"></i></button>
-        <button id="menuBtn" type="button" class="icon-btn" aria-label="Menu"><i class="bi bi-list"></i></button>
+  <header class="nav"><div class="nav-inner"><a class="brand" href="#top"><span class="mark">EM</span><span>EnerMAKER Lab</span></a><nav><a href="#research">Research</a><a href="#loop">Loop</a><a href="#artifacts">Artifacts</a><a href="#publications">Publications</a><a href="#join">Join</a><a href="#contact">Contact</a></nav></div></header>
+  <section id="top" class="hero">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">KMOU · Marine New Materials · AI for Materials</p>
+        <h1>소재가 에너지를 만들고,<br>AI가 소자를 설계하는 연구실</h1>
+        <p class="lead">EnerMAKER Lab은 TENG 에너지 하베스팅, 자가발전 바이오·환경 센서, 기능성 나노소재, LBM-DPM 기반 디지털 트윈을 연결해 해양·생체 환경에서 작동하는 지능형 소재 시스템을 만듭니다.</p>
+        <p class="lead"><strong>Materials that harvest energy. AI that designs devices.</strong></p>
+        <div class="actions"><a class="btn primary" href="#research">Explore research</a><a class="btn" href="#join">Join the lab</a><a class="btn" href="#publications">Selected work</a></div>
+        <div class="metrics"><div class="metric"><b>274</b><span>Scholar citations · snapshot</span></div><div class="metric"><b>10</b><span>h-index · public profile</span></div><div class="metric"><b>15+</b><span>publications represented</span></div></div>
       </div>
+      <aside class="panel">
+        <img class="portrait" src="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg" alt="김진겸 조교수">
+        <div class="signal"><p class="eyebrow">Principal investigator</p><strong>김진겸 · Jin-Kyeom Kim</strong><p>Assistant Professor, Department of Marine New Materials Convergence Engineering, Korea Maritime & Ocean University</p></div>
+        <div class="signal"><p class="eyebrow">Lab identity</p><strong>Self-powered intelligent materials</strong><p>TENGs · bioelectronics · functional nanomaterials · AI-driven marine digital twins</p></div>
+      </aside>
     </div>
-  </header>
-  <main id="top">
-    <section class="view" data-view="/">
-      <div class="about-grid">
-        <aside class="profile">
-          <img class="portrait" alt="김진겸 조교수" width="280" height="350"
-               src="https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg">
-          <h1 id="piName"></h1>
-          <p class="rank" id="piRank"></p>
-          <p class="affil" id="piAffil"></p>
-          <p class="mail"><a id="mailLink" href="mailto:jingyeom0825@kmou.ac.kr">jingyeom0825@kmou.ac.kr</a></p>
-          <div class="icons" id="social"></div>
-          <ul class="facts" id="facts"></ul>
-        </aside>
-        <div class="about-main">
-          <div class="prose" id="aboutBody"></div>
-          <h2 class="block-title" id="newsH">News</h2>
-          <ul class="news-compact" id="homeNews"></ul>
-          <h2 class="block-title" id="selH">Selected publications</h2>
-          <ol class="pub-list" id="homePubs"></ol>
-        </div>
-      </div>
-    </section>
-    <section class="view page" data-view="/research">
-      <header class="page-head">
-        <h1 id="researchH">Research</h1>
-        <p class="lede" id="researchSub"></p>
-      </header>
-      <div class="project-grid" id="pillarGrid"></div>
-    </section>
-    <section class="view page" data-view="/work">
-      <header class="page-head">
-        <h1 id="workH">Publications</h1>
-        <p class="lede" id="workSub"></p>
-      </header>
-      <div class="filters">
-        <input id="pubQuery" type="search" placeholder="Search title, venue, author">
-        <div class="chips" id="yearChips"></div>
-        <label class="check"><input id="firstOnly" type="checkbox"> <span id="firstLabel">First author</span></label>
-        <a class="bib-link" href="./papers.bib">papers.bib</a>
-      </div>
-      <div id="pubList"></div>
-      <h2 class="block-title" id="patentH">Patents</h2>
-      <ol class="pub-list" id="patentList"></ol>
-    </section>
-    <section class="view page" data-view="/pi">
-      <header class="page-head">
-        <h1 id="piH">Principal investigator</h1>
-        <p class="lede" id="piSub"></p>
-      </header>
-      <div class="two-col">
-        <div class="prose" id="piAbout"></div>
-        <aside>
-          <h2 class="block-title" id="eduH">Education</h2>
-          <ol class="timeline" id="eduList"></ol>
-          <h2 class="block-title" id="careerH">Appointments</h2>
-          <ol class="timeline" id="careerList"></ol>
-        </aside>
-      </div>
-    </section>
-    <section class="view page" data-view="/join">
-      <header class="page-head">
-        <h1 id="joinH">Join the lab</h1>
-        <p class="lede" id="joinSub"></p>
-      </header>
-      <div class="join-grid" id="joinBody"></div>
-    </section>
-    <section class="view page" data-view="/news">
-      <header class="page-head">
-        <h1 id="newsPageH">News</h1>
-      </header>
-      <ul class="news-list" id="newsList"></ul>
-      <h2 class="block-title" id="contactH">Contact</h2>
-      <div class="contact-grid" id="contactBody"></div>
-    </section>
+  </section>
+  <main>
+    <section id="loop" class="section"><div class="head"><div><p class="eyebrow">Operating loop</p><h2>Design → Fabricate → Measure → Model → Deploy</h2></div><p>AI를 장식 문구로 쓰지 않고, 실험 전후 설계 공간을 좁히는 연구실 운영 루프로 제시합니다. 학생은 제작·측정·모델링을 하나의 파이프라인으로 경험합니다.</p></div><ol class="loop"><li><strong>Design</strong><p>문헌·물성·해양환경 조건으로 후보 소재와 소자 구조를 정의합니다.</p></li><li><strong>Fabricate</strong><p>TENG, 나노섬유, 코어-쉘, 2D 소재 기반 소자를 제작합니다.</p></li><li><strong>Measure</strong><p>전기 출력, 감도, 습도 안정성, 생체/환경 응답을 측정합니다.</p></li><li><strong>Model</strong><p>LBM-DPM 및 데이터 기반 모델로 설계 공간을 압축합니다.</p></li><li><strong>Deploy</strong><p>해양·헬스케어·환경 모니터링 시나리오로 검증합니다.</p></li></ol></section>
+    <section id="research" class="section"><div class="head"><div><p class="eyebrow">Research pillars</p><h2>Energy materials, intelligent devices, and AI twins</h2></div><p>공개 연구기록과 공식 교수소개를 기반으로, 연구실의 네 축을 학생이 바로 이해할 수 있는 문제 중심 언어로 재구성했습니다.</p></div><div class="grid"><article class="card"><p class="eyebrow">01 · TENG</p><h3>자가발전 에너지 하베스팅</h3><p>계면 전하 트래핑, 임피던스 매칭, 다층 구조 설계를 통해 고출력·고안정 마찰전기 나노발전기를 연구합니다.</p><div class="tags"><span class="tag">charge trapping</span><span class="tag">humidity</span><span class="tag">impedance</span></div></article><article class="card"><p class="eyebrow">02 · Bio/Health</p><h3>지능형 바이오메디컬 소자</h3><p>자가발전 센서와 삽입형·웨어러블 바이오 인터페이스를 기반으로 진단·센싱 응용을 탐색합니다.</p><div class="tags"><span class="tag">bioelectronics</span><span class="tag">wearable</span><span class="tag">implantable</span></div></article><article class="card"><p class="eyebrow">03 · Nano</p><h3>기능성 나노소재 합성</h3><p>2D TMD, 코어-쉘 하이브리드, 양전하성 마이크로섬유로 에너지·환경 기능을 부여합니다.</p><div class="tags"><span class="tag">2D TMD</span><span class="tag">core-shell</span><span class="tag">filter</span></div></article><article class="card"><p class="eyebrow">04 · AI Twin</p><h3>AI 기반 소재·소자 설계</h3><p>LBM-DPM 디지털 트윈, 실험 DB, 역설계 모델을 연결해 해양환경 소재·소자 후보를 예측합니다.</p><div class="tags"><span class="tag">digital twin</span><span class="tag">LBM-DPM</span><span class="tag">inverse design</span></div></article></div></section>
+    <section id="artifacts" class="section"><div class="head"><div><p class="eyebrow">Demos & artifacts</p><h2>논문 목록 밖의 산출물도 보이게</h2></div><p>현 단계에서는 과장 없이 존재하는 것만 공개합니다. 앞으로 TENG impedance visualizer, LBM-DPM particle-flow demo, paper-to-RAG bibliography search로 확장할 수 있습니다.</p></div><div class="split"><div><article class="demo"><strong>Charge-field landing demo</strong><p>첫 화면 canvas는 TENG 전하 이동, 센서 노드, AI twin 루프를 추상화한 경량 데모입니다.</p></article><article class="demo"><strong>Materials-to-model pipeline</strong><p>소재 설계부터 측정, 모델링, 응용 검증까지 학생이 이해할 수 있는 실험-계산 통합 흐름으로 표시합니다.</p></article><article class="demo"><strong>Public-record source ledger</strong><p>교수소개, Scholar, ORCID, DOI, 기관 뉴스를 분리해 검증 가능한 내용만 공개합니다.</p></article></div><div><article class="news"><time>2026-09-03</time><p>AI 연구실 벤치마크 기준으로 동적 랜딩 페이지와 학생 모집 흐름을 재설계했습니다.</p></article><article class="news"><time>2026-09-03</time><p>국립한국해양대학교 공식 교수소개 기반의 사진·약력·연구실·연구분야를 반영했습니다.</p></article><article class="news"><time>2026-08-19</time><p>UW-Madison Engineering public news: self-sustaining leadless intracardiac pacemaker powered by triboelectric nanogenerator.</p></article></div></div></section>
+    <section id="publications" class="section"><div class="head"><div><p class="eyebrow">Selected publications</p><h2>Representative public record</h2></div><p>전체 목록과 인용 수는 Google Scholar/ORCID/DOI 기준으로 별도 확인합니다. 아래는 홈페이지 첫 화면에 필요한 대표 연구 신호입니다.</p></div><div class="pubs"><article class="pub"><a href="https://doi.org/10.1126/sciadv.aef8903"><b>Self-sustaining leadless intracardiac pacemaker powered by triboelectric nanogenerator</b></a><span class="role">2026</span><p>Science Advances · P. Chen, R. Wang, E. Schmuck, D. Wang, D. Modaff, T. Zhou, S. Osaki, W. Liu, F. Pan, J.-K. Kim, et al.</p></article><article class="pub"><a href="https://doi.org/10.1002/aenm.202304437"><b>Overcoming Moisture-Induced Charge Decay in Tribo-Materials</b></a><span class="role">first author · 2025</span><p>Advanced Energy Materials 15, 2304437 · J.-K. Kim, S. Jung, D. H. Kim, J. Gao, Y. S. Lee, H. Park, H. C. Song, J. M. Baik</p></article><article class="pub"><a href="https://doi.org/10.1021/acsnano.3c12035"><b>Self-Powering Gas Sensing System Enabled by Double-Layer TENGs Based on Poly(2-vinylpyridine)@BaTiO3 Core-Shell Hybrids</b></a><span class="role">2024</span><p>ACS Nano 18, 12146–12157 · J. Oh, J.-K. Kim, J. Gao, S. Jung, W. Kim, G. Park, J. Park, J. M. Baik, C. Yang</p></article><article class="pub"><a href="https://doi.org/10.1039/d2ee03114k"><b>Electric-field-driven interfacial trapping of drifting triboelectric charges via contact electrification</b></a><span class="role">first author · 2023</span><p>Energy & Environmental Science 16, 598–609 · J.-K. Kim, G. H. Han, S. W. Kim, H. J. Kim, R. Purbia, D. M. Lee, et al.</p></article></div><div class="actions"><a class="btn" href="https://scholar.google.com/citations?user=k4WJ_DMAAAAJ">Google Scholar</a><a class="btn" href="https://orcid.org/0000-0003-0824-2373">ORCID</a><a class="btn" href="papers.bib">papers.bib</a></div></section>
+    <section id="join" class="section"><div class="head"><div><p class="eyebrow">Join</p><h2>학생이 무엇을 하게 되는지 먼저 보여주는 모집 페이지</h2></div><p>보장되지 않은 펀딩·TO 표현은 쓰지 않고, 관심 학생이 스스로 적합성을 판단할 수 있게 연구 경로와 첫 연락 프로토콜을 명확히 둡니다.</p></div><div class="paths"><article class="path"><h3>Graduate students</h3><p>TENG, 바이오전자, 나노소재, AI 기반 소재 설계 중 하나를 중심축으로 잡고 실험·데이터·모델링을 연결합니다.</p></article><article class="path"><h3>Undergraduate researchers</h3><p>소자 제작 보조, 측정 자동화, 논문 재현, 데이터 정리, 간단한 모델링/시각화부터 시작할 수 있습니다.</p></article><article class="path"><h3>Postdocs & collaborators</h3><p>해양환경 소재, 자가발전 센서, 디지털 트윈, 기능성 나노소재 접점의 공동연구를 논의합니다.</p></article></div><div class="actions"><a class="btn primary" href="mailto:jingyeom0825@kmou.ac.kr?subject=EnerMAKER%20Lab%20inquiry">Email the PI</a></div></section>
+    <section id="contact" class="section"><div class="head"><div><p class="eyebrow">Contact & sources</p><h2>Public-only source ledger</h2></div><p>이 페이지는 공개 확인 가능한 학술·기관 정보만 노출합니다. 내부 연구 메모, 미공개 프로젝트, 사적 연락처는 제외합니다.</p></div><div class="contact"><div class="facts"><dl><div><dt>Office</dt><dd>공학2관 416호 · 051-410-4355</dd></div><div><dt>Lab</dt><dd>EnerMAKER Lab · 종합연구관 302호 · 051-410-4966</dd></div><div><dt>Email</dt><dd><a href="mailto:jingyeom0825@kmou.ac.kr">jingyeom0825@kmou.ac.kr</a></dd></div><div><dt>Address</dt><dd>부산광역시 영도구 태종로 727</dd></div></dl></div><div><article class="source"><a href="https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782"><strong>KMOU faculty page teaSn=5782</strong></a><p>소속, 연구실, 실험실, 전공, 사진.</p></article><article class="source"><a href="https://scholar.google.com/citations?user=k4WJ_DMAAAAJ"><strong>Google Scholar</strong></a><p>논문 목록과 인용 스냅샷.</p></article><article class="source"><a href="https://orcid.org/0000-0003-0824-2373"><strong>ORCID</strong></a><p>연구자 식별자.</p></article><article class="source"><a href="https://engineering.wisc.edu/news/engineers-pioneer-a-pacemaker-that-can-power-itself/"><strong>UW-Madison Engineering news</strong></a><p>Science Advances 공저 관련 공개 뉴스.</p></article></div></div></section>
   </main>
-  <footer>
-    <div class="foot-inner">
-      <p id="updated"></p>
-      <p>Sources: <a href="https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&amp;teaSn=5782">KMOU teaSn=5782</a> ·
-        <a href="https://scholar.google.com/citations?user=k4WJ_DMAAAAJ">Scholar</a> ·
-        <a href="https://orcid.org/0000-0003-0824-2373">ORCID</a>.
-        Layout follows al-folio / Academic Pages IA. Plugins via CDN (Bootstrap, Academicons).</p>
-    </div>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="./app.js"></script>
+  <footer class="footer">Updated 2026-09-03 · Public landing promoted from the private source repository after AI-lab benchmark/RAG hardening. Source-safe content only.</footer>
+  <script>
+    const canvas=document.getElementById('field');
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(canvas&&!reduced){const ctx=canvas.getContext('2d');let w=0,h=0,dpr=1,pts=[];function resize(){dpr=Math.min(devicePixelRatio||1,2);w=canvas.clientWidth;h=canvas.clientHeight;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);pts=Array.from({length:Math.min(86,Math.floor(w/15))},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.34,vy:(Math.random()-.5)*.34,r:1+Math.random()*2,a:.25+Math.random()*.55}))}function draw(){ctx.clearRect(0,0,w,h);const g=ctx.createRadialGradient(w*.62,h*.25,10,w*.62,h*.25,Math.max(w,h)*.75);g.addColorStop(0,'rgba(98,230,255,.18)');g.addColorStop(.42,'rgba(185,140,255,.08)');g.addColorStop(1,'rgba(7,17,31,0)');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,dist=Math.hypot(dx,dy);if(dist<128){ctx.strokeStyle='rgba(98,230,255,'+(1-dist/128)*.13+')';ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}}for(const p of pts){ctx.fillStyle='rgba(156,235,255,'+p.a+')';ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}requestAnimationFrame(draw)}addEventListener('resize',resize,{passive:true});resize();draw()}
+  </script>
 </body>
 </html>
