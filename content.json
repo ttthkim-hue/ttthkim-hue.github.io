@@ -1,1 +1,133 @@
-PLACEHOLDER
+{
+  "meta": {
+    "status": "PUBLIC",
+    "updated": "2026-09-03",
+    "source": "KMOU faculty page teaSn=5782 (https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782); Google Scholar k4WJ_DMAAAAJ; ORCID 0000-0003-0824-2373; Crossref DOIs; UW-Madison College of Engineering news 2026-08-19. Citation counts are a Scholar snapshot, not an official evaluation score."
+  },
+  "person": {
+    "nameKo": "김진겸",
+    "nameEn": "Jin-Kyeom Kim",
+    "hanja": "金珍謙 · Kim Jin-Kyeom",
+    "titleKo": "조교수",
+    "titleEn": "Assistant Professor",
+    "deptKo": "국립한국해양대학교 해양과학기술융합대학 해양신소재융합공학과",
+    "deptEn": "Department of Marine New Materials Convergence Engineering, Korea Maritime & Ocean University",
+    "facultyPage": "https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782",
+    "scholar": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ",
+    "orcid": "https://orcid.org/0000-0003-0824-2373",
+    "openalex": "https://openalex.org/A5059088178",
+    "group": "https://nanoscience.engr.wisc.edu/"
+  },
+  "metrics": {
+    "asOf": "2026-09-03",
+    "citations": 274,
+    "hIndex": 10,
+    "i10": 11,
+    "noteKo": "Google Scholar 공개 프로필 스냅샷. 공식 평가 점수가 아닙니다.",
+    "noteEn": "Snapshot from the public Scholar profile. Not an official evaluation score."
+  },
+  "taglineKo": "자가발전 에너지 하베스팅 · 지능형 바이오메디컬 소자 · 기능성 나노소재 · AI 기반 소재·소자 설계",
+  "taglineEn": "Self-powered energy harvesting, intelligent bioelectronics, functional nanomaterials, and AI-driven materials design.",
+  "aboutKo": [
+    "김진겸 조교수는 국립한국해양대학교 해양신소재융합공학과에서 첨단 에너지소재 및 기능성 소자 실험실(EnerMAKER Lab)을 운영합니다.",
+    "학부는 울산대학교 첨단소재공학과 재료공학전공(2019, 공학사), 대학원은 성균관대학교 신소재공학과(2024, 공학박사)입니다.",
+    "공식 교수소개에 적힌 전공은 전자세라믹스, 에너지 하베스팅, 기능성 나노소재입니다. 연구 축은 TENG 계면 전하 트래핑·다층 구조, 극한환경 고출력 대전 소재, 자가발전 바이오·헬스케어 소자, 2D TMD·코어-션 하이브리드, 그리고 LBM-DPM 디지털 트윈 기반 해양환경 소재 설계입니다.",
+    "공개 논문·기관 뉴스에 기록된 UW-Madison 협업(Science Advances 2026 공저)은 소속 변경 이전·병행 연구 실적으로 둡니다. 미공개 실험 메모는 이 페이지에 올리지 않습니다."
+  ],
+  "aboutEn": [
+    "Jin-Kyeom Kim is an assistant professor in the Department of Marine New Materials Convergence Engineering at Korea Maritime & Ocean University, where he leads the EnerMAKER Lab (Advanced Energy Materials and Functional Devices Laboratory).",
+    "He received a B.S. in materials engineering from the University of Ulsan (2019) and a Ph.D. in materials science and engineering from Sungkyunkwan University (2024).",
+    "The official KMOU profile lists electronic ceramics, energy harvesting, and functional nanomaterials. Public themes include interfacial charge trapping in TENGs, high-output tribo-materials for harsh and humid environments, self-powered bioelectronic interfaces, 2D TMD and core-shell hybrids, and an LBM-DPM digital-twin platform for marine materials.",
+    "The UW-Madison collaboration recorded on a 2026 Science Advances paper and a 19 August 2026 College of Engineering release is kept as public co-authorship. Unpublished laboratory notes stay off this page."
+  ],
+  "factsKo": [
+    "<strong>연구실</strong> 공학2관 416호",
+    "<strong>실험실</strong> EnerMAKER Lab · 종합연구관 302호",
+    "<strong>전화</strong> 051-410-4355 (연구실) · 051-410-4966 (실험실)",
+    "<strong>메일</strong> jingyeom0825@kmou.ac.kr",
+    "<strong>주소</strong> 부산광역시 영도구 태종로 727"
+  ],
+  "factsEn": [
+    "<strong>Office</strong> Engineering Building 2, Room 416",
+    "<strong>Lab</strong> EnerMAKER Lab · Research Building, Room 302",
+    "<strong>Phone</strong> +82-51-410-4355 (office) · +82-51-410-4966 (lab)",
+    "<strong>Email</strong> jingyeom0825@kmou.ac.kr",
+    "<strong>Address</strong> 727 Taejong-ro, Yeongdo-gu, Busan, Republic of Korea"
+  ],
+  "education": [
+    {"year": "2019", "ko": "울산대학교 첨단소재공학과 재료공학전공 (공학사)", "en": "B.S., Materials Engineering, Dept. of Advanced Materials Engineering, University of Ulsan"},
+    {"year": "2024", "ko": "성균관대학교 신소재공학과 신소재공학전공 (공학박사)", "en": "Ph.D., Materials Science and Engineering, Sungkyunkwan University"}
+  ],
+  "career": [
+    {"year": "2023", "ko": "University of Wisconsin-Madison, 방문연구원 (Visiting Scholar)", "en": "Visiting Scholar, University of Wisconsin-Madison"},
+    {"year": "2024–2025", "ko": "성균관대학교 첨단소재기술연구소 박사후연구원 (세종과학펠로우십 연구책임자)", "en": "Postdoctoral researcher, Advanced Materials Technology Institute, SKKU (Sejong Science Fellowship PI)"},
+    {"year": "2024–2026", "ko": "University of Wisconsin-Madison, Department of Materials Science & Engineering, Post-Doc.", "en": "Postdoctoral researcher, Materials Science & Engineering, University of Wisconsin-Madison"},
+    {"year": "2026", "ko": "성균관대학교 기계기술연구소 박사후연구원", "en": "Postdoctoral researcher, Institute of Mechanical Technology, SKKU"},
+    {"year": "2026–현재", "ko": "국립한국해양대학교 해양신소재융합공학과 조교수", "en": "Assistant Professor, Marine New Materials Convergence Engineering, KMOU"}
+  ],
+  "research": [
+    {
+      "ko": "자가발전 에너지 하베스팅 소자",
+      "en": "Self-powered energy harvesting",
+      "detailKo": "마찰전기 나노발전기(TENG)의 계면 전하 트래핑 및 다층 구조 설계. 해양·고습도·생체 내 등 극한환경 대응 고출력 대전 소재.",
+      "detailEn": "Interfacial charge trapping and multilayer TENG design. High-output tribo-materials for marine, humid, and in-vivo environments."
+    },
+    {
+      "ko": "지능형 바이오메디컬 소자",
+      "en": "Intelligent bioelectronics",
+      "detailKo": "심혈관계 삽입형 자가발전 진단·치료 바이오 인터페이스. 자가발전 가스·압력 센서 기반 웨어러블 헬스케어.",
+      "detailEn": "Self-powered cardiovascular bio-interfaces and wearable gas/pressure sensing for healthcare."
+    },
+    {
+      "ko": "기능성 나노소재 합성",
+      "en": "Functional nanomaterials",
+      "detailKo": "2D 전이금속 칼코겐 화합물(TMDs) 및 코어-션 하이브리드. 양이온성 마이크로섬유 기반 스마트 정전기 필터.",
+      "detailEn": "2D TMDs and core-shell hybrids. Cationic microfiber triboelectric filters for particulate removal."
+    },
+    {
+      "ko": "AI 기반 소재·소자 설계",
+      "en": "AI-driven materials design",
+      "detailKo": "LBM-DPM 디지털 트윈 기반 예측형 해양환경 소재·소자 설계 플랫폼.",
+      "detailEn": "LBM-DPM digital-twin platform for predictive marine materials and device design."
+    }
+  ],
+  "publications": [
+    {"year": 2026, "title": "Self-sustaining leadless intracardiac pacemaker powered by triboelectric nanogenerator", "authors": "P. Chen, R. Wang, E. Schmuck, D. Wang, D. Modaff, T. Zhou, S. Osaki, W. Liu, F. Pan, J.-K. Kim, et al.", "venue": "Science Advances", "url": "https://doi.org/10.1126/sciadv.aef8903", "cites": 0, "role": "co-author"},
+    {"year": 2026, "title": "Self-Powered Triboelectric Electrospun Air Filters as Functional Fibrous Materials", "authors": "T. Kim, S. Baik, D. Jang, J.-K. Kim", "venue": "Materials Today Communications", "url": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ", "cites": 0},
+    {"year": 2025, "title": "Overcoming Moisture-Induced Charge Decay in Tribo-Materials", "authors": "J.-K. Kim, S. Jung, D. H. Kim, J. Gao, Y. S. Lee, H. Park, H. C. Song, J. M. Baik", "venue": "Advanced Energy Materials 15 (2), 2304437", "url": "https://doi.org/10.1002/aenm.202304437", "cites": 28, "role": "first author"},
+    {"year": 2025, "title": "Advancing humidity-resistant triboelectric nanogenerators through MoS2-encapsulated SiO2 nanoparticles for self-powered gas sensing applications", "authors": "D. H. Kim, J. Y. Park, H. S. Choi, J. Cho, H. S. Kim, J. E. Mo, J.-K. Kim, T. K. Yoon, et al.", "venue": "Advanced Energy Materials 15 (20), 2405278", "url": "https://doi.org/10.1002/aenm.202405278", "cites": 34},
+    {"year": 2025, "title": "A Self-Powered Cationic Microfiber-Based Triboelectric Air Filter for High-Speed Particulate Matter Removal and Smart Monitoring", "authors": "T. Kim, J.-K. Kim", "venue": "Journal of Powder Materials", "url": "https://doi.org/10.4150/jpm.2025.00465", "cites": 1},
+    {"year": 2024, "title": "Self-Powering Gas Sensing System Enabled by Double-Layer Triboelectric Nanogenerators Based on Poly(2-vinylpyridine)@BaTiO3 Core-Shell Hybrids", "authors": "J. Oh, J.-K. Kim, J. Gao, S. Jung, W. Kim, G. Park, J. Park, J. M. Baik, C. Yang", "venue": "ACS Nano 18 (19), 12146-12157", "url": "https://doi.org/10.1021/acsnano.3c12035", "cites": 23},
+    {"year": 2024, "title": "Addressing Triboelectric Nanogenerator Impedance for Efficient CO2 Utilization", "authors": "D. H. Kim, J.-K. Kim, S. Y. Choi, Y. Yang, H. C. Song, H. S. Park, M. Shim, J. M. Baik", "venue": "Advanced Energy Materials 14 (8), 2304012", "url": "https://doi.org/10.1002/aenm.202304012", "cites": 15},
+    {"year": 2023, "title": "Electric-field-driven interfacial trapping of drifting triboelectric charges via contact electrification", "authors": "J.-K. Kim, G. H. Han, S. W. Kim, H. J. Kim, R. Purbia, D. M. Lee, et al.", "venue": "Energy & Environmental Science 16 (2), 598-609", "url": "https://doi.org/10.1039/d2ee03114k", "cites": 49, "role": "first author"},
+    {"year": 2023, "title": "Low-temperature crystallization of LaFeO3 perovskite with inherent catalytically surface for the enhanced oxygen evolution reaction", "authors": "H. J. Kim, S. H. Kim, S. W. Kim, J.-K. Kim, C. Cao, Y. Kim, et al.", "venue": "Nano Energy 105, 108003", "url": "https://doi.org/10.1016/j.nanoen.2022.108003", "cites": 44},
+    {"year": 2023, "title": "Low temperature selective catalytic reduction of NOx with NH3 with improved SO2 and water resistance", "authors": "S. Y. Choi, R. Purbia, H. J. Kim, J.-K. Kim, S. W. Kim, et al.", "venue": "Applied Surface Science 623, 157088", "url": "https://doi.org/10.1016/j.apsusc.2023.157088", "cites": 20},
+    {"year": 2023, "title": "Hybrid photothermal structure based on Cr-MgF2 solar absorber/PMMA-graphene heat reservoir", "authors": "G. Kwak, Y. S. Jeong, S. W. Kim, J.-K. Kim, J. Choi, et al.", "venue": "Nano Energy", "url": "https://doi.org/10.1016/j.nanoen.2023.108352", "cites": 14},
+    {"year": 2023, "title": "Boosted Output Voltage of BiSbTe-Based Thermoelectric Generators via Coupled Effect between Thermoelectric Carriers and Triboelectric Charges", "authors": "S. W. Kim, J.-K. Kim, J. Y. Park, J. Mun, S. Jung, et al.", "venue": "Advanced Energy Materials 13 (4), 2202987", "url": "https://doi.org/10.1002/aenm.202202987", "cites": 10},
+    {"year": 2023, "title": "Choice of Materials for Triboelectric Nanogenerators", "authors": "S. W. Kim, J.-K. Kim, S. Jung, J. W. Lee, C. Yang, J. M. Baik", "venue": "Handbook of Triboelectric Nanogenerators", "url": "https://doi.org/10.1007/978-3-031-28111-2_13", "cites": 6, "role": "book chapter"},
+    {"year": 2022, "title": "Output signals control of triboelectric nanogenerator with metal-dielectric-metal configuration through high resistance grounded systems", "authors": "S. W. Kim, J.-K. Kim, H. J. Kim, C. T. Cao, N. K. Oh, Y. Yang, H. C. Song, M. Shim, et al.", "venue": "Nano Energy 95, 107023", "url": "https://doi.org/10.1016/j.nanoen.2022.107023", "cites": 20},
+    {"year": 2022, "title": "3D multiple triangular prisms for highly sensitive non-contact mode triboelectric bending sensors", "authors": "G. H. Han, S. W. Kim, J.-K. Kim, S. H. Lee, M. H. Jeong, H. C. Song, K. J. Choi, J. M. Baik", "venue": "Nanomaterials 12 (9), 1499", "url": "https://doi.org/10.3390/nano12091499", "cites": 10}
+  ],
+  "patents": [
+    {"year": 2024, "title": "Positively-charged body for triboelectric generator and triboelectric generator including the same", "authors": "J. M. Baik, J.-K. Kim", "venue": "US Patent 11,876,461", "url": "https://patents.google.com/patent/US11876461B2"},
+    {"year": 2023, "title": "Core-shell structured positive charge electrified body structure and triboelectric generator using the same", "authors": "J.-K. Kim, R. Purbia, J. Y. Park, J. M. Baik", "venue": "KR Patent", "url": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ"}
+  ],
+  "news": [
+    {"date": "2026-09-03", "ko": "국립한국해양대학교 해양신소재융합공학과 공식 교수소개(teaSn=5782)의 사진·약력·연구실·연구분야를 반영했습니다.", "en": "Official KMOU faculty profile (teaSn=5782) now drives the photo, CV, lab, and research themes.", "url": "https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782"},
+    {"date": "2026-08-19", "ko": "UW-Madison 공대: 심장 박동으로 스스로 충전하는 리드리스 심박조율기. Science Advances 공저.", "en": "UW-Madison Engineering: a leadless pacemaker powered by the heartbeat. Science Advances co-author.", "url": "https://engineering.wisc.edu/news/engineers-pioneer-a-pacemaker-that-can-power-itself/"}
+  ],
+  "contactKo": [
+    "<strong>소속</strong> 국립한국해양대학교 해양신소재융합공학과",
+    "<strong>연구실</strong> 공학2관 416호 · 051-410-4355",
+    "<strong>실험실</strong> 첨단 에너지소재 및 기능성 소자 실험실 (EnerMAKER Lab) · 종합연구관 302호 · 051-410-4966",
+    "<strong>전자우편</strong> <a href=\"mailto:jingyeom0825@kmou.ac.kr\">jingyeom0825@kmou.ac.kr</a>",
+    "<strong>교수소개</strong> <a href=\"https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782\">kmou.ac.kr · teaSn=5782</a>"
+  ],
+  "contactEn": [
+    "<strong>Affiliation</strong> Dept. of Marine New Materials Convergence Engineering, KMOU",
+    "<strong>Office</strong> Engineering Building 2, Room 416 · +82-51-410-4355",
+    "<strong>Lab</strong> EnerMAKER Lab · Comprehensive Research Building 302 · +82-51-410-4966",
+    "<strong>Email</strong> <a href=\"mailto:jingyeom0825@kmou.ac.kr\">jingyeom0825@kmou.ac.kr</a>",
+    "<strong>Faculty page</strong> <a href=\"https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782\">kmou.ac.kr · teaSn=5782</a>"
+  ]
+}
