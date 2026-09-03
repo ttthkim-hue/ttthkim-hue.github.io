@@ -1,0 +1,16 @@
+:root{--bg:#f3eee4;--ink:#17140f;--muted:#5a5348;--line:#d7cebf;--accent:#7a2e0e;--card:#fffaf3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Source Han Serif KR","Noto Serif KR",Georgia,serif;background:var(--bg);color:var(--ink);line-height:1.65}
+.top{display:flex;gap:1.4rem;align-items:center;padding:1rem 6vw;border-bottom:1px solid var(--line);position:sticky;top:0;background:color-mix(in srgb,var(--bg) 90%,white);z-index:2}
+.brand{font-weight:700}
+nav{display:flex;gap:1rem;flex:1}nav a{color:var(--muted);text-decoration:none}
+#langBtn{border:1px solid var(--line);background:var(--card);padding:.3rem .7rem;cursor:pointer}
+main{padding:2.6rem 6vw 4rem;max-width:940px}
+.kicker{display:inline-block;font-size:.72rem;letter-spacing:.14em;border:1px solid var(--accent);color:var(--accent);padding:.12rem .45rem}
+h1{font-size:clamp(2rem,5vw,3.1rem);margin:.35rem 0;font-weight:600}
+.title,.tag,.aff,.metrics{margin:.28rem 0;color:var(--muted)}
+section{margin:2.3rem 0}h2{font-size:1.12rem;border-bottom:1px solid var(--line);padding-bottom:.35rem}
+li{margin:.5rem 0}.year{color:var(--accent);margin-right:.45rem}
+a{color:var(--accent)}
+footer{padding:1.1rem 6vw 2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+@media(max-width:640px){.top{flex-wrap:wrap}nav{width:100%}}

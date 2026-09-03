@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "status": "PUBLIC",
+    "updated": "2026-09-03",
+    "source": "Public Scholar k4WJ_DMAAAAJ observed 2026-08-25; Crossref/ORCID/SKKU/KIST public records. Citations are that snapshot."
+  },
+  "person": {
+    "nameKo": "김진겸",
+    "nameEn": "Jin-Kyeom Kim",
+    "titleKo": "박사 연구원 · 재료공학박사",
+    "titleEn": "Postdoctoral Researcher, Ph.D. in Materials Science and Engineering",
+    "affiliationKo": "University of Wisconsin–Madison (wisc.edu) · 성균관대학교 · KIST 공저 이력",
+    "affiliationEn": "University of Wisconsin–Madison; prior public affiliations SKKU and KIST",
+    "email": "",
+    "scholar": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ",
+    "orcid": "https://orcid.org/0000-0003-0824-2373",
+    "group": "https://nanoscience.engr.wisc.edu/"
+  },
+  "metrics": {
+    "asOf": "2026-08-25",
+    "citations": 270,
+    "hIndex": 10,
+    "i10": 11,
+    "noteKo": "Google Scholar 공개 화면 시점 고정값. 공식 CV·도용 실적 수가 아님.",
+    "noteEn": "Snapshot of the public Scholar profile, not an official CV score."
+  },
+  "taglineKo": "계면전하·TENG 원천 메커니즘, 습도 내구 트리보소재, 자가발전 환경센싱",
+  "taglineEn": "Interfacial triboelectric charge physics, humidity-resistant tribomaerials, and self-powered environmental sensing",
+  "aboutKo": [
+    "김진겸 박사는 재료공학 박사이며, 공개 Scholar 프로필에서 University of Wisconsin–Madison 소속과 wisc.edu 메일 인증을 확인했습니다.",
+    "공개 1저 논문 Energy & Environmental Science(2023) 에서 Crossref는 SKKU 소속과 ORCID 0000-0003-0824-2373을 기록합니다. KIST 기관 저장소와 SKKU Pure에도 같은 연구 축이 나옵니다.",
+    "이 사이트는 공개 DOI·Scholar·ORCID만 쓰며, 미게재 실험·과제 전략 메모는 올리지 않습니다."
+  ],
+  "aboutEn": [
+    "Jin-Kyeom Kim is a materials scientist. The public Scholar profile lists a Wisconsin affiliation and a verified wisc.edu address.",
+    "Crossref records the 2023 Energy & Environmental Science paper with first-author credit, SKKU affiliation, and ORCID 0000-0003-0824-2373.",
+    "This page uses only public bibliographic records. Unpublished data and grant strategy stay off the site."
+  ],
+  "research": [
+    {"ko": "접촉대전에 의한 계면전하 포획·TENG 메커니즘", "en": "Electric-field-driven interfacial trapping of triboelectric charges"},
+    {"ko": "습도에 강한 트리보소재·출력 유지", "en": "Humidity-resistant tribomaerials and charge retention"},
+    {"ko": "자가발전 가스센싱·환경 감지", "en": "Self-powered gas sensing and environmental monitoring"},
+    {"ko": "TENG 임피던스·출력 제어·CO₂ 활용 접점", "en": "TENG impedance, output control, and CO2-utilization interfaces"}
+  ],
+  "publications": [
+    {"year": 2025, "title": "Overcoming Moisture-Induced Charge Decay in Tribo-Materials", "authors": "JK Kim, S Jung, DH Kim, J Gao, YS Lee, H Park, HC Song, JM Baik", "venue": "Advanced Energy Materials 15 (2), 2304437", "url": "https://doi.org/10.1002/aenm.202304437", "role": "first-listed on SKKU Pure"},
+    {"year": 2025, "title": "Advancing humidity-resistant triboelectric nanogenerators through MoS2-encapsulated SiO2 nanoparticles for self-powered gas sensing applications", "authors": "DH Kim, JY Park, HS Choi, J Cho, HS Kim, JE Mo, JK Kim, TK Yoon, et al.", "venue": "Advanced Energy Materials 15 (20), 2405278", "url": "https://doi.org/10.1002/aenm.202405278"},
+    {"year": 2024, "title": "Self-powering gas sensing system enabled by double-layer TENGs based on P2VP@BaTiO3 core-shell hybrids", "authors": "J Oh, JK Kim, J Gao, S Jung, W Kim, G Park, J Park, JM Baik, C Yang", "venue": "ACS Nano 18 (19), 12146-12157", "url": "https://doi.org/10.1021/acsnano.3c12035"},
+    {"year": 2024, "title": "Addressing Triboelectric Nanogenerator Impedance for Efficient CO2 Utilization", "authors": "DH Kim, JK Kim, SY Choi, Y Yang, HC Song, HS Park, M Shim, JM Baik", "venue": "Advanced Energy Materials 14 (8), 2304012", "url": "https://doi.org/10.1002/aenm.202304012"},
+    {"year": 2023, "title": "Electric-field-driven interfacial trapping of drifting triboelectric charges via contact electrification", "authors": "JK Kim, GH Han, SW Kim, HJ Kim, R Purbia, DM Lee, et al.", "venue": "Energy & Environmental Science 16 (2), 598-609", "url": "https://doi.org/10.1039/d2ee03114k", "role": "first author; Crossref SKKU + ORCID"},
+    {"year": 2023, "title": "Low-temperature crystallization of LaFeO3 perovskite for enhanced oxygen evolution reaction", "authors": "HJ Kim, SH Kim, SW Kim, JK Kim, C Cao, Y Kim, et al.", "venue": "Nano Energy 105, 108003", "url": "https://doi.org/10.1016/j.nanoen.2022.108003"},
+    {"year": 2022, "title": "Output signals control of TENG with metal-dielectric-metal configuration through high resistance grounded systems", "authors": "SW Kim, JK Kim, HJ Kim, CT Cao, NK Oh, Y Yang, HC Song, M Shim, et al.", "venue": "Nano Energy 95, 107023", "url": "https://doi.org/10.1016/j.nanoen.2022.107023"},
+    {"year": 2022, "title": "3D multiple triangular prisms for highly sensitive non-contact mode triboelectric bending sensors", "authors": "GH Han, SW Kim, JK Kim, SH Lee, MH Jeong, HC Song, KJ Choi, JM Baik", "venue": "Nanomaterials 12 (9), 1499", "url": "https://doi.org/10.3390/nano12091499"}
+  ],
+  "news": [
+    {
+      "date": "2026-09-03",
+      "ko": "공개 Scholar·ORCID·DOI 기록으로 학술 홈페이지를 개설했습니다.",
+      "en": "Public academic homepage published from verified Scholar, ORCID, and DOI records."
+    }
+  ]
+}
