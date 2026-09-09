@@ -29,6 +29,62 @@ function icon(className) {
   return node;
 }
 
+const PILLAR_MOTIFS = ["teng", "bio", "nano", "ai"];
+const LOOP_ICONS = [
+  "bi bi-bezier2",
+  "bi bi-layers",
+  "bi bi-activity",
+  "bi bi-cpu",
+  "bi bi-send"
+];
+
+function svgEl(svgMarkup) {
+  const doc = new DOMParser().parseFromString(svgMarkup.trim(), "image/svg+xml");
+  return doc.documentElement;
+}
+
+function pillarMotifSvg(motif) {
+  const motifs = {
+    teng: `<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0 200 Q80 160 160 180 T320 150 T400 170" fill="none" stroke="rgba(24,168,224,0.5)" stroke-width="2"/>
+      <path d="M0 220 Q100 190 200 200 T400 190" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+      <circle cx="120" cy="100" r="40" fill="none" stroke="rgba(24,168,224,0.35)" stroke-width="1.5"/>
+      <circle cx="120" cy="100" r="18" fill="rgba(24,168,224,0.2)"/>
+      <path d="M280 60 L320 100 L280 140 L240 100 Z" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+    </svg>`,
+    bio: `<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M60 180 Q120 120 180 150 T300 110 T360 140" fill="none" stroke="rgba(62,200,240,0.45)" stroke-width="2"/>
+      <path d="M60 200 Q140 160 220 175 T360 155" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <ellipse cx="200" cy="90" rx="70" ry="35" fill="none" stroke="rgba(62,200,240,0.3)" stroke-width="1.2"/>
+      <circle cx="200" cy="90" r="6" fill="rgba(62,200,240,0.5)"/>
+    </svg>`,
+    nano: `<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="rgba(255,255,255,0.35)">
+        <circle cx="80" cy="70" r="2"/><circle cx="110" cy="55" r="1.5"/><circle cx="140" cy="80" r="2"/>
+        <circle cx="170" cy="60" r="1.5"/><circle cx="200" cy="75" r="2"/><circle cx="230" cy="50" r="1.5"/>
+        <circle cx="260" cy="70" r="2"/><circle cx="290" cy="55" r="1.5"/><circle cx="320" cy="80" r="2"/>
+        <circle cx="100" cy="110" r="1.5"/><circle cx="130" cy="100" r="2"/><circle cx="160" cy="120" r="1.5"/>
+        <circle cx="190" cy="105" r="2"/><circle cx="220" cy="115" r="1.5"/><circle cx="250" cy="95" r="2"/>
+        <circle cx="280" cy="110" r="1.5"/><circle cx="310" cy="100" r="2"/>
+      </g>
+      <circle cx="200" cy="160" r="50" fill="none" stroke="rgba(24,168,224,0.3)" stroke-width="1.2"/>
+    </svg>`,
+    ai: `<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="200" cy="100" r="8" fill="rgba(24,168,224,0.6)"/>
+      <circle cx="120" cy="70" r="4" fill="rgba(255,255,255,0.4)"/>
+      <circle cx="280" cy="70" r="4" fill="rgba(255,255,255,0.4)"/>
+      <circle cx="100" cy="140" r="4" fill="rgba(255,255,255,0.35)"/>
+      <circle cx="300" cy="140" r="4" fill="rgba(255,255,255,0.35)"/>
+      <line x1="200" y1="100" x2="120" y2="70" stroke="rgba(24,168,224,0.3)" stroke-width="0.8"/>
+      <line x1="200" y1="100" x2="280" y2="70" stroke="rgba(24,168,224,0.3)" stroke-width="0.8"/>
+      <line x1="200" y1="100" x2="100" y2="140" stroke="rgba(24,168,224,0.25)" stroke-width="0.8"/>
+      <line x1="200" y1="100" x2="300" y2="140" stroke="rgba(24,168,224,0.25)" stroke-width="0.8"/>
+      <ellipse cx="200" cy="100" rx="90" ry="60" fill="none" stroke="rgba(24,168,224,0.15)" stroke-width="1"/>
+    </svg>`
+  };
+  return svgEl(motifs[motif] || motifs.teng);
+}
+
 function link(label, href, className) {
   const rawHref = String(href || "#/");
   const node = make("a", className || "", label);
@@ -170,6 +226,7 @@ function render() {
   document.documentElement.lang = state.lang;
   text("langBtn", state.lang === "ko" ? "EN" : "한");
   text("statusLine", `${t(p.nameKo, p.nameEn)} · ${p.labShort || "EnerMAKER Lab"} · KMOU`);
+  text("brandSubtitle", t("KMOU · 해양신소재융합", "KMOU · Marine Materials"));
   text("heroTitle", t(d.heroTitleKo, d.heroTitleEn));
   text("heroWhy", state.lang === "ko" ? (d.heroTitleEn || d.taglineEn) : (d.taglineEn || d.heroTitleEn));
   text("heroLead", t(d.heroLeadKo, d.heroLeadEn));
@@ -181,7 +238,7 @@ function render() {
   text("focusSub", t("공식 교수소개 전공과 공개 논문 기록을 바탕으로 정리한 네 가지 연구 축입니다.", "Four research pillars derived from the official faculty profile and public publication record."));
   text("demoH", t("동적 데모와 관리 산출물", "Dynamic demos and managed artifacts"));
   text("homeNewsH", t("최근 소식", "Latest updates"));
-  text("selectedPubH", t("최근 연구 신호", "Recent research signals"));
+  text("selectedPubH", t("선정 논문", "Selected works"));
   text("selectedPubSub", t(
     "홈은 랜딩 페이지입니다. 대표 1저자 논문 2편만 미리 보여줍니다.",
     "Home stays a landing page — only two lead-author highlights are shown here."
@@ -224,9 +281,8 @@ function render() {
   }
 
   renderHeroActions();
-  renderHeroLoopRibbon();
   renderMetrics();
-  renderJoinTeaser();
+  renderInquiryBand();
   renderSignalCards();
   renderLoop();
   renderResearch();
@@ -251,20 +307,6 @@ function renderHeroActions() {
   );
 }
 
-function renderHeroLoopRibbon() {
-  const node = clear(byId("heroLoopRibbon"));
-  if (!node) return;
-  const steps = arr(state.data?.labLoop);
-  if (!steps.length) return;
-  steps.forEach((item, index) => {
-    const step = make("span", "ribbon-step", t(item.stepKo, item.stepEn));
-    node.appendChild(step);
-    if (index < steps.length - 1) {
-      node.appendChild(make("span", "ribbon-arrow", "→"));
-    }
-  });
-}
-
 function renderMetrics() {
   const node = clear(byId("metricStrip"));
   const d = state.data || {};
@@ -285,18 +327,23 @@ function renderMetrics() {
   });
 }
 
-function renderJoinTeaser() {
+function renderInquiryBand() {
   text("joinTeaserH", t("연구·협력 문의", "Contact & collaboration"));
   text("joinTeaserSub", t(
-    "연구 협력·학술 교류에 대한 문의 방법과 공개 연락처를 안내합니다.",
-    "How to reach the lab for research collaboration and academic inquiries."
+    "연구 협력·학술 교류·학생 문의에 대한 안내입니다. 공식 모집 공고를 대신하지 않습니다.",
+    "Guidance for research collaboration, academic exchange, and student inquiries. Not an active recruitment notice."
   ));
-  const node = clear(byId("joinTeaserActions"));
+  text("inquiryCtaLabel", t("문의 안내", "Inquiry guide"));
+  const node = clear(byId("inquiryPathways"));
   if (!node) return;
-  node.append(
-    renderLinkButton(t("문의 안내 보기", "View inquiry guidance"), "#/join", "primary"),
-    renderLinkButton(t("연락처", "Contact"), "#/contact", "ghost")
-  );
+  arr(state.data?.studentPaths).slice(0, 3).forEach((item) => {
+    const card = make("article", "pathway-card");
+    card.append(
+      make("h3", "", t(item.ko, item.en)),
+      make("p", "", t(item.detailKo, item.detailEn))
+    );
+    node.appendChild(card);
+  });
 }
 
 function renderSignalCards() {
@@ -317,7 +364,9 @@ function renderLoop() {
   if (!node) return;
   arr(state.data?.labLoop).forEach((item, index) => {
     const li = make("li", "");
-    li.append(make("span", "loop-num", String(index + 1).padStart(2, "0")));
+    const disc = make("span", "loop-icon-disc");
+    disc.appendChild(icon(LOOP_ICONS[index] || "bi bi-circle"));
+    li.append(disc, make("span", "loop-num", String(index + 1).padStart(2, "0")));
     const box = make("div", "");
     box.append(make("strong", "", t(item.stepKo, item.stepEn)), make("p", "", t(item.bodyKo, item.bodyEn)));
     li.appendChild(box);
@@ -337,18 +386,22 @@ function renderResearch() {
   const focus = clear(byId("focusGrid"));
   const pillars = clear(byId("pillarGrid"));
   arr(state.data?.research).forEach((item, index) => {
-    const compact = make("article", "pillar-card");
-    compact.append(
+    const motif = PILLAR_MOTIFS[index] || "teng";
+    const compact = link("", "#/research", `pillar-card pillar-card--${motif}`);
+    compact.setAttribute("aria-label", t(item.ko, item.en));
+    const visual = make("div", "pillar-visual");
+    visual.appendChild(pillarMotifSvg(motif));
+    compact.append(visual, make("div", "pillar-overlay"));
+    const content = make("div", "pillar-content");
+    content.append(
       make("span", "card-index", `0${index + 1}`),
       make("h3", "", t(item.ko, item.en)),
-      make("p", "pillar-signal", t(item.signalKo, item.signalEn))
+      make("p", "pillar-en", t(item.en, item.ko))
     );
-    const tags = make("div", "tag-row");
-    arr(item.keywords).slice(0, 4).forEach((keyword) => tags.appendChild(make("span", "", keyword)));
-    compact.appendChild(tags);
-    const explore = link(t("연구축 보기", "View pillar"), "#/research", "focus-link");
-    explore.appendChild(icon("bi bi-arrow-right"));
-    compact.appendChild(explore);
+    compact.appendChild(content);
+    const arrow = make("span", "pillar-arrow");
+    arrow.appendChild(icon("bi bi-arrow-right"));
+    compact.appendChild(arrow);
     if (focus) focus.appendChild(compact);
 
     const article = make("article", "project");
