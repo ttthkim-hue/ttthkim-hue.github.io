@@ -129,13 +129,13 @@
   ],
   "demos": [
     {"titleKo": "Charge-field landing demo", "titleEn": "Charge-field landing demo", "bodyKo": "첫 화면의 canvas는 TENG 전하 이동, 센서 노드, AI twin 루프를 추상화한 경량 데모입니다. 외부 라이브러리 없이 동작합니다.", "bodyEn": "The landing canvas abstracts TENG charge transport, sensor nodes, and the AI-twin loop. It runs without heavy external libraries.", "tag": "visual"},
-    {"titleKo": "Materials-to-model pipeline", "titleEn": "Materials-to-model pipeline", "bodyKo": "Design → Fabricate → Measure → Model → Deploy 흐름을 학생이 이해할 수 있는 연구실 운영 언어로 보여줍니다.", "bodyEn": "Shows Design → Fabricate → Measure → Model → Deploy as the lab's operating language for prospective students.", "tag": "pipeline"},
+    {"titleKo": "Materials-to-model pipeline", "titleEn": "Materials-to-model pipeline", "bodyKo": "Design → Fabricate → Measure → Model → Deploy 흐름을 연구실 운영 언어로 보여줍니다.", "bodyEn": "Shows Design → Fabricate → Measure → Model → Deploy as the lab's operating language.", "tag": "pipeline"},
     {"titleKo": "Public-record source ledger", "titleEn": "Public-record source ledger", "bodyKo": "교수소개, Scholar, ORCID, DOI, 기관 뉴스를 분리해 RAG로 관리하고 잘못된 프로필 회귀를 CI에서 막습니다.", "bodyEn": "Keeps faculty profile, Scholar, ORCID, DOI, and institution-news sources in RAG and blocks wrong-profile regressions in CI.", "tag": "rag"}
   ],
   "studentPaths": [
-    {"ko": "대학원생", "en": "Graduate students", "detailKo": "에너지 하베스팅, 바이오센서, 기능성 나노소재, AI/디지털 트윈을 연결한 논문형 프로젝트.", "detailEn": "Paper-oriented projects connecting energy harvesting, biosensors, nanomaterials, and AI/digital twins.", "ctaKo": "입학 전 관심 분야·경험·희망 연구축을 정리해 문의", "ctaEn": "Prepare interests, prior experience, and target research pillar before contacting"},
-    {"ko": "학부연구생", "en": "Undergraduate researchers", "detailKo": "제작, 측정, 데이터 정리, 문헌 RAG, 간단한 모델링부터 참여.", "detailEn": "Start from fabrication, measurement, data curation, literature RAG, and lightweight modeling.", "ctaKo": "한 학기 이상 지속 가능한 주제로 시작", "ctaEn": "Start with a topic that can continue for at least one semester"},
-    {"ko": "박사후·공동연구", "en": "Postdocs and collaborators", "detailKo": "TENG·나노소재·해양환경·디지털 트윈 교차 지점의 공개 실적 기반 협력.", "detailEn": "Public-record based collaboration across TENGs, nanomaterials, marine environments, and digital twins.", "ctaKo": "공동 논문/과제 관점에서 문의", "ctaEn": "Contact from a joint paper or project perspective"}
+    {"ko": "소재·소자 제작", "en": "Materials and device fabrication", "detailKo": "TENG, 나노섬유, 코어-쉘, 2D 소재 기반 소자 제작과 전기·센서 측정.", "detailEn": "Device fabrication and electrical or sensor measurement with TENGs, nanofibers, core-shell, and 2D materials.", "ctaKo": "관련 경험과 관심 연구축을 정리해 문의", "ctaEn": "Summarize relevant experience and research interests when contacting"},
+    {"ko": "측정·센싱·데이터", "en": "Measurement, sensing, and data", "detailKo": "전기 출력, 감도, 습도 안정성, 생체/환경 응답 측정과 데이터·문헌 정리.", "detailEn": "Output, sensitivity, environmental response measurement, and data or literature curation.", "ctaKo": "협력 형태와 가능 일정을 함께 알려 주세요", "ctaEn": "Include your preferred collaboration format and timeline"},
+    {"ko": "모델링·AI·공동연구", "en": "Modeling, AI, and joint research", "detailKo": "LBM-DPM 디지털 트윈, 역설계, 공개 실적 기반 공동 연구 맥락.", "detailEn": "LBM-DPM digital twins, inverse design, and public-record based joint research.", "ctaKo": "공동 논문·과제 관점에서 문의 가능", "ctaEn": "Inquiries welcome from a joint publication or project perspective"}
   ],
   "education": [
     {"year": "2019", "ko": "울산대학교 첨단소재공학과 재료공학전공 (공학사)", "en": "B.S., Materials Engineering, Dept. of Advanced Materials Engineering, University of Ulsan"},
@@ -170,12 +170,12 @@
     {"year": 2023, "title": "Core-shell structured positive charge electrified body structure and triboelectric generator using the same", "authors": "J.-K. Kim, R. Purbia, J. Y. Park, J. M. Baik", "venue": "KR Patent", "url": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ"}
   ],
   "join": [
-    {"titleKo": "무엇을 배울 수 있나", "titleEn": "What students learn", "bodyKo": "소재 합성·소자 제작·전기/센서 측정·문헌 RAG·시뮬레이션/AI 모델링을 하나의 연구 루프로 연결합니다.", "bodyEn": "Connect synthesis, device fabrication, electrical/sensor measurements, literature RAG, and simulation/AI modeling into one research loop."},
-    {"titleKo": "잘 맞는 학생", "titleEn": "Good fit", "bodyKo": "재료공학 기반 위에 데이터 분석, Python, 물리 기반 모델링, 논문 구현을 함께 배우고 싶은 학생.", "bodyEn": "Students who want to combine materials engineering with data analysis, Python, physics-based modeling, and paper implementation."},
-    {"titleKo": "문의 전 준비", "titleEn": "Before contacting", "bodyKo": "관심 연구축, 읽은 논문 1편, 가능한 참여 기간, 본인 기술스택을 간단히 정리하면 상담 효율이 높습니다.", "bodyEn": "Prepare one target research pillar, one paper you read, your available period, and your current technical stack."}
+    {"titleKo": "연구 루프", "titleEn": "Research loop", "bodyKo": "소재 합성·소자 제작·전기/센서 측정·문헌 RAG·시뮬레이션/AI 모델링을 하나의 연구 루프로 연결합니다.", "bodyEn": "Connect synthesis, device fabrication, electrical/sensor measurements, literature RAG, and simulation/AI modeling into one research loop."},
+    {"titleKo": "연구 초점", "titleEn": "Research focus", "bodyKo": "재료공학 기반 위에 데이터 분석, Python, 물리 기반 모델링, 논문 구현을 연결하는 연구 맥락.", "bodyEn": "Research connecting materials engineering with data analysis, Python, physics-based modeling, and paper implementation."},
+    {"titleKo": "문의 전 준비", "titleEn": "Before contacting", "bodyKo": "관심 연구축, 관련 논문 1편, 가능한 협력 형태, 본인 배경·기술스택을 간단히 정리하면 문의가 수월합니다.", "bodyEn": "Prepare one research interest, one relevant paper, a possible collaboration format, and your background or technical stack."}
   ],
   "news": [
-    {"date": "2026-09-03", "ko": "AI 연구실 벤치마크 RAG를 반영해 동적 랜딩 페이지와 학생 모집 흐름을 재설계했습니다.", "en": "Rebuilt the landing page and student-recruitment flow from the AI-lab website benchmark RAG."},
+    {"date": "2026-09-03", "ko": "AI 연구실 벤치마크 RAG를 반영해 동적 랜딩 페이지와 협력 문의 흐름을 재설계했습니다.", "en": "Rebuilt the landing page and collaboration-inquiry flow from the AI-lab website benchmark RAG."},
     {"date": "2026-09-03", "ko": "국립한국해양대학교 해양신소재융합공학과 공식 교수소개(teaSn=5782)의 사진·약력·연구실·연구분야를 반영했습니다.", "en": "Official KMOU faculty profile (teaSn=5782) now anchors the photo, CV, lab, and research themes.", "url": "https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782"},
     {"date": "2026-08-19", "ko": "UW-Madison 공대: 심장 박동으로 스스로 충전하는 리드리스 심박조율기. Science Advances 공저.", "en": "UW-Madison Engineering: a leadless pacemaker powered by the heartbeat. Science Advances co-author.", "url": "https://engineering.wisc.edu/news/engineers-pioneer-a-pacemaker-that-can-power-itself/"}
   ],

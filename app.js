@@ -41,7 +41,11 @@ function link(label, href, className) {
 }
 
 function renderLinkButton(label, href, variant) {
-  const node = link(label, href, variant === "primary" ? "primary-link" : "ghost-link");
+  if (variant === "text") {
+    return link(label, href, "text-link");
+  }
+  const className = variant === "primary" ? "primary-link" : variant === "secondary" ? "secondary-link" : "ghost-link";
+  const node = link(label, href, className);
   node.appendChild(icon("bi bi-arrow-up-right"));
   return node;
 }
@@ -167,15 +171,21 @@ function render() {
   text("langBtn", state.lang === "ko" ? "EN" : "한");
   text("statusLine", `${t(p.nameKo, p.nameEn)} · ${p.labShort || "EnerMAKER Lab"} · KMOU`);
   text("heroTitle", t(d.heroTitleKo, d.heroTitleEn));
-  text("heroWhy", t(d.taglineKo, d.taglineEn));
+  text("heroWhy", state.lang === "ko" ? (d.heroTitleEn || d.taglineEn) : (d.taglineEn || d.heroTitleEn));
   text("heroLead", t(d.heroLeadKo, d.heroLeadEn));
+  text("approachEyebrow", t("연구 접근", "Our Approach"));
   text("loopH", t("실험실 운영 루프", "The lab operating loop"));
-  text("loopSub", t("단순 논문 목록이 아니라 학생이 합류했을 때 어떤 방식으로 연구가 돌아가는지 보여줍니다.", "This shows how research runs after a student joins, not just a publication list."));
-  text("focusH", t("연구축", "Research pillars"));
-  text("focusSub", t("공식 전공과 공개 논문을 학생 모집용 언어로 재배치했습니다.", "Public faculty fields and publications are reframed for prospective students."));
+  text("loopSub", t("Design → Fabricate → Measure → Model → Deploy 흐름으로 소재·소자·AI 모델링을 하나의 연구 사이클로 연결합니다.", "Design → Fabricate → Measure → Model → Deploy connects materials, devices, and AI modeling into one research cycle."));
+  text("pillarsEyebrow", t("연구 축", "Research Pillars"));
+  text("focusH", t("핵심 연구 영역", "Core research areas"));
+  text("focusSub", t("공식 교수소개 전공과 공개 논문 기록을 바탕으로 정리한 네 가지 연구 축입니다.", "Four research pillars derived from the official faculty profile and public publication record."));
   text("demoH", t("동적 데모와 관리 산출물", "Dynamic demos and managed artifacts"));
   text("homeNewsH", t("최근 소식", "Latest updates"));
-  text("selectedPubH", t("대표 성과", "Selected publications"));
+  text("selectedPubH", t("최근 연구 신호", "Recent research signals"));
+  text("selectedPubSub", t(
+    "홈은 랜딩 페이지입니다. 대표 1저자 논문 2편만 미리 보여줍니다.",
+    "Home stays a landing page — only two lead-author highlights are shown here."
+  ));
   text("researchH", t("무엇을 연구하는가", "What we study"));
   text("researchSub", t("TENG·바이오전자·나노소재·AI 디지털 트윈을 하나의 설계 루프로 연결합니다.", "TENGs, bioelectronics, nanomaterials, and AI digital twins are connected into one design loop."));
   text("pipelineH", t("Design → Fabricate → Measure → Model → Deploy", "Design → Fabricate → Measure → Model → Deploy"));
@@ -189,10 +199,16 @@ function render() {
   text("piRank", `${t(p.titleKo, p.titleEn)} · ${t(p.deptKo, p.deptEn)}`);
   text("eduH", t("학력", "Education"));
   text("careerH", t("경력", "Appointments"));
-  text("joinH", t("합류", "Join the lab"));
-  text("joinSub", t("학생이 보기에는 연구주제보다 더 중요한 것이 연구실 진입 경로입니다.", "For prospective students, the entry path is as important as the research topics."));
+  text("joinH", t("연구·협력 문의", "Research & collaboration inquiries"));
+  text("joinSub", t(
+    "연구 협력, 학술 교류, 공동 연구에 관심이 있으시면 공개 연락처로 문의해 주세요. 본 페이지는 현재 모집 공고를 대신하지 않습니다.",
+    "For research collaboration, academic exchange, or joint projects, use the public contact channels below. This page is not an active recruitment notice."
+  ));
   text("joinProtocolH", t("문의 메일에는 무엇을 넣어야 하나", "What to include in the first email"));
-  text("joinProtocolBody", t("관심 연구축, 읽은 논문 1편, 가능한 참여 기간, 본인 기술스택을 짧게 정리하면 됩니다. 공식 선발·장학 조건은 학교 절차를 따릅니다.", "Briefly include your target research pillar, one paper you read, available period, and current technical stack. Formal admission and funding conditions follow university procedures."));
+  text("joinProtocolBody", t(
+    "관심 연구축, 관련 논문 1편, 가능한 협력 형태, 본인 배경·기술스택을 짧게 정리해 주시면 됩니다.",
+    "Briefly include your research interests, one relevant paper, a possible collaboration format, and your background or technical stack."
+  ));
   text("joinMail", t("문의 메일 보내기", "Email the PI"));
   text("newsH", t("소식", "News"));
   text("contactH", t("연락처", "Contact"));
@@ -208,6 +224,7 @@ function render() {
   }
 
   renderHeroActions();
+  renderHeroLoopRibbon();
   renderMetrics();
   renderJoinTeaser();
   renderSignalCards();
@@ -219,6 +236,7 @@ function render() {
   renderProfile();
   renderJoin();
   renderContact();
+  renderFooter();
   renderYearChips();
   renderPubs();
 }
@@ -228,9 +246,23 @@ function renderHeroActions() {
   if (!node) return;
   node.append(
     renderLinkButton(t("연구 보기", "Explore research"), "#/research", "primary"),
-    renderLinkButton(t("합류 문의", "Join the lab"), "#/join", "ghost"),
-    renderLinkButton(t("논문 검색", "Search publications"), "#/publications", "ghost")
+    renderLinkButton(t("연구·협력 문의", "Contact & collaboration"), "#/join", "secondary"),
+    link(t("논문 검색", "Search publications"), "#/publications", "text-link")
   );
+}
+
+function renderHeroLoopRibbon() {
+  const node = clear(byId("heroLoopRibbon"));
+  if (!node) return;
+  const steps = arr(state.data?.labLoop);
+  if (!steps.length) return;
+  steps.forEach((item, index) => {
+    const step = make("span", "ribbon-step", t(item.stepKo, item.stepEn));
+    node.appendChild(step);
+    if (index < steps.length - 1) {
+      node.appendChild(make("span", "ribbon-arrow", "→"));
+    }
+  });
 }
 
 function renderMetrics() {
@@ -254,16 +286,16 @@ function renderMetrics() {
 }
 
 function renderJoinTeaser() {
-  text("joinTeaserH", t("학생·협력 연구자를 찾습니다", "Recruiting students and collaborators"));
+  text("joinTeaserH", t("연구·협력 문의", "Contact & collaboration"));
   text("joinTeaserSub", t(
-    "대학원생, 학부연구생, 박사후·공동연구 경로가 분리되어 있습니다.",
-    "Graduate, undergraduate, postdoc, and collaborator paths are separated."
+    "연구 협력·학술 교류에 대한 문의 방법과 공개 연락처를 안내합니다.",
+    "How to reach the lab for research collaboration and academic inquiries."
   ));
   const node = clear(byId("joinTeaserActions"));
   if (!node) return;
   node.append(
-    renderLinkButton(t("합류 경로 보기", "View join paths"), "#/join", "primary"),
-    renderLinkButton(t("PI 프로필", "PI profile"), "#/pi", "ghost")
+    renderLinkButton(t("문의 안내 보기", "View inquiry guidance"), "#/join", "primary"),
+    renderLinkButton(t("연락처", "Contact"), "#/contact", "ghost")
   );
 }
 
@@ -305,11 +337,18 @@ function renderResearch() {
   const focus = clear(byId("focusGrid"));
   const pillars = clear(byId("pillarGrid"));
   arr(state.data?.research).forEach((item, index) => {
-    const compact = make("article", "focus-card");
-    compact.append(make("span", "card-index", `0${index + 1}`), make("h3", "", t(item.ko, item.en)), make("p", "", t(item.signalKo, item.signalEn)));
+    const compact = make("article", "pillar-card");
+    compact.append(
+      make("span", "card-index", `0${index + 1}`),
+      make("h3", "", t(item.ko, item.en)),
+      make("p", "pillar-signal", t(item.signalKo, item.signalEn))
+    );
     const tags = make("div", "tag-row");
     arr(item.keywords).slice(0, 4).forEach((keyword) => tags.appendChild(make("span", "", keyword)));
     compact.appendChild(tags);
+    const explore = link(t("연구축 보기", "View pillar"), "#/research", "focus-link");
+    explore.appendChild(icon("bi bi-arrow-right"));
+    compact.appendChild(explore);
     if (focus) focus.appendChild(compact);
 
     const article = make("article", "project");
@@ -351,7 +390,8 @@ function renderSelectedPubs() {
   if (!node) return;
   const pubs = arr(state.data?.publications);
   const featured = pubs.filter((pub) => /first|lead/i.test(String(pub.role || "")));
-  (featured.length ? featured : pubs).slice(0, 4).forEach((pub) => node.appendChild(pubItem(pub)));
+  (featured.length ? featured : pubs).slice(0, 2).forEach((pub) => node.appendChild(pubItem(pub)));
+  text("homePubCta", t("전체 논문 보기", "View all publications"));
 }
 
 function renderProfile() {
@@ -402,9 +442,21 @@ function renderProfile() {
 
 function renderJoin() {
   const paths = clear(byId("studentPaths"));
-  arr(state.data?.studentPaths).forEach((item, index) => {
+  const items = arr(state.data?.studentPaths);
+  if (items.length && paths) {
+    paths.appendChild(make("p", "join-context-note", t(
+      "아래는 연구실이 다루는 협력 맥락입니다. 공식 입학·채용·장학 안내는 대학 및 학과 공지를 확인해 주세요.",
+      "The items below describe collaboration contexts the lab works in. For official admission, hiring, or funding notices, refer to university and department announcements."
+    )));
+  }
+  items.forEach((item, index) => {
     const article = make("article", "student-card");
-    article.append(make("span", "card-index", `0${index + 1}`), make("h2", "", t(item.ko, item.en)), make("p", "", t(item.detailKo, item.detailEn)), make("strong", "", t(item.ctaKo, item.ctaEn)));
+    article.append(
+      make("span", "card-index", `0${index + 1}`),
+      make("h2", "", t(item.ko, item.en)),
+      make("p", "", t(item.detailKo, item.detailEn)),
+      make("p", "join-context-cta", t(item.ctaKo, item.ctaEn))
+    );
     if (paths) paths.appendChild(article);
   });
 
@@ -439,6 +491,34 @@ function renderContact() {
       li.append(labelNode, make("span", "", ` — ${t(source.noteKo, source.noteEn)}`));
       sources.appendChild(li);
     });
+  }
+}
+
+function renderFooter() {
+  const d = state.data || {};
+  const p = d.person || {};
+  text("footerDept", t(p.deptKo, p.deptEn));
+
+  const nav = clear(byId("footerNav"));
+  if (nav) {
+    [
+      [t("연구", "Research"), "#/research"],
+      [t("논문", "Publications"), "#/publications"],
+      [t("책임교수", "PI"), "#/pi"],
+      [t("문의", "Inquiries"), "#/join"],
+      [t("연락처", "Contact"), "#/contact"]
+    ].forEach(([label, href]) => nav.appendChild(link(label, href, "")));
+  }
+
+  const contact = clear(byId("footerContact"));
+  if (contact) {
+    const email = link(p.email || "", `mailto:${p.email}`, "");
+    const faculty = link(t("교수소개", "Faculty page"), p.facultyPage, "");
+    contact.append(
+      make("span", "", t(p.labKo, p.labEn)),
+      email,
+      faculty
+    );
   }
 }
 
@@ -561,19 +641,19 @@ function startField() {
   }
 
   function draw() {
-    tick += 0.01;
+    tick += 0.008;
     ctx.clearRect(0, 0, width, height);
-    const grad = ctx.createRadialGradient(width * 0.52, height * 0.42, 20, width * 0.52, height * 0.42, Math.max(width, height) * 0.75);
-    grad.addColorStop(0, "rgba(65, 220, 255, 0.22)");
-    grad.addColorStop(0.48, "rgba(98, 96, 255, 0.12)");
-    grad.addColorStop(1, "rgba(255, 255, 255, 0)");
+    const grad = ctx.createRadialGradient(width * 0.62, height * 0.35, 20, width * 0.55, height * 0.45, Math.max(width, height) * 0.8);
+    grad.addColorStop(0, "rgba(59, 184, 232, 0.28)");
+    grad.addColorStop(0.45, "rgba(0, 102, 161, 0.14)");
+    grad.addColorStop(1, "rgba(7, 18, 40, 0)");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, width, height);
 
     particles.forEach((p, i) => {
       if (!prefersReduced) {
-        p.x += p.vx + Math.sin(tick + i) * 0.06;
-        p.y += p.vy + Math.cos(tick * 0.8 + i) * 0.06;
+        p.x += p.vx + Math.sin(tick + i) * 0.05;
+        p.y += p.vy + Math.cos(tick * 0.75 + i) * 0.05;
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
         p.x = Math.max(0, Math.min(width, p.x));
@@ -584,10 +664,10 @@ function startField() {
         const dx = p.x - q.x;
         const dy = p.y - q.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 118) {
-          ctx.globalAlpha = (1 - dist / 118) * 0.3;
-          ctx.strokeStyle = "rgba(116, 211, 255, 0.8)";
-          ctx.lineWidth = 0.8;
+        if (dist < 110) {
+          ctx.globalAlpha = (1 - dist / 110) * 0.22;
+          ctx.strokeStyle = "rgba(59, 184, 232, 0.75)";
+          ctx.lineWidth = 0.7;
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
@@ -597,20 +677,22 @@ function startField() {
     });
     ctx.globalAlpha = 1;
     particles.forEach((p, i) => {
-      ctx.fillStyle = i % 5 === 0 ? "rgba(255, 215, 122, 0.92)" : "rgba(181, 235, 255, 0.88)";
+      ctx.fillStyle = i % 6 === 0 ? "rgba(240, 180, 41, 0.85)" : "rgba(140, 220, 255, 0.82)";
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fill();
     });
 
-    ctx.font = "600 12px IBM Plex Mono, monospace";
-    labels.forEach((label, index) => {
-      const angle = tick + index * (Math.PI * 2 / labels.length);
-      const x = width * 0.5 + Math.cos(angle) * width * 0.28;
-      const y = height * 0.5 + Math.sin(angle) * height * 0.21;
-      ctx.fillStyle = "rgba(255,255,255,0.74)";
-      ctx.fillText(label, x, y);
-    });
+    if (!prefersReduced) {
+      ctx.font = "600 11px IBM Plex Mono, monospace";
+      labels.forEach((label, index) => {
+        const angle = tick * 0.6 + index * (Math.PI * 2 / labels.length);
+        const x = width * 0.58 + Math.cos(angle) * width * 0.32;
+        const y = height * 0.42 + Math.sin(angle) * height * 0.22;
+        ctx.fillStyle = "rgba(200, 230, 255, 0.45)";
+        ctx.fillText(label, x, y);
+      });
+    }
 
     if (!prefersReduced) requestAnimationFrame(draw);
   }
