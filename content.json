@@ -1,8 +1,8 @@
 {
   "meta": {
-    "status": "PUBLIC",
+    "status": "PUBLIC-REVIEW",
     "updated": "2026-09-03",
-    "source": "KMOU faculty page teaSn=5782 (https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782); Google Scholar k4WJ_DMAAAAJ; ORCID 0000-0003-0824-2373; Crossref DOIs; UW-Madison College of Engineering news 2026-08-19. Citation counts are a Scholar snapshot, not an official evaluation score."
+    "source": "KMOU faculty page teaSn=5782; Google Scholar k4WJ_DMAAAAJ; ORCID 0000-0003-0824-2373; DOI records; UW-Madison Engineering public news; 2026 AI-lab website benchmark RAG."
   },
   "person": {
     "nameKo": "김진겸",
@@ -12,11 +12,16 @@
     "titleEn": "Assistant Professor",
     "deptKo": "국립한국해양대학교 해양과학기술융합대학 해양신소재융합공학과",
     "deptEn": "Department of Marine New Materials Convergence Engineering, Korea Maritime & Ocean University",
+    "labKo": "첨단 에너지소재 및 기능성 소자 실험실",
+    "labEn": "Advanced Energy Materials and Functional Devices Laboratory",
+    "labShort": "EnerMAKER Lab",
+    "email": "jingyeom0825@kmou.ac.kr",
     "facultyPage": "https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782",
     "scholar": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ",
     "orcid": "https://orcid.org/0000-0003-0824-2373",
     "openalex": "https://openalex.org/A5059088178",
-    "group": "https://nanoscience.engr.wisc.edu/"
+    "group": "https://nanoscience.engr.wisc.edu/",
+    "portrait": "https://www.kmou.ac.kr/upload/teaDept/te/mmt/_13e7fab1-0e05-421c-91b9-1ee0bc2c65721788238209808.jpg"
   },
   "metrics": {
     "asOf": "2026-09-03",
@@ -26,33 +31,111 @@
     "noteKo": "Google Scholar 공개 프로필 스냅샷. 공식 평가 점수가 아닙니다.",
     "noteEn": "Snapshot from the public Scholar profile. Not an official evaluation score."
   },
-  "taglineKo": "자가발전 에너지 하베스팅 · 지능형 바이오메디컬 소자 · 기능성 나노소재 · AI 기반 소재·소자 설계",
-  "taglineEn": "Self-powered energy harvesting, intelligent bioelectronics, functional nanomaterials, and AI-driven materials design.",
+  "taglineKo": "자가발전 지능형 소재·소자와 AI 기반 해양환경 디지털 트윈",
+  "taglineEn": "Self-powered intelligent materials, devices, and AI-driven marine digital twins.",
+  "heroTitleKo": "소재가 에너지를 만들고, AI가 소자를 설계하는 연구실",
+  "heroTitleEn": "Materials that harvest energy. AI that designs devices.",
+  "heroLeadKo": "EnerMAKER Lab은 TENG 에너지 하베스팅, 자가발전 바이오·환경 센서, 기능성 나노소재, LBM-DPM 기반 디지털 트윈을 연결해 해양·생체 환경에서 작동하는 지능형 소재 시스템을 만듭니다.",
+  "heroLeadEn": "EnerMAKER Lab connects TENG energy harvesting, self-powered bio/environmental sensing, functional nanomaterials, and LBM-DPM digital twins to build intelligent material systems for marine and biological environments.",
+  "heroCards": [
+    {
+      "eyebrowKo": "TENG",
+      "eyebrowEn": "TENG",
+      "titleKo": "계면 전하 트래핑",
+      "titleEn": "Interfacial charge trapping",
+      "bodyKo": "마찰전기 나노발전기의 전하 생성·이동·소멸을 소재 설계 변수로 전환합니다.",
+      "bodyEn": "Turns charge generation, drift, and decay in triboelectric nanogenerators into design variables."
+    },
+    {
+      "eyebrowKo": "Bio/Health",
+      "eyebrowEn": "Bio/Health",
+      "titleKo": "자가발전 바이오 인터페이스",
+      "titleEn": "Self-powered biointerfaces",
+      "bodyKo": "외부 전원 의존도를 낮춘 삽입형·웨어러블 진단/센싱 소자를 지향합니다.",
+      "bodyEn": "Targets implantable and wearable diagnostic devices with reduced dependence on external power."
+    },
+    {
+      "eyebrowKo": "AI Twin",
+      "eyebrowEn": "AI Twin",
+      "titleKo": "해양환경 소재 디지털 트윈",
+      "titleEn": "Marine-material digital twins",
+      "bodyKo": "입자·유동·계면 현상을 모델링해 실험 전 설계 공간을 좁힙니다.",
+      "bodyEn": "Models particle, flow, and interface phenomena to narrow the design space before experiments."
+    }
+  ],
+  "facts": [
+    {"labelKo": "연구실", "labelEn": "Office", "valueKo": "공학2관 416호", "valueEn": "Engineering Building 2, Room 416"},
+    {"labelKo": "실험실", "labelEn": "Lab", "valueKo": "EnerMAKER Lab · 종합연구관 302호", "valueEn": "EnerMAKER Lab · Research Building, Room 302"},
+    {"labelKo": "전화", "labelEn": "Phone", "valueKo": "051-410-4355 (연구실) · 051-410-4966 (실험실)", "valueEn": "+82-51-410-4355 (office) · +82-51-410-4966 (lab)"},
+    {"labelKo": "메일", "labelEn": "Email", "valueKo": "jingyeom0825@kmou.ac.kr", "valueEn": "jingyeom0825@kmou.ac.kr"},
+    {"labelKo": "주소", "labelEn": "Address", "valueKo": "부산광역시 영도구 태종로 727", "valueEn": "727 Taejong-ro, Yeongdo-gu, Busan, Republic of Korea"}
+  ],
   "aboutKo": [
     "김진겸 조교수는 국립한국해양대학교 해양신소재융합공학과에서 첨단 에너지소재 및 기능성 소자 실험실(EnerMAKER Lab)을 운영합니다.",
     "학부는 울산대학교 첨단소재공학과 재료공학전공(2019, 공학사), 대학원은 성균관대학교 신소재공학과(2024, 공학박사)입니다.",
-    "공식 교수소개에 적힌 전공은 전자세라믹스, 에너지 하베스팅, 기능성 나노소재입니다. 연구 축은 TENG 계면 전하 트래핑·다층 구조, 극한환경 고출력 대전 소재, 자가발전 바이오·헬스케어 소자, 2D TMD·코어-션 하이브리드, 그리고 LBM-DPM 디지털 트윈 기반 해양환경 소재 설계입니다.",
-    "공개 논문·기관 뉴스에 기록된 UW-Madison 협업(Science Advances 2026 공저)은 소속 변경 이전·병행 연구 실적으로 둡니다. 미공개 실험 메모는 이 페이지에 올리지 않습니다."
+    "공식 교수소개에 적힌 전공은 전자세라믹스, 에너지 하베스팅, 기능성 나노소재입니다. 공개 연구기록 기준으로 TENG 계면 전하 트래핑, 고습도·극한환경 대전 소재, 자가발전 바이오·헬스케어 소자, 2D TMD 및 코어-쉘 하이브리드, LBM-DPM 디지털 트윈 기반 해양환경 소재 설계를 핵심 축으로 정리합니다.",
+    "미공개 실험 메모와 내부 과제 정보는 이 공개 페이지에 올리지 않고, 논문·기관 페이지·공개 뉴스로 확인 가능한 내용만 노출합니다."
   ],
   "aboutEn": [
-    "Jin-Kyeom Kim is an assistant professor in the Department of Marine New Materials Convergence Engineering at Korea Maritime & Ocean University, where he leads the EnerMAKER Lab (Advanced Energy Materials and Functional Devices Laboratory).",
-    "He received a B.S. in materials engineering from the University of Ulsan (2019) and a Ph.D. in materials science and engineering from Sungkyunkwan University (2024).",
-    "The official KMOU profile lists electronic ceramics, energy harvesting, and functional nanomaterials. Public themes include interfacial charge trapping in TENGs, high-output tribo-materials for harsh and humid environments, self-powered bioelectronic interfaces, 2D TMD and core-shell hybrids, and an LBM-DPM digital-twin platform for marine materials.",
-    "The UW-Madison collaboration recorded on a 2026 Science Advances paper and a 19 August 2026 College of Engineering release is kept as public co-authorship. Unpublished laboratory notes stay off this page."
+    "Jin-Kyeom Kim is an assistant professor in the Department of Marine New Materials Convergence Engineering at Korea Maritime & Ocean University, where he leads the EnerMAKER Lab.",
+    "He received a B.S. in materials engineering from the University of Ulsan in 2019 and a Ph.D. in materials science and engineering from Sungkyunkwan University in 2024.",
+    "The official KMOU profile lists electronic ceramics, energy harvesting, and functional nanomaterials. Based on the public record, the lab is positioned around interfacial charge trapping in TENGs, humidity- and harsh-environment tribomaterials, self-powered bio/healthcare devices, 2D TMD and core-shell hybrids, and LBM-DPM digital twins for marine-material design.",
+    "Unpublished lab notes and internal project information stay off the public page; the site exposes only publication, institution, and public-news level information."
   ],
-  "factsKo": [
-    "<strong>연구실</strong> 공학2관 416호",
-    "<strong>실험실</strong> EnerMAKER Lab · 종합연구관 302호",
-    "<strong>전화</strong> 051-410-4355 (연구실) · 051-410-4966 (실험실)",
-    "<strong>메일</strong> jingyeom0825@kmou.ac.kr",
-    "<strong>주소</strong> 부산광역시 영도구 태종로 727"
+  "labLoop": [
+    {"stepKo": "Design", "stepEn": "Design", "bodyKo": "문헌·물성·해양환경 조건으로 후보 소재와 구조를 정의합니다.", "bodyEn": "Define candidate materials and architectures from literature, properties, and marine operating conditions."},
+    {"stepKo": "Fabricate", "stepEn": "Fabricate", "bodyKo": "TENG, 나노섬유, 코어-쉘, 2D 소재 기반 소자를 제작합니다.", "bodyEn": "Fabricate TENG, nanofiber, core-shell, and 2D-material devices."},
+    {"stepKo": "Measure", "stepEn": "Measure", "bodyKo": "전기 출력, 감도, 습도 안정성, 생체/환경 응답을 측정합니다.", "bodyEn": "Measure output, sensitivity, humidity stability, and bio/environmental response."},
+    {"stepKo": "Model", "stepEn": "Model", "bodyKo": "LBM-DPM·데이터 기반 모델로 실험 전후 설계 공간을 압축합니다.", "bodyEn": "Compress the design space before and after experiments with LBM-DPM and data-driven models."},
+    {"stepKo": "Deploy", "stepEn": "Deploy", "bodyKo": "해양·헬스케어·환경 모니터링 시나리오로 검증합니다.", "bodyEn": "Validate in marine, healthcare, and environmental monitoring scenarios."}
   ],
-  "factsEn": [
-    "<strong>Office</strong> Engineering Building 2, Room 416",
-    "<strong>Lab</strong> EnerMAKER Lab · Research Building, Room 302",
-    "<strong>Phone</strong> +82-51-410-4355 (office) · +82-51-410-4966 (lab)",
-    "<strong>Email</strong> jingyeom0825@kmou.ac.kr",
-    "<strong>Address</strong> 727 Taejong-ro, Yeongdo-gu, Busan, Republic of Korea"
+  "research": [
+    {
+      "ko": "자가발전 에너지 하베스팅 소자",
+      "en": "Self-powered energy harvesting",
+      "detailKo": "마찰전기 나노발전기(TENG)의 계면 전하 트래핑, 임피던스 매칭, 다층 구조 설계. 해양·고습도·생체 내 등 극한환경 대응 고출력 대전 소재.",
+      "detailEn": "Interfacial charge trapping, impedance matching, and multilayer TENG design. High-output tribomaterials for marine, humid, and in-vivo environments.",
+      "signalKo": "전하 이동을 설계 변수로 바꾸는 축",
+      "signalEn": "Making charge transport a design variable",
+      "keywords": ["TENG", "charge trapping", "impedance", "humidity"]
+    },
+    {
+      "ko": "지능형 바이오메디컬 소자",
+      "en": "Intelligent bioelectronics",
+      "detailKo": "심혈관계 삽입형 자가발전 진단·치료 바이오 인터페이스. 자가발전 가스·압력 센서 기반 웨어러블 헬스케어.",
+      "detailEn": "Self-powered cardiovascular biointerfaces and wearable gas/pressure sensors for healthcare.",
+      "signalKo": "전원 부담을 낮추고 생체 신호를 읽는 소자",
+      "signalEn": "Reading biological signals with reduced power burden",
+      "keywords": ["bioelectronics", "wearable", "implantable", "sensing"]
+    },
+    {
+      "ko": "기능성 나노소재 합성",
+      "en": "Functional nanomaterials",
+      "detailKo": "2D 전이금속 칼코겐 화합물(TMDs), 코어-쉘 하이브리드, 양이온성 마이크로섬유 기반 스마트 정전기 필터.",
+      "detailEn": "2D TMDs, core-shell hybrids, and cationic microfiber triboelectric filters.",
+      "signalKo": "소재 계면과 표면전하를 조절하는 합성",
+      "signalEn": "Synthetic control over interfaces and surface charge",
+      "keywords": ["2D TMD", "core-shell", "nanofiber", "filter"]
+    },
+    {
+      "ko": "AI 기반 소재·소자 설계",
+      "en": "AI-driven materials and device design",
+      "detailKo": "LBM-DPM 디지털 트윈, 실험 DB, 역설계 모델을 연결해 해양환경에서 작동할 소재·소자 후보를 예측합니다.",
+      "detailEn": "Connects LBM-DPM digital twins, experimental databases, and inverse-design models to predict material-device candidates for marine environments.",
+      "signalKo": "실험을 줄이고 설계 속도를 높이는 AI 루프",
+      "signalEn": "An AI loop that reduces experiments and accelerates design",
+      "keywords": ["digital twin", "LBM-DPM", "inverse design", "AI for materials"]
+    }
+  ],
+  "demos": [
+    {"titleKo": "Charge-field landing demo", "titleEn": "Charge-field landing demo", "bodyKo": "첫 화면의 canvas는 TENG 전하 이동, 센서 노드, AI twin 루프를 추상화한 경량 데모입니다. 외부 라이브러리 없이 동작합니다.", "bodyEn": "The landing canvas abstracts TENG charge transport, sensor nodes, and the AI-twin loop. It runs without heavy external libraries.", "tag": "visual"},
+    {"titleKo": "Materials-to-model pipeline", "titleEn": "Materials-to-model pipeline", "bodyKo": "Design → Fabricate → Measure → Model → Deploy 흐름을 학생이 이해할 수 있는 연구실 운영 언어로 보여줍니다.", "bodyEn": "Shows Design → Fabricate → Measure → Model → Deploy as the lab's operating language for prospective students.", "tag": "pipeline"},
+    {"titleKo": "Public-record source ledger", "titleEn": "Public-record source ledger", "bodyKo": "교수소개, Scholar, ORCID, DOI, 기관 뉴스를 분리해 RAG로 관리하고 잘못된 프로필 회귀를 CI에서 막습니다.", "bodyEn": "Keeps faculty profile, Scholar, ORCID, DOI, and institution-news sources in RAG and blocks wrong-profile regressions in CI.", "tag": "rag"}
+  ],
+  "studentPaths": [
+    {"ko": "대학원생", "en": "Graduate students", "detailKo": "에너지 하베스팅, 바이오센서, 기능성 나노소재, AI/디지털 트윈을 연결한 논문형 프로젝트.", "detailEn": "Paper-oriented projects connecting energy harvesting, biosensors, nanomaterials, and AI/digital twins.", "ctaKo": "입학 전 관심 분야·경험·희망 연구축을 정리해 문의", "ctaEn": "Prepare interests, prior experience, and target research pillar before contacting"},
+    {"ko": "학부연구생", "en": "Undergraduate researchers", "detailKo": "제작, 측정, 데이터 정리, 문헌 RAG, 간단한 모델링부터 참여.", "detailEn": "Start from fabrication, measurement, data curation, literature RAG, and lightweight modeling.", "ctaKo": "한 학기 이상 지속 가능한 주제로 시작", "ctaEn": "Start with a topic that can continue for at least one semester"},
+    {"ko": "박사후·공동연구", "en": "Postdocs and collaborators", "detailKo": "TENG·나노소재·해양환경·디지털 트윈 교차 지점의 공개 실적 기반 협력.", "detailEn": "Public-record based collaboration across TENGs, nanomaterials, marine environments, and digital twins.", "ctaKo": "공동 논문/과제 관점에서 문의", "ctaEn": "Contact from a joint paper or project perspective"}
   ],
   "education": [
     {"year": "2019", "ko": "울산대학교 첨단소재공학과 재료공학전공 (공학사)", "en": "B.S., Materials Engineering, Dept. of Advanced Materials Engineering, University of Ulsan"},
@@ -64,32 +147,6 @@
     {"year": "2024–2026", "ko": "University of Wisconsin-Madison, Department of Materials Science & Engineering, Post-Doc.", "en": "Postdoctoral researcher, Materials Science & Engineering, University of Wisconsin-Madison"},
     {"year": "2026", "ko": "성균관대학교 기계기술연구소 박사후연구원", "en": "Postdoctoral researcher, Institute of Mechanical Technology, SKKU"},
     {"year": "2026–현재", "ko": "국립한국해양대학교 해양신소재융합공학과 조교수", "en": "Assistant Professor, Marine New Materials Convergence Engineering, KMOU"}
-  ],
-  "research": [
-    {
-      "ko": "자가발전 에너지 하베스팅 소자",
-      "en": "Self-powered energy harvesting",
-      "detailKo": "마찰전기 나노발전기(TENG)의 계면 전하 트래핑 및 다층 구조 설계. 해양·고습도·생체 내 등 극한환경 대응 고출력 대전 소재.",
-      "detailEn": "Interfacial charge trapping and multilayer TENG design. High-output tribo-materials for marine, humid, and in-vivo environments."
-    },
-    {
-      "ko": "지능형 바이오메디컬 소자",
-      "en": "Intelligent bioelectronics",
-      "detailKo": "심혈관계 삽입형 자가발전 진단·치료 바이오 인터페이스. 자가발전 가스·압력 센서 기반 웨어러블 헬스케어.",
-      "detailEn": "Self-powered cardiovascular bio-interfaces and wearable gas/pressure sensing for healthcare."
-    },
-    {
-      "ko": "기능성 나노소재 합성",
-      "en": "Functional nanomaterials",
-      "detailKo": "2D 전이금속 칼코겐 화합물(TMDs) 및 코어-션 하이브리드. 양이온성 마이크로섬유 기반 스마트 정전기 필터.",
-      "detailEn": "2D TMDs and core-shell hybrids. Cationic microfiber triboelectric filters for particulate removal."
-    },
-    {
-      "ko": "AI 기반 소재·소자 설계",
-      "en": "AI-driven materials design",
-      "detailKo": "LBM-DPM 디지털 트윈 기반 예측형 해양환경 소재·소자 설계 플랫폼.",
-      "detailEn": "LBM-DPM digital-twin platform for predictive marine materials and device design."
-    }
   ],
   "publications": [
     {"year": 2026, "title": "Self-sustaining leadless intracardiac pacemaker powered by triboelectric nanogenerator", "authors": "P. Chen, R. Wang, E. Schmuck, D. Wang, D. Modaff, T. Zhou, S. Osaki, W. Liu, F. Pan, J.-K. Kim, et al.", "venue": "Science Advances", "url": "https://doi.org/10.1126/sciadv.aef8903", "cites": 0, "role": "co-author"},
@@ -112,22 +169,21 @@
     {"year": 2024, "title": "Positively-charged body for triboelectric generator and triboelectric generator including the same", "authors": "J. M. Baik, J.-K. Kim", "venue": "US Patent 11,876,461", "url": "https://patents.google.com/patent/US11876461B2"},
     {"year": 2023, "title": "Core-shell structured positive charge electrified body structure and triboelectric generator using the same", "authors": "J.-K. Kim, R. Purbia, J. Y. Park, J. M. Baik", "venue": "KR Patent", "url": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ"}
   ],
+  "join": [
+    {"titleKo": "무엇을 배울 수 있나", "titleEn": "What students learn", "bodyKo": "소재 합성·소자 제작·전기/센서 측정·문헌 RAG·시뮬레이션/AI 모델링을 하나의 연구 루프로 연결합니다.", "bodyEn": "Connect synthesis, device fabrication, electrical/sensor measurements, literature RAG, and simulation/AI modeling into one research loop."},
+    {"titleKo": "잘 맞는 학생", "titleEn": "Good fit", "bodyKo": "재료공학 기반 위에 데이터 분석, Python, 물리 기반 모델링, 논문 구현을 함께 배우고 싶은 학생.", "bodyEn": "Students who want to combine materials engineering with data analysis, Python, physics-based modeling, and paper implementation."},
+    {"titleKo": "문의 전 준비", "titleEn": "Before contacting", "bodyKo": "관심 연구축, 읽은 논문 1편, 가능한 참여 기간, 본인 기술스택을 간단히 정리하면 상담 효율이 높습니다.", "bodyEn": "Prepare one target research pillar, one paper you read, your available period, and your current technical stack."}
+  ],
   "news": [
-    {"date": "2026-09-03", "ko": "국립한국해양대학교 해양신소재융합공학과 공식 교수소개(teaSn=5782)의 사진·약력·연구실·연구분야를 반영했습니다.", "en": "Official KMOU faculty profile (teaSn=5782) now drives the photo, CV, lab, and research themes.", "url": "https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782"},
+    {"date": "2026-09-03", "ko": "AI 연구실 벤치마크 RAG를 반영해 동적 랜딩 페이지와 학생 모집 흐름을 재설계했습니다.", "en": "Rebuilt the landing page and student-recruitment flow from the AI-lab website benchmark RAG."},
+    {"date": "2026-09-03", "ko": "국립한국해양대학교 해양신소재융합공학과 공식 교수소개(teaSn=5782)의 사진·약력·연구실·연구분야를 반영했습니다.", "en": "Official KMOU faculty profile (teaSn=5782) now anchors the photo, CV, lab, and research themes.", "url": "https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782"},
     {"date": "2026-08-19", "ko": "UW-Madison 공대: 심장 박동으로 스스로 충전하는 리드리스 심박조율기. Science Advances 공저.", "en": "UW-Madison Engineering: a leadless pacemaker powered by the heartbeat. Science Advances co-author.", "url": "https://engineering.wisc.edu/news/engineers-pioneer-a-pacemaker-that-can-power-itself/"}
   ],
-  "contactKo": [
-    "<strong>소속</strong> 국립한국해양대학교 해양신소재융합공학과",
-    "<strong>연구실</strong> 공학2관 416호 · 051-410-4355",
-    "<strong>실험실</strong> 첨단 에너지소재 및 기능성 소자 실험실 (EnerMAKER Lab) · 종합연구관 302호 · 051-410-4966",
-    "<strong>전자우편</strong> <a href=\"mailto:jingyeom0825@kmou.ac.kr\">jingyeom0825@kmou.ac.kr</a>",
-    "<strong>교수소개</strong> <a href=\"https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782\">kmou.ac.kr · teaSn=5782</a>"
-  ],
-  "contactEn": [
-    "<strong>Affiliation</strong> Dept. of Marine New Materials Convergence Engineering, KMOU",
-    "<strong>Office</strong> Engineering Building 2, Room 416 · +82-51-410-4355",
-    "<strong>Lab</strong> EnerMAKER Lab · Comprehensive Research Building 302 · +82-51-410-4966",
-    "<strong>Email</strong> <a href=\"mailto:jingyeom0825@kmou.ac.kr\">jingyeom0825@kmou.ac.kr</a>",
-    "<strong>Faculty page</strong> <a href=\"https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782\">kmou.ac.kr · teaSn=5782</a>"
+  "sources": [
+    {"label": "KMOU faculty page teaSn=5782", "url": "https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782", "noteKo": "소속, 연구실, 실험실, 전공, 사진", "noteEn": "Affiliation, office, lab, fields, photo"},
+    {"label": "Google Scholar k4WJ_DMAAAAJ", "url": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ", "noteKo": "논문 목록과 인용 스냅샷", "noteEn": "Publication list and citation snapshot"},
+    {"label": "ORCID 0000-0003-0824-2373", "url": "https://orcid.org/0000-0003-0824-2373", "noteKo": "연구자 식별자", "noteEn": "Researcher identifier"},
+    {"label": "UW-Madison Engineering news", "url": "https://engineering.wisc.edu/news/engineers-pioneer-a-pacemaker-that-can-power-itself/", "noteKo": "Science Advances 공저 관련 공개 뉴스", "noteEn": "Public news for Science Advances co-authorship"},
+    {"label": "AI lab website benchmark RAG", "noteKo": "비공개 원본 레포의 내부 관리 기준. 공개 페이지에는 기준명만 표시합니다.", "noteEn": "Internal benchmark in the private source repository; the public page shows the criterion name only."}
   ]
 }

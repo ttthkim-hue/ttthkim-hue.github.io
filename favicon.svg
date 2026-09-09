@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0d6efd"/>
-  <text x="16" y="22" text-anchor="middle" font-size="14" font-family="Georgia" fill="#fff">E</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="EnerMAKER">
+  <rect width="64" height="64" rx="16" fill="#0f172a"/>
+  <path d="M15 42h34v6H15zM18 16h28v6H25v8h18v6H25v6h-7z" fill="#7dd3fc"/>
+  <circle cx="47" cy="19" r="5" fill="#5eead4"/>
 </svg>
