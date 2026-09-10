@@ -30,6 +30,61 @@ function icon(className) {
 }
 
 const PILLAR_MOTIFS = ["teng", "bio", "nano", "ai"];
+const VENDORED_VISUALS = {
+  hero: "./assets/visuals/hero-busan-harbor.jpg",
+  pillars: [
+    "./assets/visuals/pillar-energy-wave.jpg",
+    "./assets/visuals/pillar-bio-neuron.png",
+    "./assets/visuals/pillar-nano-nist.jpg",
+    "./assets/visuals/pillar-ai-pcb.jpg"
+  ],
+  demos: [
+    "./assets/visuals/pillar-energy-wave.jpg",
+    "./assets/visuals/pillar-bio-neuron.png",
+    "./assets/visuals/pillar-nano-nist.jpg"
+  ]
+};
+const REPRESENTATIVE_IMAGE_DISCLOSURE = {
+  ko: "아래 이미지는 EnerMAKER Lab 실험 결과가 아닌, 연구 맥락을 돕는 대표·장식용 공개 도메인 자료입니다.",
+  en: "Images below are representative, decorative public-domain visuals — not EnerMAKER Lab experimental outputs."
+};
+const VISUAL_CREDITS = [
+  {
+    file: "hero-busan-harbor.jpg",
+    labelKo: "부산 항만 (히어로)",
+    labelEn: "Busan harbor (hero)",
+    url: "https://commons.wikimedia.org/wiki/File:Busan_Harbor_Bridge_20180923_1050_(3787044).jpg",
+    license: "CC0 1.0"
+  },
+  {
+    file: "pillar-energy-wave.jpg",
+    labelKo: "해양 에너지 (에너지 하베스팅 축)",
+    labelEn: "Ocean energy (harvesting pillar)",
+    url: "https://commons.wikimedia.org/wiki/File:Giant_ocean_wave.jpg",
+    license: "CC0 1.0"
+  },
+  {
+    file: "pillar-bio-neuron.png",
+    labelKo: "신경 세포 (바이오전자 축)",
+    labelEn: "Neuron (bioelectronics pillar)",
+    url: "https://commons.wikimedia.org/wiki/File:GnRH_Neuron.png",
+    license: "U.S. Federal Government work / Public Domain"
+  },
+  {
+    file: "pillar-nano-nist.jpg",
+    labelKo: "나노입자 (기능성 나노소재 축)",
+    labelEn: "Nanoparticles (nanomaterials pillar)",
+    url: "https://commons.wikimedia.org/wiki/File:Nanoparticles_(5978097147).jpg",
+    license: "U.S. NIST / Public Domain"
+  },
+  {
+    file: "pillar-ai-pcb.jpg",
+    labelKo: "전자 회로 (AI·전자 축)",
+    labelEn: "PCB circuitry (AI/electronics pillar)",
+    url: "https://commons.wikimedia.org/wiki/File:Electronics_PCB_circuit_board_001_(51131861296).jpg",
+    license: "CC0 1.0"
+  }
+];
 const LOOP_ICONS = [
   "bi bi-bezier2",
   "bi bi-layers",
@@ -37,52 +92,27 @@ const LOOP_ICONS = [
   "bi bi-cpu",
   "bi bi-send"
 ];
+const METRIC_ICONS = [
+  "bi bi-graph-up-arrow",
+  "bi bi-bar-chart-line",
+  "bi bi-journal-text",
+  "bi bi-grid-3x3-gap",
+  "bi bi-mortarboard"
+];
+const PATHWAY_ICONS = [
+  "bi bi-tools",
+  "bi bi-speedometer2",
+  "bi bi-diagram-3"
+];
+const DEMO_VISUAL_CLASSES = ["demo-card-visual--visual", "demo-card-visual--pipeline", "demo-card-visual--rag"];
 
-function svgEl(svgMarkup) {
-  const doc = new DOMParser().parseFromString(svgMarkup.trim(), "image/svg+xml");
-  return doc.documentElement;
-}
-
-function pillarMotifSvg(motif) {
-  const motifs = {
-    teng: `<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M0 200 Q80 160 160 180 T320 150 T400 170" fill="none" stroke="rgba(24,168,224,0.5)" stroke-width="2"/>
-      <path d="M0 220 Q100 190 200 200 T400 190" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
-      <circle cx="120" cy="100" r="40" fill="none" stroke="rgba(24,168,224,0.35)" stroke-width="1.5"/>
-      <circle cx="120" cy="100" r="18" fill="rgba(24,168,224,0.2)"/>
-      <path d="M280 60 L320 100 L280 140 L240 100 Z" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
-    </svg>`,
-    bio: `<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M60 180 Q120 120 180 150 T300 110 T360 140" fill="none" stroke="rgba(62,200,240,0.45)" stroke-width="2"/>
-      <path d="M60 200 Q140 160 220 175 T360 155" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
-      <ellipse cx="200" cy="90" rx="70" ry="35" fill="none" stroke="rgba(62,200,240,0.3)" stroke-width="1.2"/>
-      <circle cx="200" cy="90" r="6" fill="rgba(62,200,240,0.5)"/>
-    </svg>`,
-    nano: `<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <g fill="rgba(255,255,255,0.35)">
-        <circle cx="80" cy="70" r="2"/><circle cx="110" cy="55" r="1.5"/><circle cx="140" cy="80" r="2"/>
-        <circle cx="170" cy="60" r="1.5"/><circle cx="200" cy="75" r="2"/><circle cx="230" cy="50" r="1.5"/>
-        <circle cx="260" cy="70" r="2"/><circle cx="290" cy="55" r="1.5"/><circle cx="320" cy="80" r="2"/>
-        <circle cx="100" cy="110" r="1.5"/><circle cx="130" cy="100" r="2"/><circle cx="160" cy="120" r="1.5"/>
-        <circle cx="190" cy="105" r="2"/><circle cx="220" cy="115" r="1.5"/><circle cx="250" cy="95" r="2"/>
-        <circle cx="280" cy="110" r="1.5"/><circle cx="310" cy="100" r="2"/>
-      </g>
-      <circle cx="200" cy="160" r="50" fill="none" stroke="rgba(24,168,224,0.3)" stroke-width="1.2"/>
-    </svg>`,
-    ai: `<svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="200" cy="100" r="8" fill="rgba(24,168,224,0.6)"/>
-      <circle cx="120" cy="70" r="4" fill="rgba(255,255,255,0.4)"/>
-      <circle cx="280" cy="70" r="4" fill="rgba(255,255,255,0.4)"/>
-      <circle cx="100" cy="140" r="4" fill="rgba(255,255,255,0.35)"/>
-      <circle cx="300" cy="140" r="4" fill="rgba(255,255,255,0.35)"/>
-      <line x1="200" y1="100" x2="120" y2="70" stroke="rgba(24,168,224,0.3)" stroke-width="0.8"/>
-      <line x1="200" y1="100" x2="280" y2="70" stroke="rgba(24,168,224,0.3)" stroke-width="0.8"/>
-      <line x1="200" y1="100" x2="100" y2="140" stroke="rgba(24,168,224,0.25)" stroke-width="0.8"/>
-      <line x1="200" y1="100" x2="300" y2="140" stroke="rgba(24,168,224,0.25)" stroke-width="0.8"/>
-      <ellipse cx="200" cy="100" rx="90" ry="60" fill="none" stroke="rgba(24,168,224,0.15)" stroke-width="1"/>
-    </svg>`
-  };
-  return svgEl(motifs[motif] || motifs.teng);
+function decorativeImage(src, className, eager) {
+  const node = make("img", className || "");
+  node.src = src;
+  node.alt = "";
+  node.decoding = "async";
+  node.loading = eager ? "eager" : "lazy";
+  return node;
 }
 
 function link(label, href, className) {
@@ -281,6 +311,7 @@ function render() {
   }
 
   renderHeroActions();
+  renderHeroProcessRibbon();
   renderMetrics();
   renderInquiryBand();
   renderSignalCards();
@@ -293,6 +324,7 @@ function render() {
   renderJoin();
   renderContact();
   renderFooter();
+  renderVisualCredits();
   renderYearChips();
   renderPubs();
 }
@@ -307,6 +339,21 @@ function renderHeroActions() {
   );
 }
 
+function renderHeroProcessRibbon() {
+  const node = clear(byId("heroProcessRibbon"));
+  if (!node) return;
+  const steps = arr(state.data?.labLoop).map((item) => t(item.stepKo, item.stepEn));
+  if (!steps.length) return;
+  steps.forEach((step, index) => {
+    const li = make("li", "");
+    li.appendChild(make("span", "ribbon-step", step));
+    if (index < steps.length - 1) {
+      li.appendChild(make("span", "ribbon-arrow", "→"));
+    }
+    node.appendChild(li);
+  });
+}
+
 function renderMetrics() {
   const node = clear(byId("metricStrip"));
   const d = state.data || {};
@@ -315,14 +362,17 @@ function renderMetrics() {
   [
     [String(m.citations ?? "–"), t("인용", "citations")],
     [String(m.hIndex ?? "–"), "h-index"],
+    [String(m.i10 ?? "–"), "i10-index"],
     [String(arr(d.publications).length), t("공개 논문", "public records")],
-    [String(arr(d.research).length), t("연구축", "pillars")]
-  ].forEach(([value, label]) => {
+    ["KMOU", t("소속", "affiliation")]
+  ].forEach(([value, label], index) => {
     const item = make("div", "metric-item");
     item.setAttribute("role", "listitem");
+    const iconEl = make("span", "metric-icon");
+    iconEl.appendChild(icon(METRIC_ICONS[index] || "bi bi-circle"));
     const pair = make("dl", "metric-pair");
     pair.append(make("dt", "", value), make("dd", "", label));
-    item.appendChild(pair);
+    item.append(iconEl, pair);
     node.appendChild(item);
   });
 }
@@ -336,9 +386,12 @@ function renderInquiryBand() {
   text("inquiryCtaLabel", t("문의 안내", "Inquiry guide"));
   const node = clear(byId("inquiryPathways"));
   if (!node) return;
-  arr(state.data?.studentPaths).slice(0, 3).forEach((item) => {
+  arr(state.data?.studentPaths).slice(0, 3).forEach((item, index) => {
     const card = make("article", "pathway-card");
+    const iconWrap = make("span", "pathway-icon");
+    iconWrap.appendChild(icon(PATHWAY_ICONS[index] || "bi bi-chat-dots"));
     card.append(
+      iconWrap,
       make("h3", "", t(item.ko, item.en)),
       make("p", "", t(item.detailKo, item.detailEn))
     );
@@ -390,7 +443,7 @@ function renderResearch() {
     const compact = link("", "#/research", `pillar-card pillar-card--${motif}`);
     compact.setAttribute("aria-label", t(item.ko, item.en));
     const visual = make("div", "pillar-visual");
-    visual.appendChild(pillarMotifSvg(motif));
+    visual.appendChild(decorativeImage(VENDORED_VISUALS.pillars[index], "", false));
     compact.append(visual, make("div", "pillar-overlay"));
     const content = make("div", "pillar-content");
     content.append(
@@ -416,9 +469,17 @@ function renderResearch() {
 function renderDemos() {
   const node = clear(byId("demoDeck"));
   if (!node) return;
-  arr(state.data?.demos).forEach((demo) => {
+  arr(state.data?.demos).forEach((demo, index) => {
     const article = make("article", "demo-card");
-    article.append(make("span", "pill", demo.tag || "demo"), make("h3", "", t(demo.titleKo, demo.titleEn)), make("p", "", t(demo.bodyKo, demo.bodyEn)));
+    const visual = make("div", `demo-card-visual ${DEMO_VISUAL_CLASSES[index] || "demo-card-visual--visual"}`);
+    visual.appendChild(decorativeImage(VENDORED_VISUALS.demos[index] || VENDORED_VISUALS.pillars[0], "", false));
+    const body = make("div", "demo-card-body");
+    body.append(
+      make("span", "pill", demo.tag || "demo"),
+      make("h3", "", t(demo.titleKo, demo.titleEn)),
+      make("p", "", t(demo.bodyKo, demo.bodyEn))
+    );
+    article.append(visual, body);
     node.appendChild(article);
   });
 }
@@ -547,10 +608,28 @@ function renderContact() {
   }
 }
 
+function renderVisualCredits() {
+  text("visualCreditsSummary", t("대표 이미지 출처", "Representative imagery credits"));
+  text("visualCreditsNote", t(REPRESENTATIVE_IMAGE_DISCLOSURE.ko, REPRESENTATIVE_IMAGE_DISCLOSURE.en));
+  const list = clear(byId("visualCreditsList"));
+  if (!list) return;
+  VISUAL_CREDITS.forEach((credit) => {
+    const li = make("li", "");
+    const anchor = link(t(credit.labelKo, credit.labelEn), credit.url, "");
+    anchor.target = externalAttrs.target;
+    anchor.rel = externalAttrs.rel;
+    li.append(anchor, make("span", "credit-license", ` · ${credit.license}`));
+    list.appendChild(li);
+  });
+}
+
 function renderFooter() {
   const d = state.data || {};
   const p = d.person || {};
+  text("footerTagline", t(d.taglineKo, d.taglineEn));
   text("footerDept", t(p.deptKo, p.deptEn));
+  const addressFact = arr(d.facts).find((fact) => /주소|Address/i.test(`${fact.labelKo} ${fact.labelEn}`));
+  text("footerAddress", addressFact ? t(addressFact.valueKo, addressFact.valueEn) : "");
 
   const nav = clear(byId("footerNav"));
   if (nav) {

@@ -79,34 +79,56 @@
       <section class="view on home-view" data-view="/">
         <section class="hero-landing" aria-label="Lab introduction">
           <div class="hero-backdrop" aria-hidden="true">
+            <img
+              class="hero-photo"
+              src="./assets/visuals/hero-busan-harbor.jpg"
+              alt=""
+              width="1920"
+              height="1080"
+              decoding="async"
+              fetchpriority="high">
+            <div class="hero-mesh"></div>
             <canvas id="fieldCanvas"></canvas>
             <div class="hero-orbit-svg">
-              <svg viewBox="0 0 800 520" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 960 520" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <radialGradient id="heroGlow" cx="70%" cy="40%" r="55%">
-                    <stop offset="0%" stop-color="#18a8e0" stop-opacity="0.45"/>
-                    <stop offset="55%" stop-color="#0d63ad" stop-opacity="0.18"/>
+                  <radialGradient id="heroGlow" cx="72%" cy="38%" r="58%">
+                    <stop offset="0%" stop-color="#18a8e0" stop-opacity="0.55"/>
+                    <stop offset="45%" stop-color="#0d63ad" stop-opacity="0.22"/>
+                    <stop offset="100%" stop-color="#041d36" stop-opacity="0"/>
+                  </radialGradient>
+                  <radialGradient id="heroTwin" cx="68%" cy="55%" r="35%">
+                    <stop offset="0%" stop-color="#3ec8f0" stop-opacity="0.18"/>
                     <stop offset="100%" stop-color="#041d36" stop-opacity="0"/>
                   </radialGradient>
                   <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0%" stop-color="#18a8e0" stop-opacity="0"/>
-                    <stop offset="50%" stop-color="#18a8e0" stop-opacity="0.35"/>
+                    <stop offset="50%" stop-color="#18a8e0" stop-opacity="0.42"/>
                     <stop offset="100%" stop-color="#18a8e0" stop-opacity="0"/>
                   </linearGradient>
+                  <linearGradient id="oceanDepth" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#18a8e0" stop-opacity="0.08"/>
+                    <stop offset="100%" stop-color="#041d36" stop-opacity="0"/>
+                  </linearGradient>
                 </defs>
-                <rect width="800" height="520" fill="url(#heroGlow)"/>
-                <ellipse cx="580" cy="260" rx="220" ry="180" fill="none" stroke="#18a8e0" stroke-width="0.8" opacity="0.25"/>
-                <ellipse cx="580" cy="260" rx="160" ry="130" fill="none" stroke="#18a8e0" stroke-width="0.6" opacity="0.18"/>
-                <ellipse cx="580" cy="260" rx="100" ry="80" fill="none" stroke="#18a8e0" stroke-width="0.5" opacity="0.12"/>
-                <path d="M420 380 Q520 340 620 360 T780 350" fill="none" stroke="url(#waveGrad)" stroke-width="2"/>
-                <path d="M440 420 Q540 390 640 400 T800 395" fill="none" stroke="url(#waveGrad)" stroke-width="1.2" opacity="0.6"/>
-                <circle cx="520" cy="180" r="3" fill="#18a8e0" opacity="0.7"/>
-                <circle cx="640" cy="220" r="2.5" fill="#18a8e0" opacity="0.5"/>
-                <circle cx="700" cy="160" r="2" fill="#18a8e0" opacity="0.4"/>
-                <circle cx="560" cy="300" r="2.5" fill="#18a8e0" opacity="0.55"/>
-                <line x1="520" y1="180" x2="640" y2="220" stroke="#18a8e0" stroke-width="0.5" opacity="0.2"/>
-                <line x1="640" y1="220" x2="700" y2="160" stroke="#18a8e0" stroke-width="0.5" opacity="0.15"/>
-                <line x1="520" y1="180" x2="560" y2="300" stroke="#18a8e0" stroke-width="0.5" opacity="0.18"/>
+                <rect width="960" height="520" fill="url(#heroGlow)"/>
+                <rect width="960" height="520" fill="url(#heroTwin)"/>
+                <ellipse cx="640" cy="250" rx="240" ry="195" fill="none" stroke="#18a8e0" stroke-width="0.9" opacity="0.28"/>
+                <ellipse cx="640" cy="250" rx="175" ry="140" fill="none" stroke="#18a8e0" stroke-width="0.65" opacity="0.2"/>
+                <ellipse cx="640" cy="250" rx="110" ry="88" fill="none" stroke="#3ec8f0" stroke-width="0.5" opacity="0.15"/>
+                <path d="M400 370 Q520 330 640 350 T880 340" fill="none" stroke="url(#waveGrad)" stroke-width="2.2"/>
+                <path d="M420 410 Q540 375 660 390 T900 385" fill="none" stroke="url(#waveGrad)" stroke-width="1.4" opacity="0.65"/>
+                <path d="M440 450 Q560 430 680 440 T920 435" fill="none" stroke="url(#waveGrad)" stroke-width="0.9" opacity="0.35"/>
+                <circle cx="560" cy="170" r="3.5" fill="#18a8e0" opacity="0.75"/>
+                <circle cx="700" cy="210" r="2.8" fill="#3ec8f0" opacity="0.6"/>
+                <circle cx="760" cy="150" r="2.2" fill="#18a8e0" opacity="0.45"/>
+                <circle cx="600" cy="290" r="2.8" fill="#f0b429" opacity="0.5"/>
+                <circle cx="820" cy="260" r="2" fill="#18a8e0" opacity="0.35"/>
+                <line x1="560" y1="170" x2="700" y2="210" stroke="#18a8e0" stroke-width="0.6" opacity="0.22"/>
+                <line x1="700" y1="210" x2="760" y2="150" stroke="#18a8e0" stroke-width="0.5" opacity="0.16"/>
+                <line x1="560" y1="170" x2="600" y2="290" stroke="#18a8e0" stroke-width="0.5" opacity="0.2"/>
+                <line x1="700" y1="210" x2="820" y2="260" stroke="#3ec8f0" stroke-width="0.4" opacity="0.14"/>
+                <rect x="500" y="80" width="360" height="360" fill="url(#oceanDepth)" rx="180"/>
               </svg>
             </div>
             <div class="hero-scrim"></div>
@@ -116,6 +138,7 @@
               <p class="eyebrow hero-eyebrow" id="statusLine">김진겸 · EnerMAKER Lab · KMOU</p>
               <h1 id="heroTitle">소재가 에너지를 만들고, AI가 소자를 설계하는 연구실</h1>
               <p class="hero-en" id="heroWhy">Self-powered intelligent materials, devices, and AI-driven marine digital twins.</p>
+              <ol class="hero-process-ribbon" id="heroProcessRibbon" aria-label="Research operating loop"></ol>
               <p class="hero-lead" id="heroLead">EnerMAKER Lab은 TENG 에너지 하베스팅, 자가발전 바이오·환경 센서, 기능성 나노소재, LBM-DPM 기반 디지털 트윈을 연결해 해양·생체 환경에서 작동하는 지능형 소재 시스템을 만듭니다.</p>
               <div class="hero-actions" id="heroActions">
                 <a class="primary-link" href="#/research">연구 보기 <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
@@ -318,10 +341,12 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-brand">
-          <span class="brand-mark footer-mark">EM</span>
+          <span class="brand-mark footer-mark" aria-hidden="true">EM</span>
           <div>
             <strong class="footer-lab-name">EnerMAKER Lab</strong>
+            <p class="footer-tagline" id="footerTagline"></p>
             <p class="footer-lab-dept" id="footerDept"></p>
+            <p class="footer-address" id="footerAddress"></p>
           </div>
         </div>
         <nav class="footer-nav" id="footerNav" aria-label="Footer navigation"></nav>
@@ -330,6 +355,11 @@
       <div class="footer-bottom">
         <p id="updated"></p>
         <p id="sourceNote"></p>
+        <details class="visual-credits" id="visualCredits">
+          <summary id="visualCreditsSummary">Representative imagery credits</summary>
+          <p class="visual-credits-note" id="visualCreditsNote"></p>
+          <ul class="visual-credits-list" id="visualCreditsList"></ul>
+        </details>
       </div>
     </footer>
   </div>
