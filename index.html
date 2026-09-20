@@ -1,36 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EnerMAKER Lab · Jin-Kyeom Kim · KMOU</title>
-  <meta name="description" content="EnerMAKER Lab at Korea Maritime & Ocean University: self-powered energy materials, TENGs, bioelectronics, functional nanomaterials, and AI-driven marine digital twins.">
-  <meta property="og:title" content="EnerMAKER Lab · Jin-Kyeom Kim">
-  <meta property="og:description" content="Self-powered intelligent materials, devices, and AI-driven marine digital twins.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>EnerMAKER Lab &#183; Jin-Kyeom Kim &#183; KMOU</title>
+  <meta name="description" content="EnerMAKER Lab at Korea Maritime & Ocean University. Triboelectric energy harvesting, self-powered sensing, functional nanomaterials, bioelectronics, and computational materials design.">
+  <meta property="og:title" content="EnerMAKER Lab &#183; Jin-Kyeom Kim">
+  <meta property="og:description" content="Energy-harvesting materials and functional devices.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ttthkim-hue.github.io/">
   <link rel="canonical" href="https://ttthkim-hue.github.io/">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Jin-Kyeom Kim",
-    "alternateName": "김진겸",
-    "jobTitle": "Assistant Professor",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Korea Maritime & Ocean University"
-    },
-    "email": "mailto:jingyeom0825@kmou.ac.kr",
-    "url": "https://ttthkim-hue.github.io/",
-    "sameAs": [
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Jin-Kyeom Kim",
+    "alternateName":"Kim Jin-Kyeom",
+    "jobTitle":"Assistant Professor",
+    "affiliation":{"@type":"CollegeOrUniversity","name":"Korea Maritime & Ocean University"},
+    "email":"mailto:jingyeom0825@kmou.ac.kr",
+    "url":"https://ttthkim-hue.github.io/",
+    "sameAs":[
       "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ",
       "https://orcid.org/0000-0003-0824-2373"
     ]
@@ -38,335 +33,206 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#top">Skip to content</a>
-  <div class="site-shell">
-    <header class="site-nav">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
       <a class="brand" href="#/" aria-label="EnerMAKER Lab home">
-        <svg class="brand-mark-svg" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
-          <circle cx="18" cy="18" r="17" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
-          <path d="M8 18c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-          <path d="M18 8v20M8 18h20" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
-        </svg>
-        <span class="brand-copy">
-          <span class="brand-text">EnerMAKER Lab</span>
-          <span class="brand-subtitle" id="brandSubtitle">KMOU · Marine Materials</span>
-        </span>
+        <span class="brand-name">EnerMAKER Lab</span>
+        <span class="brand-meta">Jin-Kyeom Kim &#183; KMOU</span>
       </a>
-      <nav id="menu" aria-label="Primary navigation">
-        <a href="#/" data-route="/">Home</a>
-        <a href="#/research" data-route="/research">Research</a>
-        <a href="#/publications" data-route="/publications">Publications</a>
-        <a href="#/pi" data-route="/pi">PI</a>
-        <a href="#/join" data-route="/join">Inquiry</a>
-        <a href="#/news" data-route="/news">News</a>
-        <a href="#/contact" data-route="/contact">Contact</a>
+      <button id="menuBtn" class="menu-button" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      <nav id="navLinks" class="nav-links" aria-label="Primary navigation">
+        <a id="nav-home" href="#/" data-route="/"></a>
+        <a id="nav-research" href="#/research" data-route="/research"></a>
+        <a id="nav-publications" href="#/publications" data-route="/publications"></a>
+        <a id="nav-pi" href="#/pi" data-route="/pi"></a>
+        <a id="nav-news" href="#/news" data-route="/news"></a>
+        <a id="nav-inquiry" href="#/inquiry" data-route="/inquiry"></a>
+        <a id="nav-contact" href="#/contact" data-route="/contact"></a>
       </nav>
-      <div class="nav-end">
-        <a class="institution-mark" href="https://www.kmou.ac.kr/" target="_blank" rel="noopener noreferrer" aria-label="Korea Maritime and Ocean University">
-          <span class="institution-abbr">KMOU</span>
-          <span class="institution-name">한국해양대</span>
-        </a>
-        <div class="nav-tools">
-          <a class="icon-btn" href="#/publications" aria-label="Search publications"><i class="bi bi-search"></i></a>
-          <button id="langBtn" type="button" class="icon-btn" aria-label="Switch language">EN</button>
-          <button id="themeBtn" type="button" class="icon-btn" aria-label="Switch theme"><i class="bi bi-moon"></i></button>
-          <button id="menuBtn" type="button" class="icon-btn menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i class="bi bi-list"></i></button>
+      <button id="langBtn" class="lang-button" type="button" aria-label="Switch language">EN</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="view home-view" data-view="/">
+      <section class="hero">
+        <div class="hero-copy reveal shown">
+          <p id="heroKicker" class="kicker"></p>
+          <h1 id="heroTitle">Materials that harvest energy. Devices that sense their environment.</h1>
+          <p id="heroLead" class="hero-lead"></p>
+          <p id="heroAffiliation" class="hero-affiliation"></p>
+          <div class="hero-actions">
+            <a id="heroExplore" class="button primary" href="#/research"></a>
+            <a id="heroPapers" class="button text-button" href="#/publications"></a>
+          </div>
         </div>
-      </div>
-    </header>
-
-    <main id="top">
-      <section class="view on home-view" data-view="/">
-        <section class="hero-landing" aria-label="Lab introduction">
-          <div class="hero-backdrop" aria-hidden="true">
-            <img
-              class="hero-photo"
-              src="./assets/visuals/hero-busan-harbor.jpg"
-              alt=""
-              width="1920"
-              height="1080"
-              decoding="async"
-              fetchpriority="high">
-            <div class="hero-mesh"></div>
-            <canvas id="fieldCanvas"></canvas>
-            <div class="hero-orbit-svg">
-              <svg viewBox="0 0 960 520" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="heroGlow" cx="72%" cy="38%" r="58%">
-                    <stop offset="0%" stop-color="#18a8e0" stop-opacity="0.55"/>
-                    <stop offset="45%" stop-color="#0d63ad" stop-opacity="0.22"/>
-                    <stop offset="100%" stop-color="#041d36" stop-opacity="0"/>
-                  </radialGradient>
-                  <radialGradient id="heroTwin" cx="68%" cy="55%" r="35%">
-                    <stop offset="0%" stop-color="#3ec8f0" stop-opacity="0.18"/>
-                    <stop offset="100%" stop-color="#041d36" stop-opacity="0"/>
-                  </radialGradient>
-                  <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#18a8e0" stop-opacity="0"/>
-                    <stop offset="50%" stop-color="#18a8e0" stop-opacity="0.42"/>
-                    <stop offset="100%" stop-color="#18a8e0" stop-opacity="0"/>
-                  </linearGradient>
-                  <linearGradient id="oceanDepth" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#18a8e0" stop-opacity="0.08"/>
-                    <stop offset="100%" stop-color="#041d36" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <rect width="960" height="520" fill="url(#heroGlow)"/>
-                <rect width="960" height="520" fill="url(#heroTwin)"/>
-                <ellipse cx="640" cy="250" rx="240" ry="195" fill="none" stroke="#18a8e0" stroke-width="0.9" opacity="0.28"/>
-                <ellipse cx="640" cy="250" rx="175" ry="140" fill="none" stroke="#18a8e0" stroke-width="0.65" opacity="0.2"/>
-                <ellipse cx="640" cy="250" rx="110" ry="88" fill="none" stroke="#3ec8f0" stroke-width="0.5" opacity="0.15"/>
-                <path d="M400 370 Q520 330 640 350 T880 340" fill="none" stroke="url(#waveGrad)" stroke-width="2.2"/>
-                <path d="M420 410 Q540 375 660 390 T900 385" fill="none" stroke="url(#waveGrad)" stroke-width="1.4" opacity="0.65"/>
-                <path d="M440 450 Q560 430 680 440 T920 435" fill="none" stroke="url(#waveGrad)" stroke-width="0.9" opacity="0.35"/>
-                <circle cx="560" cy="170" r="3.5" fill="#18a8e0" opacity="0.75"/>
-                <circle cx="700" cy="210" r="2.8" fill="#3ec8f0" opacity="0.6"/>
-                <circle cx="760" cy="150" r="2.2" fill="#18a8e0" opacity="0.45"/>
-                <circle cx="600" cy="290" r="2.8" fill="#f0b429" opacity="0.5"/>
-                <circle cx="820" cy="260" r="2" fill="#18a8e0" opacity="0.35"/>
-                <line x1="560" y1="170" x2="700" y2="210" stroke="#18a8e0" stroke-width="0.6" opacity="0.22"/>
-                <line x1="700" y1="210" x2="760" y2="150" stroke="#18a8e0" stroke-width="0.5" opacity="0.16"/>
-                <line x1="560" y1="170" x2="600" y2="290" stroke="#18a8e0" stroke-width="0.5" opacity="0.2"/>
-                <line x1="700" y1="210" x2="820" y2="260" stroke="#3ec8f0" stroke-width="0.4" opacity="0.14"/>
-                <rect x="500" y="80" width="360" height="360" fill="url(#oceanDepth)" rx="180"/>
-              </svg>
-            </div>
-            <div class="hero-scrim"></div>
+        <figure class="hero-media reveal shown">
+          <div class="hero-photo-wrap">
+            <img class="hero-photo" src="./assets/visuals/hero-busan-harbor.jpg" alt="" width="1920" height="1080" decoding="async" fetchpriority="high">
           </div>
-          <div class="home-container hero-inner">
-            <div class="hero-copy">
-              <p class="eyebrow hero-eyebrow" id="statusLine">김진겸 · EnerMAKER Lab · KMOU</p>
-              <h1 id="heroTitle">소재가 에너지를 만들고, AI가 소자를 설계하는 연구실</h1>
-              <p class="hero-en" id="heroWhy">Self-powered intelligent materials, devices, and AI-driven marine digital twins.</p>
-              <ol class="hero-process-ribbon" id="heroProcessRibbon" aria-label="Research operating loop"></ol>
-              <p class="hero-lead" id="heroLead">EnerMAKER Lab은 TENG 에너지 하베스팅, 자가발전 바이오·환경 센서, 기능성 나노소재, LBM-DPM 기반 디지털 트윈을 연결해 해양·생체 환경에서 작동하는 지능형 소재 시스템을 만듭니다.</p>
-              <div class="hero-actions" id="heroActions">
-                <a class="primary-link" href="#/research">연구 보기 <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-                <a class="secondary-link" href="#/join">연구·협력 문의 <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-                <a class="text-link" href="#/publications" id="heroPubLink">논문 검색</a>
-              </div>
-            </div>
-            <div class="hero-visual-panel" aria-label="Research signal cards">
-              <div id="signalCards" class="signal-cards"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="credentials-strip" aria-label="Public record credentials">
-          <div class="home-container">
-            <div class="credentials-card">
-              <div class="metrics" id="metricStrip" role="list"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section approach-section">
-          <div class="home-container">
-            <div class="section-head">
-              <p class="eyebrow" id="approachEyebrow">Our Approach</p>
-              <h2 id="loopH"></h2>
-              <p id="loopSub"></p>
-            </div>
-            <div class="loop-track">
-              <ol class="lab-loop" id="labLoop"></ol>
-            </div>
-          </div>
-        </section>
-
-        <section class="section pillars-section">
-          <div class="home-container">
-            <div class="section-head">
-              <p class="eyebrow" id="pillarsEyebrow">Research Pillars</p>
-              <h2 id="focusH"></h2>
-              <p id="focusSub"></p>
-            </div>
-            <div class="pillar-grid" id="focusGrid"></div>
-          </div>
-        </section>
-
-        <section class="section editorial-section">
-          <div class="home-container">
-            <div class="editorial-grid">
-              <div class="editorial-col">
-                <div class="section-head compact">
-                  <p class="eyebrow">Demos &amp; Artifacts</p>
-                  <h2 id="demoH"></h2>
-                </div>
-                <div class="demo-deck" id="demoDeck"></div>
-              </div>
-              <div class="editorial-col editorial-col-rule">
-                <div class="section-head compact section-head-row">
-                  <div>
-                    <p class="eyebrow">Selected Works</p>
-                    <h2 id="selectedPubH"></h2>
-                    <p id="selectedPubSub"></p>
-                  </div>
-                  <a class="ghost-link" href="#/publications" id="homePubCta">전체 논문 보기 <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
-                </div>
-                <ol class="pub-list feature compact" id="homePubs"></ol>
-              </div>
-              <div class="editorial-col editorial-col-rule">
-                <div class="section-head compact">
-                  <p class="eyebrow">News</p>
-                  <h2 id="homeNewsH"></h2>
-                </div>
-                <ul class="news-compact" id="homeNews"></ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="inquiry-band" aria-labelledby="joinTeaserH">
-          <div class="home-container inquiry-band-inner">
-            <div class="inquiry-intro">
-              <p class="eyebrow inquiry-eyebrow">Contact</p>
-              <h2 id="joinTeaserH">연구·협력 문의</h2>
-              <p id="joinTeaserSub">연구 협력·학술 교류에 대한 문의 방법과 공개 연락처를 안내합니다.</p>
-            </div>
-            <div class="inquiry-pathways" id="inquiryPathways"></div>
-            <a class="inquiry-cta-tile" href="#/join" id="inquiryCtaTile">
-              <span class="inquiry-cta-label" id="inquiryCtaLabel">문의 안내</span>
-              <i class="bi bi-arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </section>
+          <figcaption>Busan &#183; Yeongdo &#183; Korea Maritime & Ocean University</figcaption>
+        </figure>
       </section>
 
-      <section class="view page" data-view="/research">
-        <header class="page-head">
-          <p class="eyebrow">Research</p>
-          <h1 id="researchH"></h1>
-          <p class="lede" id="researchSub"></p>
-        </header>
-        <div class="project-grid" id="pillarGrid"></div>
-        <section class="section">
-          <div class="section-head compact">
-            <p class="eyebrow">Lab method</p>
-            <h2 id="pipelineH"></h2>
-          </div>
-          <ol class="pipeline" id="pipelineList"></ol>
-        </section>
-      </section>
-
-      <section class="view page" data-view="/publications">
-        <header class="page-head">
-          <p class="eyebrow">Publications</p>
-          <h1 id="pubsH"></h1>
-          <p class="lede" id="pubsSub"></p>
-        </header>
-        <div class="filters">
-          <input id="pubQuery" type="search" autocomplete="off" placeholder="Search title, venue, author">
-          <div class="chips" id="yearChips"></div>
-          <label class="check"><input id="firstOnly" type="checkbox"> <span id="firstLabel"></span></label>
-          <a class="text-link" href="./papers.bib">papers.bib</a>
-        </div>
-        <div id="pubList"></div>
-        <section class="section tight">
-          <h2 class="block-title" id="patentH"></h2>
-          <ol class="pub-list" id="patentList"></ol>
-        </section>
-      </section>
-
-      <section class="view page" data-view="/pi">
-        <header class="page-head">
-          <p class="eyebrow">Principal investigator</p>
-          <h1 id="piH"></h1>
-          <p class="lede" id="piSub"></p>
-        </header>
-        <div class="profile-layout">
-          <aside class="profile-card">
-            <img id="portrait" alt="Jin-Kyeom Kim portrait" width="320" height="400" loading="lazy">
-            <h2 id="piName"></h2>
-            <p id="piRank"></p>
-            <div class="icon-row" id="social"></div>
-            <dl class="fact-list" id="facts"></dl>
-          </aside>
+      <section class="home-section research-home">
+        <div class="section-heading">
+          <p class="section-number">01</p>
           <div>
-            <div class="prose" id="aboutBody"></div>
-            <div class="timeline-grid">
-              <section>
-                <h2 class="block-title" id="eduH"></h2>
-                <ol class="timeline" id="eduList"></ol>
-              </section>
-              <section>
-                <h2 class="block-title" id="careerH"></h2>
-                <ol class="timeline" id="careerList"></ol>
-              </section>
-            </div>
+            <h2 id="researchSectionTitle">Research areas</h2>
+            <p id="researchSectionSub"></p>
           </div>
         </div>
+        <div id="homeResearch" class="research-grid"></div>
       </section>
 
-      <section class="view page" data-view="/join">
-        <header class="page-head">
-          <p class="eyebrow">Inquiries</p>
-          <h1 id="joinH"></h1>
-          <p class="lede" id="joinSub"></p>
-        </header>
-        <div class="student-paths" id="studentPaths"></div>
-        <section class="section">
-          <div class="join-panel">
+      <section class="home-section editorial-home">
+        <div class="editorial-column">
+
+          <div class="section-heading compact">
+            <p class="section-number">02</p>
             <div>
-              <p class="eyebrow">Contact protocol</p>
-              <h2 id="joinProtocolH"></h2>
-              <p id="joinProtocolBody"></p>
+              <h2 id="selectedTitle">Selected publications</h2>
             </div>
-            <a id="joinMail" class="primary-link" href="mailto:jingyeom0825@kmou.ac.kr"></a>
           </div>
-        </section>
+          <ol id="homePubs" class="publication-list compact"></ol>
+          <a id="allPapersHome" class="underlined-link" href="#/publications">All publications</a>
+        </div>
+        <div class="editorial-column">
+          <div class="section-heading compact">
+            <p class="section-number">03</p>
+            <div>
+              <h2 id="latestTitle">Latest news</h2>
+            </div>
+          </div>
+          <ul id="homeNews" class="news-list compact"></ul>
+          <a class="underlined-link" href="#/news">Archive</a>
+        </div>
       </section>
 
-      <section class="view page" data-view="/news">
-        <header class="page-head">
-          <p class="eyebrow">News</p>
-          <h1 id="newsH"></h1>
-        </header>
-        <ul class="news-list" id="newsList"></ul>
+      <section class="home-contact reveal">
+        <div>
+          <p class="kicker">EnerMAKER Lab</p>
+          <h2>Research, collaboration, and student inquiries</h2>
+          <p>jingyeom0825@kmou.ac.kr</p>
+        </div>
+        <a class="button primary" href="#/inquiry">Contact</a>
       </section>
+    </section>
 
-      <section class="view page" data-view="/contact">
-        <header class="page-head">
-          <p class="eyebrow">Contact</p>
-          <h1 id="contactH"></h1>
-          <p class="lede" id="contactSub"></p>
-        </header>
-        <div class="contact-grid" id="contactGrid"></div>
-        <section class="section tight">
-          <h2 class="block-title" id="sourceH"></h2>
-          <ul class="source-list" id="sourceList"></ul>
-        </section>
-      </section>
-    </main>
+    <section class="view page-view" data-view="/research" hidden>
+      <header class="page-header">
+        <p class="kicker">EnerMAKER Lab</p>
+        <h1 id="researchPageTitle">Research</h1>
+        <p id="researchPageSub" class="page-lead"></p>
+      </header>
+      <div id="researchGrid" class="research-grid detailed-grid"></div>
+    </section>
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="brand-mark footer-mark" aria-hidden="true">EM</span>
-          <div>
-            <strong class="footer-lab-name">EnerMAKER Lab</strong>
-            <p class="footer-tagline" id="footerTagline"></p>
-            <p class="footer-lab-dept" id="footerDept"></p>
-            <p class="footer-address" id="footerAddress"></p>
+    <section class="view page-view" data-view="/publications" hidden>
+      <header class="page-header">
+        <p class="kicker">Jin-Kyeom Kim</p>
+        <h1 id="pubPageTitle">Publications</h1>
+        <p id="pubPageSub" class="page-lead"></p>
+      </header>
+      <div class="publication-tools">
+        <input id="pubSearch" type="search" autocomplete="off" aria-label="Search publications">
+        <div id="yearFilter" class="year-filter" aria-label="Publication year filter"></div>
+        <label class="lead-filter"><input id="leadOnly" type="checkbox"> <span id="leadLabel"></span></label>
+        <a class="underlined-link" href="./papers.bib">BibTeX</a>
+      </div>
+      <ol id="pubList" class="publication-list"></ol>
+    </section>
+
+    <section class="view page-view" data-view="/pi" hidden>
+      <header class="page-header">
+        <p id="piKicker" class="kicker">Principal Investigator</p>
+        <h1 id="piTitle">Jin-Kyeom Kim</h1>
+        <p id="piRank" class="page-lead"></p>
+      </header>
+      <div class="profile-layout">
+        <aside class="profile-side">
+          <img id="portrait" class="portrait" alt="" width="420" height="525" loading="lazy">
+          <div id="piLinks" class="profile-links"></div>
+          <dl id="piFacts" class="fact-list"></dl>
+        </aside>
+        <div class="profile-main">
+          <div id="aboutBody" class="prose"></div>
+          <div class="timeline-columns">
+            <section>
+              <h2 id="educationTitle">Education</h2>
+              <ol id="educationList" class="timeline"></ol>
+            </section>
+            <section>
+              <h2 id="appointmentsTitle">Appointments</h2>
+              <ol id="appointmentsList" class="timeline"></ol>
+            </section>
           </div>
         </div>
-        <nav class="footer-nav" id="footerNav" aria-label="Footer navigation"></nav>
-        <div class="footer-contact" id="footerContact"></div>
       </div>
-      <div class="footer-bottom">
-        <p id="updated"></p>
-        <p id="sourceNote"></p>
-        <details class="visual-credits" id="visualCredits">
-          <summary id="visualCreditsSummary">Representative imagery credits</summary>
-          <p class="visual-credits-note" id="visualCreditsNote"></p>
-          <ul class="visual-credits-list" id="visualCreditsList"></ul>
-        </details>
-      </div>
-    </footer>
-  </div>
+    </section>
 
-  <noscript>
-    <p class="noscript-note">JavaScript is disabled. Hero copy and navigation labels above remain readable; enable JS for language toggle, theme, search, and canvas demo.</p>
-  </noscript>
+    <section class="view page-view" data-view="/news" hidden>
+      <header class="page-header">
+        <p class="kicker">EnerMAKER Lab</p>
+        <h1 id="newsPageTitle">News</h1>
+      </header>
+      <ul id="newsList" class="news-list full"></ul>
+    </section>
+
+
+    <section class="view page-view" data-view="/inquiry" hidden>
+      <header class="page-header">
+        <p class="kicker">EnerMAKER Lab</p>
+        <h1 id="inquiryPageTitle">Research & collaboration inquiries</h1>
+        <p id="inquiryPageSub" class="page-lead"></p>
+      </header>
+      <div id="inquiryCards" class="inquiry-grid"></div>
+      <div class="inquiry-email-panel">
+        <p>jingyeom0825@kmou.ac.kr</p>
+        <a id="inquiryEmail" class="button primary" href="mailto:jingyeom0825@kmou.ac.kr">Email the PI</a>
+      </div>
+    </section>
+
+    <section class="view page-view" data-view="/contact" hidden>
+      <header class="page-header">
+        <p class="kicker">KMOU</p>
+        <h1 id="contactPageTitle">Contact</h1>
+      </header>
+      <div id="contactGrid" class="contact-list"></div>
+      <section class="profile-sources">
+        <h2 id="profilesTitle">Academic profiles</h2>
+        <ul id="profileList"></ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>EnerMAKER Lab</strong>
+        <p id="footerTagline"></p>
+      </div>
+      <div>
+        <p id="footerDept"></p>
+        <p>727 Taejong-ro, Yeongdo-gu, Busan, Republic of Korea</p>
+        <p><a href="mailto:jingyeom0825@kmou.ac.kr">jingyeom0825@kmou.ac.kr</a></p>
+      </div>
+    </div>
+    <p id="footerUpdated" class="footer-updated"></p>
+    <details class="image-credit">
+      <summary>Image credits</summary>
+      <p>Representative public-domain imagery is used for context and is not presented as EnerMAKER Lab experimental data.</p>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Busan_Harbor_Bridge_20180923_1050_(3787044).jpg">Busan Harbor</a> &#183; CC0 1.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Giant_ocean_wave.jpg">Ocean wave</a> &#183; CC0 1.0</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:GnRH_Neuron.png">GnRH neuron</a> &#183; U.S. Federal Government / Public Domain</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Nanoparticles_(5978097147).jpg">Nanoparticles</a> &#183; U.S. NIST / Public Domain</li>
+      </ul>
+    </details>
+  </footer>
+
+  <noscript><p class="noscript">JavaScript is required for language switching, publication filters, and the secondary views.</p></noscript>
   <script src="./app.js"></script>
 </body>
 </html>
