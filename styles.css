@@ -292,7 +292,7 @@ main { min-height:70vh; }
 .image-credit ul { margin:.6rem 0 0; padding-left:1.2rem; }
 .noscript { padding:1rem; text-align:center; }
 
-.reveal { opacity:0; transform:translateY(14px); transition:opacity .65s ease,transform .65s ease; }
+.reveal { opacity:1; transform:none; }
 .reveal.shown { opacity:1; transform:none; }
 
 :focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
