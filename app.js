@@ -120,22 +120,18 @@ function researchItem(index) {
 }
 
 function researchVisual(item) {
+  if (!item.image) return null;
   const box = el("div","research-visual");
-  if (item.image) {
-    const img = document.createElement("img");
-    img.src = item.image; img.alt = pick(item.ko,item.en); img.loading = "lazy";
-    box.append(img);
-  } else {
-    const model = el("div","model-visual");
-    for (let i=0;i<16;i+=1) model.append(el("i"));
-    box.append(model);
-  }
+  const img = document.createElement("img");
+  img.src = item.image; img.alt = pick(item.ko,item.en); img.loading = "lazy";
+  box.append(img);
   return box;
 }
 
 function researchCard(item, detailed) {
-  const card = el("article","research-card");
-  card.append(researchVisual(item));
+  const card = el("article","research-card" + (item.image ? "" : " text-only"));
+  const visual = researchVisual(item);
+  if (visual) card.append(visual);
   const body = el("div","research-body");
   body.append(el("p","kicker",item.visual === "model" ? "Modeling" : "Research"));
   body.append(el("h2","",pick(item.ko,item.en)));
