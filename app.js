@@ -129,6 +129,7 @@ function researchVisual(item) {
 
 function researchCard(item, detailed, index = 0) {
   const card = el("article",detailed ? "research-card" : "research-card home-research-card");
+  card.classList.add("visual-" + (item.visual || "generic"));
   const body = el("div","research-body");
   if (!detailed) {
     body.append(el("span","research-index",String(index + 1).padStart(2,"0")));
@@ -172,16 +173,18 @@ function renderResearch() {
 function renderHomeOverview() {
   const d = state.data;
   const credentials = clear($("homeCredentials"));
+  const pubs = arr(d.publications);
+  const journalCount = new Set(pubs.map((pub) => pub.venue).filter(Boolean)).size;
   const credentialRows = state.lang === "ko" ? [
-    ["TENG","\uc5d0\ub108\uc9c0 \ud558\ubca0\uc2a4\ud305"],
-    ["Charge","\uacc4\uba74\uc804\ud558"],
-    ["Sensing","\uc790\uac00\ubc1c\uc804 \uc13c\uc2f1"],
-    ["Materials","\uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac"]
+    [String(pubs.length),"\uacf5\uac1c \ub17c\ubb38"],
+    [String(arr(d.research).length),"\uc5f0\uad6c\ubd84\uc57c"],
+    [String(journalCount),"\ub4f1\ub85d \uc800\ub110"],
+    ["KMOU","\ubd80\uc0b0 \u00b7 \ud55c\uad6d\ud574\uc591\ub300\ud559\uad50"]
   ] : [
-    ["TENG","Energy harvesting"],
-    ["Charge","Interfacial charge"],
-    ["Sensing","Self-powered sensing"],
-    ["Materials","Functional nanomaterials"]
+    [String(pubs.length),"Publications listed"],
+    [String(arr(d.research).length),"Research areas"],
+    [String(journalCount),"Journals listed"],
+    ["KMOU","Busan \u00b7 Korea"]
   ];
   credentialRows.forEach(([value,label]) => {
     const card = el("div","credential-item");
@@ -189,8 +192,8 @@ function renderHomeOverview() {
     credentials?.append(card);
   });
 
-  setText("approachTitle","Design \u00b7 Fabricate \u00b7 Measure \u00b7 Model \u00b7 Validate");
-  setText("approachLead",state.lang === "ko" ? "\uc18c\uc7ac \u00b7 \uc18c\uc790 \u00b7 \uce21\uc815 \u00b7 \ubaa8\ub378\ub9c1 \u00b7 \uac80\uc99d" : "Materials \u00b7 Devices \u00b7 Measurement \u00b7 Modeling \u00b7 Validation");
+  setText("approachTitle",state.lang === "ko" ? "\uc18c\uc7ac\uc5d0\uc11c \uc2e0\ub8b0\ud560 \uc218 \uc788\ub294 \uc18c\uc790\uae4c\uc9c0" : "From Materials to Reliable Devices");
+  setText("approachLead","Design \u2192 Fabricate \u2192 Measure \u2192 Model \u2192 Validate");
   const flow = clear($("homeApproach"));
   arr(d.labLoop).forEach((step,index) => {
     const node = el("article","approach-step");
@@ -199,7 +202,7 @@ function renderHomeOverview() {
     flow?.append(node);
   });
 
-  setText("spotlightTitle",state.lang === "ko" ? "\uc8fc\uc694 \ub17c\ubb38" : "Selected paper");
+  setText("spotlightTitle",state.lang === "ko" ? "\uc8fc\uc694 \uc5f0\uad6c\uc131\uacfc" : "Selected Research");
   setText("spotlightMore",L("researchMore"));
   const spotlight = clear($("homeSpotlight"));
   const item = researchItem(0);
@@ -214,8 +217,8 @@ function renderHomeOverview() {
     spotlight?.append(card);
   }
 
-  setText("collabTitle","Students \u00b7 Collaboration \u00b7 Contact");
-  setText("homeRecruit",state.lang === "ko" ? "TENG \u00b7 \uc790\uac00\ubc1c\uc804 \uc13c\uc2f1 \u00b7 \ub098\ub178\uc18c\uc7ac \u00b7 \ubaa8\ub378\ub9c1" : "TENG \u00b7 Self-powered sensing \u00b7 Nanomaterials \u00b7 Modeling");
+  setText("collabTitle",state.lang === "ko" ? "\ud568\uaed8 \uc5f0\uad6c\ub97c \ud655\uc7a5\ud569\ub2c8\ub2e4" : "Build the next study with us");
+  setText("homeRecruit",state.lang === "ko" ? "\ub300\ud559\uc6d0 \u00b7 \ud559\ubd80\uc5f0\uad6c \u00b7 \uacf5\ub3d9\uc5f0\uad6c" : "Graduate study \u00b7 Undergraduate research \u00b7 Collaboration");
   const pathways = clear($("homePathways"));
   arr(d.studentPaths).slice(0,3).forEach((path,index) => {
     const card = el("article","home-pathway");
@@ -606,6 +609,3 @@ async function load() {
   state.data = await response.json();
   renderAll();
 }
-
-bind();
-load().catch((error) => document.body.append(el("p","load-error","Content load failed: " + error.message)));
