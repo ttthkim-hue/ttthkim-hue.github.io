@@ -141,10 +141,10 @@
   <section class="view page-view admin-view" data-view="/admin" hidden>
     <header class="page-head"><p class="kicker">Admin</p><h1>Content manager</h1><p>GitHub credentials are used only in this browser session and are never stored in the site.</p></header>
     <div id="adminLogin" class="admin-login">
-      <label>GitHub account<input id="adminUser" autocomplete="username" value="ttthkim-hue"></label>
-      <label>Fine-grained access token<input id="adminToken" type="password" autocomplete="current-password" placeholder="Repository Contents: Read and write"></label>
+      <label>GitHub account<input id="adminUser" autocomplete="username" readonly placeholder="Verified after connection"></label>
+      <label>GitHub access token<input id="adminToken" type="password" autocomplete="current-password" placeholder="Short-expiry token with repository write access"></label>
       <button id="adminConnect" class="button primary" type="button">Connect admin</button>
-      <p class="admin-note">Use a short-expiry fine-grained token with Contents: Read and write for both kim-jingyeom-homepage and ttthkim-hue.github.io. It is kept only in memory and is sent directly to GitHub API.</p>    </div>
+      <p class="admin-note">The signed-in GitHub account must have write access to both kim-jingyeom-homepage and ttthkim-hue.github.io. Use the least-privilege short-expiry token GitHub permits for both repositories. The token stays only in memory and is sent directly to GitHub API.</p>    </div>
     <div id="adminPanel" hidden>
       <div class="admin-status" id="adminStatus"></div>
       <div class="admin-grid">
