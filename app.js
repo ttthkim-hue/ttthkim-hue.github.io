@@ -3,367 +3,543 @@ const state = {
   data: null,
   year: "all",
   query: "",
-  firstOnly: false
+  leadOnly: false,
+  newsCategory: "All",
+  adminToken: "",
+  adminData: null,
+  adminFileSha: ""
 };
 
 const $ = (id) => document.getElementById(id);
 const arr = (v) => Array.isArray(v) ? v : [];
 const pick = (ko, en) => state.lang === "en" ? (en || ko || "") : (ko || en || "");
 const clear = (node) => { if (node) node.replaceChildren(); return node; };
-const el = (tag, className, text) => {
+const el = (tag, className, value) => {
   const node = document.createElement(tag);
   if (className) node.className = className;
-  if (text !== undefined && text !== null) node.textContent = text;
+  if (value !== undefined && value !== null) node.textContent = value;
   return node;
 };
-const a = (label, href, className) => {
+const extLink = (label, href, className) => {
   const node = el("a", className || "", label);
-  const target = href || "#/";
-  node.href = target;
-  if (/^https?:\/\//i.test(target)) {
+  node.href = href || "#/";
+  if (/^https?:\/\//i.test(node.href)) {
     node.target = "_blank";
     node.rel = "noopener noreferrer";
   }
   return node;
 };
+const setText = (id, value) => { const node = $(id); if (node) node.textContent = value || ""; };
 
 const labels = {
   ko: {
-    home:"\ud648", research:"\uc5f0\uad6c", publications:"\ub17c\ubb38", pi:"\uc5f0\uad6c\ucc45\uc784\uc790", news:"\uc18c\uc2dd", inquiry:"\uc5f0\uad6c\u00b7\ud611\ub825 \ubb38\uc758", contact:"\uc5f0\ub77d\ucc98",
-    explore:"\uc5f0\uad6c\ubd84\uc57c \ubcf4\uae30", papers:"\ub17c\ubb38 \ubcf4\uae30", selected:"\uc8fc\uc694 \ub17c\ubb38", latest:"\ucd5c\uadfc \uc18c\uc2dd", allPapers:"\uc804\uccb4 \ub17c\ubb38",
-    core:"\uc8fc\uc694 \uc5f0\uad6c\ubd84\uc57c", coreSub:"\uc5d0\ub108\uc9c0 \ud558\ubca0\uc2a4\ud305\uacfc \uae30\ub2a5\uc131 \uc18c\uc7ac\u00b7\uc18c\uc790\ub97c \uc911\uc2ec\uc73c\ub85c \uc5f0\uad6c\ud569\ub2c8\ub2e4.",
-    researchTitle:"\uc5f0\uad6c\ubd84\uc57c", researchSub:"\uc18c\uc7ac\uc758 \uacc4\uba74\uacfc \uc804\ud558 \uac70\ub3d9\uc5d0\uc11c \uc2dc\uc791\ud574 \uc13c\uc2f1\u00b7\ubc14\uc774\uc624\uc18c\uc790\uc640 \uacc4\uc0b0 \ubaa8\ub378\ub9c1\uc73c\ub85c \ud655\uc7a5\ud569\ub2c8\ub2e4.",
-    pubTitle:"\ub17c\ubb38", pubSub:"Google Scholar, DOI \ubc0f \ucd9c\ud310\uc0ac \uacf5\uac1c \uae30\ub85d\uc744 \uae30\uc900\uc73c\ub85c \uc815\ub9ac\ud55c \uc5f0\uad6c \uc2e4\uc801\uc785\ub2c8\ub2e4.",
-    search:"\uc81c\ubaa9, \uc800\ub110, \uc800\uc790 \uac80\uc0c9", allYears:"\uc804\uccb4", leadOnly:"1\uc800\uc790\u00b7\uc8fc\uc800\uc790\ub9cc",
-    piTitle:"\uae40\uc9c4\uacb8", piKicker:"\uc5f0\uad6c\ucc45\uc784\uc790", education:"\ud559\ub825", appointments:"\uacbd\ub825",
-    newsTitle:"\uc18c\uc2dd", inquiryTitle:"\uc5f0\uad6c\u00b7\ud611\ub825 \ubb38\uc758",
-    inquirySub:"\uc5f0\uad6c \ud611\ub825, \ud559\uc220 \uad50\ub958 \ubc0f \ud559\uc0dd \uc5f0\uad6c \ubb38\uc758\ub294 \uc544\ub798 \uacf5\uac1c \uc774\uba54\uc77c\ub85c \uc5f0\ub77d\ud574 \uc8fc\uc138\uc694.",
-    email:"\uc774\uba54\uc77c \ubcf4\ub0b4\uae30", contactTitle:"\uc5f0\ub77d\ucc98", profiles:"\ud559\uc220 \ud504\ub85c\ud544",
-    readMore:"\uc790\uc138\ud788 \ubcf4\uae30", updated:"\uc5c5\ub370\uc774\ud2b8", noResults:"\uac80\uc0c9 \uacb0\uacfc\uac00 \uc5c6\uc2b5\ub2c8\ub2e4."
+    home:"\ud648", research:"\uc5f0\uad6c", publications:"\ub17c\ubb38", pi:"\uc5f0\uad6c\ucc45\uc784\uc790", news:"\uc18c\uc2dd", students:"\ud559\uc0dd", contact:"\uc5f0\ub77d\ucc98",
+    researchMore:"\uc804\uccb4 \ubcf4\uae30 \u2192", pubMore:"\ub17c\ubb38 \uc804\uccb4 \u2192", newsMore:"\uc18c\uc2dd \uc804\uccb4 \u2192",
+    heroResearch:"\uc5f0\uad6c\ubd84\uc57c", heroStudents:"\ub300\ud559\uc6d0\u00b7\ud559\uc0dd",
+    researchTitle:"\uc8fc\uc694 \uc5f0\uad6c\ubd84\uc57c", researchSub:"\ud0a4\uc6cc\ub4dc \u2192 \ub300\ud45c \uc5f0\uad6c \u2192 \ub17c\ubb38 \uc21c\uc73c\ub85c \ube60\ub974\uac8c \ud655\uc778\ud569\ub2c8\ub2e4.",
+    pubOverview:"\uc5f0\uad6c\uc2e4\uc801 \ud55c\ub208\uc5d0", pubTitle:"\ub17c\ubb38", pubSub:"\uc804\uccb4 \uc218\u00b7\uc5f0\ub3c4\ubcc4 \uc2e4\uc801\u00b7\uacf5\uc2dd \ud655\uc778 JIF\ub97c \uba3c\uc800 \ubcf4\uace0 \uc0c1\uc138 \ub17c\ubb38\uc744 \ud0d0\uc0c9\ud569\ub2c8\ub2e4.",
+    latest:"\ucd5c\uadfc \uc18c\uc2dd", newsTitle:"\uc18c\uc2dd", newsSub:"\uc5f0\uad6c\uc131\uacfc\u00b7\ud559\uacfc\u00b7\uc785\ud559\u00b7\ud559\uc0dd\uc5d0\uac8c \uc720\uc6a9\ud55c \uacf5\uc2dd \uc18c\uc2dd\uc744 \ud568\uaed8 \ubaa8\uc558\uc2b5\ub2c8\ub2e4.",
+    studentsTitle:"\ud559\uc0dd \u00b7 \uc9c4\ud559", studentStatusNote:"\uc5f0\uad6c\uc2e4 \ucd08\uae30 \uba64\ubc84\ub97c \ubaa8\uc9d1\ud558\ub294 \ub2e8\uacc4\uc785\ub2c8\ub2e4.", studentTracks:"\uc5b4\ub5a4 \uc5f0\uad6c\ub97c \ud558\ub098\uc694?", studentStart:"\uc9c4\ud559\u00b7\ud559\ubd80\uc5f0\uad6c \ubb38\uc758 3\ub2e8\uacc4", email:"\uc774\uba54\uc77c \ubb38\uc758",
+    contactTitle:"\uc5f0\ub77d\ucc98 \u00b7 \uc704\uce58", contactSub:"\uc5f0\uad6c\uc2e4, \uad50\uc218 \uc5f0\uad6c\uc2e4, \ud559\uacfc\uc0ac\ubb34\uc2e4\uacfc \uc9c0\ub3c4\ub97c \ud55c \ud654\uba74\uc5d0\uc11c \ud655\uc778\ud569\ub2c8\ub2e4.", mapOpen:"\uc9c0\ub3c4\uc5d0\uc11c \uc5f4\uae30 \u2192",
+    piResearch:"\uc5f0\uad6c \ud0a4\uc6cc\ub4dc", piCareer:"\ud559\ub825 \u00b7 \uacbd\ub825", education:"\ud559\ub825", career:"\uacbd\ub825",
+    search:"\uc81c\ubaa9 \u00b7 \uc800\ub110 \u00b7 \uc800\uc790 \uac80\uc0c9", allYears:"\uc804\uccb4 \uc5f0\ub3c4", leadOnly:"\uc8fc\ub3c4\uc800\uc790 \ud45c\uae30\ub9cc",
+    totalPubs:"\uc804\uccb4 \ub17c\ubb38", latestYear:"\ucd5c\uc2e0 \uc5f0\ub3c4", leadTagged:"\uc8fc\ub3c4\uc800\uc790 \ud45c\uae30", topJif:"\ucd5c\uace0 \ud655\uc778 JIF",
+    verifiedJif:"\uacf5\uc2dd \ud655\uc778 \uc800\ub110 JIF", source:"\ucd9c\ucc98",
+    joinStudents:"\ud559\uc0dd\u00b7\uc9c4\ud559", joinContact:"\uc5f0\ub77d\ucc98",
+    inquiry:"\uad00\uc2ec \uc5f0\uad6c \ud0a4\uc6cc\ub4dc, \uad00\ub828 \uacbd\ud5d8, \uac00\ub2a5\ud55c \uc2dc\uc791 \uc2dc\uc810\uc744 \uac04\ub2e8\ud788 \uc801\uc5b4 \ubb38\uc758\ud574 \uc8fc\uc138\uc694."
   },
   en: {
-    home:"Home", research:"Research", publications:"Publications", pi:"PI", news:"News", inquiry:"Inquiries", contact:"Contact",
-    explore:"Explore research", papers:"View publications", selected:"Selected publications", latest:"Latest news", allPapers:"All publications",
-    core:"Research areas", coreSub:"Research centered on energy harvesting, functional materials, and self-powered devices.",
-    researchTitle:"Research", researchSub:"From interfaces and charge transport to sensing, bioelectronics, and computational materials design.",
-    pubTitle:"Publications", pubSub:"Research output curated from public Google Scholar, DOI, and publisher records.",
-    search:"Search title, journal, author", allYears:"All", leadOnly:"Lead / first author",
-    piTitle:"Jin-Kyeom Kim", piKicker:"Principal Investigator", education:"Education", appointments:"Appointments",
-    newsTitle:"News", inquiryTitle:"Research & collaboration inquiries",
-    inquirySub:"For research collaboration, academic exchange, or student research inquiries, please use the public email below.",
-    email:"Email the PI", contactTitle:"Contact", profiles:"Academic profiles",
-    readMore:"Read more", updated:"Updated", noResults:"No matching records."
+    home:"Home", research:"Research", publications:"Publications", pi:"PI", news:"News", students:"Students", contact:"Contact",
+    researchMore:"View all \u2192", pubMore:"All publications \u2192", newsMore:"All news \u2192",
+    heroResearch:"Research", heroStudents:"Graduate study",
+    researchTitle:"Research areas", researchSub:"Scan keywords, representative work, and papers without long narrative sections.",
+    pubOverview:"Research output at a glance", pubTitle:"Publications", pubSub:"Start with total output, yearly counts, and officially verified journal metrics, then explore individual papers.",
+    latest:"Latest news", newsTitle:"News", newsSub:"Research, department, admissions, and student-facing official updates.",
+    studentsTitle:"Students & study", studentStatusNote:"The lab is currently building its first student cohort.", studentTracks:"Research tracks", studentStart:"Three steps to inquire", email:"Email the PI",
+    contactTitle:"Contact & location", contactSub:"Lab, office, department office, and campus map in one view.", mapOpen:"Open map \u2192",
+    piResearch:"Research keywords", piCareer:"Education & appointments", education:"Education", career:"Appointments",
+    search:"Search title, journal, author", allYears:"All years", leadOnly:"Lead-author tagged only",
+    totalPubs:"Publications", latestYear:"Latest year", leadTagged:"Lead-author tagged", topJif:"Top verified JIF",
+    verifiedJif:"Verified journal JIF", source:"source",
+    joinStudents:"Students", joinContact:"Contact",
+    inquiry:"Include a research keyword, relevant experience, and your possible start date."
   }
 };
+
 const L = (key) => labels[state.lang][key] || key;
-
-const visuals = {
-  energy:"./assets/visuals/pillar-energy-wave.jpg",
-  bio:"./assets/visuals/pillar-bio-neuron.png",
-  nano:"./assets/visuals/pillar-nano-nist.jpg"
-};
-
-async function load() {
-  const res = await fetch("./content.json", {cache:"no-store"});
-  if (!res.ok) throw new Error("content load failed");
-  state.data = await res.json();
-  bind();
-  render();
-  route();
-  reveal();
-}
-
-function bind() {
-  $("langBtn")?.addEventListener("click", () => {
-    state.lang = state.lang === "ko" ? "en" : "ko";
-    localStorage.setItem("enermaker-lang", state.lang);
-    render();
-    requestAnimationFrame(reveal);
-  });
-  $("menuBtn")?.addEventListener("click", () => {
-    const nav = $("navLinks");
-    const open = nav?.classList.toggle("open");
-    $("menuBtn")?.setAttribute("aria-expanded", String(Boolean(open)));
-  });
-  window.addEventListener("hashchange", route);
-  $("pubSearch")?.addEventListener("input", (e) => {
-    state.query = e.target.value.trim().toLowerCase();
-
-    renderPublications();
-  });
-  $("leadOnly")?.addEventListener("change", (e) => {
-    state.firstOnly = e.target.checked;
-    renderPublications();
-  });
-}
+const portal = () => state.data?.portal || {};
 
 function route() {
-  const valid = new Set(["/","/research","/publications","/pi","/news","/inquiry","/contact"]);
-  let path = location.hash.replace(/^#/, "") || "/";
-  if (!valid.has(path)) path = "/";
-  document.querySelectorAll("[data-view]").forEach((node) => {
-    node.hidden = node.dataset.view !== path;
-  });
-  document.querySelectorAll("[data-route]").forEach((node) => {
-    node.classList.toggle("active", node.dataset.route === path);
-  });
+  const p = (location.hash || "#/").slice(1) || "/";
+  return new Set(["/","/research","/publications","/pi","/news","/students","/inquiry","/contact","/admin"]).has(p) ? p : "/";
+}
+
+function applyRoute() {
+  const current = route();
+  document.querySelectorAll(".view").forEach((view) => { view.hidden = view.dataset.view !== current; });
+  document.querySelectorAll("[data-route]").forEach((node) => node.classList.toggle("active", node.dataset.route === current));
   $("navLinks")?.classList.remove("open");
-  window.scrollTo({top:0, behavior:matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
-  document.title = path === "/" ? "EnerMAKER Lab \u00b7 Jin-Kyeom Kim \u00b7 KMOU" : "EnerMAKER Lab \u00b7 " + path.slice(1);
+  $("menuBtn")?.setAttribute("aria-expanded","false");
+  window.scrollTo({top:0,behavior:"auto"});
 }
 
-function setText(id, value) {
-  const node = $(id);
-  if (node) node.textContent = value || "";
+function renderNav() {
+  [["home","/"],["research","/research"],["publications","/publications"],["pi","/pi"],["news","/news"],["students","/students"],["contact","/contact"]]
+    .forEach(([key]) => setText("nav-" + key, L(key)));
+  setText("langBtn", state.lang === "ko" ? "EN" : "KO");
+  setText("heroResearch",L("heroResearch")); setText("heroStudents",L("heroStudents"));
+  setText("researchSectionTitle",L("researchTitle")); setText("researchMore",L("researchMore"));
+  setText("pubOverviewTitle",L("pubOverview")); setText("pubMore",L("pubMore"));
+  setText("latestTitle",L("latest")); setText("newsMore",L("newsMore"));
+  setText("researchPageTitle",L("researchTitle")); setText("researchPageSub",L("researchSub"));
+  setText("pubPageTitle",L("pubTitle")); setText("pubPageSub",L("pubSub")); setText("leadOnlyLabel",L("leadOnly"));
+  setText("piPageTitle",state.lang === "ko" ? "\uae40\uc9c4\uacb8 \u00b7 Jin-Kyeom Kim" : "Jin-Kyeom Kim \u00b7 \uae40\uc9c4\uacb8");
+  setText("piResearchTitle",L("piResearch")); setText("piCareerTitle",L("piCareer")); setText("educationTitle",L("education")); setText("careerTitle",L("career"));
+  setText("newsPageTitle",L("newsTitle")); setText("newsPageSub",L("newsSub"));
+  setText("studentsPageTitle",L("studentsTitle")); setText("studentStatusNote",L("studentStatusNote")); setText("studentTracksTitle",L("studentTracks")); setText("studentStartTitle",L("studentStart")); setText("studentEmail",L("email"));
+  setText("contactPageTitle",L("contactTitle")); setText("contactPageSub",L("contactSub")); setText("mapLink",L("mapOpen"));
+  setText("joinStudents",L("joinStudents")); setText("joinContact",L("joinContact")); setText("inquiryText",L("inquiry"));
+  const q = $("pubSearch"); if (q) q.placeholder = L("search");
 }
 
-function render() {
-  const d = state.data || {};
-  const p = d.person || {};
-  document.documentElement.lang = state.lang;
-  setText("langBtn", state.lang === "ko" ? "EN" : "\ud55c");
-  [["home","/"],["research","/research"],["publications","/publications"],["pi","/pi"],["news","/news"],["inquiry","/inquiry"],["contact","/contact"]]
-    .forEach(([key,route]) => setText("nav-"+key, L(key)));
+function renderHero() {
+  const d = state.data, p = d.person;
+  setText("heroKicker",pick(p.labKo,p.labEn) + " \u00b7 " + p.labShort);
+  const title = clear($("heroTitle"));
+  const parts = state.lang === "en" ? arr(d.heroTitlePartsEn) : arr(d.heroTitlePartsKo);
+  (parts.length ? parts : [pick(d.heroTitleKo,d.heroTitleEn)]).forEach((part) => title?.append(el("span","title-part",part)));
+  setText("heroLead",pick(d.heroLeadKo,d.heroLeadEn));
+  const row = clear($("heroKeywords"));
+  arr(d.heroKeywords).forEach((word) => row?.append(el("span","keyword",word)));
+  setText("homeRecruit",pick(portal().students?.recruitingKo,portal().students?.recruitingEn));
+}
 
-  setText("heroKicker", pick(p.labKo, p.labEn));
-  setText("heroTitle", pick(d.heroTitleKo, d.heroTitleEn));
-  setText("heroLead", pick(d.heroLeadKo, d.heroLeadEn));
-  setText("heroAffiliation", pick(p.deptKo, p.deptEn));
-  setText("heroExplore", L("explore"));
-  setText("heroPapers", L("papers"));
-  setText("researchSectionTitle", L("core"));
-  setText("researchSectionSub", L("coreSub"));
-  setText("selectedTitle", L("selected"));
-  setText("latestTitle", L("latest"));
-  setText("allPapersHome", L("allPapers"));
-  setText("researchPageTitle", L("researchTitle"));
-  setText("researchPageSub", L("researchSub"));
-  setText("pubPageTitle", L("pubTitle"));
-  setText("pubPageSub", L("pubSub"));
-  if ($("pubSearch")) $("pubSearch").placeholder = L("search");
-  setText("leadLabel", L("leadOnly"));
-  setText("piKicker", L("piKicker"));
-  setText("piTitle", pick(p.nameKo, p.nameEn));
-  setText("piRank", pick(p.titleKo, p.titleEn) + " \u00b7 " + pick(p.deptKo, p.deptEn));
-  setText("educationTitle", L("education"));
-  setText("appointmentsTitle", L("appointments"));
-  setText("newsPageTitle", L("newsTitle"));
-  setText("inquiryPageTitle", L("inquiryTitle"));
-  setText("inquiryPageSub", L("inquirySub"));
-  setText("inquiryEmail", L("email"));
-  setText("contactPageTitle", L("contactTitle"));
-  setText("profilesTitle", L("profiles"));
-  setText("footerTagline", pick(d.taglineKo, d.taglineEn));
-  setText("footerDept", pick(p.deptKo, p.deptEn));
-  setText("footerUpdated", L("updated") + " \u00b7 " + (d.meta?.updated || ""));
-
-  const mail = $("inquiryEmail");
-  if (mail) mail.href = "mailto:" + (p.email || "");
-  const portrait = $("portrait");
-  if (portrait && p.portrait) {
-    portrait.src = p.portrait;
-    portrait.alt = pick(p.nameKo, p.nameEn);
-  }
-
-  renderResearch();
-  renderHomePubs();
-  renderNews();
-  renderProfile();
-  renderInquiry();
-  renderContact();
-  renderYearFilter();
-  renderPublications();
+function researchItem(index) {
+  const base = arr(state.data.research)[index] || {};
+  return {...base,...(arr(portal().researchMedia)[index] || {})};
 }
 
 function researchVisual(item) {
-  const box = el("div", "research-visual");
-  const key = item.visual || "";
-  if (visuals[key]) {
-
-    const img = el("img");
-    img.src = visuals[key];
-    img.alt = "";
-    img.loading = "lazy";
-    img.decoding = "async";
-    box.appendChild(img);
+  const box = el("div","research-visual");
+  if (item.image) {
+    const img = document.createElement("img");
+    img.src = item.image; img.alt = pick(item.ko,item.en); img.loading = "lazy";
+    box.append(img);
   } else {
-    box.classList.add("model-visual");
-    ["flow-a","flow-b","flow-c","particle-a","particle-b","particle-c"].forEach((c) => box.appendChild(el("span", c)));
+    const model = el("div","model-visual");
+    for (let i=0;i<16;i+=1) model.append(el("i"));
+    box.append(model);
   }
   return box;
 }
 
 function researchCard(item, detailed) {
-  const article = el("article", detailed ? "research-card detailed reveal" : "research-card reveal");
-  article.appendChild(researchVisual(item));
-  const body = el("div", "research-card-body");
-  body.append(el("h3","",pick(item.ko,item.en)));
-  if (detailed) {
-    body.append(el("p","research-signal",pick(item.signalKo,item.signalEn)));
-    body.append(el("p","",pick(item.detailKo,item.detailEn)));
-    const keys = el("p","keyword-line",arr(item.keywords).join(" \u00b7 "));
-    body.append(keys);
-  } else {
-    body.append(el("p","",pick(item.detailKo,item.detailEn)));
+  const card = el("article","research-card");
+  card.append(researchVisual(item));
+  const body = el("div","research-body");
+  body.append(el("p","kicker",item.visual === "model" ? "Modeling" : "Research"));
+  body.append(el("h2","",pick(item.ko,item.en)));
+  body.append(el("p","research-summary",pick(item.signalKo,item.signalEn)));
+  const keys = el("div","keyword-row");
+  arr(item.keywords).forEach((word) => keys.append(el("span","keyword",word)));
+  body.append(keys);
+  if (detailed && item.paperTitle) {
+    const paper = el("div","paper-highlight");
+    paper.append(el("small","",item.paperVenue || "Representative paper"));
+    paper.append(extLink(item.paperTitle,item.paperUrl,"paper-link"));
+    body.append(paper);
   }
-  article.appendChild(body);
-  return article;
+  card.append(body);
+  return card;
 }
 
 function renderResearch() {
-  const items = arr(state.data?.research);
-  const home = clear($("homeResearch"));
-  const full = clear($("researchGrid"));
-  items.forEach((item) => {
-    home?.appendChild(researchCard(item,false));
-    full?.appendChild(researchCard(item,true));
+  const home = clear($("homeResearch")), full = clear($("researchGrid"));
+  arr(state.data.research).forEach((unused,index) => {
+    const item = researchItem(index);
+    home?.append(researchCard(item,false));
+    full?.append(researchCard(item,true));
   });
 }
 
-function pubItem(pub, compact) {
-  const li = el("li", compact ? "pub-item compact" : "pub-item");
-  const year = el("span","pub-year",String(pub.year || ""));
-  const body = el("div","pub-body");
-  const title = a(pub.title || "", pub.url || "#/publications", "pub-title");
-  const meta = el("p","pub-meta",(pub.authors || "") + ". " + (pub.venue || ""));
-  body.append(title, meta);
-  if (pub.role) body.appendChild(el("span","pub-role",pub.role));
-  li.append(year,body);
-  return li;
+function pubNode(pub) {
+  const card = el("article","publication-item");
+  const meta = el("div","pub-meta");
+  meta.append(el("span","pub-year",String(pub.year)),el("span","pub-venue",pub.venue || ""));
+  card.append(meta,extLink(pub.title,pub.url,"pub-title"),el("p","pub-authors",pub.authors || ""));
+  if (pub.role) card.append(el("p","pub-role",pub.role));
+  return card;
 }
 
-function renderHomePubs() {
-  const node = clear($("homePubs"));
-  if (!node) return;
-  const pubs = arr(state.data?.publications);
-  const preferred = pubs.filter((p) => /first/i.test(String(p.role || "")));
-  const picks = preferred.slice(0,3);
-  (picks.length >= 3 ? picks : pubs.slice(0,3)).forEach((p) => node.appendChild(pubItem(p,true)));
+function yearCounts() {
+  const counts = {};
+  arr(state.data.publications).forEach((pub) => { counts[pub.year] = (counts[pub.year] || 0) + 1; });
+  return Object.entries(counts).sort((a,b) => Number(b[0]) - Number(a[0]));
+}
+
+function isLead(pub) {
+
+  return /first|lead|corresponding|co-first|\uacf5\ub3d9|1\uc800\uc790|\uad50\uc2e0/i.test(pub.role || "");
+}
+
+function renderPubMetrics() {
+  const pubs = arr(state.data.publications);
+  const years = yearCounts();
+  const metrics = arr(portal().journalMetrics);
+  const topJif = metrics.reduce((m,x) => Math.max(m,Number(x.value) || 0),0);
+  const leadCount = pubs.filter(isLead).length;
+  const items = [
+    [L("totalPubs"),String(pubs.length)],
+    [L("latestYear"),years[0] ? years[0][0] : "-"],
+    [L("leadTagged"),String(leadCount)],
+    [L("topJif"),topJif ? topJif.toFixed(1) : "-"]
+  ];
+  ["homePubMetrics","pubMetricStrip"].forEach((id) => {
+    const box = clear($(id));
+    items.forEach(([label,value]) => {
+      const card = el("div","metric-card");
+      card.append(el("strong","",value),el("span","",label));
+      box?.append(card);
+    });
+  });
+
+  const ybox = clear($("yearSummary"));
+  years.forEach(([year,count]) => {
+    const row = el("div","year-row");
+    row.append(el("strong","",year),el("span","",String(count) + " papers"));
+    const bar = el("i"); bar.style.setProperty("--count",String(count)); row.append(bar);
+    ybox?.append(row);
+  });
+
+  const ifbox = clear($("ifSummary"));
+  const head = el("div","if-head");
+  head.append(el("h2","",L("verifiedJif")),el("p","",pick(portal().metricNoteKo,portal().metricNoteEn)));
+  ifbox?.append(head);
+  metrics.forEach((metric) => {
+    const row = el("div","if-row");
+    row.append(el("strong","",metric.journal),el("span","",String(metric.value) + " \u00b7 " + metric.year),extLink(L("source"),metric.source));
+    ifbox?.append(row);
+  });
+
+  const home = clear($("homePubs"));
+  pubs.slice(0,3).forEach((pub) => home?.append(pubNode(pub)));
+}
+
+function setupPubFilters() {
+  const select = $("yearFilter"); if (!select) return;
+  select.replaceChildren();
+  const all = document.createElement("option"); all.value = "all"; all.textContent = L("allYears"); select.append(all);
+  yearCounts().forEach(([year]) => { const option = document.createElement("option"); option.value = year; option.textContent = year; select.append(option); });
+  select.value = state.year;
+}
+
+function renderPubs() {
+  const out = clear($("pubList")), q = state.query.trim().toLowerCase();
+  arr(state.data.publications).filter((pub) => {
+    const yearOK = state.year === "all" || String(pub.year) === state.year;
+    const queryOK = !q || [pub.title,pub.authors,pub.venue].join(" ").toLowerCase().includes(q);
+    return yearOK && queryOK && (!state.leadOnly || isLead(pub));
+  }).forEach((pub) => out?.append(pubNode(pub)));
+}
+
+function newsData() { return arr(portal().news).length ? arr(portal().news) : arr(state.data.news); }
+
+function newsCard(item) {
+  const card = el("article","news-card");
+  if (item.image) {
+    const img = document.createElement("img");
+    img.src = item.image === "portrait" ? state.data.person.portrait : item.image;
+    img.alt = ""; img.loading = "lazy"; card.append(img);
+  }
+  const body = el("div","news-body");
+  const meta = el("div","news-meta"); meta.append(el("span","",item.category || "News"),el("time","",item.date || ""));
+  body.append(meta,extLink(pick(item.ko,item.en),item.url,"news-title"));
+  if (item.noteKo || item.noteEn) body.append(el("p","",pick(item.noteKo,item.noteEn)));
+  card.append(body); return card;
 }
 
 function renderNews() {
-  const home = clear($("homeNews"));
+  const news = newsData();
+  const home = clear($("homeNews")); news.slice(0,4).forEach((item) => home?.append(newsCard(item)));
+  const cats = ["All",...new Set(news.map((item) => item.category).filter(Boolean))];
+  if (!cats.includes(state.newsCategory)) state.newsCategory = "All";
+  const tabs = clear($("newsFilters"));
+  cats.forEach((cat) => {
+    const button = el("button",cat === state.newsCategory ? "active" : "",cat);
+    button.type = "button";
+    button.addEventListener("click",() => { state.newsCategory = cat; renderNews(); });
+    tabs?.append(button);
+  });
   const full = clear($("newsList"));
-  arr(state.data?.news).forEach((item, index) => {
-    const makeItem = (compact) => {
-      const li = el("li",compact ? "news-item compact" : "news-item");
-      li.appendChild(el("time","",item.date || ""));
-      const textNode = item.url ? a(pick(item.ko,item.en),item.url,"news-link") : el("p","",pick(item.ko,item.en));
-      li.appendChild(textNode);
-      return li;
-    };
-    if (index < 3) home?.appendChild(makeItem(true));
-    full?.appendChild(makeItem(false));
+  news.filter((item) => state.newsCategory === "All" || item.category === state.newsCategory).forEach((item) => full?.append(newsCard(item)));
+}
+
+function renderPI() {
+  const p = state.data.person, portrait = $("portrait");
+  if (portrait) { portrait.src = p.portrait; portrait.alt = pick(p.nameKo,p.nameEn); }
+  setText("piName",pick(p.nameKo,p.nameEn));
+  setText("piTitle",pick(p.titleKo,p.titleEn) + " \u00b7 " + pick(p.deptKo,p.deptEn));
+  const links = clear($("profileList"));
+  [["KMOU",p.facultyPage],["Google Scholar",p.scholar],["ORCID",p.orcid],["OpenAlex",p.openalex]].forEach(([name,url]) => links?.append(extLink(name,url)));
+  const keys = clear($("piKeywords")); arr(state.data.heroKeywords).forEach((word) => keys?.append(el("span","keyword",word)));
+  const board = clear($("piResearch"));
+  arr(state.data.research).forEach((item) => {
+    const card = el("div","keyword-card");
+    card.append(el("strong","",pick(item.ko,item.en)),el("span","",arr(item.keywords).join(" \u00b7 ")));
+    board?.append(card);
+  });
+  [["educationList",state.data.education],["careerList",state.data.career]].forEach(([id,list]) => {
+    const target = clear($(id));
+    arr(list).forEach((item) => {
+      const row = el("li"); row.append(el("strong","",item.year || ""),el("span","",pick(item.ko,item.en))); target?.append(row);
+    });
   });
 }
 
-function renderProfile() {
-  const d = state.data || {};
-  const about = clear($("aboutBody"));
-  arr(state.lang === "en" ? d.aboutEn : d.aboutKo).forEach((p) => about?.appendChild(el("p","",p)));
-  const facts = clear($("piFacts"));
-  arr(d.facts).forEach((f) => {
-    const row = el("div","fact-row");
-    row.append(el("dt","",pick(f.labelKo,f.labelEn)),el("dd","",pick(f.valueKo,f.valueEn)));
-    facts?.appendChild(row);
+function renderStudents() {
+  const s = portal().students || {};
+  setText("studentRecruiting",pick(s.recruitingKo,s.recruitingEn));
+  setText("studentStatus",pick(s.statusKo,s.statusEn));
+  const tracks = clear($("studentTracks"));
+  arr(s.tracks).forEach((track) => {
+    const card = el("article","track-card");
+    card.append(el("h2","",pick(track.ko,track.en)));
+    const keys = el("div","keyword-row"); arr(track.keywords).forEach((word) => keys.append(el("span","keyword",word)));
+    card.append(keys); tracks?.append(card);
   });
-  const edu = clear($("educationList"));
-  arr(d.education).forEach((x) => edu?.appendChild(timelineItem(x)));
-  const career = clear($("appointmentsList"));
-
-  arr(d.career).forEach((x) => career?.appendChild(timelineItem(x)));
-
-  const links = clear($("piLinks"));
-  const p = d.person || {};
-  [["Scholar",p.scholar],["ORCID",p.orcid],["KMOU",p.facultyPage],["Email","mailto:"+p.email]]
-    .forEach(([name,url]) => { if (url) links?.appendChild(a(name,url,"profile-link")); });
-}
-
-function timelineItem(item) {
-  const li = el("li","timeline-item");
-  li.append(el("span","timeline-year",item.year || ""),el("p","",pick(item.ko,item.en)));
-  return li;
-}
-
-function renderInquiry() {
-  const node = clear($("inquiryCards"));
-  arr(state.data?.studentPaths).forEach((item) => {
-    const card = el("article","inquiry-card");
-    card.append(el("h3","",pick(item.ko,item.en)),el("p","",pick(item.detailKo,item.detailEn)));
-    node?.appendChild(card);
-  });
+  const steps = clear($("studentOnboarding"));
+  arr(state.lang === "en" ? s.onboardingEn : s.onboardingKo).forEach((step) => steps?.append(el("li","",step)));
 }
 
 function renderContact() {
-  const d = state.data || {};
-  const grid = clear($("contactGrid"));
-  arr(d.facts).forEach((f) => {
-    const row = el("div","contact-row");
-    row.append(el("strong","",pick(f.labelKo,f.labelEn)),el("span","",pick(f.valueKo,f.valueEn)));
-    grid?.appendChild(row);
+  const c = portal().contact || {}, map = $("campusMap");
+  if (map && c.mapEmbed) map.src = c.mapEmbed;
+  setText("mapAddress",pick(c.addressKo,c.addressEn));
+  const mapLink = $("mapLink"); if (mapLink) mapLink.href = c.mapLink || "#";
+  const box = clear($("contactGrid"));
+  const rows = [
+    [state.lang === "ko" ? "\uad50\uc218 \uc5f0\uad6c\uc2e4" : "Office",pick(c.officeKo,c.officeEn)],
+    [state.lang === "ko" ? "\uc2e4\ud5d8\uc2e4" : "Lab",pick(c.labKo,c.labEn)],
+    [state.lang === "ko" ? "\ud559\uacfc\uc0ac\ubb34\uc2e4" : "Department",pick(c.departmentOfficeKo,c.departmentOfficeEn)],
+    ["Email",state.data.person.email],
+    ["Phone","051-410-4355 \u00b7 051-410-4966"]
+  ];
+  rows.forEach(([label,value]) => {
+    const row = el("div","contact-row"); row.append(el("span","",label));
+    row.append(label === "Email" ? extLink(value,"mailto:" + value) : el("strong","",value)); box?.append(row);
   });
-  const profiles = clear($("profileList"));
-  arr(d.sources).forEach((s) => {
-    const li = el("li","");
-    li.appendChild(a(s.label,s.url || "#","profile-source"));
-    const note = pick(s.noteKo,s.noteEn);
-    if (note) li.appendChild(el("span","",note));
-    profiles?.appendChild(li);
-  });
+  box?.append(extLink("Google Scholar",state.data.person.scholar,"contact-action"));
+  box?.append(extLink("ORCID",state.data.person.orcid,"contact-action"));
+  box?.append(extLink("KMOU Faculty Profile",state.data.person.facultyPage,"contact-action"));
 }
 
-function renderYearFilter() {
-  const node = clear($("yearFilter"));
-  if (!node) return;
-  const years = ["all", ...new Set(arr(state.data?.publications).map((p) => String(p.year)))];
-  years.forEach((year) => {
-    const btn = el("button","year-button",year === "all" ? L("allYears") : year);
-    btn.type = "button";
-    btn.classList.toggle("active",state.year === year);
-    btn.addEventListener("click",() => {
-      state.year = year;
-      renderYearFilter();
-      renderPublications();
-    });
-    node.appendChild(btn);
-  });
+function renderAll() {
+  renderNav(); renderHero(); renderResearch(); renderPubMetrics(); setupPubFilters(); renderPubs(); renderNews(); renderPI(); renderStudents(); renderContact(); applyRoute();
 }
 
-function renderPublications() {
-  const node = clear($("pubList"));
-  if (!node) return;
-  const q = state.query;
-  const pubs = arr(state.data?.publications).filter((p) => {
-    if (state.year !== "all" && String(p.year) !== state.year) return false;
-    if (state.firstOnly && !/first|lead/i.test(String(p.role || ""))) return false;
-    if (!q) return true;
-    return [p.title,p.authors,p.venue,String(p.year)].join(" ").toLowerCase().includes(q);
+const ADMIN = {owner:"ttthkim-hue",repo:"kim-jingyeom-homepage",path:"site/content.json",branch:"main",publicRepo:"ttthkim-hue.github.io",publicPath:"content.json",publicAssetsPrefix:"assets/uploads/",allowed:["ttthkim-hue"]};
+
+function ghHeaders() {
+  return {Accept:"application/vnd.github+json",Authorization:"Bearer " + state.adminToken,"X-GitHub-Api-Version":"2022-11-28"};
+}
+
+function repoContentUrl(repo,path) {
+  return "https://api.github.com/repos/" + ADMIN.owner + "/" + repo + "/contents/" + path;
+}
+
+async function readRepoFile(repo,path) {
+  const response = await fetch(repoContentUrl(repo,path) + "?ref=" + ADMIN.branch,{headers:ghHeaders()});
+  if (!response.ok) throw new Error("Could not read " + repo + "/" + path + ": HTTP " + response.status);
+  return response.json();
+}
+
+async function writeRepoText(repo,path,text,message,sha) {
+  const response = await fetch(repoContentUrl(repo,path),{
+    method:"PUT",
+    headers:{...ghHeaders(),"Content-Type":"application/json"},
+    body:JSON.stringify({message,content:encode64(text),sha,branch:ADMIN.branch})
   });
-  if (!pubs.length) {
-    node.appendChild(el("p","empty",L("noResults")));
-    return;
+
+  if (!response.ok) throw new Error("Could not write " + repo + "/" + path + ": HTTP " + response.status);
+  return response.json();
+}
+
+async function createRepoBinary(repo,path,base64Content,message) {
+  const response = await fetch(repoContentUrl(repo,path),{
+    method:"PUT",
+    headers:{...ghHeaders(),"Content-Type":"application/json"},
+    body:JSON.stringify({message,content:base64Content,branch:ADMIN.branch})
+  });
+  if (!response.ok) throw new Error("Could not upload " + repo + "/" + path + ": HTTP " + response.status);
+  return response.json();
+}
+
+function decode64(value) {
+  const bytes = Uint8Array.from(atob(value.replace(/\n/g,"")),(c) => c.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+
+function encode64(value) {
+  const bytes = new TextEncoder().encode(value); let binary = "";
+  bytes.forEach((b) => { binary += String.fromCharCode(b); });
+  return btoa(binary);
+}
+
+function adminMessage(message,error) {
+  const node = $("adminStatus"); if (!node) return;
+  node.textContent = message; node.classList.toggle("error",Boolean(error));
+}
+
+function fillAdmin() {
+  const d = state.adminData; if (!d) return;
+  $("editHero1").value = arr(d.heroTitlePartsKo)[0] || d.heroTitleKo || "";
+  $("editHero2").value = arr(d.heroTitlePartsKo)[1] || "";
+  $("editHeroLead").value = d.heroLeadKo || "";
+  const select = $("editResearchIndex"); select.replaceChildren();
+  arr(d.research).forEach((item,index) => {
+    const option = document.createElement("option"); option.value = String(index); option.textContent = String(index + 1) + ". " + (item.ko || item.en || "Research"); select.append(option);
+  });
+  loadResearchEditor();
+  $("adminJson").value = JSON.stringify(d,null,2);
+}
+
+function loadResearchEditor() {
+  const index = Number($("editResearchIndex")?.value || 0);
+  const image = arr(state.adminData?.portal?.researchMedia)[index]?.image || "";
+  if ($("editResearchImage")) $("editResearchImage").value = image;
+}
+
+async function connectAdmin() {
+  const token = $("adminToken")?.value.trim(), expected = $("adminUser")?.value.trim();
+  if (!token) return adminMessage("Enter a repository-scoped token.",true);
+  state.adminToken = token;
+  try {
+    const me = await fetch("https://api.github.com/user",{headers:ghHeaders()});
+    if (!me.ok) throw new Error("GitHub authentication failed.");
+    const profile = await me.json();
+    if (!ADMIN.allowed.includes(profile.login) || profile.login !== expected) throw new Error("This GitHub account is not an allowed administrator.");
+    const url = "https://api.github.com/repos/" + ADMIN.owner + "/" + ADMIN.repo + "/contents/" + ADMIN.path + "?ref=" + ADMIN.branch;
+    const file = await fetch(url,{headers:ghHeaders()});
+    if (!file.ok) throw new Error("Could not read source content.");
+    const obj = await file.json();
+    state.adminFileSha = obj.sha; state.adminData = JSON.parse(decode64(obj.content));
+    $("adminToken").value = ""; $("adminLogin").hidden = true; $("adminPanel").hidden = false;
+    fillAdmin(); adminMessage(profile.login + " connected. Saves update both the private source and the public Pages repository.");
+  } catch (error) {
+    state.adminToken = ""; adminMessage(error.message || String(error),true);
   }
-  pubs.forEach((p) => node.appendChild(pubItem(p,false)));
 }
 
-function reveal() {
-  if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    document.querySelectorAll(".reveal").forEach((n) => n.classList.add("shown"));
-    return;
+async function commitAdmin(message) {
+  const text = JSON.stringify(state.adminData,null,2) + "\n";
+  const sourceResult = await writeRepoText(ADMIN.repo,ADMIN.path,text,message,state.adminFileSha);
+  state.adminFileSha = sourceResult.content.sha;
+  try {
+    const publicFile = await readRepoFile(ADMIN.publicRepo,ADMIN.publicPath);
+    await writeRepoText(ADMIN.publicRepo,ADMIN.publicPath,text,"Publish: " + message,publicFile.sha);
+  } catch (error) {
+    throw new Error("Private source saved, but public publish failed. Check token access to both repositories. " + (error.message || String(error)));
   }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("shown");
-        io.unobserve(entry.target);
-      }
-    });
-  }, {threshold:0.08});
-  document.querySelectorAll(".reveal").forEach((n) => io.observe(n));
+  $("adminJson").value = JSON.stringify(state.adminData,null,2);
+  state.data = JSON.parse(JSON.stringify(state.adminData));
+  renderAll();
+  adminMessage("Saved and published. GitHub Pages will refresh after its deployment workflow completes.");
 }
 
+async function saveAdmin(kind) {
+  if (!state.adminData || !state.adminToken) return adminMessage("Connect an administrator first.",true);
+  try {
+    if (kind === "hero") {
+      const one = $("editHero1").value.trim(), two = $("editHero2").value.trim();
+      state.adminData.heroTitlePartsKo = [one,two].filter(Boolean);
+      state.adminData.heroTitleKo = state.adminData.heroTitlePartsKo.join(", ");
+      state.adminData.heroLeadKo = $("editHeroLead").value.trim();
+    }
+    if (kind === "research") {
+      const index = Number($("editResearchIndex").value);
+      state.adminData.portal = state.adminData.portal || {};
+      state.adminData.portal.researchMedia = arr(state.adminData.portal.researchMedia);
+      state.adminData.portal.researchMedia[index] = state.adminData.portal.researchMedia[index] || {};
+      state.adminData.portal.researchMedia[index].image = $("editResearchImage").value.trim();
+    }
+    if (kind === "news") {
+      const item = {
+        date:$("editNewsDate").value.trim(),
+        category:$("editNewsCategory").value.trim() || "News",
+        ko:$("editNewsTitle").value.trim(),
+        en:$("editNewsTitle").value.trim(),
+        noteKo:$("editNewsNote").value.trim(),
+        noteEn:$("editNewsNote").value.trim(),
+        url:$("editNewsUrl").value.trim(),
+        image:$("editNewsImage").value.trim()
+      };
+      if (!item.date || !item.ko || !item.url) throw new Error("Date, title and source URL are required.");
+      state.adminData.portal = state.adminData.portal || {};
+      state.adminData.portal.news = arr(state.adminData.portal.news);
+      state.adminData.portal.news.unshift(item);
+    }
+    if (kind === "json") state.adminData = JSON.parse($("adminJson").value);
+    if (state.adminData.meta) state.adminData.meta.updated = new Date().toISOString().slice(0,10);
+    await commitAdmin("Admin content update: " + kind);
+  } catch (error) {
+    adminMessage(error.message || String(error),true);
+  }
+}
 
-load().catch(() => {
-  const main = document.querySelector("main");
-  if (main) main.textContent = "Unable to load site content.";
-});
+async function uploadResearchImage() {
+  if (!state.adminToken || !state.adminData) return adminMessage("Connect an administrator first.",true);
+  const file = $("researchImageFile")?.files?.[0];
+  if (!file) return adminMessage("Choose an image file.",true);
+  if (file.size > 5 * 1024 * 1024) return adminMessage("Use an image smaller than 5 MB.",true);
+  try {
+    const bytes = new Uint8Array(await file.arrayBuffer()); let binary = "";
+    bytes.forEach((b) => { binary += String.fromCharCode(b); });
+    const safe = file.name.replace(/[^A-Za-z0-9._-]/g,"-");
+    const filename = Date.now() + "-" + safe;
+    const encoded = btoa(binary);
+    const sourcePath = "site/assets/uploads/" + filename;
+    const publicPath = ADMIN.publicAssetsPrefix + filename;
+    await createRepoBinary(ADMIN.repo,sourcePath,encoded,"Admin research image upload");
+    try {
+      await createRepoBinary(ADMIN.publicRepo,publicPath,encoded,"Publish research image");
+    } catch (error) {
+      throw new Error("Private image saved, but public image publish failed. Check token access to both repositories. " + (error.message || String(error)));
+    }
+    $("editResearchImage").value = "./assets/uploads/" + filename;
+    adminMessage("Image uploaded to source and public site. Click Save research image to attach it to the selected area.");
+  } catch (error) {
+    adminMessage(error.message || String(error),true);
+  }
+}
+
+function bind() {
+  $("langBtn")?.addEventListener("click",() => {
+    state.lang = state.lang === "ko" ? "en" : "ko";
+    localStorage.setItem("enermaker-lang",state.lang);
+    renderAll();
+  });
+  $("menuBtn")?.addEventListener("click",() => {
+    const open = $("navLinks")?.classList.toggle("open");
+    $("menuBtn")?.setAttribute("aria-expanded",String(Boolean(open)));
+  });
+  window.addEventListener("hashchange",applyRoute);
+  $("pubSearch")?.addEventListener("input",(event) => { state.query = event.target.value; renderPubs(); });
+  $("yearFilter")?.addEventListener("change",(event) => { state.year = event.target.value; renderPubs(); });
+  $("leadOnly")?.addEventListener("change",(event) => { state.leadOnly = event.target.checked; renderPubs(); });
+  $("adminConnect")?.addEventListener("click",connectAdmin);
+  $("editResearchIndex")?.addEventListener("change",loadResearchEditor);
+  $("uploadResearchImage")?.addEventListener("click",uploadResearchImage);
+  document.querySelectorAll(".admin-save").forEach((button) => button.addEventListener("click",() => saveAdmin(button.dataset.adminSave)));
+}
+
+async function load() {
+  const response = await fetch("./content.json",{cache:"no-store"});
+  if (!response.ok) throw new Error("content load failed");
+  state.data = await response.json();
+  renderAll();
+}
+
+bind();
+
+load().catch((error) => document.body.append(el("p","load-error","Content load failed: " + error.message)));
+
