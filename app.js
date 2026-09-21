@@ -222,7 +222,7 @@ function renderPubMetrics() {
   });
 
   const home = clear($("homePubs"));
-  pubs.slice(0,3).forEach((pub) => home?.append(pubNode(pub)));
+  pubs.slice(0,2).forEach((pub) => home?.append(pubNode(pub)));
 }
 
 function setupPubFilters() {
@@ -260,7 +260,7 @@ function newsCard(item) {
 
 function renderNews() {
   const news = newsData();
-  const home = clear($("homeNews")); news.slice(0,4).forEach((item) => home?.append(newsCard(item)));
+  const home = clear($("homeNews")); news.slice(0,3).forEach((item) => home?.append(newsCard(item)));
   const cats = ["All",...new Set(news.map((item) => item.category).filter(Boolean))];
   if (!cats.includes(state.newsCategory)) state.newsCategory = "All";
   const tabs = clear($("newsFilters"));
