@@ -12,8 +12,8 @@
     "titleEn": "Assistant Professor",
     "deptKo": "국립한국해양대학교 해양과학기술융합대학 해양신소재융합공학과",
     "deptEn": "Department of Marine New Materials Convergence Engineering, Korea Maritime & Ocean University",
-    "labKo": "첨단 에너지소재 및 기능성 소자 실험실",
-    "labEn": "Advanced Energy Materials and Functional Devices Laboratory",
+    "labKo": "첨단 에너지소재 및 기능성 소자 실험실 (EnerMAKER Lab)",
+    "labEn": "Advanced Energy Materials and Functional Devices Laboratory (EnerMAKER Lab)",
     "labShort": "EnerMAKER Lab",
     "email": "jingyeom0825@kmou.ac.kr",
     "facultyPage": "https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782",
@@ -33,23 +33,27 @@
   "heroTitleKo": "에너지를 만드는 소재, 환경을 읽는 소자",
   "heroTitleEn": "Materials that harvest energy. Devices that sense their environment.",
   "heroTitlePartsKo": [
-    "에너지를 만드는 소재",
-    "환경을 읽는 소자"
+    "에너지 · 환경",
+    "기능성 소자",
+    "AI · 계산과학 · 시뮬레이션"
   ],
   "heroTitlePartsEn": [
-    "Materials that harvest energy",
-    "Devices that sense their environment"
+    "Energy · Environment",
+    "Functional Devices",
+    "AI · Computational Simulation"
   ],
   "heroKeywords": [
     "TENG",
-    "Interfacial charge",
     "Self-powered sensing",
-    "Bioelectronics",
     "2D materials",
+    "Bioelectronics",
+    "AI-assisted modeling",
+    "LBM-DPM",
+    "Multiphysics",
     "Marine environments"
   ],
-  "heroLeadKo": "TENG · 계면전하 · 자가발전 센서 · 기능성 나노소재",
-  "heroLeadEn": "TENG 쨌 interfacial charge 쨌 self-powered sensing 쨌 functional nanomaterials",
+  "heroLeadKo": "TENG · 자가발전 센싱 · 2D 소재 · 바이오전자 · LBM-DPM · 해양환경",
+  "heroLeadEn": "TENG · Self-powered sensing · 2D materials · Bioelectronics · LBM-DPM · Marine environments",
   "heroCards": [
     {
       "eyebrowKo": "TENG",
@@ -199,16 +203,17 @@
       "visual": "nano"
     },
     {
-      "ko": "계산·데이터 기반 소재·소자 설계",
-      "en": "Computational materials & device design",
-      "detailKo": "LBM-DPM 기반 디지털 트윈과 실험 데이터 분석을 활용해 입자·유동·계면 현상을 해석하고 소재·소자 설계 범위를 좁힙니다.",
-      "detailEn": "Uses LBM-DPM digital twins and experimental data analysis to interpret particle, flow, and interface phenomena and narrow the materials/device design space.",
-      "signalKo": "모델링으로 실험을 해석하고 다음 설계를 정교화",
-      "signalEn": "Using modeling to interpret experiments and refine the next design",
+      "ko": "AI·계산과학 기반 소재·소자 설계",
+      "en": "AI & computational materials/device design",
+      "detailKo": "AI 기반 데이터 분석, LBM-DPM, CFD·멀티피직스 시뮬레이션과 디지털 트윈을 활용해 입자·유동·계면 현상을 해석하고 소재·소자 설계 범위를 좁힙니다.",
+      "detailEn": "Uses AI-assisted data analysis, LBM-DPM, CFD/multiphysics simulation, and digital twins to interpret particle, flow, and interface phenomena and narrow the materials/device design space.",
+      "signalKo": "AI · 계산과학 · 시뮬레이션으로 실험 설계 범위를 좁히는 연구",
+      "signalEn": "Using AI and computational simulation to narrow experimental design space",
       "keywords": [
+        "AI-assisted modeling",
         "LBM-DPM",
-        "multiphysics modeling",
-        "data analysis",
+        "CFD",
+        "multiphysics",
         "digital twin"
       ],
       "visual": "model"
@@ -460,32 +465,33 @@
     "version": "4.0",
     "researchMedia": [
       {
-        "image": "./assets/visuals/pillar-energy-wave.jpg",
+        "image": "",
         "paperTitle": "Electric-field-driven interfacial trapping of drifting triboelectric charges via contact electrification",
         "paperUrl": "https://doi.org/10.1039/D2EE03114K",
         "paperVenue": "Energy & Environmental Science · 2023",
-        "imageCredit": "Reusable local theme visual; publication figure can be replaced by admin after license clearance"
+        "imageCredit": "Publication-linked card only. RSC graphical abstract is not reused because the article page requires permissions."
       },
       {
-        "image": "./assets/visuals/pillar-bio-neuron.png",
+        "image": "",
         "paperTitle": "Self-sustaining leadless intracardiac pacemaker powered by triboelectric nanogenerator",
         "paperUrl": "https://doi.org/10.1126/sciadv.aef8903",
         "paperVenue": "Science Advances · 2026",
-        "imageCredit": "Public-domain research-theme visual"
+        "imageCredit": "Publication-linked card only. Paper image remains disabled until the exact reuse license is verified."
       },
       {
-        "image": "./assets/visuals/pillar-nano-nist.jpg",
+        "image": "",
         "paperTitle": "Self-Powering Gas Sensing System Enabled by Double-Layer Triboelectric Nanogenerators Based on P2VP@BaTiO3 Core-Shell Hybrids",
         "paperUrl": "https://doi.org/10.1021/acsnano.3c12035",
         "paperVenue": "ACS Nano · 2024",
-        "imageCredit": "NIST public-domain research-theme visual"
+        "imageCredit": "Publication-linked card only. ACS publication image remains disabled until explicit reuse terms are verified."
       },
       {
         "image": "",
         "paperTitle": "Self-Powered Triboelectric Electrospun Air Filters as Functional Fibrous Materials: Experiment-Supported Modeling of Dielectrophoretic Capture and Scale-Up",
         "paperUrl": "https://doi.org/10.1016/j.mtcomm.2026.115941",
         "paperVenue": "Materials Today Communications · 2026",
-        "imageCredit": "CSS computational schematic"
+        "imageCredit": "Materials Today Communications 2026 is open access under a Creative Commons license; figure display remains disabled until the exact CC subtype is captured.",
+        "imageSource": "https://doi.org/10.1016/j.mtcomm.2026.115941"
       }
     ],
     "journalMetrics": [
