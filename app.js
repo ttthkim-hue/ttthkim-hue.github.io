@@ -7,7 +7,8 @@ const state = {
   newsCategory: "All",
   adminToken: "",
   adminData: null,
-  adminFileSha: ""
+  adminFileSha: "",
+  motionObserver: null
 };
 
 const $ = (id) => document.getElementById(id);
@@ -46,6 +47,7 @@ const labels = {
     totalPubs:"\uc804\uccb4 \ub17c\ubb38", latestYear:"\ucd5c\uc2e0 \uc5f0\ub3c4", leadTagged:"\uc8fc\ub3c4\uc800\uc790 \ud45c\uae30", topJif:"\ucd5c\uace0 \ud655\uc778 JIF",
     verifiedJif:"\uacf5\uc2dd \ud655\uc778 \uc800\ub110 JIF", source:"\ucd9c\ucc98",
     joinStudents:"\ud559\uc0dd\u00b7\uc9c4\ud559", joinContact:"\uc5f0\ub77d\ucc98",
+    heroPubs:"\ub17c\ubb38", researchAxes:"\uc5f0\uad6c\ucd95", labBase:"\uc18c\uc18d",
     inquiry:"\uad00\uc2ec \uc5f0\uad6c \ud0a4\uc6cc\ub4dc, \uad00\ub828 \uacbd\ud5d8, \uac00\ub2a5\ud55c \uc2dc\uc791 \uc2dc\uc810\uc744 \uac04\ub2e8\ud788 \uc801\uc5b4 \ubb38\uc758\ud574 \uc8fc\uc138\uc694."
   },
   en: {
@@ -62,6 +64,7 @@ const labels = {
     totalPubs:"Publications", latestYear:"Latest year", leadTagged:"Lead-author tagged", topJif:"Top verified JIF",
     verifiedJif:"Verified journal JIF", source:"source",
     joinStudents:"Students", joinContact:"Contact",
+    heroPubs:"Publications", researchAxes:"Research axes", labBase:"Base",
     inquiry:"Include a research keyword, relevant experience, and your possible start date."
   }
 };
@@ -104,13 +107,27 @@ function renderNav() {
 
 function renderHero() {
   const d = state.data, p = d.person;
-  setText("heroKicker",state.lang === "ko" ? p.labKo : (p.labEn + " (" + p.labShort + ")"));
+  setText("heroKicker",state.lang === "ko" ? p.labKo : p.labEn);
+  setText("heroRecruitText",pick(portal().students?.recruitingKo,portal().students?.recruitingEn));
   const title = clear($("heroTitle"));
   const parts = state.lang === "en" ? arr(d.heroTitlePartsEn) : arr(d.heroTitlePartsKo);
   (parts.length ? parts : [pick(d.heroTitleKo,d.heroTitleEn)]).forEach((part) => title?.append(el("span","title-part",part)));
   setText("heroLead",pick(d.heroLeadKo,d.heroLeadEn));
   const row = clear($("heroKeywords"));
   arr(d.heroKeywords).forEach((word) => row?.append(el("span","keyword",word)));
+  const proof = clear($("heroProof"));
+  const pubs = arr(d.publications), years = pubs.map((x) => Number(x.year) || 0);
+  const facts = [
+    [String(pubs.length),L("heroPubs")],
+    [String(arr(d.research).length),L("researchAxes")],
+    [String(Math.max(...years,0) || "-"),L("latestYear")],
+    ["KMOU",L("labBase")]
+  ];
+  facts.forEach(([value,label]) => {
+    const item = el("div","hero-proof-item");
+    item.append(el("strong","",value),el("span","",label));
+    proof?.append(item);
+  });
   setText("homeRecruit",pick(portal().students?.recruitingKo,portal().students?.recruitingEn));
 }
 
@@ -119,19 +136,25 @@ function researchItem(index) {
   return {...base,...(arr(portal().researchMedia)[index] || {})};
 }
 
-function researchVisual(item) {
-  if (!item.image) return null;
-  const box = el("div","research-visual");
-  const img = document.createElement("img");
-  img.src = item.image; img.alt = pick(item.ko,item.en); img.loading = "lazy";
-  box.append(img);
+function researchVisual(item,index) {
+  if (item.image) {
+    const box = el("div","research-visual");
+    const img = document.createElement("img");
+    img.src = item.image; img.alt = pick(item.ko,item.en); img.loading = "lazy";
+    box.append(img);
+    return box;
+  }
+  const box = el("div","research-icon-panel");
+  const icon = document.createElement("img");
+  icon.src = item.icon || "./assets/vendor/lucide/atom.svg";
+  icon.alt = ""; icon.setAttribute("aria-hidden","true"); icon.loading = "lazy";
+  box.append(icon,el("span","research-index",String(index + 1).padStart(2,"0")));
   return box;
 }
 
-function researchCard(item, detailed) {
+function researchCard(item, detailed, index) {
   const card = el("article","research-card" + (item.image ? "" : " text-only"));
-  const visual = researchVisual(item);
-  if (visual) card.append(visual);
+  card.append(researchVisual(item,index));
   const body = el("div","research-body");
   body.append(el("p","kicker",item.visual === "model" ? "Modeling" : "Research"));
   body.append(el("h2","",pick(item.ko,item.en)));
@@ -139,6 +162,9 @@ function researchCard(item, detailed) {
   const keys = el("div","keyword-row");
   arr(item.keywords).forEach((word) => keys.append(el("span","keyword",word)));
   body.append(keys);
+  if (item.paperTitle && !detailed) {
+    body.append(extLink((item.paperVenue || "Representative paper") + " \u2197",item.paperUrl,"research-evidence"));
+  }
   if (detailed && item.paperTitle) {
     const paper = el("div","paper-highlight");
     paper.append(el("small","",item.paperVenue || "Representative paper"));
@@ -153,8 +179,8 @@ function renderResearch() {
   const home = clear($("homeResearch")), full = clear($("researchGrid"));
   arr(state.data.research).forEach((unused,index) => {
     const item = researchItem(index);
-    home?.append(researchCard(item,false));
-    full?.append(researchCard(item,true));
+    home?.append(researchCard(item,false,index));
+    full?.append(researchCard(item,true,index));
   });
 }
 
@@ -329,8 +355,35 @@ function renderContact() {
   box?.append(extLink("KMOU Faculty Profile",state.data.person.facultyPage,"contact-action"));
 }
 
+function setupMotion() {
+  state.motionObserver?.disconnect();
+  const cards = document.querySelectorAll(".research-card");
+  cards.forEach((card) => {
+    card.onpointermove = (event) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--mx",(event.clientX - rect.left) + "px");
+      card.style.setProperty("--my",(event.clientY - rect.top) + "px");
+    };
+  });
+  const nodes = [...document.querySelectorAll(".home-section,.home-contact,.research-card,.publication-item,.news-card,.metric-card")];
+  nodes.forEach((node) => node.classList.add("reveal"));
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduced || !("IntersectionObserver" in window)) {
+    nodes.forEach((node) => node.classList.add("in-view"));
+    return;
+  }
+  state.motionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("in-view");
+      state.motionObserver?.unobserve(entry.target);
+    });
+  },{rootMargin:"0px 0px -7% 0px",threshold:0.08});
+  nodes.forEach((node) => state.motionObserver.observe(node));
+}
+
 function renderAll() {
-  renderNav(); renderHero(); renderResearch(); renderPubMetrics(); setupPubFilters(); renderPubs(); renderNews(); renderPI(); renderStudents(); renderContact(); applyRoute();
+  renderNav(); renderHero(); renderResearch(); renderPubMetrics(); setupPubFilters(); renderPubs(); renderNews(); renderPI(); renderStudents(); renderContact(); applyRoute(); setupMotion();
 }
 
 const ADMIN = {owner:"ttthkim-hue",repo:"kim-jingyeom-homepage",path:"site/content.json",branch:"main",publicRepo:"ttthkim-hue.github.io",publicPath:"content.json",publicAssetsPrefix:"assets/uploads/"};
@@ -531,7 +584,7 @@ function bind() {
     const open = $("navLinks")?.classList.toggle("open");
     $("menuBtn")?.setAttribute("aria-expanded",String(Boolean(open)));
   });
-  window.addEventListener("hashchange",applyRoute);
+  window.addEventListener("hashchange",() => { applyRoute(); setupMotion(); });
   $("pubSearch")?.addEventListener("input",(event) => { state.query = event.target.value; renderPubs(); });
   $("yearFilter")?.addEventListener("change",(event) => { state.year = event.target.value; renderPubs(); });
   $("leadOnly")?.addEventListener("change",(event) => { state.leadOnly = event.target.checked; renderPubs(); });
