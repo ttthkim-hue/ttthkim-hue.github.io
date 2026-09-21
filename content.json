@@ -1,18 +1,18 @@
 {
   "meta": {
     "status": "PUBLIC",
-    "updated": "2026-09-20",
+    "updated": "2026-09-21",
     "source": "KMOU faculty profile; Google Scholar; ORCID; DOI/publisher records; UW-Madison Engineering public news."
   },
   "person": {
-    "nameKo": "\uae40\uc9c4\uacb8",
+    "nameKo": "김진겸",
     "nameEn": "Jin-Kyeom Kim",
-    "hanja": "\u91d1\u73cd\u8b19 \u00b7 Kim Jin-Kyeom",
-    "titleKo": "\uc870\uad50\uc218",
+    "hanja": "金珍謙 · Kim Jin-Kyeom",
+    "titleKo": "조교수",
     "titleEn": "Assistant Professor",
-    "deptKo": "\uad6d\ub9bd\ud55c\uad6d\ud574\uc591\ub300\ud559\uad50 \ud574\uc591\uacfc\ud559\uae30\uc220\uc735\ud569\ub300\ud559 \ud574\uc591\uc2e0\uc18c\uc7ac\uc735\ud569\uacf5\ud559\uacfc",
+    "deptKo": "국립한국해양대학교 해양과학기술융합대학 해양신소재융합공학과",
     "deptEn": "Department of Marine New Materials Convergence Engineering, Korea Maritime & Ocean University",
-    "labKo": "\ucca8\ub2e8 \uc5d0\ub108\uc9c0\uc18c\uc7ac \ubc0f \uae30\ub2a5\uc131 \uc18c\uc790 \uc2e4\ud5d8\uc2e4",
+    "labKo": "첨단 에너지소재 및 기능성 소자 실험실",
     "labEn": "Advanced Energy Materials and Functional Devices Laboratory",
     "labShort": "EnerMAKER Lab",
     "email": "jingyeom0825@kmou.ac.kr",
@@ -25,79 +25,94 @@
   },
   "metrics": {
     "asOf": "2026-09-20",
-    "noteKo": "\ub17c\ubb38\uacfc \uc5f0\uad6c\uc790 \uc815\ubcf4\ub294 \uacf5\uac1c \ud559\uc220 \ud504\ub85c\ud544\uacfc DOI \uae30\ub85d\uc744 \uae30\uc900\uc73c\ub85c \uad00\ub9ac\ud569\ub2c8\ub2e4.",
+    "noteKo": "논문과 연구자 정보는 공개 학술 프로필과 DOI 기록을 기준으로 관리합니다.",
     "noteEn": "Publication and researcher information is maintained from public academic profiles and DOI records."
   },
-  "taglineKo": "\uc790\uac00\ubc1c\uc804 \uc5d0\ub108\uc9c0\uc18c\uc7ac\uc640 \uae30\ub2a5\uc131 \uc18c\uc790 \uc5f0\uad6c",
-  "taglineEn": "Energy-harvesting materials and functional devices.",
-  "heroTitleKo": "\uc5d0\ub108\uc9c0\ub97c \ub9cc\ub4dc\ub294 \uc18c\uc7ac, \ud658\uacbd\uc744 \uc77d\ub294 \uc18c\uc790",
+  "taglineKo": "TENG · 계면전하 · 자가발전 센서 · 기능성 나노소재",
+  "taglineEn": "TENG 쨌 interfacial charge 쨌 self-powered sensing 쨌 functional nanomaterials",
+  "heroTitleKo": "에너지를 만드는 소재, 환경을 읽는 소자",
   "heroTitleEn": "Materials that harvest energy. Devices that sense their environment.",
-  "heroLeadKo": "EnerMAKER Lab\uc740 \ub9c8\ucc30\uc804\uae30 \ub098\ub178\ubc1c\uc804\uae30(TENG)\ub97c \uc911\uc2ec\uc73c\ub85c \uc804\ud558 \uc774\ub3d9\uacfc \uacc4\uba74 \ud604\uc0c1\uc744 \uc774\ud574\ud558\uace0, \uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac\uc640 \uc790\uac00\ubc1c\uc804 \uc13c\uc11c\u00b7\ubc14\uc774\uc624\uc18c\uc790\ub85c \ud655\uc7a5\ud569\ub2c8\ub2e4. \uacc4\uc0b0\u00b7\ub370\uc774\ud130 \uae30\ubc18 \ubaa8\ub378\ub9c1\uc740 \uc2e4\ud5d8\uacfc \uc18c\uc7ac \uc124\uacc4\ub97c \uc5f0\uacb0\ud558\ub294 \ub3c4\uad6c\ub85c \ud65c\uc6a9\ud569\ub2c8\ub2e4.",
-  "heroLeadEn": "EnerMAKER Lab studies charge transport and interfaces in triboelectric nanogenerators (TENGs), then extends those ideas to functional nanomaterials and self-powered sensing and bioelectronic devices. Computational and data-driven models support experiments and materials design.",
+  "heroTitlePartsKo": [
+    "에너지를 만드는 소재",
+    "환경을 읽는 소자"
+  ],
+  "heroTitlePartsEn": [
+    "Materials that harvest energy",
+    "Devices that sense their environment"
+  ],
+  "heroKeywords": [
+    "TENG",
+    "Interfacial charge",
+    "Self-powered sensing",
+    "Bioelectronics",
+    "2D materials",
+    "Marine environments"
+  ],
+  "heroLeadKo": "TENG · 계면전하 · 자가발전 센서 · 기능성 나노소재",
+  "heroLeadEn": "TENG 쨌 interfacial charge 쨌 self-powered sensing 쨌 functional nanomaterials",
   "heroCards": [
     {
       "eyebrowKo": "TENG",
       "eyebrowEn": "TENG",
-      "titleKo": "\uacc4\uba74 \uc804\ud558 \uc81c\uc5b4",
+      "titleKo": "계면 전하 제어",
       "titleEn": "Interfacial charge control",
-      "bodyKo": "\uc804\ud558 \uc0dd\uc131\u00b7\uc774\ub3d9\u00b7\uc18c\uba78 \uba54\ucee4\ub2c8\uc998\uc744 \uc774\ud574\ud558\uace0 \uace0\ucd9c\ub825\u00b7\uace0\uc548\uc815\uc131 TENG \uc124\uacc4\ub85c \uc5f0\uacb0\ud569\ub2c8\ub2e4.",
+      "bodyKo": "전하 생성·이동·소멸 메커니즘을 이해하고 고출력·고안정성 TENG 설계로 연결합니다.",
       "bodyEn": "Connects charge-generation, transport, and decay mechanisms to high-output, stable TENG design."
     },
     {
       "eyebrowKo": "Sensing",
       "eyebrowEn": "Sensing",
-      "titleKo": "\uc790\uac00\ubc1c\uc804 \uc13c\uc11c\uc640 \ubc14\uc774\uc624\uc18c\uc790",
+      "titleKo": "자가발전 센서와 바이오소자",
       "titleEn": "Self-powered sensors and bioelectronics",
-      "bodyKo": "\uc678\ubd80 \uc804\uc6d0 \uc758\uc874\ub3c4\ub97c \uc904\uc778 \ud658\uacbd\u00b7\ud5ec\uc2a4\ucf00\uc5b4 \uc13c\uc2f1 \uc18c\uc790\ub97c \uc5f0\uad6c\ud569\ub2c8\ub2e4.",
+      "bodyKo": "외부 전원 의존도를 줄인 환경·헬스케어 센싱 소자를 연구합니다.",
       "bodyEn": "Develops environmental and healthcare sensing devices with reduced dependence on external power."
     },
     {
       "eyebrowKo": "Materials",
       "eyebrowEn": "Materials",
-      "titleKo": "\uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac\uc640 \uacc4\uba74",
+      "titleKo": "기능성 나노소재와 계면",
       "titleEn": "Functional nanomaterials and interfaces",
-      "bodyKo": "2D \uc18c\uc7ac, \ucf54\uc5b4-\uc258 \uad6c\uc870, \uc12c\uc720 \uc18c\uc7ac\uc758 \ud45c\uba74\uacfc \uacc4\uba74\uc744 \uc870\uc808\ud574 \uae30\ub2a5\uc744 \uc124\uacc4\ud569\ub2c8\ub2e4.",
+      "bodyKo": "2D 소재, 코어-쉘 구조, 섬유 소재의 표면과 계면을 조절해 기능을 설계합니다.",
       "bodyEn": "Engineers surfaces and interfaces in 2D, core-shell, and fibrous materials."
     }
   ],
   "facts": [
     {
-      "labelKo": "\uc5f0\uad6c\uc2e4",
+      "labelKo": "연구실",
       "labelEn": "Office",
-      "valueKo": "\uacf5\ud5592\uad00 416\ud638",
+      "valueKo": "공학2관 416호",
       "valueEn": "Engineering Building 2, Room 416"
     },
     {
-      "labelKo": "\uc2e4\ud5d8\uc2e4",
+      "labelKo": "실험실",
       "labelEn": "Lab",
-      "valueKo": "EnerMAKER Lab \u00b7 \uc885\ud569\uc5f0\uad6c\uad00 302\ud638",
-      "valueEn": "EnerMAKER Lab \u00b7 Research Building, Room 302"
+      "valueKo": "EnerMAKER Lab · 종합연구관 302호",
+      "valueEn": "EnerMAKER Lab · Research Building, Room 302"
     },
     {
-      "labelKo": "\uc804\ud654",
+      "labelKo": "전화",
       "labelEn": "Phone",
-      "valueKo": "051-410-4355 (\uc5f0\uad6c\uc2e4) \u00b7 051-410-4966 (\uc2e4\ud5d8\uc2e4)",
-      "valueEn": "+82-51-410-4355 (office) \u00b7 +82-51-410-4966 (lab)"
+      "valueKo": "051-410-4355 (연구실) · 051-410-4966 (실험실)",
+      "valueEn": "+82-51-410-4355 (office) · +82-51-410-4966 (lab)"
     },
     {
-      "labelKo": "\uba54\uc77c",
+      "labelKo": "메일",
       "labelEn": "Email",
       "valueKo": "jingyeom0825@kmou.ac.kr",
       "valueEn": "jingyeom0825@kmou.ac.kr"
     },
     {
-      "labelKo": "\uc8fc\uc18c",
+      "labelKo": "주소",
       "labelEn": "Address",
-
-      "valueKo": "\ubd80\uc0b0\uad11\uc5ed\uc2dc \uc601\ub3c4\uad6c \ud0dc\uc885\ub85c 727",
+      "valueKo": "부산광역시 영도구 태종로 727",
       "valueEn": "727 Taejong-ro, Yeongdo-gu, Busan, Republic of Korea"
     }
   ],
   "aboutKo": [
-    "\uae40\uc9c4\uacb8 \uc870\uad50\uc218\ub294 \uad6d\ub9bd\ud55c\uad6d\ud574\uc591\ub300\ud559\uad50 \ud574\uc591\uc2e0\uc18c\uc7ac\uc735\ud569\uacf5\ud559\uacfc\uc5d0\uc11c \ucca8\ub2e8 \uc5d0\ub108\uc9c0\uc18c\uc7ac \ubc0f \uae30\ub2a5\uc131 \uc18c\uc790 \uc2e4\ud5d8\uc2e4(EnerMAKER Lab)\uc744 \uc6b4\uc601\ud569\ub2c8\ub2e4.",
-    "\uc6b8\uc0b0\ub300\ud559\uad50\uc5d0\uc11c \uc7ac\ub8cc\uacf5\ud559\uc744 \uc804\uacf5\ud558\uace0 2019\ub144 \uacf5\ud559\uc0ac\ub97c, \uc131\uade0\uad00\ub300\ud559\uad50 \uc2e0\uc18c\uc7ac\uacf5\ud559\uacfc\uc5d0\uc11c 2024\ub144 \uacf5\ud559\ubc15\uc0ac\ub97c \ubc1b\uc558\uc2b5\ub2c8\ub2e4. \uc774\ud6c4 \uc131\uade0\uad00\ub300\ud559\uad50\uc640 University of Wisconsin-Madison\uc5d0\uc11c \ubc15\uc0ac\ud6c4\uc5f0\uad6c\ub97c \uc218\ud589\ud588\uc2b5\ub2c8\ub2e4.",
-    "\uc8fc\uc694 \uc5f0\uad6c\ubd84\uc57c\ub294 \uc804\uc790\uc138\ub77c\ubbf9\uc2a4, \uc5d0\ub108\uc9c0 \ud558\ubca0\uc2a4\ud305, \uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac\uc785\ub2c8\ub2e4. \ud2b9\ud788 TENG\uc758 \uacc4\uba74 \uc804\ud558 \uac70\ub3d9, \uace0\uc2b5\ub3c4\u00b7\uadf9\ud55c\ud658\uacbd \uc548\uc815\uc131, \uc790\uac00\ubc1c\uc804 \uc13c\uc2f1\u00b7\ubc14\uc774\uc624\uc804\uc790\uc18c\uc790, 2D \uc18c\uc7ac\uc640 \ucf54\uc5b4-\uc258 \ud558\uc774\ube0c\ub9ac\ub4dc\ub97c \uc5f0\uad6c\ud558\uace0 \uc788\uc2b5\ub2c8\ub2e4.",
-    "\uc2e4\ud5d8\uacfc \uacc4\uc0b0\uc744 \ud568\uaed8 \ud65c\uc6a9\ud574 \uc18c\uc7ac\uc758 \uad6c\uc870\uc640 \uacc4\uba74\uc774 \uc18c\uc790 \uc131\ub2a5\uc73c\ub85c \uc774\uc5b4\uc9c0\ub294 \uacfc\uc815\uc744 \uc774\ud574\ud558\uace0, \uc2e4\uc81c \ud658\uacbd\uc5d0\uc11c \uc548\uc815\uc801\uc73c\ub85c \ub3d9\uc791\ud558\ub294 \uc5d0\ub108\uc9c0\u00b7\uc13c\uc2f1 \uc18c\uc7ac\ub97c \uc124\uacc4\ud558\ub294 \uac83\uc744 \ubaa9\ud45c\ub85c \ud569\ub2c8\ub2e4."
+    "김진겸 조교수는 국립한국해양대학교 해양신소재융합공학과에서 첨단 에너지소재 및 기능성 소자 실험실(EnerMAKER Lab)을 운영합니다.",
+    "울산대학교에서 재료공학을 전공하고 2019년 공학사를, 성균관대학교 신소재공학과에서 2024년 공학박사를 받았습니다. 이후 성균관대학교와 University of Wisconsin-Madison에서 박사후연구를 수행했습니다.",
+    "주요 연구분야는 전자세라믹스, 에너지 하베스팅, 기능성 나노소재입니다. 특히 TENG의 계면 전하 거동, 고습도·극한환경 안정성, 자가발전 센싱·바이오전자소자, 2D 소재와 코어-쉘 하이브리드를 연구하고 있습니다.",
+    "실험과 계산을 함께 활용해 소재의 구조와 계면이 소자 성능으로 이어지는 과정을 이해하고, 실제 환경에서 안정적으로 동작하는 에너지·센싱 소재를 설계하는 것을 목표로 합니다."
   ],
   "aboutEn": [
     "Jin-Kyeom Kim is an assistant professor in the Department of Marine New Materials Convergence Engineering at Korea Maritime & Ocean University, where he leads the EnerMAKER Lab.",
@@ -109,41 +124,41 @@
     {
       "stepKo": "Design",
       "stepEn": "Design",
-      "bodyKo": "\ubb38\ud5cc\u00b7\ubb3c\uc131\u00b7\ud574\uc591\ud658\uacbd \uc870\uac74\uc73c\ub85c \ud6c4\ubcf4 \uc18c\uc7ac\uc640 \uad6c\uc870\ub97c \uc815\uc758\ud569\ub2c8\ub2e4.",
+      "bodyKo": "문헌·물성·해양환경 조건으로 후보 소재와 구조를 정의합니다.",
       "bodyEn": "Define candidate materials and architectures from literature, properties, and marine operating conditions."
     },
     {
       "stepKo": "Fabricate",
       "stepEn": "Fabricate",
-      "bodyKo": "TENG, \ub098\ub178\uc12c\uc720, \ucf54\uc5b4-\uc258, 2D \uc18c\uc7ac \uae30\ubc18 \uc18c\uc790\ub97c \uc81c\uc791\ud569\ub2c8\ub2e4.",
+      "bodyKo": "TENG, 나노섬유, 코어-쉘, 2D 소재 기반 소자를 제작합니다.",
       "bodyEn": "Fabricate TENG, nanofiber, core-shell, and 2D-material devices."
     },
     {
       "stepKo": "Measure",
       "stepEn": "Measure",
-      "bodyKo": "\uc804\uae30 \ucd9c\ub825, \uac10\ub3c4, \uc2b5\ub3c4 \uc548\uc815\uc131, \uc0dd\uccb4/\ud658\uacbd \uc751\ub2f5\uc744 \uce21\uc815\ud569\ub2c8\ub2e4.",
+      "bodyKo": "전기 출력, 감도, 습도 안정성, 생체/환경 응답을 측정합니다.",
       "bodyEn": "Measure output, sensitivity, humidity stability, and bio/environmental response."
     },
     {
       "stepKo": "Model",
       "stepEn": "Model",
-      "bodyKo": "LBM-DPM\u00b7\ub370\uc774\ud130 \uae30\ubc18 \ubaa8\ub378\ub85c \uc2e4\ud5d8 \uc804\ud6c4 \uc124\uacc4 \uacf5\uac04\uc744 \uc555\ucd95\ud569\ub2c8\ub2e4.",
+      "bodyKo": "LBM-DPM·데이터 기반 모델로 실험 전후 설계 공간을 압축합니다.",
       "bodyEn": "Compress the design space before and after experiments with LBM-DPM and data-driven models."
     },
     {
       "stepKo": "Deploy",
       "stepEn": "Deploy",
-      "bodyKo": "\ud574\uc591\u00b7\ud5ec\uc2a4\ucf00\uc5b4\u00b7\ud658\uacbd \ubaa8\ub2c8\ud130\ub9c1 \uc2dc\ub098\ub9ac\uc624\ub85c \uac80\uc99d\ud569\ub2c8\ub2e4.",
+      "bodyKo": "해양·헬스케어·환경 모니터링 시나리오로 검증합니다.",
       "bodyEn": "Validate in marine, healthcare, and environmental monitoring scenarios."
     }
   ],
   "research": [
     {
-      "ko": "\ub9c8\ucc30\uc804\uae30 \uc5d0\ub108\uc9c0 \ud558\ubca0\uc2a4\ud305",
+      "ko": "마찰전기 에너지 하베스팅",
       "en": "Triboelectric energy harvesting",
-      "detailKo": "\ub9c8\ucc30\uc804\uae30 \ub098\ub178\ubc1c\uc804\uae30(TENG)\uc758 \uacc4\uba74 \uc804\ud558 \ud2b8\ub798\ud551, \uc804\ud558 \uc774\ub3d9, \uc784\ud53c\ub358\uc2a4\uc640 \ub2e4\uce35 \uad6c\uc870\ub97c \uc5f0\uad6c\ud558\uace0 \uace0\uc2b5\ub3c4\u00b7\uc0dd\uccb4\u00b7\ud574\uc591 \ud658\uacbd\uc5d0\uc11c\uc758 \uc548\uc815\uc131\uc744 \ub192\uc785\ub2c8\ub2e4.",
+      "detailKo": "마찰전기 나노발전기(TENG)의 계면 전하 트래핑, 전하 이동, 임피던스와 다층 구조를 연구하고 고습도·생체·해양 환경에서의 안정성을 높입니다.",
       "detailEn": "Studies interfacial charge trapping, charge transport, impedance, and multilayer TENG architectures, with emphasis on stability in humid, biological, and marine environments.",
-      "signalKo": "\uc804\ud558 \uac70\ub3d9\uc744 \uc774\ud574\ud574 \ucd9c\ub825\uacfc \uc548\uc815\uc131\uc744 \ub192\uc774\ub294 \uc5f0\uad6c",
+      "signalKo": "전하 거동을 이해해 출력과 안정성을 높이는 연구",
       "signalEn": "Understanding charge behavior to improve output and stability",
       "keywords": [
         "TENG",
@@ -154,11 +169,11 @@
       "visual": "energy"
     },
     {
-      "ko": "\uc790\uac00\ubc1c\uc804 \uc13c\uc11c\u00b7\ubc14\uc774\uc624\uc804\uc790\uc18c\uc790",
+      "ko": "자가발전 센서·바이오전자소자",
       "en": "Self-powered sensing & bioelectronics",
-      "detailKo": "\uc678\ubd80 \uc804\uc6d0 \uc758\uc874\ub3c4\ub97c \ub0ae\ucd98 \uac00\uc2a4\u00b7\uc555\ub825\u00b7\ud658\uacbd \uc13c\uc11c\uc640 \uc0bd\uc785\ud615\u00b7\uc6e8\uc5b4\ub7ec\ube14 \ubc14\uc774\uc624 \uc778\ud130\ud398\uc774\uc2a4\ub97c \uc5f0\uad6c\ud569\ub2c8\ub2e4.",
+      "detailKo": "외부 전원 의존도를 낮춘 가스·압력·환경 센서와 삽입형·웨어러블 바이오 인터페이스를 연구합니다.",
       "detailEn": "Develops gas, pressure, and environmental sensors as well as implantable and wearable biointerfaces with reduced reliance on external power.",
-      "signalKo": "\uc5d0\ub108\uc9c0 \ud558\ubca0\uc2a4\ud305\uacfc \uc13c\uc2f1\uc744 \ud558\ub098\uc758 \uc18c\uc790\ub85c \uc5f0\uacb0",
+      "signalKo": "에너지 하베스팅과 센싱을 하나의 소자로 연결",
       "signalEn": "Integrating energy harvesting and sensing in a single device",
       "keywords": [
         "self-powered sensing",
@@ -169,27 +184,26 @@
       "visual": "bio"
     },
     {
-      "ko": "\uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac\uc640 \uacc4\uba74",
+      "ko": "기능성 나노소재와 계면",
       "en": "Functional nanomaterials & interfaces",
-      "detailKo": "2D \uc804\uc774\uae08\uc18d \uce7c\ucf54\uac90\ud654\ubb3c(TMD), \ucf54\uc5b4-\uc258 \ud558\uc774\ube0c\ub9ac\ub4dc, \ub098\ub178\u00b7\ub9c8\uc774\ud06c\ub85c \uc12c\uc720 \uc18c\uc7ac\uc758 \ud45c\uba74\uacfc \uacc4\uba74\uc744 \uc870\uc808\ud574 \uc804\ud558\u00b7\uc13c\uc2f1 \ud2b9\uc131\uc744 \uc124\uacc4\ud569\ub2c8\ub2e4.",
+      "detailKo": "2D 전이금속 칼코겐화물(TMD), 코어-쉘 하이브리드, 나노·마이크로 섬유 소재의 표면과 계면을 조절해 전하·센싱 특성을 설계합니다.",
       "detailEn": "Engineers surfaces and interfaces in 2D transition-metal dichalcogenides, core-shell hybrids, and nano/microfibrous materials to control charge and sensing behavior.",
-      "signalKo": "\ud45c\uba74\uacfc \uacc4\uba74\uc744 \uc870\uc808\ud574 \ud544\uc694\ud55c \uae30\ub2a5\uc744 \ub9cc\ub4dc\ub294 \uc18c\uc7ac \uc5f0\uad6c",
+      "signalKo": "표면과 계면을 조절해 필요한 기능을 만드는 소재 연구",
       "signalEn": "Designing function through surface and interface control",
       "keywords": [
         "2D TMD",
         "core-shell",
         "nanofiber",
-
         "surface charge"
       ],
       "visual": "nano"
     },
     {
-      "ko": "\uacc4\uc0b0\u00b7\ub370\uc774\ud130 \uae30\ubc18 \uc18c\uc7ac\u00b7\uc18c\uc790 \uc124\uacc4",
+      "ko": "계산·데이터 기반 소재·소자 설계",
       "en": "Computational materials & device design",
-      "detailKo": "LBM-DPM \uae30\ubc18 \ub514\uc9c0\ud138 \ud2b8\uc708\uacfc \uc2e4\ud5d8 \ub370\uc774\ud130 \ubd84\uc11d\uc744 \ud65c\uc6a9\ud574 \uc785\uc790\u00b7\uc720\ub3d9\u00b7\uacc4\uba74 \ud604\uc0c1\uc744 \ud574\uc11d\ud558\uace0 \uc18c\uc7ac\u00b7\uc18c\uc790 \uc124\uacc4 \ubc94\uc704\ub97c \uc881\ud799\ub2c8\ub2e4.",
+      "detailKo": "LBM-DPM 기반 디지털 트윈과 실험 데이터 분석을 활용해 입자·유동·계면 현상을 해석하고 소재·소자 설계 범위를 좁힙니다.",
       "detailEn": "Uses LBM-DPM digital twins and experimental data analysis to interpret particle, flow, and interface phenomena and narrow the materials/device design space.",
-      "signalKo": "\ubaa8\ub378\ub9c1\uc73c\ub85c \uc2e4\ud5d8\uc744 \ud574\uc11d\ud558\uace0 \ub2e4\uc74c \uc124\uacc4\ub97c \uc815\uad50\ud654",
+      "signalKo": "모델링으로 실험을 해석하고 다음 설계를 정교화",
       "signalEn": "Using modeling to interpret experiments and refine the next design",
       "keywords": [
         "LBM-DPM",
@@ -203,66 +217,66 @@
   "demos": [],
   "studentPaths": [
     {
-      "ko": "\uc18c\uc7ac\u00b7\uc18c\uc790 \uc81c\uc791",
+      "ko": "소재·소자 제작",
       "en": "Materials and device fabrication",
-      "detailKo": "TENG, \ub098\ub178\uc12c\uc720, \ucf54\uc5b4-\uc258, 2D \uc18c\uc7ac \uae30\ubc18 \uc18c\uc790 \uc81c\uc791\uacfc \uc804\uae30\u00b7\uc13c\uc11c \uce21\uc815.",
+      "detailKo": "TENG, 나노섬유, 코어-쉘, 2D 소재 기반 소자 제작과 전기·센서 측정.",
       "detailEn": "Device fabrication and electrical or sensor measurement with TENGs, nanofibers, core-shell, and 2D materials.",
-      "ctaKo": "\uad00\ub828 \uacbd\ud5d8\uacfc \uad00\uc2ec \uc5f0\uad6c\ucd95\uc744 \uc815\ub9ac\ud574 \ubb38\uc758",
+      "ctaKo": "관련 경험과 관심 연구축을 정리해 문의",
       "ctaEn": "Summarize relevant experience and research interests when contacting"
     },
     {
-      "ko": "\uce21\uc815\u00b7\uc13c\uc2f1\u00b7\ub370\uc774\ud130",
+      "ko": "측정·센싱·데이터",
       "en": "Measurement, sensing, and data",
-      "detailKo": "\uc804\uae30 \ucd9c\ub825, \uac10\ub3c4, \uc2b5\ub3c4 \uc548\uc815\uc131, \uc0dd\uccb4/\ud658\uacbd \uc751\ub2f5 \uce21\uc815\uacfc \ub370\uc774\ud130\u00b7\ubb38\ud5cc \uc815\ub9ac.",
+      "detailKo": "전기 출력, 감도, 습도 안정성, 생체/환경 응답 측정과 데이터·문헌 정리.",
       "detailEn": "Output, sensitivity, environmental response measurement, and data or literature curation.",
-      "ctaKo": "\ud611\ub825 \ud615\ud0dc\uc640 \uac00\ub2a5 \uc77c\uc815\uc744 \ud568\uaed8 \uc54c\ub824 \uc8fc\uc138\uc694",
+      "ctaKo": "협력 형태와 가능 일정을 함께 알려 주세요",
       "ctaEn": "Include your preferred collaboration format and timeline"
     },
     {
-      "ko": "\ubaa8\ub378\ub9c1\u00b7AI\u00b7\uacf5\ub3d9\uc5f0\uad6c",
+      "ko": "모델링·AI·공동연구",
       "en": "Modeling, AI, and joint research",
-      "detailKo": "LBM-DPM \ub514\uc9c0\ud138 \ud2b8\uc708, \uc5ed\uc124\uacc4, \uacf5\uac1c \uc2e4\uc801 \uae30\ubc18 \uacf5\ub3d9 \uc5f0\uad6c \ub9e5\ub77d.",
+      "detailKo": "LBM-DPM 디지털 트윈, 역설계, 공개 실적 기반 공동 연구 맥락.",
       "detailEn": "LBM-DPM digital twins, inverse design, and public-record based joint research.",
-      "ctaKo": "\uacf5\ub3d9 \ub17c\ubb38\u00b7\uacfc\uc81c \uad00\uc810\uc5d0\uc11c \ubb38\uc758 \uac00\ub2a5",
+      "ctaKo": "공동 논문·과제 관점에서 문의 가능",
       "ctaEn": "Inquiries welcome from a joint publication or project perspective"
     }
   ],
   "education": [
     {
       "year": "2019",
-      "ko": "\uc6b8\uc0b0\ub300\ud559\uad50 \ucca8\ub2e8\uc18c\uc7ac\uacf5\ud559\uacfc \uc7ac\ub8cc\uacf5\ud559\uc804\uacf5 (\uacf5\ud559\uc0ac)",
+      "ko": "울산대학교 첨단소재공학과 재료공학전공 (공학사)",
       "en": "B.S., Materials Engineering, Dept. of Advanced Materials Engineering, University of Ulsan"
     },
     {
       "year": "2024",
-      "ko": "\uc131\uade0\uad00\ub300\ud559\uad50 \uc2e0\uc18c\uc7ac\uacf5\ud559\uacfc \uc2e0\uc18c\uc7ac\uacf5\ud559\uc804\uacf5 (\uacf5\ud559\ubc15\uc0ac)",
+      "ko": "성균관대학교 신소재공학과 신소재공학전공 (공학박사)",
       "en": "Ph.D., Materials Science and Engineering, Sungkyunkwan University"
     }
   ],
   "career": [
     {
       "year": "2023",
-      "ko": "University of Wisconsin-Madison, \ubc29\ubb38\uc5f0\uad6c\uc6d0 (Visiting Scholar)",
+      "ko": "University of Wisconsin-Madison, 방문연구원 (Visiting Scholar)",
       "en": "Visiting Scholar, University of Wisconsin-Madison"
     },
     {
-      "year": "2024\u20132025",
-      "ko": "\uc131\uade0\uad00\ub300\ud559\uad50 \ucca8\ub2e8\uc18c\uc7ac\uae30\uc220\uc5f0\uad6c\uc18c \ubc15\uc0ac\ud6c4\uc5f0\uad6c\uc6d0 (\uc138\uc885\uacfc\ud559\ud3a0\ub85c\uc6b0\uc2ed \uc5f0\uad6c\ucc45\uc784\uc790)",
+      "year": "2024–2025",
+      "ko": "성균관대학교 첨단소재기술연구소 박사후연구원 (세종과학펠로우십 연구책임자)",
       "en": "Postdoctoral researcher, Advanced Materials Technology Institute, SKKU (Sejong Science Fellowship PI)"
     },
     {
-      "year": "2024\u20132026",
+      "year": "2024–2026",
       "ko": "University of Wisconsin-Madison, Department of Materials Science & Engineering, Post-Doc.",
       "en": "Postdoctoral researcher, Materials Science & Engineering, University of Wisconsin-Madison"
     },
     {
       "year": "2026",
-      "ko": "\uc131\uade0\uad00\ub300\ud559\uad50 \uae30\uacc4\uae30\uc220\uc5f0\uad6c\uc18c \ubc15\uc0ac\ud6c4\uc5f0\uad6c\uc6d0",
+      "ko": "성균관대학교 기계기술연구소 박사후연구원",
       "en": "Postdoctoral researcher, Institute of Mechanical Technology, SKKU"
     },
     {
-      "year": "2026\u2013\ud604\uc7ac",
-      "ko": "\uad6d\ub9bd\ud55c\uad6d\ud574\uc591\ub300\ud559\uad50 \ud574\uc591\uc2e0\uc18c\uc7ac\uc735\ud569\uacf5\ud559\uacfc \uc870\uad50\uc218",
+      "year": "2026–현재",
+      "ko": "국립한국해양대학교 해양신소재융합공학과 조교수",
       "en": "Assistant Professor, Marine New Materials Convergence Engineering, KMOU"
     }
   ],
@@ -270,7 +284,6 @@
     {
       "year": 2026,
       "title": "Self-sustaining leadless intracardiac pacemaker powered by triboelectric nanogenerator",
-
       "authors": "P. Chen, R. Wang, E. Schmuck, D. Wang, D. Modaff, T. Zhou, S. Osaki, W. Liu, F. Pan, J.-K. Kim, et al.",
       "venue": "Science Advances",
       "url": "https://doi.org/10.1126/sciadv.aef8903",
@@ -290,7 +303,7 @@
       "authors": "J.-K. Kim",
       "venue": "Journal of the Korean Institute of Electrical and Electronic Material Engineers 38 (5), 455-468",
       "url": "https://doi.org/10.4313/JEEM.2025.38.5.1",
-      "role": "first author \u00b7 review"
+      "role": "first author · review"
     },
     {
       "year": 2025,
@@ -361,7 +374,6 @@
       "year": 2023,
       "title": "Boosted Output Voltage of BiSbTe-Based Thermoelectric Generators via Coupled Effect between Thermoelectric Carriers and Triboelectric Charges",
       "authors": "S. W. Kim, J.-K. Kim, J. Y. Park, J. Mun, S. Jung, et al.",
-
       "venue": "Advanced Energy Materials 13 (4), 2202987",
       "url": "https://doi.org/10.1002/aenm.202202987"
     },
@@ -406,68 +418,273 @@
   ],
   "join": [
     {
-      "titleKo": "\uc5f0\uad6c \ub8e8\ud504",
+      "titleKo": "연구 루프",
       "titleEn": "Research loop",
-      "bodyKo": "\uc18c\uc7ac \ud569\uc131\u00b7\uc18c\uc790 \uc81c\uc791\u00b7\uc804\uae30 \ubc0f \uc13c\uc11c \uce21\uc815\u00b7\ubb38\ud5cc \uac80\ud1a0\u00b7\uacc4\uc0b0 \ubaa8\ub378\ub9c1\uc744 \uc5f0\uad6c \ubb38\uc81c\uc5d0 \ub9de\uac8c \uc5f0\uacb0\ud569\ub2c8\ub2e4.",
+      "bodyKo": "소재 합성·소자 제작·전기 및 센서 측정·문헌 검토·계산 모델링을 연구 문제에 맞게 연결합니다.",
       "bodyEn": "Combines materials synthesis, device fabrication, electrical and sensor measurements, literature review, and computational modeling as needed for each research question."
     },
     {
-      "titleKo": "\uc5f0\uad6c \ucd08\uc810",
+      "titleKo": "연구 초점",
       "titleEn": "Research focus",
-      "bodyKo": "\uc7ac\ub8cc\uacf5\ud559 \uae30\ubc18 \uc704\uc5d0 \ub370\uc774\ud130 \ubd84\uc11d, Python, \ubb3c\ub9ac \uae30\ubc18 \ubaa8\ub378\ub9c1, \ub17c\ubb38 \uad6c\ud604\uc744 \uc5f0\uacb0\ud558\ub294 \uc5f0\uad6c \ub9e5\ub77d.",
+      "bodyKo": "재료공학 기반 위에 데이터 분석, Python, 물리 기반 모델링, 논문 구현을 연결하는 연구 맥락.",
       "bodyEn": "Research connecting materials engineering with data analysis, Python, physics-based modeling, and paper implementation."
     },
     {
-      "titleKo": "\ubb38\uc758 \uc804 \uc900\ube44",
+      "titleKo": "문의 전 준비",
       "titleEn": "Before contacting",
-      "bodyKo": "\uad00\uc2ec \uc5f0\uad6c\ucd95, \uad00\ub828 \ub17c\ubb38 1\ud3b8, \uac00\ub2a5\ud55c \ud611\ub825 \ud615\ud0dc, \ubcf8\uc778 \ubc30\uacbd\u00b7\uae30\uc220\uc2a4\ud0dd\uc744 \uac04\ub2e8\ud788 \uc815\ub9ac\ud558\uba74 \ubb38\uc758\uac00 \uc218\uc6d4\ud569\ub2c8\ub2e4.",
+      "bodyKo": "관심 연구축, 관련 논문 1편, 가능한 협력 형태, 본인 배경·기술스택을 간단히 정리하면 문의가 수월합니다.",
       "bodyEn": "Prepare one research interest, one relevant paper, a possible collaboration format, and your background or technical stack."
     }
   ],
   "news": [
     {
       "date": "2026-08-21",
-      "ko": "Science Advances\uc5d0 \uc2ec\uc7a5 \ubc15\ub3d9\uc73c\ub85c \uad6c\ub3d9\ub418\ub294 \uc790\uac00\ubc1c\uc804 \ub9ac\ub4dc\ub9ac\uc2a4 \uc2ec\ubc15\uc870\uc728\uae30 \uacf5\ub3d9\uc5f0\uad6c\uac00 \uac8c\uc7ac\ub418\uc5c8\uc2b5\ub2c8\ub2e4.",
+      "ko": "Science Advances에 심장 박동으로 구동되는 자가발전 리드리스 심박조율기 공동연구가 게재되었습니다.",
       "en": "A collaborative study on a self-sustaining leadless pacemaker powered by the heartbeat was published in Science Advances.",
       "url": "https://doi.org/10.1126/sciadv.aef8903"
     },
     {
       "date": "2026-08-18",
-      "ko": "Materials Today Communications\uc5d0 \uc790\uac00\ubc1c\uc804 \ub9c8\ucc30\uc804\uae30 \uc804\uae30\ubc29\uc0ac \uc5d0\uc5b4\ud544\ud130\uc758 \uc2e4\ud5d8\u00b7\ubaa8\ub378\ub9c1 \uc5f0\uad6c\uac00 \uc628\ub77c\uc778 \uac8c\uc7ac\ub418\uc5c8\uc2b5\ub2c8\ub2e4.",
+      "ko": "Materials Today Communications에 자가발전 마찰전기 전기방사 에어필터의 실험·모델링 연구가 온라인 게재되었습니다.",
       "en": "An experiment-supported modeling study of self-powered triboelectric electrospun air filters was published online in Materials Today Communications.",
       "url": "https://doi.org/10.1016/j.mtcomm.2026.115941"
     },
     {
       "date": "2025-09",
-      "ko": "\uadf9\ud55c \uc0dd\uccb4\ud658\uacbd\uc6a9 \uace0\uc131\ub2a5 \ubc14\uc774\uc624\uc804\uc790 TENG \uc18c\uc7ac\u00b7\uad6c\uc870 \uc124\uacc4 \ub9ac\ubdf0\uac00 \uc804\uae30\uc804\uc790\uc7ac\ub8cc\ud559\ud68c\ub17c\ubb38\uc9c0\uc5d0 \uac8c\uc7ac\ub418\uc5c8\uc2b5\ub2c8\ub2e4.",
+      "ko": "극한 생체환경용 고성능 바이오전자 TENG 소재·구조 설계 리뷰가 전기전자재료학회논문지에 게재되었습니다.",
       "en": "A review on materials synthesis and structural design for bioelectronic TENGs in extreme biomedical environments was published in JEEM.",
       "url": "https://doi.org/10.4313/JEEM.2025.38.5.1"
     }
   ],
+  "portal": {
+    "version": "4.0",
+    "researchMedia": [
+      {
+        "image": "./assets/visuals/pillar-energy-wave.jpg",
+        "paperTitle": "Electric-field-driven interfacial trapping of drifting triboelectric charges via contact electrification",
+        "paperUrl": "https://doi.org/10.1039/D2EE03114K",
+        "paperVenue": "Energy & Environmental Science · 2023",
+        "imageCredit": "Reusable local theme visual; publication figure can be replaced by admin after license clearance"
+      },
+      {
+        "image": "./assets/visuals/pillar-bio-neuron.png",
+        "paperTitle": "Self-sustaining leadless intracardiac pacemaker powered by triboelectric nanogenerator",
+        "paperUrl": "https://doi.org/10.1126/sciadv.aef8903",
+        "paperVenue": "Science Advances · 2026",
+        "imageCredit": "Public-domain research-theme visual"
+      },
+      {
+        "image": "./assets/visuals/pillar-nano-nist.jpg",
+        "paperTitle": "Self-Powering Gas Sensing System Enabled by Double-Layer Triboelectric Nanogenerators Based on P2VP@BaTiO3 Core-Shell Hybrids",
+        "paperUrl": "https://doi.org/10.1021/acsnano.3c12035",
+        "paperVenue": "ACS Nano · 2024",
+        "imageCredit": "NIST public-domain research-theme visual"
+      },
+      {
+        "image": "",
+        "paperTitle": "Self-Powered Triboelectric Electrospun Air Filters as Functional Fibrous Materials: Experiment-Supported Modeling of Dielectrophoretic Capture and Scale-Up",
+        "paperUrl": "https://doi.org/10.1016/j.mtcomm.2026.115941",
+        "paperVenue": "Materials Today Communications · 2026",
+        "imageCredit": "CSS computational schematic"
+      }
+    ],
+    "journalMetrics": [
+      {
+        "journal": "Energy & Environmental Science",
+        "metric": "Journal Impact Factor",
+        "value": 30.5,
+        "year": 2025,
+        "source": "https://www.rsc.org/publishing/journals/energy-and-environmental-science"
+      },
+      {
+        "journal": "Advanced Energy Materials",
+        "metric": "Journal Impact Factor",
+        "value": 25.5,
+        "year": 2025,
+        "source": "https://onlinelibrary.wiley.com/journal/16146840"
+      },
+      {
+        "journal": "ACS Nano",
+        "metric": "2-Year Impact Factor",
+        "value": 17.3,
+        "year": 2025,
+        "source": "https://pubs.acs.org/page/ancac3/about.html"
+      }
+    ],
+    "metricNoteKo": "공식 출판사·학회 페이지에서 확인한 2025 저널 지표만 표시합니다. 확인되지 않은 값은 추정하지 않습니다.",
+    "metricNoteEn": "Only 2025 journal metrics verified on official publisher or society pages are shown; unverified values are not estimated.",
+    "students": {
+      "statusKo": "현재 공개 등록된 학생 없음",
+      "statusEn": "No publicly listed student members yet",
+      "recruitingKo": "2027년 봄학기 대학원생 모집 · 학부연구생·공동연구 문의 가능",
+      "recruitingEn": "Recruiting graduate students for Spring 2027 · undergraduate research and collaboration inquiries welcome",
+      "tracks": [
+        {
+          "ko": "에너지 하베스팅",
+          "en": "Energy harvesting",
+          "keywords": [
+            "TENG",
+            "charge trapping",
+            "power management"
+          ]
+        },
+        {
+          "ko": "기능성 나노소재",
+          "en": "Functional nanomaterials",
+          "keywords": [
+            "2D TMD",
+            "core-shell",
+            "nanofiber"
+          ]
+        },
+        {
+          "ko": "자가발전 센싱·바이오전자",
+          "en": "Self-powered sensing & bioelectronics",
+          "keywords": [
+            "gas sensing",
+            "wearable",
+            "implantable"
+          ]
+        },
+        {
+          "ko": "계산·데이터 해석",
+          "en": "Computational & data analysis",
+          "keywords": [
+            "LBM-DPM",
+            "multiphysics",
+            "data analysis"
+          ]
+        }
+      ],
+      "onboardingKo": [
+        "관심 연구 키워드 선택",
+        "관련 경험·수업·프로젝트를 3줄로 정리",
+        "이메일로 연구 관심과 가능한 시작 시점 문의"
+      ],
+      "onboardingEn": [
+        "Choose a research keyword",
+        "Summarize relevant experience in three lines",
+        "Email research interests and possible start date"
+      ]
+    },
+    "contact": {
+      "addressKo": "부산광역시 영도구 태종로 727 국립한국해양대학교",
+      "addressEn": "727 Taejong-ro, Yeongdo-gu, Busan, Republic of Korea",
+      "mapEmbed": "https://www.google.com/maps?q=Korea+Maritime+and+Ocean+University&output=embed",
+      "mapLink": "https://www.google.com/maps/search/?api=1&query=Korea+Maritime+and+Ocean+University",
+      "departmentOfficeKo": "해양신소재융합공학과 · 공학2관 310호",
+      "departmentOfficeEn": "Department office · Engineering Building 2, Room 310",
+      "labKo": "EnerMAKER Lab · 종합연구관 302호",
+      "labEn": "EnerMAKER Lab · Research Building, Room 302",
+      "officeKo": "김진겸 교수 연구실 · 공학2관 416호",
+      "officeEn": "Prof. Kim's office · Engineering Building 2, Room 416"
+    },
+    "news": [
+      {
+        "date": "2026-09-01",
+        "category": "People",
+        "ko": "김진겸 박사, 국립한국해양대학교 해양신소재융합공학과 조교수 부임",
+        "en": "Jin-Kyeom Kim joins KMOU as an assistant professor",
+        "noteKo": "성균관대 신소재공학부 동문 소식 · 박사과정, UW-Madison 박사후연구, 주요 TENG 연구 소개",
+        "noteEn": "SKKU AMSE alumni news covering his PhD, UW-Madison postdoctoral work, and TENG research",
+        "url": "https://amse.skku.edu/AMSE/news.do?articleNo=224604&mode=view",
+        "image": "./assets/visuals/hero-busan-harbor.jpg"
+      },
+      {
+        "date": "2026-08-21",
+        "category": "Research",
+        "ko": "심장 박동으로 스스로 충전되는 리드리스 심박조율기 공동연구",
+        "en": "Self-sustaining leadless pacemaker powered by heartbeat energy",
+        "noteKo": "Science Advances · TENG 기반 삽입형 자가발전 소자",
+        "noteEn": "Science Advances · implantable self-powered TENG system",
+        "url": "https://doi.org/10.1126/sciadv.aef8903",
+        "image": "./assets/visuals/pillar-bio-neuron.png"
+      },
+      {
+        "date": "2026-08-19",
+        "category": "Research",
+        "ko": "UW-Madison Engineering, 자가발전 심박조율기 연구 소개",
+        "en": "UW-Madison Engineering features the self-powered pacemaker research",
+        "noteKo": "김진겸 교수가 공동저자로 참여한 연구의 배경·실험·확장 가능성 소개",
+        "noteEn": "Public research story describing the collaboration, experiments, and translational potential",
+        "url": "https://engineering.wisc.edu/news/engineers-pioneer-a-pacemaker-that-can-power-itself/",
+        "image": "./assets/visuals/pillar-bio-neuron.png"
+      },
+      {
+        "date": "2026-08-18",
+        "category": "Research",
+        "ko": "자가발전 마찰전기 전기방사 에어필터의 실험·모델링 연구 게재",
+        "en": "Self-powered triboelectric electrospun air-filter study published",
+        "noteKo": "Materials Today Communications · 실험 + 유전영동 포집 모델링 + 스케일업",
+        "noteEn": "Materials Today Communications · experiment + dielectrophoretic modeling + scale-up",
+        "url": "https://doi.org/10.1016/j.mtcomm.2026.115941",
+        "image": "./assets/visuals/pillar-nano-nist.jpg"
+      },
+      {
+        "date": "2026-06-08",
+        "category": "Department",
+        "ko": "해양신소재융합공학과 산학융합 프로젝트Lab 운영 사례",
+        "en": "KMOU department industry-linked Project Lab activities",
+        "noteKo": "4학년 학생의 기업연계 프로젝트와 결과보고 안내 · 연구·산학 경험 참고",
+        "noteEn": "Industry-linked senior project activities and reporting guidance",
+        "url": "https://www.kmou.ac.kr/mmt/na/ntt/selectNttInfo.do?mi=4937&nttSn=10375360",
+        "image": "./assets/visuals/hero-busan-harbor.jpg"
+      },
+      {
+        "date": "2026-03-17",
+        "category": "Students",
+        "ko": "해양신소재융합공학과 2025·2026 교양교육 이수체계 안내",
+        "en": "KMOU department 2025–2026 general-education curriculum guide",
+        "noteKo": "재학생·신입생이 학업 계획을 세울 때 확인할 공식 자료",
+        "noteEn": "Official curriculum reference for current and incoming students",
+        "url": "https://www.kmou.ac.kr/mmt/na/ntt/selectNttList.do?bbsId=10150&currPage=1&mi=2012",
+        "image": "./assets/visuals/hero-busan-harbor.jpg"
+      },
+      {
+        "date": "2026-02-09",
+        "category": "Students",
+        "ko": "2026학년도 해양신소재융합공학과 신입생 수강신청 안내",
+        "en": "2026 incoming-student course registration guide",
+        "noteKo": "신입생 필수 확인 사항·학과 연락처·수강신청 일정 안내",
+        "noteEn": "Registration schedule, required checks, and department contacts for incoming students",
+        "url": "https://www.kmou.ac.kr/mmt/na/ntt/selectNttInfo.do?nttSn=10370797",
+        "image": "./assets/visuals/hero-busan-harbor.jpg"
+      },
+      {
+        "date": "2025-09",
+        "category": "Research",
+        "ko": "극한 생체환경용 고성능 바이오전자 TENG 리뷰 게재",
+        "en": "Review on high-performance bioelectronic TENGs for extreme biomedical environments",
+        "noteKo": "전기전자재료학회논문지 · 소재 합성·구조 설계 전략 정리",
+        "noteEn": "JEEM · materials synthesis and structural-design strategies",
+        "url": "https://doi.org/10.4313/JEEM.2025.38.5.1",
+        "image": "./assets/visuals/pillar-bio-neuron.png"
+      }
+    ]
+  },
   "sources": [
     {
       "label": "KMOU faculty profile",
       "url": "https://www.kmou.ac.kr/mmt/ad/tepDept/main/view.do?mi=3598&teaSn=5782",
-      "noteKo": "\uc18c\uc18d, \uc804\uacf5, \uc5f0\uad6c\uc2e4, \uc5f0\ub77d\ucc98, \ud559\ub825\u00b7\uacbd\ub825",
+      "noteKo": "소속, 전공, 연구실, 연락처, 학력·경력",
       "noteEn": "Affiliation, research fields, lab, contact, education and appointments"
     },
     {
-
       "label": "Google Scholar",
       "url": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ",
-      "noteKo": "\ub17c\ubb38 \ubaa9\ub85d",
+      "noteKo": "논문 목록",
       "noteEn": "Publication profile"
     },
     {
       "label": "ORCID",
       "url": "https://orcid.org/0000-0003-0824-2373",
-      "noteKo": "\uc5f0\uad6c\uc790 \uc2dd\ubcc4\uc790",
+      "noteKo": "연구자 식별자",
       "noteEn": "Researcher identifier"
     },
     {
       "label": "UW-Madison Engineering",
       "url": "https://engineering.wisc.edu/news/engineers-pioneer-a-pacemaker-that-can-power-itself/",
-      "noteKo": "\uc790\uac00\ubc1c\uc804 \uc2ec\ubc15\uc870\uc728\uae30 \uacf5\ub3d9\uc5f0\uad6c \uc18c\uc2dd",
+      "noteKo": "자가발전 심박조율기 공동연구 소식",
       "noteEn": "Public news on the self-sustaining pacemaker collaboration"
     }
   ]
