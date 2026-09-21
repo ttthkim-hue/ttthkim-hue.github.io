@@ -104,7 +104,7 @@ function renderNav() {
 
 function renderHero() {
   const d = state.data, p = d.person;
-  setText("heroKicker",pick(p.labKo,p.labEn) + " \u00b7 " + p.labShort);
+  setText("heroKicker",state.lang === "ko" ? p.labKo : (p.labEn + " (" + p.labShort + ")"));
   const title = clear($("heroTitle"));
   const parts = state.lang === "en" ? arr(d.heroTitlePartsEn) : arr(d.heroTitlePartsKo);
   (parts.length ? parts : [pick(d.heroTitleKo,d.heroTitleEn)]).forEach((part) => title?.append(el("span","title-part",part)));
