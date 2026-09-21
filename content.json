@@ -170,7 +170,8 @@
         "impedance",
         "humidity stability"
       ],
-      "visual": "energy"
+      "visual": "energy",
+      "icon": "./assets/vendor/lucide/zap.svg"
     },
     {
       "ko": "자가발전 센서·바이오전자소자",
@@ -185,7 +186,8 @@
         "wearable",
         "implantable"
       ],
-      "visual": "bio"
+      "visual": "bio",
+      "icon": "./assets/vendor/lucide/heart-pulse.svg"
     },
     {
       "ko": "기능성 나노소재와 계면",
@@ -200,7 +202,8 @@
         "nanofiber",
         "surface charge"
       ],
-      "visual": "nano"
+      "visual": "nano",
+      "icon": "./assets/vendor/lucide/atom.svg"
     },
     {
       "ko": "AI·계산과학 기반 소재·소자 설계",
@@ -216,7 +219,8 @@
         "multiphysics",
         "digital twin"
       ],
-      "visual": "model"
+      "visual": "model",
+      "icon": "./assets/vendor/lucide/cpu.svg"
     }
   ],
   "demos": [],
