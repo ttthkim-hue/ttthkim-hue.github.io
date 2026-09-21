@@ -175,15 +175,21 @@ function renderHomeOverview() {
   const credentials = clear($("homeCredentials"));
   const pubs = arr(d.publications);
   const journalCount = new Set(pubs.map((pub) => pub.venue).filter(Boolean)).size;
+  const newsCount = arr(portal().news).length;
+  const latestYear = pubs.reduce((max,pub) => Math.max(max,Number(pub.year) || 0),0) || "-";
   const credentialRows = state.lang === "ko" ? [
     [String(pubs.length),"\uacf5\uac1c \ub17c\ubb38"],
     [String(arr(d.research).length),"\uc5f0\uad6c\ubd84\uc57c"],
     [String(journalCount),"\ub4f1\ub85d \uc800\ub110"],
+    [String(newsCount),"\uc18c\uc2dd \u00b7 \uc5c5\ub370\uc774\ud2b8"],
+    [String(latestYear),"\ucd5c\uc2e0 \uacf5\uac1c\ub144\ub3c4"],
     ["KMOU","\ubd80\uc0b0 \u00b7 \ud55c\uad6d\ud574\uc591\ub300\ud559\uad50"]
   ] : [
     [String(pubs.length),"Publications listed"],
     [String(arr(d.research).length),"Research areas"],
     [String(journalCount),"Journals listed"],
+    [String(newsCount),"News & updates"],
+    [String(latestYear),"Latest listed year"],
     ["KMOU","Busan \u00b7 Korea"]
   ];
   credentialRows.forEach(([value,label]) => {
@@ -393,8 +399,25 @@ function renderContact() {
   box?.append(extLink("KMOU Faculty Profile",state.data.person.facultyPage,"contact-action"));
 }
 
+function applyReferenceVisuals() {
+  const sprite = window.ENERMAKER_REFERENCE_SPRITE;
+  if (!sprite) return;
+  const hero = document.querySelector(".hero-visual");
+  if (hero) {
+    hero.classList.add("has-reference");
+    hero.style.backgroundImage = 'url("' + sprite + '")';
+    hero.style.backgroundPosition = "center 0%";
+  }
+  const positions = ["25%","50%","75%","100%"];
+  document.querySelectorAll(".home-research-card").forEach((card,index) => {
+    card.classList.add("has-reference");
+    card.style.backgroundImage = 'url("' + sprite + '")';
+    card.style.backgroundPosition = "center " + (positions[index] || "25%");
+  });
+}
+
 function renderAll() {
-  renderNav(); renderHero(); renderResearch(); renderHomeOverview(); renderPubMetrics(); setupPubFilters(); renderPubs(); renderNews(); renderPI(); renderStudents(); renderContact(); applyRoute();
+  renderNav(); renderHero(); renderResearch(); renderHomeOverview(); renderPubMetrics(); setupPubFilters(); renderPubs(); renderNews(); renderPI(); renderStudents(); renderContact(); applyReferenceVisuals(); applyRoute();
 }
 
 const ADMIN = {owner:"ttthkim-hue",repo:"kim-jingyeom-homepage",path:"site/content.json",branch:"main",publicRepo:"ttthkim-hue.github.io",publicPath:"content.json",publicAssetsPrefix:"assets/uploads/"};
@@ -609,3 +632,6 @@ async function load() {
   state.data = await response.json();
   renderAll();
 }
+
+bind();
+load().catch((error) => document.body.append(el("p","load-error","Content load failed: " + error.message)));
