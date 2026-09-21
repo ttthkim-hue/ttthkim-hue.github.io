@@ -7,8 +7,7 @@ const state = {
   newsCategory: "All",
   adminToken: "",
   adminData: null,
-  adminFileSha: "",
-  motionObserver: null
+  adminFileSha: ""
 };
 
 const $ = (id) => document.getElementById(id);
@@ -47,7 +46,6 @@ const labels = {
     totalPubs:"\uc804\uccb4 \ub17c\ubb38", latestYear:"\ucd5c\uc2e0 \uc5f0\ub3c4", leadTagged:"\uc8fc\ub3c4\uc800\uc790 \ud45c\uae30", topJif:"\ucd5c\uace0 \ud655\uc778 JIF",
     verifiedJif:"\uacf5\uc2dd \ud655\uc778 \uc800\ub110 JIF", source:"\ucd9c\ucc98",
     joinStudents:"\ud559\uc0dd\u00b7\uc9c4\ud559", joinContact:"\uc5f0\ub77d\ucc98",
-    heroPubs:"\ub17c\ubb38", researchAxes:"\uc5f0\uad6c\ucd95", labBase:"\uc18c\uc18d",
     inquiry:"\uad00\uc2ec \uc5f0\uad6c \ud0a4\uc6cc\ub4dc, \uad00\ub828 \uacbd\ud5d8, \uac00\ub2a5\ud55c \uc2dc\uc791 \uc2dc\uc810\uc744 \uac04\ub2e8\ud788 \uc801\uc5b4 \ubb38\uc758\ud574 \uc8fc\uc138\uc694."
   },
   en: {
@@ -64,7 +62,6 @@ const labels = {
     totalPubs:"Publications", latestYear:"Latest year", leadTagged:"Lead-author tagged", topJif:"Top verified JIF",
     verifiedJif:"Verified journal JIF", source:"source",
     joinStudents:"Students", joinContact:"Contact",
-    heroPubs:"Publications", researchAxes:"Research axes", labBase:"Base",
     inquiry:"Include a research keyword, relevant experience, and your possible start date."
   }
 };
@@ -107,28 +104,14 @@ function renderNav() {
 
 function renderHero() {
   const d = state.data, p = d.person;
-  setText("heroKicker",state.lang === "ko" ? p.labKo : p.labEn);
-  setText("heroRecruitText",pick(portal().students?.recruitingKo,portal().students?.recruitingEn));
+  setText("heroKicker",pick(p.labKo,p.labEn) + " \u00b7 " + p.labShort);
   const title = clear($("heroTitle"));
   const parts = state.lang === "en" ? arr(d.heroTitlePartsEn) : arr(d.heroTitlePartsKo);
   (parts.length ? parts : [pick(d.heroTitleKo,d.heroTitleEn)]).forEach((part) => title?.append(el("span","title-part",part)));
   setText("heroLead",pick(d.heroLeadKo,d.heroLeadEn));
   const row = clear($("heroKeywords"));
   arr(d.heroKeywords).forEach((word) => row?.append(el("span","keyword",word)));
-  const proof = clear($("heroProof"));
-  const pubs = arr(d.publications), years = pubs.map((x) => Number(x.year) || 0);
-  const facts = [
-    [String(pubs.length),L("heroPubs")],
-    [String(arr(d.research).length),L("researchAxes")],
-    [String(Math.max(...years,0) || "-"),L("latestYear")],
-    ["KMOU",L("labBase")]
-  ];
-  facts.forEach(([value,label]) => {
-    const item = el("div","hero-proof-item");
-    item.append(el("strong","",value),el("span","",label));
-    proof?.append(item);
-  });
-  setText("homeRecruit",pick(portal().students?.recruitingKo,portal().students?.recruitingEn));
+  setText("heroContact",L("contact"));
 }
 
 function researchItem(index) {
@@ -136,36 +119,42 @@ function researchItem(index) {
   return {...base,...(arr(portal().researchMedia)[index] || {})};
 }
 
-function researchVisual(item,index) {
+function researchVisual(item) {
+  const box = el("div","research-visual");
   if (item.image) {
-    const box = el("div","research-visual");
     const img = document.createElement("img");
     img.src = item.image; img.alt = pick(item.ko,item.en); img.loading = "lazy";
     box.append(img);
-    return box;
+  } else {
+    const model = el("div","model-visual");
+    for (let i=0;i<16;i+=1) model.append(el("i"));
+    box.append(model);
   }
-  const box = el("div","research-icon-panel");
-  const icon = document.createElement("img");
-  icon.src = item.icon || "./assets/vendor/lucide/atom.svg";
-  icon.alt = ""; icon.setAttribute("aria-hidden","true"); icon.loading = "lazy";
-  box.append(icon,el("span","research-index",String(index + 1).padStart(2,"0")));
   return box;
 }
 
-function researchCard(item, detailed, index) {
-  const card = el("article","research-card" + (item.image ? "" : " text-only"));
-  card.append(researchVisual(item,index));
+function researchCard(item, detailed, index = 0) {
+  const card = el("article",detailed ? "research-card" : "research-card home-research-card");
+  card.append(researchVisual(item));
   const body = el("div","research-body");
+  if (!detailed) {
+    body.append(el("span","research-index",String(index + 1).padStart(2,"0")));
+    body.append(el("p","research-subtitle",state.lang === "ko" ? (item.en || "") : (item.ko || "")));
+    body.append(el("h2","",pick(item.ko,item.en)));
+    const arrow = el("a","research-arrow","\u2197");
+    arrow.href = "#/research";
+    arrow.setAttribute("aria-label",L("researchMore"));
+    body.append(arrow);
+    card.append(body);
+    return card;
+  }
   body.append(el("p","kicker",item.visual === "model" ? "Modeling" : "Research"));
   body.append(el("h2","",pick(item.ko,item.en)));
   body.append(el("p","research-summary",pick(item.signalKo,item.signalEn)));
   const keys = el("div","keyword-row");
   arr(item.keywords).forEach((word) => keys.append(el("span","keyword",word)));
   body.append(keys);
-  if (item.paperTitle && !detailed) {
-    body.append(extLink((item.paperVenue || "Representative paper") + " \u2197",item.paperUrl,"research-evidence"));
-  }
-  if (detailed && item.paperTitle) {
+  if (item.paperTitle) {
     const paper = el("div","paper-highlight");
     paper.append(el("small","",item.paperVenue || "Representative paper"));
     paper.append(extLink(item.paperTitle,item.paperUrl,"paper-link"));
@@ -181,6 +170,64 @@ function renderResearch() {
     const item = researchItem(index);
     home?.append(researchCard(item,false,index));
     full?.append(researchCard(item,true,index));
+  });
+}
+
+function renderHomeOverview() {
+  const d = state.data;
+  const credentials = clear($("homeCredentials"));
+  const credentialRows = state.lang === "ko" ? [
+    ["KMOU","\uad6d\ub9bd\ud55c\uad6d\ud574\uc591\ub300\ud559\uad50"],
+    [String(arr(d.research).length),"\uc5f0\uad6c\ucd95"],
+    [String(arr(d.publications).length),"\uacf5\uac1c \ub17c\ubb38 \ubaa9\ub85d"],
+    ["Busan","EnerMAKER Lab \u00b7 Yeongdo"]
+  ] : [
+    ["KMOU","Korea Maritime & Ocean University"],
+    [String(arr(d.research).length),"Research pillars"],
+    [String(arr(d.publications).length),"Publications in public record"],
+    ["Busan","EnerMAKER Lab \u00b7 Yeongdo"]
+  ];
+  credentialRows.forEach(([value,label]) => {
+    const card = el("div","credential-item");
+    card.append(el("strong","",value),el("span","",label));
+    credentials?.append(card);
+  });
+
+  setText("approachTitle",state.lang === "ko" ? "\uc124\uacc4\uc5d0\uc11c \uc2e4\uc81c \ud658\uacbd \uac80\uc99d\uae4c\uc9c0" : "From design to real-world validation");
+  setText("approachLead",state.lang === "ko" ? "\uc18c\uc7ac\u00b7\uc18c\uc790\ub97c \uc124\uacc4\ud558\uace0, \ub9cc\ub4e4\uace0, \uce21\uc815\ud558\uace0, \ubaa8\ub378\ub9c1\ud558\uba70 \uc2e4\uc81c \ud658\uacbd\uc73c\ub85c \uc5f0\uacb0\ud569\ub2c8\ub2e4." : "Design, fabricate, measure, model, and validate materials and devices in practical environments.");
+  const flow = clear($("homeApproach"));
+  arr(d.labLoop).forEach((step,index) => {
+    const node = el("article","approach-step");
+    node.append(el("span","approach-index",String(index + 1).padStart(2,"0")));
+    node.append(el("h3","",pick(step.stepKo,step.stepEn)));
+    node.append(el("p","",pick(step.bodyKo,step.bodyEn)));
+    flow?.append(node);
+  });
+
+  setText("spotlightTitle",state.lang === "ko" ? "\ub300\ud45c \uc5f0\uad6c" : "Representative research");
+  setText("spotlightMore",L("researchMore"));
+  const spotlight = clear($("homeSpotlight"));
+  const item = researchItem(0);
+  if (item) {
+    const card = el("article","spotlight-card");
+    card.append(researchVisual(item));
+    const body = el("div","spotlight-body");
+    body.append(el("p","kicker",pick(item.ko,item.en)));
+    if (item.paperTitle) body.append(extLink(item.paperTitle,item.paperUrl,"spotlight-paper"));
+    body.append(el("p","spotlight-summary",pick(item.signalKo,item.signalEn)));
+    card.append(body);
+    spotlight?.append(card);
+  }
+
+  setText("collabTitle",state.lang === "ko" ? "\uc5f0\uad6c\u00b7\ud611\ub825\u00b7\uc9c4\ud559\uc744 \uc5f0\uacb0\ud569\ub2c8\ub2e4" : "Connect research, collaboration, and study");
+  setText("homeRecruit",state.lang === "ko" ? "\uad00\uc2ec \uc5f0\uad6c\ubd84\uc57c, \uad00\ub828 \uacbd\ud5d8, \ud611\ub825 \ub610\ub294 \uc9c4\ud559 \uad00\uc2ec\uc744 \uac04\ub2e8\ud788 \uc801\uc5b4 \ubb38\uc758\ud574 \uc8fc\uc138\uc694." : "Share your research interests, relevant experience, and whether you are asking about collaboration or study.");
+  const pathways = clear($("homePathways"));
+  arr(d.studentPaths).slice(0,3).forEach((path,index) => {
+    const card = el("article","home-pathway");
+    card.append(el("span","home-pathway-index",String(index + 1).padStart(2,"0")));
+    card.append(el("h3","",pick(path.ko,path.en)));
+    card.append(el("p","",pick(path.detailKo,path.detailEn)));
+    pathways?.append(card);
   });
 }
 
@@ -200,7 +247,6 @@ function yearCounts() {
 }
 
 function isLead(pub) {
-
   return /first|lead|corresponding|co-first|\uacf5\ub3d9|1\uc800\uc790|\uad50\uc2e0/i.test(pub.role || "");
 }
 
@@ -268,11 +314,6 @@ function newsData() { return arr(portal().news).length ? arr(portal().news) : ar
 
 function newsCard(item) {
   const card = el("article","news-card");
-  if (item.image) {
-    const img = document.createElement("img");
-    img.src = item.image === "portrait" ? state.data.person.portrait : item.image;
-    img.alt = ""; img.loading = "lazy"; card.append(img);
-  }
   const body = el("div","news-body");
   const meta = el("div","news-meta"); meta.append(el("span","",item.category || "News"),el("time","",item.date || ""));
   body.append(meta,extLink(pick(item.ko,item.en),item.url,"news-title"));
@@ -355,35 +396,8 @@ function renderContact() {
   box?.append(extLink("KMOU Faculty Profile",state.data.person.facultyPage,"contact-action"));
 }
 
-function setupMotion() {
-  state.motionObserver?.disconnect();
-  const cards = document.querySelectorAll(".research-card");
-  cards.forEach((card) => {
-    card.onpointermove = (event) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty("--mx",(event.clientX - rect.left) + "px");
-      card.style.setProperty("--my",(event.clientY - rect.top) + "px");
-    };
-  });
-  const nodes = [...document.querySelectorAll(".home-section,.home-contact,.research-card,.publication-item,.news-card,.metric-card")];
-  nodes.forEach((node) => node.classList.add("reveal"));
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduced || !("IntersectionObserver" in window)) {
-    nodes.forEach((node) => node.classList.add("in-view"));
-    return;
-  }
-  state.motionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("in-view");
-      state.motionObserver?.unobserve(entry.target);
-    });
-  },{rootMargin:"0px 0px -7% 0px",threshold:0.08});
-  nodes.forEach((node) => state.motionObserver.observe(node));
-}
-
 function renderAll() {
-  renderNav(); renderHero(); renderResearch(); renderPubMetrics(); setupPubFilters(); renderPubs(); renderNews(); renderPI(); renderStudents(); renderContact(); applyRoute(); setupMotion();
+  renderNav(); renderHero(); renderResearch(); renderHomeOverview(); renderPubMetrics(); setupPubFilters(); renderPubs(); renderNews(); renderPI(); renderStudents(); renderContact(); applyRoute();
 }
 
 const ADMIN = {owner:"ttthkim-hue",repo:"kim-jingyeom-homepage",path:"site/content.json",branch:"main",publicRepo:"ttthkim-hue.github.io",publicPath:"content.json",publicAssetsPrefix:"assets/uploads/"};
@@ -423,7 +437,6 @@ async function writeRepoText(repo,path,text,message,sha) {
     headers:{...ghHeaders(),"Content-Type":"application/json"},
     body:JSON.stringify({message,content:encode64(text),sha,branch:ADMIN.branch})
   });
-
   if (!response.ok) throw new Error("Could not write " + repo + "/" + path + ": HTTP " + response.status);
   return response.json();
 }
@@ -532,8 +545,7 @@ async function saveAdmin(kind) {
         en:$("editNewsTitle").value.trim(),
         noteKo:$("editNewsNote").value.trim(),
         noteEn:$("editNewsNote").value.trim(),
-        url:$("editNewsUrl").value.trim(),
-        image:$("editNewsImage").value.trim()
+        url:$("editNewsUrl").value.trim()
       };
       if (!item.date || !item.ko || !item.url) throw new Error("Date, title and source URL are required.");
       state.adminData.portal = state.adminData.portal || {};
@@ -584,7 +596,7 @@ function bind() {
     const open = $("navLinks")?.classList.toggle("open");
     $("menuBtn")?.setAttribute("aria-expanded",String(Boolean(open)));
   });
-  window.addEventListener("hashchange",() => { applyRoute(); setupMotion(); });
+  window.addEventListener("hashchange",applyRoute);
   $("pubSearch")?.addEventListener("input",(event) => { state.query = event.target.value; renderPubs(); });
   $("yearFilter")?.addEventListener("change",(event) => { state.year = event.target.value; renderPubs(); });
   $("leadOnly")?.addEventListener("change",(event) => { state.leadOnly = event.target.checked; renderPubs(); });
@@ -602,6 +614,4 @@ async function load() {
 }
 
 bind();
-
 load().catch((error) => document.body.append(el("p","load-error","Content load failed: " + error.message)));
-

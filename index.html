@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>첨단 에너지소재 및 기능성 소자 실험실 (EnerMAKER Lab) &middot; KMOU</title>
-  <meta name="description" content="첨단 에너지소재 및 기능성 소자 실험실 (EnerMAKER Lab), KMOU. TENG, self-powered sensing, functional nanomaterials, AI, and computational simulation.">
+  <title>EnerMAKER Lab &middot; Jin-Kyeom Kim &middot; KMOU</title>
+  <meta name="description" content="EnerMAKER Lab at Korea Maritime & Ocean University. TENG, interfacial charge, self-powered sensing, bioelectronics, and functional nanomaterials.">
   <meta property="og:title" content="EnerMAKER Lab &middot; Jin-Kyeom Kim">
-  <meta property="og:description" content="Energy materials · Functional devices · AI · Computational simulation · Marine environments">
+  <meta property="og:description" content="Energy-harvesting materials and functional devices.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ttthkim-hue.github.io/">
   <link rel="canonical" href="https://ttthkim-hue.github.io/">
@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./home-v2.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -32,15 +33,13 @@
       <a id="nav-contact" href="#/contact" data-route="/contact"></a>
     </nav>
     <button id="langBtn" class="utility-btn" type="button">EN</button>
-    <a class="admin-link" href="#/admin">Admin</a>
   </div>
 </header>
 
 <main id="main">
-  <section class="view" data-view="/">
+  <section class="view home-view" data-view="/">
     <section class="hero">
       <div class="hero-copy">
-        <a class="hero-recruit-pill" href="#/students"><span class="pulse-dot" aria-hidden="true"></span><span id="heroRecruitText"></span></a>
         <p id="heroKicker" class="kicker"></p>
         <h1 id="heroTitle" class="semantic-title"></h1>
         <p id="heroLead" class="hero-lead"></p>
@@ -48,38 +47,53 @@
         <div class="hero-actions">
           <a id="heroResearch" class="button primary" href="#/research"></a>
           <a id="heroStudents" class="button secondary" href="#/students"></a>
+          <a id="heroContact" class="hero-quiet-link" href="#/contact"></a>
         </div>
-        <div id="heroProof" class="hero-proof" aria-label="Lab overview"></div>
       </div>
       <figure class="hero-media">
         <div class="hero-photo-wrap">
-          <img class="hero-photo" src="./assets/visuals/enermaker-hero-v5.svg" alt="Concept visualization of TENG, 2D materials, and multiphysics simulation for EnerMAKER Lab" width="659" height="680" decoding="async" fetchpriority="high">
+          <img class="hero-photo" src="./assets/visuals/hero-busan-harbor.jpg" alt="" width="1920" height="1080" decoding="async" fetchpriority="high">
         </div>
-        <figcaption><strong>Research concept visual</strong><span>Concept image &middot; not experimental data or a publication figure</span></figcaption>
+        <figcaption><strong>EnerMAKER Lab</strong><span>Electronic Ceramics &middot; Energy Harvesting &middot; Functional Nanomaterials</span></figcaption>
       </figure>
     </section>
 
-    <section class="home-section">
-      <div class="section-heading"><div><p class="kicker">Research</p><h2 id="researchSectionTitle"></h2></div><a id="researchMore" href="#/research"></a></div>
-      <div id="homeResearch" class="research-grid compact-grid"></div>
-    </section>
+    <div class="home-frame">
+      <section id="homeCredentials" class="credentials-strip" aria-label="Verified lab overview"></section>
 
-    <section class="home-section split-section">
-      <div>
-        <div class="section-heading"><div><p class="kicker">Publications</p><h2 id="pubOverviewTitle"></h2></div><a id="pubMore" href="#/publications"></a></div>
-        <div id="homePubMetrics" class="metric-strip"></div>
-        <div id="homePubs" class="publication-list compact"></div>
-      </div>
-      <div>
-        <div class="section-heading"><div><p class="kicker">News</p><h2 id="latestTitle"></h2></div><a id="newsMore" href="#/news"></a></div>
-        <div id="homeNews" class="news-grid compact"></div>
-      </div>
-    </section>
+      <section class="home-section approach-section">
+        <div class="section-heading approach-heading">
+          <div><p class="kicker">Our Approach</p><h2 id="approachTitle"></h2><p id="approachLead" class="section-lead"></p></div>
+        </div>
+        <div id="homeApproach" class="approach-flow"></div>
+      </section>
 
-    <section class="home-contact">
-      <div><p class="kicker">Join EnerMAKER</p><h2>2027 Spring &middot; Graduate Students</h2><p id="homeRecruit"></p></div>
-      <div class="home-contact-actions"><a id="joinStudents" class="button primary" href="#/students"></a><a id="joinContact" class="button secondary" href="#/contact"></a></div>
-    </section>
+      <section class="home-section">
+        <div class="section-heading"><div><p class="kicker">Research</p><h2 id="researchSectionTitle"></h2></div><a id="researchMore" href="#/research"></a></div>
+        <div id="homeResearch" class="research-grid compact-grid"></div>
+      </section>
+
+      <section class="home-section editorial-section">
+        <div class="editorial-column spotlight-column">
+          <div class="section-heading"><div><p class="kicker">Research Spotlight</p><h2 id="spotlightTitle"></h2></div><a href="#/research" id="spotlightMore"></a></div>
+          <div id="homeSpotlight"></div>
+        </div>
+        <div class="editorial-column">
+          <div class="section-heading"><div><p class="kicker">Selected Works</p><h2 id="pubOverviewTitle"></h2></div><a id="pubMore" href="#/publications"></a></div>
+          <div id="homePubs" class="publication-list compact"></div>
+        </div>
+        <div class="editorial-column">
+          <div class="section-heading"><div><p class="kicker">News</p><h2 id="latestTitle"></h2></div><a id="newsMore" href="#/news"></a></div>
+          <div id="homeNews" class="news-grid compact"></div>
+        </div>
+      </section>
+
+      <section class="home-contact">
+        <div class="home-contact-copy"><p class="kicker">Connect with EnerMAKER</p><h2 id="collabTitle"></h2><p id="homeRecruit"></p></div>
+        <div id="homePathways" class="home-pathways"></div>
+        <div class="home-contact-actions"><a id="joinStudents" class="button primary" href="#/students"></a><a id="joinContact" class="button secondary" href="#/contact"></a></div>
+      </section>
+    </div>
   </section>
 
   <section class="view page-view" data-view="/research" hidden>
@@ -152,14 +166,14 @@
       <div class="admin-grid">
         <section class="admin-card"><h2>Hero text</h2><label>Line 1<input id="editHero1"></label><label>Line 2<input id="editHero2"></label><label>Keyword line<input id="editHeroLead"></label><button class="button primary admin-save" data-admin-save="hero" type="button">Save hero</button></section>
         <section class="admin-card"><h2>Research image</h2><label>Area<select id="editResearchIndex"></select></label><label>Image URL or path<input id="editResearchImage"></label><label>Upload image<input id="researchImageFile" type="file" accept="image/*"></label><button id="uploadResearchImage" class="button secondary" type="button">Upload image</button><button class="button primary admin-save" data-admin-save="research" type="button">Save research image</button></section>
-        <section class="admin-card wide"><h2>Add news</h2><div class="form-grid"><label>Date<input id="editNewsDate" placeholder="2026-09-21"></label><label>Category<input id="editNewsCategory" placeholder="Research"></label><label>Title (KO)<input id="editNewsTitle"></label><label>Source URL<input id="editNewsUrl"></label><label class="span2">Short note (KO)<input id="editNewsNote"></label><label class="span2">Image URL or path<input id="editNewsImage"></label></div><button class="button primary admin-save" data-admin-save="news" type="button">Add news</button></section>
+        <section class="admin-card wide"><h2>Add news</h2><div class="form-grid"><label>Date<input id="editNewsDate" placeholder="2026-09-21"></label><label>Category<input id="editNewsCategory" placeholder="Research"></label><label>Title (KO)<input id="editNewsTitle"></label><label>Source URL<input id="editNewsUrl"></label><label class="span2">Short note (KO)<input id="editNewsNote"></label></div><button class="button primary admin-save" data-admin-save="news" type="button">Add news</button></section>
         <section class="admin-card wide"><h2>Advanced content editor</h2><p>Edit all text, images, news, publications, contact and student data as JSON. Syntax is checked before saving.</p><textarea id="adminJson" rows="16" spellcheck="false"></textarea><button class="button primary admin-save" data-admin-save="json" type="button">Save all content</button></section>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="site-footer"><div><strong>첨단 에너지소재 및 기능성 소자 실험실 (EnerMAKER Lab)</strong><span>Department of Marine New Materials Convergence Engineering &middot; KMOU</span></div><a href="#/admin">Admin</a></footer>
+<footer class="site-footer"><div class="footer-brand"><strong>EnerMAKER Lab</strong><span>Advanced Energy Materials &amp; Functional Devices</span></div><div class="footer-meta"><span>Department of Marine New Materials Convergence Engineering &middot; KMOU</span><span>Busan, Republic of Korea</span></div><div class="footer-links"><a href="#/research">Research</a><a href="#/publications">Publications</a><a href="#/contact">Contact</a></div></footer>
 <script src="./app.js" defer></script>
 </body>
 </html>
