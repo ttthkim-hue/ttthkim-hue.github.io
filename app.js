@@ -337,14 +337,29 @@ function renderAll() {
   renderNav(); renderHero(); renderResearch(); renderPubMetrics(); setupPubFilters(); renderPubs(); renderNews(); renderPI(); renderStudents(); renderContact(); applyRoute();
 }
 
-const ADMIN = {owner:"ttthkim-hue",repo:"kim-jingyeom-homepage",path:"site/content.json",branch:"main",publicRepo:"ttthkim-hue.github.io",publicPath:"content.json",publicAssetsPrefix:"assets/uploads/",allowed:["ttthkim-hue"]};
+const ADMIN = {owner:"ttthkim-hue",repo:"kim-jingyeom-homepage",path:"site/content.json",branch:"main",publicRepo:"ttthkim-hue.github.io",publicPath:"content.json",publicAssetsPrefix:"assets/uploads/"};
 
 function ghHeaders() {
   return {Accept:"application/vnd.github+json",Authorization:"Bearer " + state.adminToken,"X-GitHub-Api-Version":"2022-11-28"};
 }
 
+function repoApiUrl(repo) {
+  return "https://api.github.com/repos/" + ADMIN.owner + "/" + repo;
+}
+
 function repoContentUrl(repo,path) {
-  return "https://api.github.com/repos/" + ADMIN.owner + "/" + repo + "/contents/" + path;
+  return repoApiUrl(repo) + "/contents/" + path;
+}
+
+async function requireRepoWritePermission(repo) {
+  const response = await fetch(repoApiUrl(repo),{headers:ghHeaders()});
+  if (!response.ok) throw new Error("Could not verify repository access for " + repo + ": HTTP " + response.status);
+  const info = await response.json();
+  const permissions = info.permissions || {};
+  if (!(permissions.push || permissions.maintain || permissions.admin)) {
+    throw new Error("Write permission is required for " + repo + ". Ask the repository owner to add this GitHub account as a collaborator with write access.");
+  }
+  return info;
 }
 
 async function readRepoFile(repo,path) {
@@ -410,21 +425,19 @@ function loadResearchEditor() {
 }
 
 async function connectAdmin() {
-  const token = $("adminToken")?.value.trim(), expected = $("adminUser")?.value.trim();
+  const token = $("adminToken")?.value.trim();
   if (!token) return adminMessage("Enter a repository-scoped token.",true);
   state.adminToken = token;
   try {
     const me = await fetch("https://api.github.com/user",{headers:ghHeaders()});
     if (!me.ok) throw new Error("GitHub authentication failed.");
     const profile = await me.json();
-    if (!ADMIN.allowed.includes(profile.login) || profile.login !== expected) throw new Error("This GitHub account is not an allowed administrator.");
-    const url = "https://api.github.com/repos/" + ADMIN.owner + "/" + ADMIN.repo + "/contents/" + ADMIN.path + "?ref=" + ADMIN.branch;
-    const file = await fetch(url,{headers:ghHeaders()});
-    if (!file.ok) throw new Error("Could not read source content.");
-    const obj = await file.json();
+    await Promise.all([requireRepoWritePermission(ADMIN.repo),requireRepoWritePermission(ADMIN.publicRepo)]);
+    const obj = await readRepoFile(ADMIN.repo,ADMIN.path);
     state.adminFileSha = obj.sha; state.adminData = JSON.parse(decode64(obj.content));
+    $("adminUser").value = profile.login;
     $("adminToken").value = ""; $("adminLogin").hidden = true; $("adminPanel").hidden = false;
-    fillAdmin(); adminMessage(profile.login + " connected. Saves update both the private source and the public Pages repository.");
+    fillAdmin(); adminMessage(profile.login + " verified for both repositories. Saves update the private source and the public Pages repository.");
   } catch (error) {
     state.adminToken = ""; adminMessage(error.message || String(error),true);
   }
