@@ -29,14 +29,14 @@
     "noteEn": "Publication and researcher information is maintained from public academic profiles and DOI records."
   },
   "taglineKo": "TENG \u00b7 \uacc4\uba74\uc804\ud558 \u00b7 \uc790\uac00\ubc1c\uc804 \uc13c\uc11c \u00b7 \uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac",
-  "taglineEn": "TENG 쨌 interfacial charge 쨌 self-powered sensing 쨌 functional nanomaterials",
-  "heroTitleKo": "\uc5d0\ub108\uc9c0\ub97c \ub9cc\ub4dc\ub294 \uc18c\uc7ac, \ud658\uacbd\uc744 \uc77d\ub294 \uc18c\uc790",
-  "heroTitleEn": "Materials that harvest energy. Devices that sense their environment.",
-  "heroTitlePartsKo": ["\uc5d0\ub108\uc9c0\ub97c \ub9cc\ub4dc\ub294 \uc18c\uc7ac", "\ud658\uacbd\uc744 \uc77d\ub294 \uc18c\uc790"],
-  "heroTitlePartsEn": ["Materials that harvest energy", "Devices that sense their environment"],
-  "heroKeywords": ["TENG", "Interfacial charge", "Self-powered sensing", "Bioelectronics", "2D materials", "Marine environments"],
-  "heroLeadKo": "TENG \u00b7 \uacc4\uba74\uc804\ud558 \u00b7 \uc790\uac00\ubc1c\uc804 \uc13c\uc11c \u00b7 \uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac",
-  "heroLeadEn": "TENG 쨌 interfacial charge 쨌 self-powered sensing 쨌 functional nanomaterials",
+  "taglineEn": "TENG \u00b7 interfacial charge \u00b7 self-powered sensing \u00b7 functional nanomaterials",
+  "heroTitleKo": "TENG \u00b7 \uacc4\uba74\uc804\ud558 \u00b7 \uc790\uac00\ubc1c\uc804 \uc13c\uc2f1",
+  "heroTitleEn": "TENG \u00b7 Interfacial Charge \u00b7 Self-powered Sensing",
+  "heroTitlePartsKo": ["TENG \u00b7 \uacc4\uba74\uc804\ud558", "\uc790\uac00\ubc1c\uc804 \uc13c\uc2f1 \u00b7 \uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac"],
+  "heroTitlePartsEn": ["TENG \u00b7 Interfacial Charge", "Self-powered Sensing \u00b7 Functional Nanomaterials"],
+  "heroKeywords": ["TENG", "Interfacial charge", "Self-powered sensing", "Bioelectronics", "2D materials", "Nanofibers"],
+  "heroLeadKo": "\uc804\uc790\uc138\ub77c\ubbf9\uc2a4 \u00b7 \uc5d0\ub108\uc9c0 \ud558\ubca0\uc2a4\ud305 \u00b7 \ubc14\uc774\uc624\uc804\uc790 \u00b7 2D \uc18c\uc7ac",
+  "heroLeadEn": "Electronic ceramics \u00b7 Energy harvesting \u00b7 Bioelectronics \u00b7 2D materials",
   "heroCards": [
     {
       "eyebrowKo": "TENG",
@@ -208,7 +208,7 @@
       "en": "Materials and device fabrication",
       "detailKo": "TENG, \ub098\ub178\uc12c\uc720, \ucf54\uc5b4-\uc258, 2D \uc18c\uc7ac \uae30\ubc18 \uc18c\uc790 \uc81c\uc791\uacfc \uc804\uae30\u00b7\uc13c\uc11c \uce21\uc815.",
       "detailEn": "Device fabrication and electrical or sensor measurement with TENGs, nanofibers, core-shell, and 2D materials.",
-      "ctaKo": "\uad00\ub828 \uacbd\ud5d8\uacfc \uad00\uc2ec \uc5f0\uad6c\ucd95\uc744 \uc815\ub9ac\ud574 \ubb38\uc758",
+      "ctaKo": "\uad00\ub828 \uacbd\ud5d8\uacfc \uad00\uc2ec \uc5f0\uad6c \ud0a4\uc6cc\ub4dc\ub97c \uc815\ub9ac\ud574 \ubb38\uc758",
       "ctaEn": "Summarize relevant experience and research interests when contacting"
     },
     {
@@ -419,7 +419,7 @@
     {
       "titleKo": "\ubb38\uc758 \uc804 \uc900\ube44",
       "titleEn": "Before contacting",
-      "bodyKo": "\uad00\uc2ec \uc5f0\uad6c\ucd95, \uad00\ub828 \ub17c\ubb38 1\ud3b8, \uac00\ub2a5\ud55c \ud611\ub825 \ud615\ud0dc, \ubcf8\uc778 \ubc30\uacbd\u00b7\uae30\uc220\uc2a4\ud0dd\uc744 \uac04\ub2e8\ud788 \uc815\ub9ac\ud558\uba74 \ubb38\uc758\uac00 \uc218\uc6d4\ud569\ub2c8\ub2e4.",
+      "bodyKo": "\uad00\uc2ec \uc5f0\uad6c \ud0a4\uc6cc\ub4dc, \uad00\ub828 \ub17c\ubb38 1\ud3b8, \uac00\ub2a5\ud55c \ud611\ub825 \ud615\ud0dc, \ubcf8\uc778 \ubc30\uacbd\u00b7\uae30\uc220\uc2a4\ud0dd\uc744 \uac04\ub2e8\ud788 \uc815\ub9ac\ud558\uba74 \ubb38\uc758\uac00 \uc218\uc6d4\ud569\ub2c8\ub2e4.",
       "bodyEn": "Prepare one research interest, one relevant paper, a possible collaboration format, and your background or technical stack."
     }
   ],
@@ -447,32 +447,24 @@
     "version": "4.0",
     "researchMedia": [
       {
-        "image": "./assets/visuals/pillar-energy-wave.jpg",
         "paperTitle": "Electric-field-driven interfacial trapping of drifting triboelectric charges via contact electrification",
         "paperUrl": "https://doi.org/10.1039/D2EE03114K",
-        "paperVenue": "Energy & Environmental Science \u00b7 2023",
-        "imageCredit": "Reusable local theme visual; publication figure can be replaced by admin after license clearance"
+        "paperVenue": "Energy & Environmental Science \u00b7 2023"
       },
       {
-        "image": "./assets/visuals/pillar-bio-neuron.png",
         "paperTitle": "Self-sustaining leadless intracardiac pacemaker powered by triboelectric nanogenerator",
         "paperUrl": "https://doi.org/10.1126/sciadv.aef8903",
-        "paperVenue": "Science Advances \u00b7 2026",
-        "imageCredit": "Public-domain research-theme visual"
+        "paperVenue": "Science Advances \u00b7 2026"
       },
       {
-        "image": "./assets/visuals/pillar-nano-nist.jpg",
         "paperTitle": "Self-Powering Gas Sensing System Enabled by Double-Layer Triboelectric Nanogenerators Based on P2VP@BaTiO3 Core-Shell Hybrids",
         "paperUrl": "https://doi.org/10.1021/acsnano.3c12035",
-        "paperVenue": "ACS Nano \u00b7 2024",
-        "imageCredit": "NIST public-domain research-theme visual"
+        "paperVenue": "ACS Nano \u00b7 2024"
       },
       {
-        "image": "",
         "paperTitle": "Self-Powered Triboelectric Electrospun Air Filters as Functional Fibrous Materials: Experiment-Supported Modeling of Dielectrophoretic Capture and Scale-Up",
         "paperUrl": "https://doi.org/10.1016/j.mtcomm.2026.115941",
-        "paperVenue": "Materials Today Communications \u00b7 2026",
-        "imageCredit": "CSS computational schematic"
+        "paperVenue": "Materials Today Communications \u00b7 2026"
       }
     ],
     "journalMetrics": [

@@ -120,27 +120,22 @@ function researchItem(index) {
 }
 
 function researchVisual(item) {
-  const box = el("div","research-visual");
-  if (item.image) {
-    const img = document.createElement("img");
-    img.src = item.image; img.alt = pick(item.ko,item.en); img.loading = "lazy";
-    box.append(img);
-  } else {
-    const model = el("div","model-visual");
-    for (let i=0;i<16;i+=1) model.append(el("i"));
-    box.append(model);
-  }
+  const box = el("div","research-visual research-keyword-visual");
+  const stack = el("div","research-keyword-stack");
+  arr(item.keywords).slice(0,4).forEach((word) => stack.append(el("span","research-keyword",word)));
+  box.append(stack);
   return box;
 }
 
 function researchCard(item, detailed, index = 0) {
   const card = el("article",detailed ? "research-card" : "research-card home-research-card");
-  card.append(researchVisual(item));
   const body = el("div","research-body");
   if (!detailed) {
     body.append(el("span","research-index",String(index + 1).padStart(2,"0")));
-    body.append(el("p","research-subtitle",state.lang === "ko" ? (item.en || "") : (item.ko || "")));
     body.append(el("h2","",pick(item.ko,item.en)));
+    const keys = el("div","keyword-row");
+    arr(item.keywords).slice(0,4).forEach((word) => keys.append(el("span","keyword",word)));
+    body.append(keys);
     const arrow = el("a","research-arrow","\u2197");
     arrow.href = "#/research";
     arrow.setAttribute("aria-label",L("researchMore"));
@@ -148,6 +143,7 @@ function researchCard(item, detailed, index = 0) {
     card.append(body);
     return card;
   }
+  card.append(researchVisual(item));
   body.append(el("p","kicker",item.visual === "model" ? "Modeling" : "Research"));
   body.append(el("h2","",pick(item.ko,item.en)));
   body.append(el("p","research-summary",pick(item.signalKo,item.signalEn)));
@@ -177,15 +173,15 @@ function renderHomeOverview() {
   const d = state.data;
   const credentials = clear($("homeCredentials"));
   const credentialRows = state.lang === "ko" ? [
-    ["KMOU","\uad6d\ub9bd\ud55c\uad6d\ud574\uc591\ub300\ud559\uad50"],
-    [String(arr(d.research).length),"\uc5f0\uad6c\ucd95"],
-    [String(arr(d.publications).length),"\uacf5\uac1c \ub17c\ubb38 \ubaa9\ub85d"],
-    ["Busan","EnerMAKER Lab \u00b7 Yeongdo"]
+    ["TENG","\uc5d0\ub108\uc9c0 \ud558\ubca0\uc2a4\ud305"],
+    ["Charge","\uacc4\uba74\uc804\ud558"],
+    ["Sensing","\uc790\uac00\ubc1c\uc804 \uc13c\uc2f1"],
+    ["Materials","\uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac"]
   ] : [
-    ["KMOU","Korea Maritime & Ocean University"],
-    [String(arr(d.research).length),"Research pillars"],
-    [String(arr(d.publications).length),"Publications in public record"],
-    ["Busan","EnerMAKER Lab \u00b7 Yeongdo"]
+    ["TENG","Energy harvesting"],
+    ["Charge","Interfacial charge"],
+    ["Sensing","Self-powered sensing"],
+    ["Materials","Functional nanomaterials"]
   ];
   credentialRows.forEach(([value,label]) => {
     const card = el("div","credential-item");
@@ -193,18 +189,17 @@ function renderHomeOverview() {
     credentials?.append(card);
   });
 
-  setText("approachTitle",state.lang === "ko" ? "\uc124\uacc4\uc5d0\uc11c \uc2e4\uc81c \ud658\uacbd \uac80\uc99d\uae4c\uc9c0" : "From design to real-world validation");
-  setText("approachLead",state.lang === "ko" ? "\uc18c\uc7ac\u00b7\uc18c\uc790\ub97c \uc124\uacc4\ud558\uace0, \ub9cc\ub4e4\uace0, \uce21\uc815\ud558\uace0, \ubaa8\ub378\ub9c1\ud558\uba70 \uc2e4\uc81c \ud658\uacbd\uc73c\ub85c \uc5f0\uacb0\ud569\ub2c8\ub2e4." : "Design, fabricate, measure, model, and validate materials and devices in practical environments.");
+  setText("approachTitle","Design \u00b7 Fabricate \u00b7 Measure \u00b7 Model \u00b7 Validate");
+  setText("approachLead",state.lang === "ko" ? "\uc18c\uc7ac \u00b7 \uc18c\uc790 \u00b7 \uce21\uc815 \u00b7 \ubaa8\ub378\ub9c1 \u00b7 \uac80\uc99d" : "Materials \u00b7 Devices \u00b7 Measurement \u00b7 Modeling \u00b7 Validation");
   const flow = clear($("homeApproach"));
   arr(d.labLoop).forEach((step,index) => {
     const node = el("article","approach-step");
     node.append(el("span","approach-index",String(index + 1).padStart(2,"0")));
     node.append(el("h3","",pick(step.stepKo,step.stepEn)));
-    node.append(el("p","",pick(step.bodyKo,step.bodyEn)));
     flow?.append(node);
   });
 
-  setText("spotlightTitle",state.lang === "ko" ? "\ub300\ud45c \uc5f0\uad6c" : "Representative research");
+  setText("spotlightTitle",state.lang === "ko" ? "\uc8fc\uc694 \ub17c\ubb38" : "Selected paper");
   setText("spotlightMore",L("researchMore"));
   const spotlight = clear($("homeSpotlight"));
   const item = researchItem(0);
@@ -219,14 +214,13 @@ function renderHomeOverview() {
     spotlight?.append(card);
   }
 
-  setText("collabTitle",state.lang === "ko" ? "\uc5f0\uad6c\u00b7\ud611\ub825\u00b7\uc9c4\ud559\uc744 \uc5f0\uacb0\ud569\ub2c8\ub2e4" : "Connect research, collaboration, and study");
-  setText("homeRecruit",state.lang === "ko" ? "\uad00\uc2ec \uc5f0\uad6c\ubd84\uc57c, \uad00\ub828 \uacbd\ud5d8, \ud611\ub825 \ub610\ub294 \uc9c4\ud559 \uad00\uc2ec\uc744 \uac04\ub2e8\ud788 \uc801\uc5b4 \ubb38\uc758\ud574 \uc8fc\uc138\uc694." : "Share your research interests, relevant experience, and whether you are asking about collaboration or study.");
+  setText("collabTitle","Students \u00b7 Collaboration \u00b7 Contact");
+  setText("homeRecruit",state.lang === "ko" ? "TENG \u00b7 \uc790\uac00\ubc1c\uc804 \uc13c\uc2f1 \u00b7 \ub098\ub178\uc18c\uc7ac \u00b7 \ubaa8\ub378\ub9c1" : "TENG \u00b7 Self-powered sensing \u00b7 Nanomaterials \u00b7 Modeling");
   const pathways = clear($("homePathways"));
   arr(d.studentPaths).slice(0,3).forEach((path,index) => {
     const card = el("article","home-pathway");
     card.append(el("span","home-pathway-index",String(index + 1).padStart(2,"0")));
     card.append(el("h3","",pick(path.ko,path.en)));
-    card.append(el("p","",pick(path.detailKo,path.detailEn)));
     pathways?.append(card);
   });
 }
