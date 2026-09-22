@@ -1,7 +1,7 @@
 {
   "schema": "enermaker.public-release.v1",
   "release": "V4.3.11-20260922-v11",
-  "source_commit": "72f766f0240d6049ac6eb11f72f8bf1f2c6494ae",
+  "source_commit": "9e857d340b7753c50df15174e9955a5abcc55910",
   "local_validation": {
     "status": "PASS",
     "ui_release": "V4.3.11-20260922-v11",
