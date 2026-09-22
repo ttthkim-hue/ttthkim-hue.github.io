@@ -1,0 +1,10 @@
+{
+  "schema": "enermaker.public-release.v1",
+  "release": "V4.3.10-20260922-v8",
+  "source_commit": "0a1b8b880b11e17c9e015a544990c37914b41e86",
+  "source_validation_run": 35671776691,
+  "source_validation": "PASS",
+  "public_url": "https://ttthkim-hue.github.io/",
+  "image_mode": "user-reference exact crop",
+  "deployed_at": "2026-09-22"
+}
