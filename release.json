@@ -1,10 +1,10 @@
 {
   "schema": "enermaker.public-release.v1",
-  "release": "V4.3.13-20260922-v20",
-  "source_commit": "82ac1df26a9c6035b31830a956d759721523bb82",
+  "release": "V4.3.13-20260922-v21",
+  "source_commit": "623f349d0373abf67e193c51104608c74f939b35",
   "local_validation": {
     "status": "PASS",
-    "ui_release": "V4.3.13-20260922-v20",
+    "ui_release": "V4.3.13-20260922-v21",
     "research_count": 4,
     "publication_count": 16,
     "news_count": 8
