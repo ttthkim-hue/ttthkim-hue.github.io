@@ -292,6 +292,7 @@ function renderPubs() {
 
 function renderPublicationGraphics() {
   setText("graphicTitle",state.lang === "ko" ? "\ub17c\ubb38 \uadf8\ub798\ud53d \ucd08\ub85d" : "Graphical abstracts");
+  setText("graphicHint",state.lang === "ko" ? "\uc88c\uc6b0\ub85c \uc2a4\ud06c\ub864\ud558\uac70\ub098 \uc2a4\uc640\uc774\ud504\ud574 \ub17c\ubb38 \uadf8\ub798\ud53d\uc744 \ub118\uaca8\ubcf4\uc138\uc694." : "Scroll or swipe horizontally to browse paper graphics.");
   const box = clear($("publicationGraphics"));
   arr(portal().publicationGraphics).forEach((item) => {
     const card = el("article","publication-graphic-card");
