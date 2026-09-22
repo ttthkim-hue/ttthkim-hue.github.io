@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20260922-12">
+  <link rel="stylesheet" href="./styles.css?v=20260922-15">
   <link rel="stylesheet" href="./reference-visuals.css?v=20260922-8">
   <link rel="stylesheet" href="./hires-visuals.css?v=20260922-11">
 </head>
@@ -108,12 +108,20 @@
       <div id="yearSummary" class="year-summary"></div>
       <div id="ifSummary" class="if-summary"></div>
     </div>
+    <section class="publication-graphics-section" aria-labelledby="graphicTitle">
+      <div class="section-heading compact-heading"><div><p class="kicker">Paper visuals</p><h2 id="graphicTitle"></h2></div></div>
+      <div id="publicationGraphics" class="publication-graphics"></div>
+    </section>
     <div class="filter-bar">
       <input id="pubSearch" type="search" autocomplete="off" aria-label="Search publications">
       <select id="yearFilter" aria-label="Publication year"></select>
       <label class="check-label"><input id="leadOnly" type="checkbox"><span id="leadOnlyLabel"></span></label>
     </div>
     <div id="pubList" class="publication-list"></div>
+    <section class="patent-section" aria-labelledby="patentTitle">
+      <div class="section-heading compact-heading"><div><p class="kicker">Intellectual Property</p><h2 id="patentTitle"></h2></div></div>
+      <div id="patentList" class="publication-list patent-list"></div>
+    </section>
   </section>
 
   <section class="view page-view" data-view="/pi" hidden>
@@ -179,7 +187,7 @@
 
 <footer class="site-footer"><div class="footer-brand"><strong>EnerMAKER Lab</strong><span>Advanced Energy Materials &amp; Functional Devices</span></div><div class="footer-meta"><span>Department of Marine New Materials Convergence Engineering &middot; KMOU</span><span>Busan, Republic of Korea</span></div><div class="footer-links"><a href="#/research">Research</a><a href="#/publications">Publications</a><a href="#/contact">Contact</a></div></footer>
 <script src="./reference-assets.js?v=20260922-8"></script>
-<script src="./app.js?v=20260922-12" defer></script>
+<script src="./app.js?v=20260922-15" defer></script>
 <script src="./hires-assets.js?v=20260922-11" defer></script>
 </body>
 </html>

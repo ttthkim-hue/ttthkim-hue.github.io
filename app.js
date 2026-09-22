@@ -42,8 +42,8 @@ const labels = {
     studentsTitle:"\ud559\uc0dd \u00b7 \uc9c4\ud559", studentStatusNote:"\ub300\ud559\uc6d0\uc0dd\u00b7\ud559\ubd80\uc5f0\uad6c\uc0dd \ubb38\uc758\ub97c \ud658\uc601\ud569\ub2c8\ub2e4.", studentTracks:"\uc5b4\ub5a4 \uc5f0\uad6c\ub97c \ud558\ub098\uc694?", studentStart:"\uc9c4\ud559\u00b7\ud559\ubd80\uc5f0\uad6c \ubb38\uc758 3\ub2e8\uacc4", email:"\uc774\uba54\uc77c \ubb38\uc758",
     contactTitle:"\uc5f0\ub77d\ucc98 \u00b7 \uc704\uce58", contactSub:"\uc5f0\uad6c\uc2e4 \uc704\uce58\uc640 \uc5f0\ub77d\ucc98\ub97c \uc548\ub0b4\ud569\ub2c8\ub2e4.", mapOpen:"\uc9c0\ub3c4\uc5d0\uc11c \uc5f4\uae30 \u2192",
     piResearch:"\uc5f0\uad6c \ud0a4\uc6cc\ub4dc", piCareer:"\ud559\ub825 \u00b7 \uacbd\ub825", education:"\ud559\ub825", career:"\uacbd\ub825",
-    search:"\uc81c\ubaa9 \u00b7 \uc800\ub110 \u00b7 \uc800\uc790 \uac80\uc0c9", allYears:"\uc804\uccb4 \uc5f0\ub3c4", leadOnly:"\uc8fc\ub3c4\uc800\uc790 \ud45c\uae30\ub9cc",
-    totalPubs:"\uc804\uccb4 \ub17c\ubb38", latestYear:"\ucd5c\uc2e0 \uc5f0\ub3c4", leadTagged:"\uc8fc\ub3c4\uc800\uc790 \ud45c\uae30", topJif:"\ucd5c\uace0 JIF",
+    search:"\uc81c\ubaa9 \u00b7 \uc800\ub110 \u00b7 \uc800\uc790 \uac80\uc0c9", allYears:"\uc804\uccb4 \uc5f0\ub3c4", leadOnly:"\uc8fc\uc800\uc790 \ub17c\ubb38\ub9cc",
+    totalPubs:"\uc804\uccb4 \ub17c\ubb38", latestYear:"\ucd5c\uc2e0 \uc5f0\ub3c4", leadTagged:"\uc8fc\uc800\uc790", topJif:"\ucd5c\uace0 JIF",
     verifiedJif:"\uc800\ub110 \uc9c0\ud45c", source:"\uc800\ub110 \uc815\ubcf4",
     joinStudents:"\ud559\uc0dd\u00b7\uc9c4\ud559", joinContact:"\uc5f0\ub77d\ucc98",
     inquiry:"\uad00\uc2ec \uc5f0\uad6c \ud0a4\uc6cc\ub4dc, \uad00\ub828 \uacbd\ud5d8, \uac00\ub2a5\ud55c \uc2dc\uc791 \uc2dc\uc810\uc744 \uac04\ub2e8\ud788 \uc801\uc5b4 \ubb38\uc758\ud574 \uc8fc\uc138\uc694."
@@ -58,8 +58,8 @@ const labels = {
     studentsTitle:"Students & study", studentStatusNote:"Graduate and undergraduate research inquiries are welcome.", studentTracks:"Research tracks", studentStart:"Three steps to inquire", email:"Email the PI",
     contactTitle:"Contact & location", contactSub:"Lab, office, department office, and campus map in one view.", mapOpen:"Open map \u2192",
     piResearch:"Research keywords", piCareer:"Education & appointments", education:"Education", career:"Appointments",
-    search:"Search title, journal, author", allYears:"All years", leadOnly:"Lead-author tagged only",
-    totalPubs:"Publications", latestYear:"Latest year", leadTagged:"Lead-author tagged", topJif:"Top JIF",
+    search:"Search title, journal, author", allYears:"All years", leadOnly:"Primary-author papers only",
+    totalPubs:"Publications", latestYear:"Latest year", leadTagged:"Primary-author papers", topJif:"Top JIF",
     verifiedJif:"Journal metrics", source:"Journal info",
     joinStudents:"Students", joinContact:"Contact",
     inquiry:"Include a research keyword, relevant experience, and your possible start date."
@@ -213,7 +213,7 @@ function yearCounts() {
 }
 
 function isLead(pub) {
-  return /first|lead|corresponding|co-first|\uacf5\ub3d9|1\uc800\uc790|\uad50\uc2e0/i.test(pub.role || "");
+  return pub.lead === true;
 }
 
 function renderPubMetrics() {
@@ -274,6 +274,34 @@ function renderPubs() {
     const queryOK = !q || [pub.title,pub.authors,pub.venue].join(" ").toLowerCase().includes(q);
     return yearOK && queryOK && (!state.leadOnly || isLead(pub));
   }).forEach((pub) => out?.append(pubNode(pub)));
+}
+
+function renderPublicationGraphics() {
+  setText("graphicTitle",state.lang === "ko" ? "\ub17c\ubb38 \uadf8\ub798\ud53d \ucd08\ub85d" : "Graphical abstracts");
+  const box = clear($("publicationGraphics"));
+  arr(portal().publicationGraphics).forEach((item) => {
+    const card = el("article","publication-graphic-card");
+    const link = el("a","publication-graphic-link");
+    link.href = item.url || "#/publications";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    const img = el("img","publication-graphic-img");
+    img.src = item.image || "";
+    img.alt = pick(item.altKo,item.altEn) || item.title || "Graphical abstract";
+    img.loading = "lazy";
+    img.decoding = "async";
+    link.append(img);
+    const body = el("div","publication-graphic-body");
+    body.append(el("small","",item.venue || ""),extLink(item.title,item.url,"publication-graphic-title"));
+    card.append(link,body);
+    box?.append(card);
+  });
+}
+
+function renderPatents() {
+  setText("patentTitle",state.lang === "ko" ? "\ud2b9\ud5c8" : "Patents");
+  const out = clear($("patentList"));
+  arr(state.data.patents).forEach((patent) => out?.append(pubNode(patent)));
 }
 
 function newsData() { return arr(portal().news).length ? arr(portal().news) : arr(state.data.news); }
@@ -380,7 +408,7 @@ function applyReferenceVisuals() {
 }
 
 function renderAll() {
-  renderNav(); renderHero(); renderResearch(); renderHomeOverview(); renderPubMetrics(); setupPubFilters(); renderPubs(); renderNews(); renderPI(); renderStudents(); renderContact(); applyReferenceVisuals(); applyRoute();
+  renderNav(); renderHero(); renderResearch(); renderHomeOverview(); renderPubMetrics(); setupPubFilters(); renderPublicationGraphics(); renderPubs(); renderPatents(); renderNews(); renderPI(); renderStudents(); renderContact(); applyReferenceVisuals(); applyRoute();
 }
 
 const ADMIN = {owner:"ttthkim-hue",repo:"kim-jingyeom-homepage",path:"site/content.json",branch:"main",publicRepo:"ttthkim-hue.github.io",publicPath:"content.json",publicAssetsPrefix:"assets/uploads/"};

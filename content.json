@@ -295,7 +295,8 @@
       "authors": "T. Kim, S. Baik, D. Jang, J.-K. Kim",
       "venue": "Materials Today Communications 115941",
       "url": "https://doi.org/10.1016/j.mtcomm.2026.115941",
-      "role": "co-corresponding author 쨌 with S. Baik & D. Jang"
+      "role": "co-corresponding author (with S. Baik and D. Jang)",
+      "lead": true
     },
     {
       "year": 2025,
@@ -303,7 +304,8 @@
       "authors": "J.-K. Kim",
       "venue": "Journal of the Korean Institute of Electrical and Electronic Material Engineers 38 (5), 455-468",
       "url": "https://doi.org/10.4313/JEEM.2025.38.5.1",
-      "role": "first author \u00b7 review"
+      "role": "first author (review)",
+      "lead": true
     },
     {
       "year": 2025,
@@ -311,7 +313,8 @@
       "authors": "J.-K. Kim, S. Jung, D. H. Kim, J. Gao, Y. S. Lee, H. Park, H. C. Song, J. M. Baik",
       "venue": "Advanced Energy Materials 15 (2), 2304437",
       "url": "https://doi.org/10.1002/aenm.202304437",
-      "role": "first author"
+      "role": "first author",
+      "lead": true
     },
     {
       "year": 2025,
@@ -326,14 +329,17 @@
       "authors": "T. Kim, J.-K. Kim",
       "venue": "Journal of Powder Materials 32 (6), 481-491",
       "url": "https://doi.org/10.4150/jpm.2025.00465",
-      "role": "corresponding author"
+      "role": "corresponding author",
+      "lead": true
     },
     {
       "year": 2024,
       "title": "Self-Powering Gas Sensing System Enabled by Double-Layer Triboelectric Nanogenerators Based on Poly(2-vinylpyridine)@BaTiO3 Core-Shell Hybrids",
       "authors": "J. Oh, J.-K. Kim, J. Gao, S. Jung, W. Kim, G. Park, J. Park, J. M. Baik, C. Yang",
       "venue": "ACS Nano 18 (19), 12146-12157",
-      "url": "https://doi.org/10.1021/acsnano.3c12035"
+      "url": "https://doi.org/10.1021/acsnano.3c12035",
+      "role": "co-first author",
+      "lead": true
     },
     {
       "year": 2024,
@@ -348,7 +354,8 @@
       "authors": "J.-K. Kim, G. H. Han, S. W. Kim, H. J. Kim, R. Purbia, D. M. Lee, et al.",
       "venue": "Energy & Environmental Science 16 (2), 598-609",
       "url": "https://doi.org/10.1039/d2ee03114k",
-      "role": "first author"
+      "role": "co-first author",
+      "lead": true
     },
     {
       "year": 2023,
@@ -376,7 +383,9 @@
       "title": "Boosted Output Voltage of BiSbTe-Based Thermoelectric Generators via Coupled Effect between Thermoelectric Carriers and Triboelectric Charges",
       "authors": "S. W. Kim, J.-K. Kim, J. Y. Park, J. Mun, S. Jung, et al.",
       "venue": "Advanced Energy Materials 13 (4), 2202987",
-      "url": "https://doi.org/10.1002/aenm.202202987"
+      "url": "https://doi.org/10.1002/aenm.202202987",
+      "role": "co-first author",
+      "lead": true
     },
     {
       "year": 2023,
@@ -391,7 +400,9 @@
       "title": "Output signals control of triboelectric nanogenerator with metal-dielectric-metal configuration through high resistance grounded systems",
       "authors": "S. W. Kim, J.-K. Kim, H. J. Kim, C. T. Cao, N. K. Oh, Y. Yang, H. C. Song, M. Shim, et al.",
       "venue": "Nano Energy 95, 107023",
-      "url": "https://doi.org/10.1016/j.nanoen.2022.107023"
+      "url": "https://doi.org/10.1016/j.nanoen.2022.107023",
+      "role": "co-first author",
+      "lead": true
     },
     {
       "year": 2022,
@@ -413,8 +424,8 @@
       "year": 2023,
       "title": "Core-shell structured positive charge electrified body structure and triboelectric generator using the same",
       "authors": "J.-K. Kim, R. Purbia, J. Y. Park, J. M. Baik",
-      "venue": "KR Patent",
-      "url": "https://scholar.google.com/citations?user=k4WJ_DMAAAAJ"
+      "venue": "KR Patent 10-2607441 (KR102607441B1)",
+      "url": "https://patents.google.com/patent/KR102607441B1/en"
     }
   ],
   "join": [
@@ -481,6 +492,24 @@
         "paperVenue": "Materials Today Communications \u00b7 2026"
       }
     ],
+    "publicationGraphics": [
+      {
+        "title": "Self-Powered Triboelectric Electrospun Air Filters as Functional Fibrous Materials",
+        "venue": "Materials Today Communications \u00b7 2026",
+        "url": "https://doi.org/10.1016/j.mtcomm.2026.115941",
+        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2352492826013309-ga1_lrg.jpg",
+        "altKo": "\uc790\uac00\ubc1c\uc804 \ub9c8\ucc30\uc804\uae30 \uc804\uae30\ubc29\uc0ac \uc5d0\uc5b4\ud544\ud130 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
+        "altEn": "Graphical abstract of the self-powered triboelectric electrospun air-filter study"
+      },
+      {
+        "title": "Output signals control of triboelectric nanogenerator with metal-dielectric-metal configuration",
+        "venue": "Nano Energy \u00b7 2022",
+        "url": "https://doi.org/10.1016/j.nanoen.2022.107023",
+        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2211285522001082-ga1_lrg.jpg",
+        "altKo": "\uace0\uc800\ud56d \uc811\uc9c0 \uae30\ubc18 TENG \ucd9c\ub825 \uc81c\uc5b4 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
+        "altEn": "Graphical abstract of the high-resistance-grounded TENG output-control study"
+      }
+    ],
     "journalMetrics": [
       {
         "journal": "Energy & Environmental Science",
@@ -502,6 +531,13 @@
         "value": 17.3,
         "year": 2025,
         "source": "https://pubs.acs.org/page/ancac3/about.html"
+      },
+      {
+        "journal": "Nano Energy",
+        "metric": "Journal Impact Factor",
+        "value": 16.7,
+        "year": 2025,
+        "source": "https://pubs.acs.org/doi/10.1021/acsenergylett.6c02125"
       }
     ],
     "metricNoteKo": "",
