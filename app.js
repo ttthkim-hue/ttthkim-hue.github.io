@@ -606,6 +606,94 @@ async function uploadResearchImage() {
   }
 }
 
+function inquiryCopy() {
+  return state.lang === "ko" ? {
+    title:"\ud559\uc0dd \u00b7 \uc9c4\ud559 \ubb38\uc758",
+    name:"\uc774\ub984",
+    affiliation:"\uc18c\uc18d",
+    affiliationPlaceholder:"\ud559\uad50 \u00b7 \ud559\uacfc \u00b7 \ud559\ub144",
+    email:"\uc774\uba54\uc77c",
+    topic:"\uad00\uc2ec \ubd84\uc57c",
+    message:"\ubb38\uc758 \ub0b4\uc6a9",
+    messagePlaceholder:"\uad00\uc2ec \uc5f0\uad6c, \uad00\ub828 \uacbd\ud5d8, \uac00\ub2a5\ud55c \uc2dc\uc791 \uc2dc\uc810\uc744 \uac04\ub2e8\ud788 \uc801\uc5b4\uc8fc\uc138\uc694.",
+    privacy:"\uc785\ub825 \ub0b4\uc6a9\uc740 \uc0ac\uc774\ud2b8\uc5d0 \uc800\uc7a5\ub418\uc9c0 \uc54a\uc73c\uba70, \uba54\uc77c \uc571\uc5d0 \uc791\uc131 \ub0b4\uc6a9\ub9cc \ucc44\uc6cc\uc9d1\ub2c8\ub2e4.",
+    cancel:"\ucde8\uc18c",
+    submit:"\uba54\uc77c \uc791\uc131",
+    topics:["\uc18c\uc7ac\u00b7\uc18c\uc790 \uc81c\uc791","\uce21\uc815\u00b7\uc13c\uc2f1\u00b7\ub370\uc774\ud130","\ubaa8\ub378\ub9c1\u00b7AI\u00b7\uacf5\ub3d9\uc5f0\uad6c","\ub300\ud559\uc6d0 \uc9c4\ud559","\uae30\ud0c0"]
+  } : {
+    title:"Student & graduate inquiry",
+    name:"Name",
+    affiliation:"Affiliation",
+    affiliationPlaceholder:"University / department / year",
+    email:"Email",
+    topic:"Topic",
+    message:"Message",
+    messagePlaceholder:"Briefly describe your research interests, relevant experience, and possible start date.",
+    privacy:"Nothing is stored on this site. The form only prepares a message in your default mail app.",
+    cancel:"Cancel",
+    submit:"Compose email",
+    topics:["Materials & device fabrication","Measurement, sensing & data","Modeling, AI & collaboration","Graduate study","Other"]
+  };
+}
+
+function renderStudentInquiryLabels() {
+  const c = inquiryCopy();
+  setText("studentInquiryTitle",c.title);
+  setText("studentInquiryNameLabel",c.name);
+  setText("studentInquiryAffiliationLabel",c.affiliation);
+  setText("studentInquiryEmailLabel",c.email);
+  setText("studentInquiryTopicLabel",c.topic);
+  setText("studentInquiryMessageLabel",c.message);
+  setText("studentInquiryPrivacy",c.privacy);
+  setText("studentInquiryCancel",c.cancel);
+  setText("studentInquirySubmit",c.submit);
+  const affiliation = $("studentInquiryAffiliation"); if (affiliation) affiliation.placeholder = c.affiliationPlaceholder;
+  const message = $("studentInquiryMessage"); if (message) message.placeholder = c.messagePlaceholder;
+  const select = $("studentInquiryTopic");
+  if (select) {
+    const current = select.value;
+    select.replaceChildren();
+    const blank = document.createElement("option"); blank.value = ""; blank.textContent = state.lang === "ko" ? "\uc120\ud0dd" : "Select"; select.append(blank);
+    c.topics.forEach((topic) => { const option = document.createElement("option"); option.value = topic; option.textContent = topic; select.append(option); });
+    if ([...select.options].some((o) => o.value === current)) select.value = current;
+  }
+}
+
+function openStudentInquiry(event) {
+  event?.preventDefault();
+  renderStudentInquiryLabels();
+  const modal = $("studentInquiryModal");
+  if (!modal) return;
+  modal.hidden = false;
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow = "hidden";
+  window.setTimeout(() => $("studentInquiryName")?.focus(),0);
+}
+
+function closeStudentInquiry() {
+  const modal = $("studentInquiryModal");
+  if (!modal) return;
+  modal.hidden = true;
+  modal.setAttribute("aria-hidden","true");
+  document.body.style.overflow = "";
+}
+
+function submitStudentInquiry(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  const values = Object.fromEntries(new FormData(form).entries());
+  const subject = state.lang === "ko"
+    ? "[EnerMAKER \ud559\uc0dd\ubb38\uc758] " + values.name + " / " + values.affiliation + " / " + values.topic
+    : "[EnerMAKER student inquiry] " + values.name + " / " + values.affiliation + " / " + values.topic;
+  const body = state.lang === "ko"
+    ? ["\uc548\ub155\ud558\uc138\uc694.","","\uc774\ub984: " + values.name,"\uc18c\uc18d: " + values.affiliation,"\uc5f0\ub77d \uc774\uba54\uc77c: " + values.email,"\uad00\uc2ec \ubd84\uc57c: " + values.topic,"","\ubb38\uc758 \ub0b4\uc6a9:",values.message].join("\n")
+    : ["Hello,","","Name: " + values.name,"Affiliation: " + values.affiliation,"Reply email: " + values.email,"Topic: " + values.topic,"","Message:",values.message].join("\n");
+  const recipient = state.data?.person?.email || "jingyeom0825@kmou.ac.kr";
+  closeStudentInquiry();
+  window.location.href = "mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+}
+
 function bind() {
   $("langBtn")?.addEventListener("click",() => {
     state.lang = state.lang === "ko" ? "en" : "ko";
@@ -624,6 +712,12 @@ function bind() {
   $("editResearchIndex")?.addEventListener("change",loadResearchEditor);
   $("uploadResearchImage")?.addEventListener("click",uploadResearchImage);
   document.querySelectorAll(".admin-save").forEach((button) => button.addEventListener("click",() => saveAdmin(button.dataset.adminSave)));
+  document.querySelectorAll("[data-student-inquiry]").forEach((node) => node.addEventListener("click",openStudentInquiry));
+  document.querySelectorAll("[data-close-student-inquiry]").forEach((node) => node.addEventListener("click",closeStudentInquiry));
+  $("studentInquiryForm")?.addEventListener("submit",submitStudentInquiry);
+  $("studentInquiryModal")?.addEventListener("click",(event) => { if (event.target === $("studentInquiryModal")) closeStudentInquiry(); });
+  document.addEventListener("keydown",(event) => { if (event.key === "Escape" && !$("studentInquiryModal")?.hidden) closeStudentInquiry(); });
+  renderStudentInquiryLabels();
 }
 
 async function load() {

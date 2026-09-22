@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css?v=20260922-8">
   <link rel="stylesheet" href="./reference-visuals.css?v=20260922-8">
-  <link rel="stylesheet" href="./hires-visuals.css?v=20260922-9">
+  <link rel="stylesheet" href="./hires-visuals.css?v=20260922-10">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -147,12 +147,12 @@
     <header class="page-head"><p class="kicker">Students</p><h1 id="studentsPageTitle"></h1><p id="studentRecruiting"></p></header>
     <div class="student-status"><strong id="studentStatus"></strong><span id="studentStatusNote"></span></div>
     <section><div class="section-heading"><div><p class="kicker">Research tracks</p><h2 id="studentTracksTitle"></h2></div></div><div id="studentTracks" class="track-grid"></div></section>
-    <section class="student-start"><div><p class="kicker">Start here</p><h2 id="studentStartTitle"></h2></div><ol id="studentOnboarding"></ol><a id="studentEmail" class="button primary" href="mailto:jingyeom0825@kmou.ac.kr"></a></section>
+    <section class="student-start"><div><p class="kicker">Start here</p><h2 id="studentStartTitle"></h2></div><ol id="studentOnboarding"></ol><a id="studentEmail" class="button primary" href="#" data-student-inquiry></a></section>
   </section>
 
   <section class="view page-view" data-view="/inquiry" hidden>
     <header class="page-head"><p class="kicker">Inquiries</p><h1>Research &amp; collaboration</h1></header>
-    <div class="inquiry-card"><strong>Research collaboration &middot; Graduate study &middot; Undergraduate research</strong><p id="inquiryText"></p><a class="button primary" href="mailto:jingyeom0825@kmou.ac.kr">jingyeom0825@kmou.ac.kr</a></div>
+    <div class="inquiry-card"><strong>Research collaboration &middot; Graduate study &middot; Undergraduate research</strong><p id="inquiryText"></p><a class="button primary" href="#" data-student-inquiry>jingyeom0825@kmou.ac.kr</a></div>
   </section>
 
   <section class="view page-view" data-view="/contact" hidden>
@@ -180,11 +180,32 @@
       </div>
     </div>
   </section>
+  <div id="studentInquiryModal" class="inquiry-modal" hidden aria-hidden="true">
+    <section class="inquiry-modal-panel" role="dialog" aria-modal="true" aria-labelledby="studentInquiryTitle">
+      <div class="inquiry-modal-head">
+        <div><p class="kicker">EnerMAKER Lab</p><h2 id="studentInquiryTitle"></h2></div>
+        <button class="inquiry-modal-close" type="button" data-close-student-inquiry aria-label="Close">&times;</button>
+      </div>
+      <form id="studentInquiryForm" class="student-inquiry-form">
+        <label><span id="studentInquiryNameLabel"></span><input id="studentInquiryName" name="name" autocomplete="name" required></label>
+        <label><span id="studentInquiryAffiliationLabel"></span><input id="studentInquiryAffiliation" name="affiliation" required></label>
+        <label><span id="studentInquiryEmailLabel"></span><input id="studentInquiryEmail" name="email" type="email" autocomplete="email" required></label>
+        <label><span id="studentInquiryTopicLabel"></span><select id="studentInquiryTopic" name="topic" required></select></label>
+        <label class="span2"><span id="studentInquiryMessageLabel"></span><textarea id="studentInquiryMessage" name="message" required></textarea></label>
+        <p id="studentInquiryPrivacy" class="inquiry-privacy-note"></p>
+        <div class="student-inquiry-actions">
+          <button id="studentInquiryCancel" class="button secondary" type="button" data-close-student-inquiry></button>
+          <button id="studentInquirySubmit" class="button primary" type="submit"></button>
+        </div>
+      </form>
+    </section>
+  </div>
+
 </main>
 
 <footer class="site-footer"><div class="footer-brand"><strong>EnerMAKER Lab</strong><span>Advanced Energy Materials &amp; Functional Devices</span></div><div class="footer-meta"><span>Department of Marine New Materials Convergence Engineering &middot; KMOU</span><span>Busan, Republic of Korea</span></div><div class="footer-links"><a href="#/research">Research</a><a href="#/publications">Publications</a><a href="#/contact">Contact</a></div></footer>
 <script src="./reference-assets.js?v=20260922-8"></script>
-<script src="./app.js?v=20260922-9" defer></script>
-<script src="./hires-assets.js?v=20260922-9" defer></script>
+<script src="./app.js?v=20260922-10" defer></script>
+<script src="./hires-assets.js?v=20260922-10" defer></script>
 </body>
 </html>

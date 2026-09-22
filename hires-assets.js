@@ -18,21 +18,41 @@
     return "data:image/webp;base64," + b64;
   }
 
+  function setImage(node,key,property) {
+    if (!node || !assets?.[key]) return;
+    node.style.setProperty(property,'url("' + assets[key] + '")');
+  }
+
   function apply() {
     if (!assets) return false;
     const hero = document.querySelector(".hero");
     if (hero) {
-      hero.style.setProperty("--enermaker-hero-hires",'url("' + assets.hero + '")');
+      setImage(hero,"hero","--enermaker-hero-hires");
       hero.classList.add("has-hires");
     }
+
     document.querySelectorAll(".home-research-card").forEach((card,index) => {
       const key = CARD_KEYS[index];
       if (!key || !assets[key]) return;
       card.classList.remove("has-reference");
       card.style.backgroundPosition = "";
-      card.style.setProperty("--enermaker-card-hires",'url("' + assets[key] + '")');
+      setImage(card,key,"--enermaker-card-hires");
       card.classList.add("has-hires");
     });
+
+    document.querySelectorAll("#researchGrid .research-card").forEach((card,index) => {
+      const key = CARD_KEYS[index];
+      if (!key || !assets[key]) return;
+      setImage(card,key,"--enermaker-detail-hires");
+      card.classList.add("has-hires-detail");
+    });
+
+    const spotlight = document.querySelector("#homeSpotlight .spotlight-card");
+    if (spotlight && assets.energy) {
+      setImage(spotlight,"energy","--enermaker-spotlight-hires");
+      spotlight.classList.add("has-hires");
+    }
+
     document.documentElement.classList.add("hires-assets-ready");
     return true;
   }
