@@ -1,10 +1,12 @@
 {
   "schema": "enermaker.public-release.v1",
-  "release": "V4.3.10-20260922-v8",
-  "source_commit": "0a1b8b880b11e17c9e015a544990c37914b41e86",
-  "source_validation_run": 35671776691,
+  "release": "V4.3.10-20260922-v9",
+  "source_commit": "45b75159fd3205052187bd535667add0a44ffe0d",
+  "source_validation_run": 35677024199,
   "source_validation": "PASS",
   "public_url": "https://ttthkim-hue.github.io/",
-  "image_mode": "user-reference exact crop",
+  "image_mode": "hi-res generated source assets + deterministic v8 reference fallback",
+  "image_generation_owner": "P8_LOCAL_WORKER",
+  "web_imagegen_allowed": false,
   "deployed_at": "2026-09-22"
 }
