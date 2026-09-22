@@ -172,16 +172,6 @@ function renderResearch() {
 
 function renderHomeOverview() {
   const d = state.data;
-  setText("approachTitle",state.lang === "ko" ? "\ub9cc\ub4e4\uace0 \u00b7 \uce21\uc815\ud558\uace0 \u00b7 \ub2e4\uc2dc \uc124\uacc4\ud569\ub2c8\ub2e4" : "Build \u00b7 Measure \u00b7 Learn \u00b7 Redesign");
-  setText("approachLead",state.lang === "ko" ? "\uc18c\uc7ac \uc124\uacc4 \u2192 \uc18c\uc790 \uc81c\uc791 \u2192 \uce21\uc815 \u2192 \ubaa8\ub378\ub9c1 \u2192 \uc751\uc6a9" : "Design \u2192 Fabricate \u2192 Measure \u2192 Model \u2192 Apply");
-  const flow = clear($("homeApproach"));
-  arr(d.labLoop).forEach((step,index) => {
-    const node = el("article","approach-step");
-    node.append(el("span","approach-index",String(index + 1).padStart(2,"0")));
-    node.append(el("h3","",pick(step.stepKo,step.stepEn)));
-    flow?.append(node);
-  });
-
   setText("spotlightTitle",state.lang === "ko" ? "\uc8fc\uc694 \uc5f0\uad6c\uc131\uacfc" : "Selected Research");
   setText("spotlightMore",L("researchMore"));
   const spotlight = clear($("homeSpotlight"));
@@ -200,9 +190,8 @@ function renderHomeOverview() {
   setText("collabTitle",state.lang === "ko" ? "\ud568\uaed8 \uc5f0\uad6c\ub97c \ud655\uc7a5\ud569\ub2c8\ub2e4" : "Build the next study with us");
   setText("homeRecruit",state.lang === "ko" ? "\ub300\ud559\uc6d0 \u00b7 \ud559\ubd80\uc5f0\uad6c \u00b7 \uacf5\ub3d9\uc5f0\uad6c" : "Graduate study \u00b7 Undergraduate research \u00b7 Collaboration");
   const pathways = clear($("homePathways"));
-  arr(d.studentPaths).slice(0,3).forEach((path,index) => {
+  arr(d.studentPaths).slice(0,3).forEach(path => {
     const card = el("article","home-pathway");
-    card.append(el("span","home-pathway-index",String(index + 1).padStart(2,"0")));
     card.append(el("h3","",pick(path.ko,path.en)));
     pathways?.append(card);
   });
