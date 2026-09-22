@@ -1,15 +1,15 @@
 {
   "schema": "enermaker.public-release.v1",
-  "release": "V4.3.12-20260922-v12",
-  "source_commit": "6c2037d623bf62e4887bf284c0dcef5f2d3cbdd7",
+  "release": "V4.3.12-20260922-v13",
+  "source_commit": "00e1f1c8bf04541e145751c268fa8c3270c519a4",
   "local_validation": {
     "status": "PASS",
-    "ui_release": "V4.3.12-20260922-v12",
+    "ui_release": "V4.3.12-20260922-v13",
     "research_count": 4,
     "publication_count": 16,
     "news_count": 8
   },
-  "public_url": "https://ttthkim-hue.github.io/",
+  "public_url": "https://enermakerlab.onrender.com/",
   "image_mode": "existing approved hi-res assets only",
   "web_imagegen_allowed": false,
   "image_generation_owner": "P8_LOCAL_WORKER"
