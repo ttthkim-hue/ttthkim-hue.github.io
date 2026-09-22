@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css?v=20260922-8">
   <link rel="stylesheet" href="./reference-visuals.css?v=20260922-8">
-  <link rel="stylesheet" href="./hires-visuals.css?v=20260922-10">
+  <link rel="stylesheet" href="./hires-visuals.css?v=20260922-11">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -68,11 +68,9 @@
     </section>
 
     <div class="home-frame">
-      <section id="homeCredentials" class="credentials-strip" aria-label="Verified lab overview"></section>
-
       <section class="home-section approach-section">
         <div class="section-heading approach-heading">
-          <div><p class="kicker">Our Approach</p><h2 id="approachTitle"></h2><p id="approachLead" class="section-lead"></p></div>
+          <div><p class="kicker">Research Flow</p><h2 id="approachTitle"></h2><p id="approachLead" class="section-lead"></p></div>
         </div>
         <div id="homeApproach" class="approach-flow"></div>
       </section>
@@ -163,23 +161,6 @@
     </div>
   </section>
 
-  <section class="view page-view admin-view" data-view="/admin" hidden>
-    <header class="page-head"><p class="kicker">Admin</p><h1>Content manager</h1><p>GitHub credentials are used only in this browser session and are never stored in the site.</p></header>
-    <div id="adminLogin" class="admin-login">
-      <label>GitHub account<input id="adminUser" autocomplete="username" readonly placeholder="Verified after connection"></label>
-      <label>GitHub access token<input id="adminToken" type="password" autocomplete="current-password" placeholder="Short-expiry token with repository write access"></label>
-      <button id="adminConnect" class="button primary" type="button">Connect admin</button>
-      <p class="admin-note">The signed-in GitHub account must have write access to both kim-jingyeom-homepage and ttthkim-hue.github.io. Use the least-privilege short-expiry token GitHub permits for both repositories. The token stays only in memory and is sent directly to GitHub API.</p>    </div>
-    <div id="adminPanel" hidden>
-      <div class="admin-status" id="adminStatus"></div>
-      <div class="admin-grid">
-        <section class="admin-card"><h2>Hero text</h2><label>Line 1<input id="editHero1"></label><label>Line 2<input id="editHero2"></label><label>Keyword line<input id="editHeroLead"></label><button class="button primary admin-save" data-admin-save="hero" type="button">Save hero</button></section>
-        <section class="admin-card"><h2>Research image</h2><label>Area<select id="editResearchIndex"></select></label><label>Image URL or path<input id="editResearchImage"></label><label>Upload image<input id="researchImageFile" type="file" accept="image/*"></label><button id="uploadResearchImage" class="button secondary" type="button">Upload image</button><button class="button primary admin-save" data-admin-save="research" type="button">Save research image</button></section>
-        <section class="admin-card wide"><h2>Add news</h2><div class="form-grid"><label>Date<input id="editNewsDate" placeholder="2026-09-21"></label><label>Category<input id="editNewsCategory" placeholder="Research"></label><label>Title (KO)<input id="editNewsTitle"></label><label>Source URL<input id="editNewsUrl"></label><label class="span2">Short note (KO)<input id="editNewsNote"></label></div><button class="button primary admin-save" data-admin-save="news" type="button">Add news</button></section>
-        <section class="admin-card wide"><h2>Advanced content editor</h2><p>Edit all text, images, news, publications, contact and student data as JSON. Syntax is checked before saving.</p><textarea id="adminJson" rows="16" spellcheck="false"></textarea><button class="button primary admin-save" data-admin-save="json" type="button">Save all content</button></section>
-      </div>
-    </div>
-  </section>
   <div id="studentInquiryModal" class="inquiry-modal" hidden aria-hidden="true">
     <section class="inquiry-modal-panel" role="dialog" aria-modal="true" aria-labelledby="studentInquiryTitle">
       <div class="inquiry-modal-head">
@@ -205,7 +186,7 @@
 
 <footer class="site-footer"><div class="footer-brand"><strong>EnerMAKER Lab</strong><span>Advanced Energy Materials &amp; Functional Devices</span></div><div class="footer-meta"><span>Department of Marine New Materials Convergence Engineering &middot; KMOU</span><span>Busan, Republic of Korea</span></div><div class="footer-links"><a href="#/research">Research</a><a href="#/publications">Publications</a><a href="#/contact">Contact</a></div></footer>
 <script src="./reference-assets.js?v=20260922-8"></script>
-<script src="./app.js?v=20260922-10" defer></script>
-<script src="./hires-assets.js?v=20260922-10" defer></script>
+<script src="./app.js?v=20260922-11" defer></script>
+<script src="./hires-assets.js?v=20260922-11" defer></script>
 </body>
 </html>

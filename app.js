@@ -36,15 +36,15 @@ const labels = {
     home:"\ud648", research:"\uc5f0\uad6c", publications:"\ub17c\ubb38", pi:"\uc5f0\uad6c\ucc45\uc784\uc790", news:"\uc18c\uc2dd", students:"\ud559\uc0dd", contact:"\uc5f0\ub77d\ucc98",
     researchMore:"\uc804\uccb4 \ubcf4\uae30 \u2192", pubMore:"\ub17c\ubb38 \uc804\uccb4 \u2192", newsMore:"\uc18c\uc2dd \uc804\uccb4 \u2192",
     heroResearch:"\uc5f0\uad6c\ubd84\uc57c", heroStudents:"\ub300\ud559\uc6d0\u00b7\ud559\uc0dd",
-    researchTitle:"\uc8fc\uc694 \uc5f0\uad6c\ubd84\uc57c", researchSub:"\ud0a4\uc6cc\ub4dc \u2192 \ub300\ud45c \uc5f0\uad6c \u2192 \ub17c\ubb38 \uc21c\uc73c\ub85c \ube60\ub974\uac8c \ud655\uc778\ud569\ub2c8\ub2e4.",
-    pubOverview:"\uc5f0\uad6c\uc2e4\uc801 \ud55c\ub208\uc5d0", pubTitle:"\ub17c\ubb38", pubSub:"\uc804\uccb4 \uc218\u00b7\uc5f0\ub3c4\ubcc4 \uc2e4\uc801\u00b7\uacf5\uc2dd \ud655\uc778 JIF\ub97c \uba3c\uc800 \ubcf4\uace0 \uc0c1\uc138 \ub17c\ubb38\uc744 \ud0d0\uc0c9\ud569\ub2c8\ub2e4.",
-    latest:"\ucd5c\uadfc \uc18c\uc2dd", newsTitle:"\uc18c\uc2dd", newsSub:"\uc5f0\uad6c\uc131\uacfc\u00b7\ud559\uacfc\u00b7\uc785\ud559\u00b7\ud559\uc0dd\uc5d0\uac8c \uc720\uc6a9\ud55c \uacf5\uc2dd \uc18c\uc2dd\uc744 \ud568\uaed8 \ubaa8\uc558\uc2b5\ub2c8\ub2e4.",
-    studentsTitle:"\ud559\uc0dd \u00b7 \uc9c4\ud559", studentStatusNote:"\uc5f0\uad6c\uc2e4 \ucd08\uae30 \uba64\ubc84\ub97c \ubaa8\uc9d1\ud558\ub294 \ub2e8\uacc4\uc785\ub2c8\ub2e4.", studentTracks:"\uc5b4\ub5a4 \uc5f0\uad6c\ub97c \ud558\ub098\uc694?", studentStart:"\uc9c4\ud559\u00b7\ud559\ubd80\uc5f0\uad6c \ubb38\uc758 3\ub2e8\uacc4", email:"\uc774\uba54\uc77c \ubb38\uc758",
-    contactTitle:"\uc5f0\ub77d\ucc98 \u00b7 \uc704\uce58", contactSub:"\uc5f0\uad6c\uc2e4, \uad50\uc218 \uc5f0\uad6c\uc2e4, \ud559\uacfc\uc0ac\ubb34\uc2e4\uacfc \uc9c0\ub3c4\ub97c \ud55c \ud654\uba74\uc5d0\uc11c \ud655\uc778\ud569\ub2c8\ub2e4.", mapOpen:"\uc9c0\ub3c4\uc5d0\uc11c \uc5f4\uae30 \u2192",
+    researchTitle:"\uc8fc\uc694 \uc5f0\uad6c\ubd84\uc57c", researchSub:"\uc5d0\ub108\uc9c0 \ud558\ubca0\uc2a4\ud305 \u00b7 \uc13c\uc2f1 \u00b7 \ub098\ub178\uc18c\uc7ac \u00b7 \uacc4\uc0b0\u00b7AI \uc124\uacc4\ub97c \uc911\uc2ec\uc73c\ub85c \uc5f0\uad6c\ud569\ub2c8\ub2e4.",
+    pubOverview:"\uc5f0\uad6c\uc2e4\uc801 \ud55c\ub208\uc5d0", pubTitle:"\ub17c\ubb38", pubSub:"TENG, \uae30\ub2a5\uc131 \uc18c\uc7ac, \uc790\uac00\ubc1c\uc804 \uc13c\uc2f1\uacfc \ubc14\uc774\uc624\uc804\uc790\uc18c\uc790 \uad00\ub828 \uc8fc\uc694 \ub17c\ubb38\uc744 \uc18c\uac1c\ud569\ub2c8\ub2e4.",
+    latest:"\ucd5c\uadfc \uc18c\uc2dd", newsTitle:"\uc18c\uc2dd", newsSub:"\uc5f0\uad6c \uc131\uacfc, \ud559\uacfc \uc18c\uc2dd, \ud559\uc0dd\u00b7\uc9c4\ud559 \uad00\ub828 \uc18c\uc2dd\uc744 \uc804\ud569\ub2c8\ub2e4.",
+    studentsTitle:"\ud559\uc0dd \u00b7 \uc9c4\ud559", studentStatusNote:"\ub300\ud559\uc6d0\uc0dd\u00b7\ud559\ubd80\uc5f0\uad6c\uc0dd \ubb38\uc758\ub97c \ud658\uc601\ud569\ub2c8\ub2e4.", studentTracks:"\uc5b4\ub5a4 \uc5f0\uad6c\ub97c \ud558\ub098\uc694?", studentStart:"\uc9c4\ud559\u00b7\ud559\ubd80\uc5f0\uad6c \ubb38\uc758 3\ub2e8\uacc4", email:"\uc774\uba54\uc77c \ubb38\uc758",
+    contactTitle:"\uc5f0\ub77d\ucc98 \u00b7 \uc704\uce58", contactSub:"\uc5f0\uad6c\uc2e4 \uc704\uce58\uc640 \uc5f0\ub77d\ucc98\ub97c \uc548\ub0b4\ud569\ub2c8\ub2e4.", mapOpen:"\uc9c0\ub3c4\uc5d0\uc11c \uc5f4\uae30 \u2192",
     piResearch:"\uc5f0\uad6c \ud0a4\uc6cc\ub4dc", piCareer:"\ud559\ub825 \u00b7 \uacbd\ub825", education:"\ud559\ub825", career:"\uacbd\ub825",
     search:"\uc81c\ubaa9 \u00b7 \uc800\ub110 \u00b7 \uc800\uc790 \uac80\uc0c9", allYears:"\uc804\uccb4 \uc5f0\ub3c4", leadOnly:"\uc8fc\ub3c4\uc800\uc790 \ud45c\uae30\ub9cc",
-    totalPubs:"\uc804\uccb4 \ub17c\ubb38", latestYear:"\ucd5c\uc2e0 \uc5f0\ub3c4", leadTagged:"\uc8fc\ub3c4\uc800\uc790 \ud45c\uae30", topJif:"\ucd5c\uace0 \ud655\uc778 JIF",
-    verifiedJif:"\uacf5\uc2dd \ud655\uc778 \uc800\ub110 JIF", source:"\ucd9c\ucc98",
+    totalPubs:"\uc804\uccb4 \ub17c\ubb38", latestYear:"\ucd5c\uc2e0 \uc5f0\ub3c4", leadTagged:"\uc8fc\ub3c4\uc800\uc790 \ud45c\uae30", topJif:"\ucd5c\uace0 JIF",
+    verifiedJif:"\uc800\ub110 \uc9c0\ud45c", source:"\uc800\ub110 \uc815\ubcf4",
     joinStudents:"\ud559\uc0dd\u00b7\uc9c4\ud559", joinContact:"\uc5f0\ub77d\ucc98",
     inquiry:"\uad00\uc2ec \uc5f0\uad6c \ud0a4\uc6cc\ub4dc, \uad00\ub828 \uacbd\ud5d8, \uac00\ub2a5\ud55c \uc2dc\uc791 \uc2dc\uc810\uc744 \uac04\ub2e8\ud788 \uc801\uc5b4 \ubb38\uc758\ud574 \uc8fc\uc138\uc694."
   },
@@ -52,15 +52,15 @@ const labels = {
     home:"Home", research:"Research", publications:"Publications", pi:"PI", news:"News", students:"Students", contact:"Contact",
     researchMore:"View all \u2192", pubMore:"All publications \u2192", newsMore:"All news \u2192",
     heroResearch:"Research", heroStudents:"Graduate study",
-    researchTitle:"Research areas", researchSub:"Scan keywords, representative work, and papers without long narrative sections.",
-    pubOverview:"Research output at a glance", pubTitle:"Publications", pubSub:"Start with total output, yearly counts, and officially verified journal metrics, then explore individual papers.",
-    latest:"Latest news", newsTitle:"News", newsSub:"Research, department, admissions, and student-facing official updates.",
-    studentsTitle:"Students & study", studentStatusNote:"The lab is currently building its first student cohort.", studentTracks:"Research tracks", studentStart:"Three steps to inquire", email:"Email the PI",
+    researchTitle:"Research areas", researchSub:"Energy harvesting, sensing, nanomaterials, and computational/AI design.",
+    pubOverview:"Research output at a glance", pubTitle:"Publications", pubSub:"Selected publications in TENGs, functional materials, self-powered sensing, and bioelectronics.",
+    latest:"Latest news", newsTitle:"News", newsSub:"Research, department, admissions, and student news.",
+    studentsTitle:"Students & study", studentStatusNote:"Graduate and undergraduate research inquiries are welcome.", studentTracks:"Research tracks", studentStart:"Three steps to inquire", email:"Email the PI",
     contactTitle:"Contact & location", contactSub:"Lab, office, department office, and campus map in one view.", mapOpen:"Open map \u2192",
     piResearch:"Research keywords", piCareer:"Education & appointments", education:"Education", career:"Appointments",
     search:"Search title, journal, author", allYears:"All years", leadOnly:"Lead-author tagged only",
-    totalPubs:"Publications", latestYear:"Latest year", leadTagged:"Lead-author tagged", topJif:"Top verified JIF",
-    verifiedJif:"Verified journal JIF", source:"source",
+    totalPubs:"Publications", latestYear:"Latest year", leadTagged:"Lead-author tagged", topJif:"Top JIF",
+    verifiedJif:"Journal metrics", source:"Journal info",
     joinStudents:"Students", joinContact:"Contact",
     inquiry:"Include a research keyword, relevant experience, and your possible start date."
   }
@@ -71,7 +71,7 @@ const portal = () => state.data?.portal || {};
 
 function route() {
   const p = (location.hash || "#/").slice(1) || "/";
-  return new Set(["/","/research","/publications","/pi","/news","/students","/inquiry","/contact","/admin"]).has(p) ? p : "/";
+  return new Set(["/","/research","/publications","/pi","/news","/students","/inquiry","/contact"]).has(p) ? p : "/";
 }
 
 function applyRoute() {
@@ -172,34 +172,8 @@ function renderResearch() {
 
 function renderHomeOverview() {
   const d = state.data;
-  const credentials = clear($("homeCredentials"));
-  const pubs = arr(d.publications);
-  const journalCount = new Set(pubs.map((pub) => pub.venue).filter(Boolean)).size;
-  const newsCount = arr(portal().news).length;
-  const latestYear = pubs.reduce((max,pub) => Math.max(max,Number(pub.year) || 0),0) || "-";
-  const credentialRows = state.lang === "ko" ? [
-    [String(pubs.length),"\uacf5\uac1c \ub17c\ubb38"],
-    [String(arr(d.research).length),"\uc5f0\uad6c\ubd84\uc57c"],
-    [String(journalCount),"\ub4f1\ub85d \uc800\ub110"],
-    [String(newsCount),"\uc18c\uc2dd \u00b7 \uc5c5\ub370\uc774\ud2b8"],
-    [String(latestYear),"\ucd5c\uc2e0 \uacf5\uac1c\ub144\ub3c4"],
-    ["KMOU","\ubd80\uc0b0 \u00b7 \ud55c\uad6d\ud574\uc591\ub300\ud559\uad50"]
-  ] : [
-    [String(pubs.length),"Publications listed"],
-    [String(arr(d.research).length),"Research areas"],
-    [String(journalCount),"Journals listed"],
-    [String(newsCount),"News & updates"],
-    [String(latestYear),"Latest listed year"],
-    ["KMOU","Busan \u00b7 Korea"]
-  ];
-  credentialRows.forEach(([value,label]) => {
-    const card = el("div","credential-item");
-    card.append(el("strong","",value),el("span","",label));
-    credentials?.append(card);
-  });
-
-  setText("approachTitle",state.lang === "ko" ? "\uc18c\uc7ac\uc5d0\uc11c \uc2e0\ub8b0\ud560 \uc218 \uc788\ub294 \uc18c\uc790\uae4c\uc9c0" : "From Materials to Reliable Devices");
-  setText("approachLead","Design \u2192 Fabricate \u2192 Measure \u2192 Model \u2192 Validate");
+  setText("approachTitle",state.lang === "ko" ? "\ub9cc\ub4e4\uace0 \u00b7 \uce21\uc815\ud558\uace0 \u00b7 \ub2e4\uc2dc \uc124\uacc4\ud569\ub2c8\ub2e4" : "Build \u00b7 Measure \u00b7 Learn \u00b7 Redesign");
+  setText("approachLead",state.lang === "ko" ? "\uc18c\uc7ac \uc124\uacc4 \u2192 \uc18c\uc790 \uc81c\uc791 \u2192 \uce21\uc815 \u2192 \ubaa8\ub378\ub9c1 \u2192 \uc751\uc6a9" : "Design \u2192 Fabricate \u2192 Measure \u2192 Model \u2192 Apply");
   const flow = clear($("homeApproach"));
   arr(d.labLoop).forEach((step,index) => {
     const node = el("article","approach-step");
@@ -284,7 +258,7 @@ function renderPubMetrics() {
 
   const ifbox = clear($("ifSummary"));
   const head = el("div","if-head");
-  head.append(el("h2","",L("verifiedJif")),el("p","",pick(portal().metricNoteKo,portal().metricNoteEn)));
+  head.append(el("h2","",L("verifiedJif"))); const metricNote = pick(portal().metricNoteKo,portal().metricNoteEn); if (metricNote) head.append(el("p","",metricNote));
   ifbox?.append(head);
   metrics.forEach((metric) => {
     const row = el("div","if-row");

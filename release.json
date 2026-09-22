@@ -1,14 +1,16 @@
 {
   "schema": "enermaker.public-release.v1",
-  "release": "V4.3.10-20260922-v10",
-  "source_commit": "78ff0a42a04a2b81ed5d4e6ac3dd9e9f8f8dfb25",
-  "source_validation_run": 35687377103,
-  "source_validation": "PASS",
+  "release": "V4.3.11-20260922-v11",
+  "source_commit": "72f766f0240d6049ac6eb11f72f8bf1f2c6494ae",
+  "local_validation": {
+    "status": "PASS",
+    "ui_release": "V4.3.11-20260922-v11",
+    "research_count": 4,
+    "publication_count": 16,
+    "news_count": 8
+  },
   "public_url": "https://ttthkim-hue.github.io/",
   "image_mode": "existing approved hi-res assets only",
-  "research_visual_consistency": "home + spotlight + research detail share same hi-res asset set",
-  "student_inquiry": "minimal modal -> mailto compose; no site persistence",
   "web_imagegen_allowed": false,
-  "image_generation_owner": "P8_LOCAL_WORKER",
-  "github_normal_path": "P8_DETERMINISTIC_PYTHON"
+  "image_generation_owner": "P8_LOCAL_WORKER"
 }

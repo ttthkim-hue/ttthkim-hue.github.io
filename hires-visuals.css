@@ -254,3 +254,65 @@
   .student-inquiry-form .span2,.student-inquiry-actions,.inquiry-privacy-note{grid-column:auto}
   .inquiry-modal-panel{padding:20px;border-radius:18px}
 }
+
+
+/* V11 polish: smaller hero type and text-first research flow. */
+.hero.has-hires .semantic-title{
+  font-size:clamp(2.55rem,4.335vw,4.76rem);
+  line-height:1.03;
+  letter-spacing:-.055em;
+}
+.approach-section{padding-top:66px}
+.approach-heading{grid-template-columns:1fr;align-items:start}
+.approach-heading .section-lead{max-width:none;margin-top:10px;color:#60798a}
+.approach-flow{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+}
+.approach-flow::before{display:none!important}
+.approach-step{
+  min-height:0;
+  padding:17px 16px 16px;
+  border:1px solid #d9e6ed;
+  border-top:2px solid #28b5d8;
+  border-radius:14px;
+  background:linear-gradient(180deg,#fbfdfe 0%,#f3f8fb 100%);
+  text-align:left;
+}
+.approach-index{
+  display:block;
+  width:auto;
+  height:auto;
+  margin:0 0 9px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:#0b8fb7;
+  font-size:.58rem;
+  letter-spacing:.16em;
+  line-height:1;
+}
+.approach-step h3{
+  margin:0;
+  color:#17384d;
+  font-size:.9rem;
+  font-weight:800;
+  letter-spacing:-.02em;
+}
+.approach-step p{display:none!important}
+
+@media(max-width:980px){
+  .approach-flow{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:680px){
+  .hero.has-hires .semantic-title{
+    font-size:clamp(2.08rem,10.54vw,3.4rem);
+  }
+  .approach-flow{grid-template-columns:1fr 1fr}
+  .approach-step{padding:15px 14px}
+}
+@media(max-width:420px){
+  .approach-flow{grid-template-columns:1fr}
+}
