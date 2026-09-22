@@ -197,11 +197,25 @@ function renderHomeOverview() {
   });
 }
 
+function authorNode(authors) {
+  const node = el("p","pub-authors");
+  const text = authors || "";
+  const pattern = /(J\.-K\. Kim|Jin-Kyeom Kim)/g;
+  let last = 0, match;
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > last) node.append(document.createTextNode(text.slice(last,match.index)));
+    node.append(el("strong","pub-self-author",match[0]));
+    last = pattern.lastIndex;
+  }
+  if (last < text.length) node.append(document.createTextNode(text.slice(last)));
+  return node;
+}
+
 function pubNode(pub) {
   const card = el("article","publication-item");
   const meta = el("div","pub-meta");
   meta.append(el("span","pub-year",String(pub.year)),el("span","pub-venue",pub.venue || ""));
-  card.append(meta,extLink(pub.title,pub.url,"pub-title"),el("p","pub-authors",pub.authors || ""));
+  card.append(meta,extLink(pub.title,pub.url,"pub-title"),authorNode(pub.authors));
   if (pub.role) card.append(el("p","pub-role",pub.role));
   return card;
 }

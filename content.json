@@ -1,7 +1,7 @@
 {
   "meta": {
     "status": "PUBLIC",
-    "updated": "2026-09-21",
+    "updated": "2026-09-22",
     "source": "KMOU faculty profile; Google Scholar; ORCID; DOI/publisher records; UW-Madison Engineering public news."
   },
   "person": {
@@ -25,8 +25,8 @@
   },
   "metrics": {
     "asOf": "2026-09-20",
-    "noteKo": "",
-    "noteEn": ""
+    "noteKo": "\ub17c\ubb38\uacfc \uc5f0\uad6c\uc790 \uc815\ubcf4\ub294 \uacf5\uac1c \ud559\uc220 \ud504\ub85c\ud544\uacfc DOI \uae30\ub85d\uc744 \uae30\uc900\uc73c\ub85c \uad00\ub9ac\ud569\ub2c8\ub2e4.",
+    "noteEn": "Publication and researcher information is maintained from public academic profiles and DOI records."
   },
   "taglineKo": "TENG \u00b7 \uacc4\uba74\uc804\ud558 \u00b7 \uc790\uac00\ubc1c\uc804 \uc13c\uc2f1 \u00b7 \uae30\ub2a5\uc131 \ub098\ub178\uc18c\uc7ac \u00b7 AI \uc124\uacc4",
   "taglineEn": "TENG \u00b7 interfacial charge \u00b7 self-powered sensing \u00b7 functional nanomaterials \u00b7 AI-driven design",
@@ -122,32 +122,32 @@
   ],
   "labLoop": [
     {
-      "stepKo": "\uc124\uacc4",
+      "stepKo": "Design",
       "stepEn": "Design",
       "bodyKo": "\ubb38\ud5cc\u00b7\ubb3c\uc131\u00b7\ud574\uc591\ud658\uacbd \uc870\uac74\uc73c\ub85c \ud6c4\ubcf4 \uc18c\uc7ac\uc640 \uad6c\uc870\ub97c \uc815\uc758\ud569\ub2c8\ub2e4.",
       "bodyEn": "Define candidate materials and architectures from literature, properties, and marine operating conditions."
     },
     {
-      "stepKo": "\uc81c\uc791",
+      "stepKo": "Fabricate",
       "stepEn": "Fabricate",
       "bodyKo": "TENG, \ub098\ub178\uc12c\uc720, \ucf54\uc5b4-\uc258, 2D \uc18c\uc7ac \uae30\ubc18 \uc18c\uc790\ub97c \uc81c\uc791\ud569\ub2c8\ub2e4.",
       "bodyEn": "Fabricate TENG, nanofiber, core-shell, and 2D-material devices."
     },
     {
-      "stepKo": "\uce21\uc815",
+      "stepKo": "Measure",
       "stepEn": "Measure",
       "bodyKo": "\uc804\uae30 \ucd9c\ub825, \uac10\ub3c4, \uc2b5\ub3c4 \uc548\uc815\uc131, \uc0dd\uccb4/\ud658\uacbd \uc751\ub2f5\uc744 \uce21\uc815\ud569\ub2c8\ub2e4.",
       "bodyEn": "Measure output, sensitivity, humidity stability, and bio/environmental response."
     },
     {
-      "stepKo": "\ud574\uc11d",
+      "stepKo": "Model",
       "stepEn": "Model",
       "bodyKo": "LBM-DPM\u00b7\ub370\uc774\ud130 \uae30\ubc18 \ubaa8\ub378\ub85c \uc2e4\ud5d8 \uc804\ud6c4 \uc124\uacc4 \uacf5\uac04\uc744 \uc555\ucd95\ud569\ub2c8\ub2e4.",
       "bodyEn": "Compress the design space before and after experiments with LBM-DPM and data-driven models."
     },
     {
-      "stepKo": "\uc751\uc6a9",
-      "stepEn": "Apply",
+      "stepKo": "Deploy",
+      "stepEn": "Deploy",
       "bodyKo": "\ud574\uc591\u00b7\ud5ec\uc2a4\ucf00\uc5b4\u00b7\ud658\uacbd \ubaa8\ub2c8\ud130\ub9c1 \uc2dc\ub098\ub9ac\uc624\ub85c \uac80\uc99d\ud569\ub2c8\ub2e4.",
       "bodyEn": "Validate in marine, healthcare, and environmental monitoring scenarios."
     }
@@ -321,7 +321,8 @@
       "title": "Advancing Humidity-Resistant Triboelectric Nanogenerators Through MoS2-Encapsulated SiO2 Nanoparticles for Self-Powered Gas Sensing Applications",
       "authors": "D. H. Kim, J. Y. Park, H. S. Choi, J. Cho, H. S. Kim, J. E. Mo, J.-K. Kim, T. K. Yoon, et al.",
       "venue": "Advanced Energy Materials 15 (20), 2405278",
-      "url": "https://doi.org/10.1002/aenm.202405278"
+      "url": "https://doi.org/10.1002/aenm.202405278",
+      "role": "co-author"
     },
     {
       "year": 2025,
@@ -346,7 +347,9 @@
       "title": "Addressing Triboelectric Nanogenerator Impedance for Efficient CO2 Utilization",
       "authors": "D. H. Kim, J.-K. Kim, S. Y. Choi, Y. Yang, H. C. Song, H. S. Park, M. Shim, J. M. Baik",
       "venue": "Advanced Energy Materials 14 (8), 2304012",
-      "url": "https://doi.org/10.1002/aenm.202304012"
+      "url": "https://doi.org/10.1002/aenm.202304012",
+      "role": "co-first author",
+      "lead": true
     },
     {
       "year": 2023,
@@ -362,21 +365,24 @@
       "title": "Low-temperature crystallization of LaFeO3 perovskite with inherent catalytically surface for the enhanced oxygen evolution reaction",
       "authors": "H. J. Kim, S. H. Kim, S. W. Kim, J.-K. Kim, C. Cao, Y. Kim, et al.",
       "venue": "Nano Energy 105, 108003",
-      "url": "https://doi.org/10.1016/j.nanoen.2022.108003"
+      "url": "https://doi.org/10.1016/j.nanoen.2022.108003",
+      "role": "co-author"
     },
     {
       "year": 2023,
       "title": "Low temperature selective catalytic reduction of NOx with NH3 with improved SO2 and water resistance",
       "authors": "S. Y. Choi, R. Purbia, H. J. Kim, J.-K. Kim, S. W. Kim, et al.",
       "venue": "Applied Surface Science 623, 157088",
-      "url": "https://doi.org/10.1016/j.apsusc.2023.157088"
+      "url": "https://doi.org/10.1016/j.apsusc.2023.157088",
+      "role": "co-author"
     },
     {
       "year": 2023,
       "title": "Hybrid photothermal structure based on Cr-MgF2 solar absorber/PMMA-graphene heat reservoir for enhanced thermoelectric power generation",
       "authors": "G. Kwak, Y. S. Jeong, S. W. Kim, J.-K. Kim, J. Choi, et al.",
       "venue": "Nano Energy 110, 108352",
-      "url": "https://doi.org/10.1016/j.nanoen.2023.108352"
+      "url": "https://doi.org/10.1016/j.nanoen.2023.108352",
+      "role": "co-author"
     },
     {
       "year": 2023,
@@ -393,7 +399,7 @@
       "authors": "S. W. Kim, J.-K. Kim, S. Jung, J. W. Lee, C. Yang, J. M. Baik",
       "venue": "Handbook of Triboelectric Nanogenerators",
       "url": "https://doi.org/10.1007/978-3-031-28111-2_13",
-      "role": "book chapter"
+      "role": "co-author (book chapter)"
     },
     {
       "year": 2022,
@@ -409,7 +415,8 @@
       "title": "3D multiple triangular prisms for highly sensitive non-contact mode triboelectric bending sensors",
       "authors": "G. H. Han, S. W. Kim, J.-K. Kim, S. H. Lee, M. H. Jeong, H. C. Song, K. J. Choi, J. M. Baik",
       "venue": "Nanomaterials 12 (9), 1499",
-      "url": "https://doi.org/10.3390/nano12091499"
+      "url": "https://doi.org/10.3390/nano12091499",
+      "role": "co-author"
     }
   ],
   "patents": [
@@ -492,24 +499,6 @@
         "paperVenue": "Materials Today Communications \u00b7 2026"
       }
     ],
-    "publicationGraphics": [
-      {
-        "title": "Self-Powered Triboelectric Electrospun Air Filters as Functional Fibrous Materials",
-        "venue": "Materials Today Communications \u00b7 2026",
-        "url": "https://doi.org/10.1016/j.mtcomm.2026.115941",
-        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2352492826013309-ga1_lrg.jpg",
-        "altKo": "\uc790\uac00\ubc1c\uc804 \ub9c8\ucc30\uc804\uae30 \uc804\uae30\ubc29\uc0ac \uc5d0\uc5b4\ud544\ud130 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
-        "altEn": "Graphical abstract of the self-powered triboelectric electrospun air-filter study"
-      },
-      {
-        "title": "Output signals control of triboelectric nanogenerator with metal-dielectric-metal configuration",
-        "venue": "Nano Energy \u00b7 2022",
-        "url": "https://doi.org/10.1016/j.nanoen.2022.107023",
-        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2211285522001082-ga1_lrg.jpg",
-        "altKo": "\uace0\uc800\ud56d \uc811\uc9c0 \uae30\ubc18 TENG \ucd9c\ub825 \uc81c\uc5b4 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
-        "altEn": "Graphical abstract of the high-resistance-grounded TENG output-control study"
-      }
-    ],
     "journalMetrics": [
       {
         "journal": "Energy & Environmental Science",
@@ -537,7 +526,7 @@
         "metric": "Journal Impact Factor",
         "value": 16.7,
         "year": 2025,
-        "source": "https://pubs.acs.org/doi/10.1021/acsenergylett.6c02125"
+        "source": "https://www.sciencedirect.com/journal/nano-energy"
       }
     ],
     "metricNoteKo": "",
@@ -680,6 +669,24 @@
         "noteKo": "\uc804\uae30\uc804\uc790\uc7ac\ub8cc\ud559\ud68c\ub17c\ubb38\uc9c0 \u00b7 \uc18c\uc7ac \ud569\uc131\u00b7\uad6c\uc870 \uc124\uacc4 \uc804\ub7b5 \uc815\ub9ac",
         "noteEn": "JEEM \u00b7 materials synthesis and structural-design strategies",
         "url": "https://doi.org/10.4313/JEEM.2025.38.5.1"
+      }
+    ],
+    "publicationGraphics": [
+      {
+        "title": "Self-Powered Triboelectric Electrospun Air Filters as Functional Fibrous Materials",
+        "venue": "Materials Today Communications \u00b7 2026",
+        "url": "https://doi.org/10.1016/j.mtcomm.2026.115941",
+        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2352492826013309-ga1_lrg.jpg",
+        "altKo": "\uc790\uac00\ubc1c\uc804 \ub9c8\ucc30\uc804\uae30 \uc804\uae30\ubc29\uc0ac \uc5d0\uc5b4\ud544\ud130 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
+        "altEn": "Graphical abstract of the self-powered triboelectric electrospun air-filter study"
+      },
+      {
+        "title": "Output signals control of triboelectric nanogenerator with metal-dielectric-metal configuration",
+        "venue": "Nano Energy \u00b7 2022",
+        "url": "https://doi.org/10.1016/j.nanoen.2022.107023",
+        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2211285522001082-ga1_lrg.jpg",
+        "altKo": "\uace0\uc800\ud56d \uc811\uc9c0 \uae30\ubc18 TENG \ucd9c\ub825 \uc81c\uc5b4 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
+        "altEn": "Graphical abstract of the high-resistance-grounded TENG output-control study"
       }
     ]
   },
