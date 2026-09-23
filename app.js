@@ -199,75 +199,24 @@ function renderHomeOverview() {
 
 function authorNode(authors) {
   const node = el("p","pub-authors");
-  const text = String(authors || "").replace(/J\.-K\. Kim/g,"Jin-Kyeom Kim");
-  const pattern = /Jin-Kyeom Kim/g;
+  const text = authors || "";
+  const pattern = /(J\.-K\. Kim|Jin-Kyeom Kim)/g;
   let last = 0, match;
   while ((match = pattern.exec(text)) !== null) {
     if (match.index > last) node.append(document.createTextNode(text.slice(last,match.index)));
-    node.append(el("strong","pub-self-author","Jin-Kyeom Kim"));
+    node.append(el("strong","pub-self-author",match[0]));
     last = pattern.lastIndex;
   }
   if (last < text.length) node.append(document.createTextNode(text.slice(last)));
   return node;
 }
 
-function roleMeta(role) {
-  const raw = String(role || "").trim();
-  const lower = raw.toLowerCase();
-  let code = "";
-  let label = raw
-    .replace(/^co-corresponding author/i,"Co-Corresponding Author")
-    .replace(/^corresponding author/i,"Corresponding Author")
-    .replace(/^co-first author/i,"Co-First Author")
-    .replace(/^first author/i,"First Author")
-    .replace(/^co-author/i,"Co-Author")
-    .replace(/\(review\)/i,"(Review)")
-    .replace(/\(book chapter\)/i,"(Book Chapter)");
-  if (lower.startsWith("co-corresponding author")) code = "Co-CA";
-  else if (lower.startsWith("corresponding author")) code = "CA";
-  else if (lower.startsWith("co-first author")) code = "Co-FA";
-  else if (lower.startsWith("first author")) code = "FA";
-  return {code,label};
-}
-
-function roleNode(role) {
-  const info = roleMeta(role);
-  const node = el("p","pub-role");
-  if (info.code) node.append(el("span","pub-role-code",info.code));
-  node.append(el("span","pub-role-label",info.label));
-  return node;
-}
-
-function publicationGraphic(pub) {
-  const url = String(pub?.url || "").toLowerCase();
-  if (!url) return null;
-  return arr(portal().publicationGraphics).find((item) => String(item?.url || "").toLowerCase() === url) || null;
-}
-
-function pubNode(pub,compact=false) {
+function pubNode(pub) {
   const card = el("article","publication-item");
-  if (compact) card.classList.add("compact-item");
-  const graphic = compact ? null : publicationGraphic(pub);
-  if (graphic) {
-    card.classList.add("has-graphic");
-    const visual = el("a","publication-item-visual");
-    visual.href = pub.url || "#/publications";
-    visual.target = "_blank";
-    visual.rel = "noopener noreferrer";
-    const img = el("img","publication-item-img");
-    img.src = graphic.image || "";
-    img.alt = pick(graphic.altKo,graphic.altEn) || pub.title || "Publication graphic";
-    img.loading = "lazy";
-    img.decoding = "async";
-    visual.append(img);
-    card.append(visual);
-  }
-  const body = el("div","publication-item-body");
   const meta = el("div","pub-meta");
   meta.append(el("span","pub-year",String(pub.year)),el("span","pub-venue",pub.venue || ""));
-  body.append(meta,extLink(pub.title,pub.url,"pub-title"),authorNode(pub.authors));
-  if (pub.role) body.append(roleNode(pub.role));
-  card.append(body);
+  card.append(meta,extLink(pub.title,pub.url,"pub-title"),authorNode(pub.authors));
+  if (pub.role) card.append(el("p","pub-role",pub.role));
   return card;
 }
 
@@ -321,7 +270,7 @@ function renderPubMetrics() {
   });
 
   const home = clear($("homePubs"));
-  pubs.slice(0,2).forEach((pub) => home?.append(pubNode(pub,true)));
+  pubs.slice(0,2).forEach((pub) => home?.append(pubNode(pub)));
 }
 
 function setupPubFilters() {
@@ -342,12 +291,10 @@ function renderPubs() {
 }
 
 function renderPublicationGraphics() {
-  const items = arr(portal().publicationGraphics);
   setText("graphicTitle",state.lang === "ko" ? "\ub17c\ubb38 \uadf8\ub798\ud53d \ucd08\ub85d" : "Graphical abstracts");
-  setText("graphicHint",state.lang === "ko" ? "\uc88c\uc6b0 \ubc84\ud2bc\u00b7\uc2a4\uc640\uc774\ud504\u00b7\ud2b8\ub799\ud328\ub4dc \uc2a4\ud06c\ub864\ub85c \ub17c\ubb38 \uc2dc\uac01\uc790\ub8cc\ub97c \ub118\uaca8\ubcf4\uc138\uc694." : "Use the arrows, swipe, or horizontal scroll to browse paper graphics.");
-  setText("graphicCount",items.length ? "01 / " + String(items.length).padStart(2,"0") : "");
+  setText("graphicHint",state.lang === "ko" ? "\uc88c\uc6b0\ub85c \uc2a4\ud06c\ub864\ud558\uac70\ub098 \uc2a4\uc640\uc774\ud504\ud574 \ub17c\ubb38 \uadf8\ub798\ud53d\uc744 \ub118\uaca8\ubcf4\uc138\uc694." : "Scroll or swipe horizontally to browse paper graphics.");
   const box = clear($("publicationGraphics"));
-  items.forEach((item) => {
+  arr(portal().publicationGraphics).forEach((item) => {
     const card = el("article","publication-graphic-card");
     const link = el("a","publication-graphic-link");
     link.href = item.url || "#/publications";
@@ -364,37 +311,12 @@ function renderPublicationGraphics() {
     card.append(link,body);
     box?.append(card);
   });
-  updateGraphicCount();
-}
-
-function updateGraphicCount() {
-  const box = $("publicationGraphics");
-  const count = $("graphicCount");
-  if (!box || !count) return;
-  const cards = [...box.querySelectorAll(".publication-graphic-card")];
-  if (!cards.length) { count.textContent = ""; return; }
-  const center = box.scrollLeft + box.clientWidth / 2;
-  let index = 0, best = Infinity;
-  cards.forEach((card,i) => {
-    const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-    const distance = Math.abs(cardCenter - center);
-    if (distance < best) { best = distance; index = i; }
-  });
-  count.textContent = String(index + 1).padStart(2,"0") + " / " + String(cards.length).padStart(2,"0");
-}
-
-function scrollPublicationGraphics(direction) {
-  const box = $("publicationGraphics");
-  if (!box) return;
-  const card = box.querySelector(".publication-graphic-card");
-  const step = card ? card.getBoundingClientRect().width + 18 : box.clientWidth * .8;
-  box.scrollBy({left: direction * step, behavior:"smooth"});
 }
 
 function renderPatents() {
   setText("patentTitle",state.lang === "ko" ? "\ud2b9\ud5c8" : "Patents");
   const out = clear($("patentList"));
-  arr(state.data.patents).forEach((patent) => out?.append(pubNode(patent,true)));
+  arr(state.data.patents).forEach((patent) => out?.append(pubNode(patent)));
 }
 
 function newsData() { return arr(portal().news).length ? arr(portal().news) : arr(state.data.news); }
@@ -792,14 +714,6 @@ function bind() {
   $("pubSearch")?.addEventListener("input",(event) => { state.query = event.target.value; renderPubs(); });
   $("yearFilter")?.addEventListener("change",(event) => { state.year = event.target.value; renderPubs(); });
   $("leadOnly")?.addEventListener("change",(event) => { state.leadOnly = event.target.checked; renderPubs(); });
-  $("graphicPrev")?.addEventListener("click",() => scrollPublicationGraphics(-1));
-  $("graphicNext")?.addEventListener("click",() => scrollPublicationGraphics(1));
-  let graphicScrollTick = false;
-  $("publicationGraphics")?.addEventListener("scroll",() => {
-    if (graphicScrollTick) return;
-    graphicScrollTick = true;
-    window.requestAnimationFrame(() => { updateGraphicCount(); graphicScrollTick = false; });
-  },{passive:true});
   $("adminConnect")?.addEventListener("click",connectAdmin);
   $("editResearchIndex")?.addEventListener("change",loadResearchEditor);
   $("uploadResearchImage")?.addEventListener("click",uploadResearchImage);
