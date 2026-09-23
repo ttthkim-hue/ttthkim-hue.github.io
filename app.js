@@ -238,12 +238,36 @@ function roleNode(role) {
   return node;
 }
 
-function pubNode(pub) {
+function publicationGraphic(pub) {
+  const url = String(pub?.url || "").toLowerCase();
+  if (!url) return null;
+  return arr(portal().publicationGraphics).find((item) => String(item?.url || "").toLowerCase() === url) || null;
+}
+
+function pubNode(pub,compact=false) {
   const card = el("article","publication-item");
+  if (compact) card.classList.add("compact-item");
+  const graphic = compact ? null : publicationGraphic(pub);
+  if (graphic) {
+    card.classList.add("has-graphic");
+    const visual = el("a","publication-item-visual");
+    visual.href = pub.url || "#/publications";
+    visual.target = "_blank";
+    visual.rel = "noopener noreferrer";
+    const img = el("img","publication-item-img");
+    img.src = graphic.image || "";
+    img.alt = pick(graphic.altKo,graphic.altEn) || pub.title || "Publication graphic";
+    img.loading = "lazy";
+    img.decoding = "async";
+    visual.append(img);
+    card.append(visual);
+  }
+  const body = el("div","publication-item-body");
   const meta = el("div","pub-meta");
   meta.append(el("span","pub-year",String(pub.year)),el("span","pub-venue",pub.venue || ""));
-  card.append(meta,extLink(pub.title,pub.url,"pub-title"),authorNode(pub.authors));
-  if (pub.role) card.append(roleNode(pub.role));
+  body.append(meta,extLink(pub.title,pub.url,"pub-title"),authorNode(pub.authors));
+  if (pub.role) body.append(roleNode(pub.role));
+  card.append(body);
   return card;
 }
 
@@ -297,7 +321,7 @@ function renderPubMetrics() {
   });
 
   const home = clear($("homePubs"));
-  pubs.slice(0,2).forEach((pub) => home?.append(pubNode(pub)));
+  pubs.slice(0,2).forEach((pub) => home?.append(pubNode(pub,true)));
 }
 
 function setupPubFilters() {
@@ -370,7 +394,7 @@ function scrollPublicationGraphics(direction) {
 function renderPatents() {
   setText("patentTitle",state.lang === "ko" ? "\ud2b9\ud5c8" : "Patents");
   const out = clear($("patentList"));
-  arr(state.data.patents).forEach((patent) => out?.append(pubNode(patent)));
+  arr(state.data.patents).forEach((patent) => out?.append(pubNode(patent,true)));
 }
 
 function newsData() { return arr(portal().news).length ? arr(portal().news) : arr(state.data.news); }
