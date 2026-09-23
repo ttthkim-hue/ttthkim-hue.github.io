@@ -1,7 +1,7 @@
 {
   "meta": {
     "status": "PUBLIC",
-    "updated": "2026-09-22",
+    "updated": "2026-09-23",
     "source": "KMOU faculty profile; Google Scholar; ORCID; DOI/publisher records; UW-Madison Engineering public news."
   },
   "person": {
@@ -284,153 +284,153 @@
     {
       "year": 2026,
       "title": "Self-sustaining leadless intracardiac pacemaker powered by triboelectric nanogenerator",
-      "authors": "P. Chen, R. Wang, E. Schmuck, D. Wang, D. Modaff, T. Zhou, S. Osaki, W. Liu, F. Pan, J.-K. Kim, et al.",
+      "authors": "Pengfei Chen, Ruoxing Wang, Eric Schmuck, Derui Wang, Daniel Modaff, Ting Zhou, Satoru Osaki, Wenjian Liu, Fengdan Pan, Jin-Kyeom Kim, Youyi Tai, Paige Munns, Devon K. Klipsic, Bo Liu, Xudong Wang",
       "venue": "Science Advances",
       "url": "https://doi.org/10.1126/sciadv.aef8903",
-      "role": "co-author"
+      "role": "Co-Author"
     },
     {
       "year": 2026,
       "title": "Self-Powered Triboelectric Electrospun Air Filters as Functional Fibrous Materials: Experiment-Supported Modeling of Dielectrophoretic Capture and Scale-Up",
-      "authors": "T. Kim, S. Baik, D. Jang, J.-K. Kim",
+      "authors": "Tae-hyung Kim, Sangyul Baik, Doojoon Jang, Jin-Kyeom Kim",
       "venue": "Materials Today Communications 115941",
       "url": "https://doi.org/10.1016/j.mtcomm.2026.115941",
-      "role": "co-corresponding author (with S. Baik and D. Jang)",
+      "role": "Co-Corresponding Author (with Sangyul Baik and Doojoon Jang)",
       "lead": true
     },
     {
       "year": 2025,
       "title": "Engineering High-Performance Bioelectronic Triboelectric Nanogenerators via Innovative Material Synthesis and Structural Design for Extreme Biomedical Environments",
-      "authors": "J.-K. Kim",
+      "authors": "Jin-Kyeom Kim",
       "venue": "Journal of the Korean Institute of Electrical and Electronic Material Engineers 38 (5), 455-468",
       "url": "https://doi.org/10.4313/JEEM.2025.38.5.1",
-      "role": "first author (review)",
+      "role": "First Author (Review)",
       "lead": true
     },
     {
       "year": 2025,
       "title": "Overcoming Moisture-Induced Charge Decay in Tribo-Materials",
-      "authors": "J.-K. Kim, S. Jung, D. H. Kim, J. Gao, Y. S. Lee, H. Park, H. C. Song, J. M. Baik",
+      "authors": "Jin-Kyeom Kim, Sungwoo Jung, Do\u2010Heon Kim, Jian Gao, Yun Sik Lee, Hyesung Park, Hyun\u2010Cheol Song, Jeong Min Baik",
       "venue": "Advanced Energy Materials 15 (2), 2304437",
       "url": "https://doi.org/10.1002/aenm.202304437",
-      "role": "first author",
+      "role": "First Author",
       "lead": true
     },
     {
       "year": 2025,
       "title": "Advancing Humidity-Resistant Triboelectric Nanogenerators Through MoS2-Encapsulated SiO2 Nanoparticles for Self-Powered Gas Sensing Applications",
-      "authors": "D. H. Kim, J. Y. Park, H. S. Choi, J. Cho, H. S. Kim, J. E. Mo, J.-K. Kim, T. K. Yoon, et al.",
+      "authors": "Do\u2010Heon Kim, Ji Young Park, Han Sol Choi, Jeonghoon Cho, Hyun Soo Kim, Jeong Eun Mo, Jin-Kyeom Kim, Tae Kyoung Yoon, Sung Hun Hur, Jae Joon Kim, Hye Sung Park, Hyun Cheol Song, Jeong Min Baik",
       "venue": "Advanced Energy Materials 15 (20), 2405278",
       "url": "https://doi.org/10.1002/aenm.202405278",
-      "role": "co-author"
+      "role": "Co-Author"
     },
     {
       "year": 2025,
       "title": "A Self-Powered Cationic Microfiber-Based Triboelectric Air Filter for High-Speed Particulate Matter Removal and Smart Monitoring",
-      "authors": "T. Kim, J.-K. Kim",
+      "authors": "Tae-hyung Kim, Jin-Kyeom Kim",
       "venue": "Journal of Powder Materials 32 (6), 481-491",
       "url": "https://doi.org/10.4150/jpm.2025.00465",
-      "role": "corresponding author",
+      "role": "Corresponding Author",
       "lead": true
     },
     {
       "year": 2024,
-      "title": "Self-Powering Gas Sensing System Enabled by Double-Layer Triboelectric Nanogenerators Based on Poly(2-vinylpyridine)@BaTiO3 Core-Shell Hybrids",
-      "authors": "J. Oh, J.-K. Kim, J. Gao, S. Jung, W. Kim, G. Park, J. Park, J. M. Baik, C. Yang",
+      "title": "Self-Powering Gas Sensing System Enabled by Double-Layer Triboelectric Nanogenerators Based on Poly(2-vinylpyridine)@BaTiO3 Core-Shell Hybrids with Superior Dispersibility and Uniformity",
+      "authors": "Jiyeon Oh, Jin-Kyeom Kim, Jian Gao, Sungwoo Jung, Wonjun Kim, Geunhyung Park, Jeewon Park, Jeong Min Baik, Changduk Yang",
       "venue": "ACS Nano 18 (19), 12146-12157",
       "url": "https://doi.org/10.1021/acsnano.3c12035",
-      "role": "co-first author",
+      "role": "Co-First Author",
       "lead": true
     },
     {
       "year": 2024,
       "title": "Addressing Triboelectric Nanogenerator Impedance for Efficient CO2 Utilization",
-      "authors": "D. H. Kim, J.-K. Kim, S. Y. Choi, Y. Yang, H. C. Song, H. S. Park, M. Shim, J. M. Baik",
+      "authors": "Do\u2010Heon Kim, Jin-Kyeom Kim, Sung Yeol Choi, Ya Yang, Hyun\u2010Cheol Song, Hye Sung Park, Minseob Shim, Jeong Min Baik",
       "venue": "Advanced Energy Materials 14 (8), 2304012",
       "url": "https://doi.org/10.1002/aenm.202304012",
-      "role": "co-first author",
+      "role": "Co-First Author",
       "lead": true
     },
     {
       "year": 2023,
       "title": "Electric-field-driven interfacial trapping of drifting triboelectric charges via contact electrification",
-      "authors": "J.-K. Kim, G. H. Han, S. W. Kim, H. J. Kim, R. Purbia, D. M. Lee, et al.",
+      "authors": "Jin-Kyeom Kim, Gi Hyeon Han, Sun-Woo Kim, Hee Jun Kim, Rahul Purbia, Dong-Min Lee, Jong Kyu Kim, Hee Jae Hwang, Hyun-Cheol Song, Dukhyun Choi, Sang-Woo Kim, Zhong Lin Wang, Jeong Min Baik",
       "venue": "Energy & Environmental Science 16 (2), 598-609",
       "url": "https://doi.org/10.1039/d2ee03114k",
-      "role": "co-first author",
+      "role": "Co-First Author",
       "lead": true
     },
     {
       "year": 2023,
       "title": "Low-temperature crystallization of LaFeO3 perovskite with inherent catalytically surface for the enhanced oxygen evolution reaction",
-      "authors": "H. J. Kim, S. H. Kim, S. W. Kim, J.-K. Kim, C. Cao, Y. Kim, et al.",
+      "authors": "Hee Jun Kim, Sang Heon Kim, Sun-Woo Kim, Jin-Kyeom Kim, Chentian Cao, Yongchul Kim, Ungsoo Kim, Geunsik Lee, Jae-Young Choi, Hyung-Suk Oh, Hyun-Cheol Song, Won Jun Choi, Hyesung Park, Jeong Min Baik",
       "venue": "Nano Energy 105, 108003",
       "url": "https://doi.org/10.1016/j.nanoen.2022.108003",
-      "role": "co-author"
+      "role": "Co-Author"
     },
     {
       "year": 2023,
       "title": "Low temperature selective catalytic reduction of NOx with NH3 with improved SO2 and water resistance",
-      "authors": "S. Y. Choi, R. Purbia, H. J. Kim, J.-K. Kim, S. W. Kim, et al.",
+      "authors": "Sung Yeol Choi, Rahul Purbia, Hee Jun Kim, Jin-Kyeom Kim, Sun-Woo Kim, Jeongeun Mo, Bora Ye, Bora Jeong, Duck Hyun Lee, Dokyoung Kim, Hyesung Park, Hong-Dae Kim, Jeong Min Baik",
       "venue": "Applied Surface Science 623, 157088",
       "url": "https://doi.org/10.1016/j.apsusc.2023.157088",
-      "role": "co-author"
+      "role": "Co-Author"
     },
     {
       "year": 2023,
       "title": "Hybrid photothermal structure based on Cr-MgF2 solar absorber/PMMA-graphene heat reservoir for enhanced thermoelectric power generation",
-      "authors": "G. Kwak, Y. S. Jeong, S. W. Kim, J.-K. Kim, J. Choi, et al.",
+      "authors": "Geonho Kwak, Yoo-Seok Jeong, Sun-Woo Kim, Jin-Kyeom Kim, Jihyeok Choi, Kyung Guen Song, Hee Jun Kim, Won Jun Choi, Ya Yang, Hyun-Cheol Song, Jeong Min Baik, Hak Ki Yu",
       "venue": "Nano Energy 110, 108352",
       "url": "https://doi.org/10.1016/j.nanoen.2023.108352",
-      "role": "co-author"
+      "role": "Co-Author"
     },
     {
       "year": 2023,
       "title": "Boosted Output Voltage of BiSbTe-Based Thermoelectric Generators via Coupled Effect between Thermoelectric Carriers and Triboelectric Charges",
-      "authors": "S. W. Kim, J.-K. Kim, J. Y. Park, J. Mun, S. Jung, et al.",
+      "authors": "Sun\u2010Woo Kim, Jin-Kyeom Kim, Ji Young Park, Jinhong Mun, Sungwoo Jung, Seong Eun Yang, Geunsik Lee, Pooi See Lee, Hyun\u2010Cheol Song, Changduk Yang, Hye Sung Park, Jae Sung Son, Jeong Min Baik",
       "venue": "Advanced Energy Materials 13 (4), 2202987",
       "url": "https://doi.org/10.1002/aenm.202202987",
-      "role": "co-first author",
+      "role": "Co-First Author",
       "lead": true
     },
     {
       "year": 2023,
       "title": "Choice of Materials for Triboelectric Nanogenerators",
-      "authors": "S. W. Kim, J.-K. Kim, S. Jung, J. W. Lee, C. Yang, J. M. Baik",
+      "authors": "Sun-Woo Kim, Jin-Kyeom Kim, Sungwoo Jung, Jae Won Lee, Changduk Yang, Jeong Min Baik",
       "venue": "Handbook of Triboelectric Nanogenerators",
       "url": "https://doi.org/10.1007/978-3-031-28111-2_13",
-      "role": "co-author (book chapter)"
+      "role": "Co-Author (Book Chapter)"
     },
     {
       "year": 2022,
       "title": "Output signals control of triboelectric nanogenerator with metal-dielectric-metal configuration through high resistance grounded systems",
-      "authors": "S. W. Kim, J.-K. Kim, H. J. Kim, C. T. Cao, N. K. Oh, Y. Yang, H. C. Song, M. Shim, et al.",
+      "authors": "Sun-Woo Kim, Jin-Kyeom Kim, Hee Jun Kim, Chen Tian Cao, Nam Khen Oh, Ya Yang, Hyun-Cheol Song, Minseob Shim, Hye Sung Park, Jeong Min Baik",
       "venue": "Nano Energy 95, 107023",
       "url": "https://doi.org/10.1016/j.nanoen.2022.107023",
-      "role": "co-first author",
+      "role": "Co-First Author",
       "lead": true
     },
     {
       "year": 2022,
       "title": "3D multiple triangular prisms for highly sensitive non-contact mode triboelectric bending sensors",
-      "authors": "G. H. Han, S. W. Kim, J.-K. Kim, S. H. Lee, M. H. Jeong, H. C. Song, K. J. Choi, J. M. Baik",
+      "authors": "Gi Hyeon Han, Sun Woo Kim, Jin-Kyeom Kim, Seung Hyun Lee, Myeong Hoon Jeong, Hyun Cheol Song, Kyoung Jin Choi, Jeong Min Baik",
       "venue": "Nanomaterials 12 (9), 1499",
       "url": "https://doi.org/10.3390/nano12091499",
-      "role": "co-author"
+      "role": "Co-Author"
     }
   ],
   "patents": [
     {
       "year": 2024,
       "title": "Positively-charged body for triboelectric generator and triboelectric generator including the same",
-      "authors": "J. M. Baik, J.-K. Kim",
+      "authors": "Jeong Min Baik, Jin-Kyeom Kim",
       "venue": "US Patent 11,876,461",
       "url": "https://patents.google.com/patent/US11876461B2"
     },
     {
       "year": 2023,
       "title": "Core-shell structured positive charge electrified body structure and triboelectric generator using the same",
-      "authors": "J.-K. Kim, R. Purbia, J. Y. Park, J. M. Baik",
+      "authors": "Jin-Kyeom Kim, Rahul Purbia, Ji Young Park, Jeong Min Baik",
       "venue": "KR Patent 10-2607441 (KR102607441B1)",
       "url": "https://patents.google.com/patent/KR102607441B1/en"
     }
@@ -676,7 +676,7 @@
         "title": "Self-Powered Triboelectric Electrospun Air Filters as Functional Fibrous Materials",
         "venue": "Materials Today Communications \u00b7 2026",
         "url": "https://doi.org/10.1016/j.mtcomm.2026.115941",
-        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2352492826013309-ga1_lrg.jpg",
+        "image": "./assets/publication-graphics/verified-ga-01.jpg",
         "altKo": "\uc790\uac00\ubc1c\uc804 \ub9c8\ucc30\uc804\uae30 \uc804\uae30\ubc29\uc0ac \uc5d0\uc5b4\ud544\ud130 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
         "altEn": "Graphical abstract of the self-powered triboelectric electrospun air-filter study"
       },
@@ -684,7 +684,7 @@
         "title": "Output signals control of triboelectric nanogenerator with metal-dielectric-metal configuration",
         "venue": "Nano Energy \u00b7 2022",
         "url": "https://doi.org/10.1016/j.nanoen.2022.107023",
-        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2211285522001082-ga1_lrg.jpg",
+        "image": "./assets/publication-graphics/verified-ga-02.jpg",
         "altKo": "\uace0\uc800\ud56d \uc811\uc9c0 \uae30\ubc18 TENG \ucd9c\ub825 \uc81c\uc5b4 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
         "altEn": "Graphical abstract of the high-resistance-grounded TENG output-control study"
       },
@@ -692,7 +692,7 @@
         "title": "Low-temperature crystallization of LaFeO3 perovskite with inherent catalytically surface for the enhanced oxygen evolution reaction",
         "venue": "Nano Energy \u00b7 2023",
         "url": "https://doi.org/10.1016/j.nanoen.2022.108003",
-        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2211285522010813-ga1_lrg.jpg",
+        "image": "./assets/publication-graphics/verified-ga-03.jpg",
         "altKo": "LaFeO3 \ud398\ub85c\ube0c\uc2a4\uce74\uc774\ud2b8 \uc800\uc628 \uacb0\uc815\ud654 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
         "altEn": "Graphical abstract of the low-temperature LaFeO3 crystallization study"
       },
@@ -700,7 +700,7 @@
         "title": "Hybrid photothermal structure based on Cr-MgF2 solar absorber/PMMA-graphene heat reservoir for enhanced thermoelectric power generation",
         "venue": "Nano Energy \u00b7 2023",
         "url": "https://doi.org/10.1016/j.nanoen.2023.108352",
-        "image": "https://ars.els-cdn.com/content/image/1-s2.0-S2211285523001891-ga1_lrg.jpg",
+        "image": "./assets/publication-graphics/verified-ga-04.jpg",
         "altKo": "Cr-MgF2/PMMA-graphene \uad11\uc5f4 \uad6c\uc870 \ub17c\ubb38\uc758 \uadf8\ub798\ud53d \ucd08\ub85d",
         "altEn": "Graphical abstract of the hybrid photothermal thermoelectric study"
       }
