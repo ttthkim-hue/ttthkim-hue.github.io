@@ -1,7 +1,7 @@
 {
   "meta": {
     "status": "PUBLIC",
-    "updated": "2026-09-23",
+    "updated": "2026-09-24",
     "source": "KMOU faculty profile; Google Scholar; ORCID; DOI/publisher records; UW-Madison Engineering public news."
   },
   "person": {
@@ -469,10 +469,22 @@
       "url": "https://doi.org/10.1016/j.mtcomm.2026.115941"
     },
     {
+      "date": "2026-01-16",
+      "ko": "\uc131\uade0\uad00\ub300 \uc2e0\uc18c\uc7ac\uacf5\ud559\ubd80\uac00 \uae40\uc9c4\uacb8 \uad50\uc218\uc758 UW\u2013Madison \ud574\uc678 \ubc15\uc0ac\ud6c4\uc5f0\uad6c\uc6d0(GPF) \uc5f0\uc218 \uc131\uacf5\uc218\uae30\ub97c \uc18c\uac1c\ud588\uc2b5\ub2c8\ub2e4.",
+      "en": "SKKU AMSE featured Jin-Kyeom Kim\u2019s GPF-supported postdoctoral fellowship experience at UW\u2013Madison.",
+      "url": "https://amse.skku.edu/eng_amsegs/news.do?mode=view&articleNo=211926&article.offset=0&articleLimit=10"
+    },
+    {
       "date": "2025-09",
       "ko": "\uadf9\ud55c \uc0dd\uccb4\ud658\uacbd\uc6a9 \uace0\uc131\ub2a5 \ubc14\uc774\uc624\uc804\uc790 TENG \uc18c\uc7ac\u00b7\uad6c\uc870 \uc124\uacc4 \ub9ac\ubdf0\uac00 \uc804\uae30\uc804\uc790\uc7ac\ub8cc\ud559\ud68c\ub17c\ubb38\uc9c0\uc5d0 \uac8c\uc7ac\ub418\uc5c8\uc2b5\ub2c8\ub2e4.",
       "en": "A review on materials synthesis and structural design for bioelectronic TENGs in extreme biomedical environments was published in JEEM.",
       "url": "https://doi.org/10.4313/JEEM.2025.38.5.1"
+    },
+    {
+      "date": "2023-01-31",
+      "ko": "Energy & Environmental Science\uc5d0 \uac8c\uc7ac\ub41c \ub9c8\ucc30 \uc804\ud558 \uc720\ub3d9(Drift) \ud604\uc0c1 \uaddc\uba85 \uc5f0\uad6c\uac00 \uad50\uc218\uc2e0\ubb38\uc5d0 \uc18c\uac1c\ub418\uc5c8\uc2b5\ub2c8\ub2e4.",
+      "en": "Professor News featured the Energy & Environmental Science study that clarified triboelectric charge drift.",
+      "url": "https://www.kyosu.net/news/articleView.html?idxno=99894"
     }
   ],
   "portal": {
@@ -662,6 +674,15 @@
         "url": "https://www.kmou.ac.kr/mmt/na/ntt/selectNttInfo.do?nttSn=10370797"
       },
       {
+        "date": "2026-01-16",
+        "category": "People",
+        "ko": "\uc131\uade0\uad00\ub300 \uc2e0\uc18c\uc7ac\uacf5\ud559\ubd80, \uae40\uc9c4\uacb8 \uad50\uc218\uc758 UW\u2013Madison \ud574\uc678 \ubc15\uc0ac\ud6c4\uc5f0\uad6c\uc6d0(GPF) \uc131\uacf5\uc218\uae30 \uc18c\uac1c",
+        "en": "SKKU AMSE features Jin-Kyeom Kim\u2019s UW\u2013Madison GPF postdoctoral fellowship story",
+        "noteKo": "2024.09\u20132025.08 Xudong Wang \uc5f0\uad6c\uc2e4 \u00b7 \uc0dd\uccb4\uc7ac\ub8cc \uae30\ubc18 \uc790\uac00\uad6c\ub3d9 \uc18c\uc7ac\u00b7\uc18c\uc790\uc640 \uc6e8\uc5b4\ub7ec\ube14\u00b7\uc0bd\uc785\ud615 \uc18c\ud504\ud2b8 \ubc14\uc774\uc624 \uc758\ub8cc\uae30\uae30 \uc5f0\uad6c \uacbd\ud5d8 \uc18c\uac1c",
+        "noteEn": "GPF-supported postdoctoral experience in Xudong Wang\u2019s lab (Sep 2024\u2013Aug 2025), covering biomaterial-based self-powered devices and wearable/implantable soft bioelectronics",
+        "url": "https://amse.skku.edu/eng_amsegs/news.do?mode=view&articleNo=211926&article.offset=0&articleLimit=10"
+      },
+      {
         "date": "2025-09",
         "category": "Research",
         "ko": "\uadf9\ud55c \uc0dd\uccb4\ud658\uacbd\uc6a9 \uace0\uc131\ub2a5 \ubc14\uc774\uc624\uc804\uc790 TENG \ub9ac\ubdf0 \uac8c\uc7ac",
@@ -669,6 +690,15 @@
         "noteKo": "\uc804\uae30\uc804\uc790\uc7ac\ub8cc\ud559\ud68c\ub17c\ubb38\uc9c0 \u00b7 \uc18c\uc7ac \ud569\uc131\u00b7\uad6c\uc870 \uc124\uacc4 \uc804\ub7b5 \uc815\ub9ac",
         "noteEn": "JEEM \u00b7 materials synthesis and structural-design strategies",
         "url": "https://doi.org/10.4313/JEEM.2025.38.5.1"
+      },
+      {
+        "date": "2023-01-31",
+        "category": "Research",
+        "ko": "\ub9c8\ucc30 \uc804\ud558 \uc720\ub3d9(Drift) \ud604\uc0c1 \uc138\uacc4 \ucd5c\ucd08 \uaddc\uba85 \uc5f0\uad6c, \uad50\uc218\uc2e0\ubb38 \uc18c\uac1c",
+        "en": "Professor News features the first report of triboelectric charge drift",
+        "noteKo": "Energy & Environmental Science \u00b7 \uae40\uc9c4\uacb8 \uad50\uc218 \uacf5\ub3d91\uc800\uc790 \u00b7 SiO\u2082/MoS\u2082 \uacc4\uba74 \uc804\uc704 \uae30\ubc18 \uc804\ud558 \uc720\ub3d9\u00b7\ucd95\uc801 \uaddc\uba85, 1,072 \u03bcC/m\u00b2 \uc804\ud558\ubc00\ub3c4\uc640 14.75 W/m\u00b2 \ucd9c\ub825 \ubcf4\uace0",
+        "noteEn": "Energy & Environmental Science \u00b7 Jin-Kyeom Kim, co-first author \u00b7 interfacial charge drift/trapping at SiO\u2082/MoS\u2082, with 1,072 \u03bcC/m\u00b2 charge density and 14.75 W/m\u00b2 output",
+        "url": "https://www.kyosu.net/news/articleView.html?idxno=99894"
       }
     ],
     "publicationGraphics": [

@@ -1,13 +1,13 @@
 {
   "schema": "enermaker.public-release.v1",
   "release": "V6.0.3-20260923-UI-FROZEN-V23",
-  "source_commit": "0bedde643e02cd1d6235e065f28cf8f9d53a5da7",
+  "source_commit": "2494b3a4df6802a94b9b9094e0aac928bd260f31",
   "local_validation": {
     "status": "PASS",
     "ui_release": "V6.0.3-20260923-UI-FROZEN-V23",
     "research_count": 4,
     "publication_count": 16,
-    "news_count": 8
+    "news_count": 10
   },
   "public_url": "https://enermakerlab.onrender.com/",
   "image_mode": "existing approved hi-res assets only",
