@@ -1,0 +1,35 @@
+{
+  "schema": "kilnsim.visual.assets.v2",
+  "mode": "imagegen_ready_with_procedural_fallback",
+  "assets": {
+    "factory_backplate": {
+      "src": "./assets/factory_backplate.svg",
+      "type": "environment_backplate",
+      "replaceable_by": "imagegen_webp"
+    },
+    "ground_albedo": {
+      "src": "./assets/concrete_floor.svg",
+      "type": "tile_albedo",
+      "replaceable_by": "imagegen_webp"
+    },
+    "kiln_shell_surface": {
+      "src": "./assets/kiln_shell_surface.svg",
+      "type": "tile_albedo",
+      "replaceable_by": "imagegen_webp"
+    }
+  },
+  "recommended_imagegen_slots": [
+    {
+      "id": "factory_backplate",
+      "prompt_role": "wide photoreal cement plant dusk industrial environment, no people, no logos, orthographic-friendly background"
+    },
+    {
+      "id": "ground_albedo",
+      "prompt_role": "seamless realistic cement plant concrete floor texture, dust and tire marks, top-down, PBR-friendly"
+    },
+    {
+      "id": "kiln_shell_surface",
+      "prompt_role": "seamless aged rotary kiln steel shell texture, heat oxidation, dust, subtle weld seams, PBR-friendly"
+    }
+  ]
+}
