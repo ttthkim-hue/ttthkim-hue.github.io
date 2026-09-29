@@ -5,25 +5,59 @@ export async function loadVisualAssetManifest() {
     const response = await fetch('./assets/asset-manifest.json', {cache:'no-store'});
     if (!response.ok) throw new Error('manifest_http_'+response.status);
     return await response.json();
-  } catch (error) {
-    return {schema:'kilnsim.visual.assets.v2',mode:'procedural_fallback',assets:{}};
+  } catch {
+    return {schema:'kilnsim.visual.assets.v3',mode:'procedural_fallback',assets:{}};
   }
+}
+
+async function sourceToLoadable(src) {
+  if (!src) return null;
+  if (!src.endsWith('.b64')) return src;
+  const response = await fetch(src, {cache:'no-store'});
+  if (!response.ok) throw new Error('asset_http_'+response.status);
+  const b64 = (await response.text()).trim();
+  if (b64.length < 1000) throw new Error('asset_base64_short');
+  return 'data:image/webp;base64,' + b64;
 }
 
 export async function loadTextureOrNull(url, options={}) {
   if (!url) return null;
   try {
-    const texture = await new THREE.TextureLoader().loadAsync(url);
+    const loadable = await sourceToLoadable(url);
+    const texture = await new THREE.TextureLoader().loadAsync(loadable);
     texture.colorSpace = THREE.SRGBColorSpace;
     if (options.wrap) {
       texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
       texture.repeat.set(options.repeatX || 1, options.repeatY || 1);
     }
     texture.anisotropy = options.anisotropy || 4;
+    texture.userData.source = url;
+    texture.userData.generated = url.endsWith('.b64');
     return texture;
   } catch {
     return null;
   }
+}
+
+export async function loadAssetTexture(asset, options={}) {
+  if (!asset) return null;
+  const primary = await loadTextureOrNull(asset.src, options);
+  if (primary) return primary;
+  const fallback = await loadTextureOrNull(asset.fallback_src, options);
+  if (fallback) {
+    fallback.userData.fallback = true;
+    return fallback;
+  }
+  return null;
+}
+
+export async function loadAssetDataUri(asset) {
+  if (!asset) return null;
+  for (const src of [asset.src, asset.fallback_src]) {
+    if (!src) continue;
+    try { return await sourceToLoadable(src); } catch {}
+  }
+  return null;
 }
 
 export function makeProceduralMetalTexture(renderer) {
