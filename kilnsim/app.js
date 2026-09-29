@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { loadVisualAssetManifest, loadTextureOrNull, makeProceduralMetalTexture, makeLabelSprite } from './asset-layer.js';
+import { loadVisualAssetManifest, loadAssetTexture, loadAssetDataUri, makeProceduralMetalTexture, makeLabelSprite } from './asset-layer.js';
 
 const $=id=>document.getElementById(id),host=$('scene'),clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});
@@ -17,12 +17,22 @@ const coolLight=new THREE.PointLight(0x55cfff,45,60,2);coolLight.position.set(-3
 const equipmentGroup=new THREE.Group(),kilnGroup=new THREE.Group(),thermalGroup=new THREE.Group(),bedGroup=new THREE.Group(),cellGrid=new THREE.Group(),particleGroup=new THREE.Group(),imageLayerGroup=new THREE.Group(),labelGroup=new THREE.Group();
 scene.add(equipmentGroup,kilnGroup,thermalGroup,bedGroup,cellGrid,particleGroup,imageLayerGroup,labelGroup);
 
-const manifest=await loadVisualAssetManifest();const assets=manifest.assets||{};$('assetState').textContent=manifest.mode||'procedural fallback';
-const [backplateTex,groundTex,shellTexLoaded]=await Promise.all([
-  loadTextureOrNull(assets.factory_backplate?.src),
-  loadTextureOrNull(assets.ground_albedo?.src,{wrap:true,repeatX:14,repeatY:8,anisotropy:8}),
-  loadTextureOrNull(assets.kiln_shell_surface?.src,{wrap:true,repeatX:8,repeatY:2,anisotropy:8})
+const manifest=await loadVisualAssetManifest();const assets=manifest.assets||{};
+const [backplateTex,groundTex,shellTexLoaded,refractoryTex,clinkerTex,dustTex,uiPlateUri]=await Promise.all([
+  loadAssetTexture(assets.factory_backplate),
+  loadAssetTexture(assets.ground_albedo,{wrap:true,repeatX:14,repeatY:8,anisotropy:8}),
+  loadAssetTexture(assets.kiln_shell_surface,{wrap:true,repeatX:8,repeatY:2,anisotropy:8}),
+  loadAssetTexture(assets.refractory_inner_glow,{wrap:true,repeatX:4,repeatY:2,anisotropy:8}),
+  loadAssetTexture(assets.clinker_bed_surface,{wrap:true,repeatX:4,repeatY:3,anisotropy:8}),
+  loadAssetTexture(assets.dust_smoke_sprite,{anisotropy:4}),
+  loadAssetDataUri(assets.ui_overlay_plate)
 ]);
+const loadedTextures=[backplateTex,groundTex,shellTexLoaded,refractoryTex,clinkerTex,dustTex];
+const generatedCount=loadedTextures.filter(t=>t?.userData?.generated).length+(uiPlateUri?.startsWith('data:image/webp')?1:0);
+$('assetState').textContent=generatedCount+'/7 generated · '+(manifest.generator_lane||'fallback');
+$('assetState').closest('.asset-status')?.classList.toggle('generated',generatedCount===7);
+$('visualBadge').querySelector('span').textContent=generatedCount===7?'7/7 dedicated ImageGen assets active':'generated '+generatedCount+'/7 · deterministic fallback';
+if(uiPlateUri)document.documentElement.style.setProperty('--ui-plate-image','url("'+uiPlateUri+'")');
 const shellTexture=shellTexLoaded||makeProceduralMetalTexture(renderer);
 
 const groundMat=new THREE.MeshStandardMaterial({color:groundTex?0xffffff:0x555d5f,map:groundTex||null,roughness:.93,metalness:.03});
@@ -66,7 +76,7 @@ for(let i=0;i<N;i++){
   const tg=new THREE.CylinderGeometry(5.22,5.22,cellLen*.93,32,1,true);tg.rotateZ(Math.PI/2);
   const tm=new THREE.MeshBasicMaterial({color:0xff7a48,transparent:true,opacity:.23,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false});
   const th=new THREE.Mesh(tg,tm);th.position.set(x,0,0);thermalGroup.add(th);thermalMeshes.push(th);
-  const bed=box(cellLen*.91,1.15,6.8,0xa97743,.92,.02);bed.position.set(x,-2.8,0);bed.userData={cell:i,type:'bed'};bedGroup.add(bed);bedMeshes.push(bed);
+  const bed=box(cellLen*.91,1.15,6.8,0xa97743,.92,.02);bed.position.set(x,-2.8,0);bed.userData={cell:i,type:'bed'};if(clinkerTex){bed.material.map=clinkerTex;bed.material.needsUpdate=true}bedGroup.add(bed);bedMeshes.push(bed);
   const e=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(cellLen*.98,10.6,10.6)),new THREE.LineBasicMaterial({color:0x6ce3ff,transparent:true,opacity:.16}));e.position.set(x,0,0);e.visible=false;cellGrid.add(e);edgeMeshes.push(e);
 }
 for(const x of [-36,-14,9,31]){
@@ -75,6 +85,11 @@ for(const x of [-36,-14,9,31]){
   const base=box(8,.8,10,0x303739,.8,.25);base.position.set(x,-6.15,0);equipmentGroup.add(base);
 }
 label('ROTARY KILN',new THREE.Vector3(5,8,0),'#ff9d73');
+if(refractoryTex){
+  const rg=new THREE.CylinderGeometry(4.72,4.72,23,48,1,true);rg.rotateZ(Math.PI/2);
+  const rm=new THREE.MeshStandardMaterial({map:refractoryTex,color:0xffa26b,emissive:0x7a2108,emissiveIntensity:1.15,roughness:.82,metalness:0,side:THREE.BackSide,transparent:true,opacity:.88});
+  const refractory=new THREE.Mesh(rg,rm);refractory.position.set(12,0,0);refractory.rotation.z=-.035;imageLayerGroup.add(refractory);
+}
 
 // Burner and flame
 const burner=box(10,7,9,0x252e33,.62,.55);burner.position.set(34,0,0);equipmentGroup.add(burner);
@@ -98,20 +113,35 @@ const conv=box(42,1.4,3,0x313c40,.62,.48);conv.position.set(41,8,-19);conv.rotat
 const ring=new THREE.Mesh(new THREE.TorusGeometry(5.6,.085,8,64),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.92}));ring.rotation.y=Math.PI/2;kilnGroup.add(ring);
 
 // particles: smoke + dust
-function pointsCloud(count,origin,spread,color,size,opacity){
+function pointsCloud(count,origin,spread,color,size,opacity,map=null){
   const pos=new Float32Array(count*3);for(let i=0;i<count;i++){pos[i*3]=origin.x+(Math.random()-.5)*spread.x;pos[i*3+1]=origin.y+Math.random()*spread.y;pos[i*3+2]=origin.z+(Math.random()-.5)*spread.z}
-  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));const m=new THREE.PointsMaterial({color,size,transparent:true,opacity,depthWrite:false,blending:THREE.NormalBlending});const p=new THREE.Points(g,m);p.userData={origin,spread};particleGroup.add(p);return p;
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));const m=new THREE.PointsMaterial({color,size,transparent:true,opacity,depthWrite:false,blending:THREE.NormalBlending,map:map||null,alphaTest:map?.userData?.generated ? .015 : 0});const p=new THREE.Points(g,m);p.userData={origin,spread};particleGroup.add(p);return p;
 }
-const smoke=pointsCloud(230,new THREE.Vector3(-61,29,-23),new THREE.Vector3(10,20,10),0xaab6b6,.8,.16);
-const dust=pointsCloud(180,new THREE.Vector3(47,1,0),new THREE.Vector3(25,9,17),0xd2aa78,.45,.14);
+const smoke=pointsCloud(230,new THREE.Vector3(-61,29,-23),new THREE.Vector3(10,20,10),0xffffff,dustTex?1.5:.8,dustTex?.userData?.generated ? .24 : .16,dustTex);
+const dust=pointsCloud(180,new THREE.Vector3(47,1,0),new THREE.Vector3(25,9,17),0xe6bd8a,dustTex?1.15:.45,dustTex?.userData?.generated ? .20 : .14,dustTex);
 
-const p={fuel:100,feed:100,speed:2,selected:0};let data=[];
+const p={fuel:100,feed:100,speed:2,selected:0};let data=[],compareA=null;
+const presets={
+  base:{name:'Reference operating envelope',fuel:100,feed:100,speed:2.0},
+  fuel_save:{name:'Fuel saving screen',fuel:95,feed:100,speed:2.0},
+  throughput:{name:'Throughput screen',fuel:104,feed:108,speed:2.15},
+  efficient:{name:'Efficiency candidate',fuel:94,feed:103,speed:1.9}
+};
 function profile(q){const a=[];for(let i=0;i<N;i++){const x=i/(N-1),pre=1/(1+Math.exp(-(x-.25)*10)),burn=Math.exp(-Math.pow((x-.71)/.18,2)),base=350+500*pre+245*burn,fuel=(q.fuel-100)*3.1*(.25+.75*burn),feed=-(q.feed-100)*1.5*(.25+.75*pre),speed=(q.speed-2)*-29*(.2+.8*pre),bed=clamp(base+fuel+feed+speed,300,1198),wall=clamp(bed+70+65*burn,330,1198),conv=clamp((bed-755)/390,0,1)*clamp((x-.19)/.58,0,1);a.push({x:i*cellLen,bed,wall,conv})}return a}
 function tempColor(t){const u=clamp((t-300)/900,0,1),c=new THREE.Color();if(u<.3)c.lerpColors(new THREE.Color(0x2544c7),new THREE.Color(0x19c8c4),u/.3);else if(u<.62)c.lerpColors(new THREE.Color(0x19c8c4),new THREE.Color(0xffe66c),(u-.3)/.32);else c.lerpColors(new THREE.Color(0xffe66c),new THREE.Color(0xd52b45),(u-.62)/.38);return c}
 function selectCell(i,slider=true){p.selected=clamp(Number(i)||0,0,N-1);if(slider)$('axial').value=p.selected;$('axialOut').textContent=p.selected;$('cellNo').textContent=String(p.selected+1).padStart(2,'0');const d=data[p.selected];ring.position.x=-10+(-L/2+cellLen*(p.selected+.5));$('detailX').textContent=d.x.toFixed(1)+' m';$('detailBed').textContent=d.bed.toFixed(0)+' K';$('detailWall').textContent=d.wall.toFixed(0)+' K';$('detailConv').textContent=(d.conv*100).toFixed(1)+' %'}
 function drawProfile(){const c=$('profile'),ctx=c.getContext('2d'),w=c.width,h=c.height;ctx.clearRect(0,0,w,h);ctx.fillStyle='#050d13';ctx.fillRect(0,0,w,h);ctx.strokeStyle='#17303d';ctx.lineWidth=1;for(let j=0;j<5;j++){const y=22+j*(h-48)/4;ctx.beginPath();ctx.moveTo(42,y);ctx.lineTo(w-12,y);ctx.stroke()}const tx=i=>42+i*(w-58)/(N-1),ty=t=>h-20-(t-300)/900*(h-48);ctx.strokeStyle='#67dcff';ctx.lineWidth=3;ctx.beginPath();data.forEach((d,i)=>i?ctx.lineTo(tx(i),ty(d.bed)):ctx.moveTo(tx(i),ty(d.bed)));ctx.stroke();ctx.strokeStyle='#ff9164';ctx.lineWidth=2;ctx.beginPath();data.forEach((d,i)=>i?ctx.lineTo(tx(i),ty(d.wall)):ctx.moveTo(tx(i),ty(d.wall)));ctx.stroke();const sx=tx(p.selected);ctx.strokeStyle='#fff';ctx.globalAlpha=.55;ctx.beginPath();ctx.moveTo(sx,13);ctx.lineTo(sx,h-13);ctx.stroke();ctx.globalAlpha=1;ctx.fillStyle='#7993a5';ctx.font='18px system-ui';ctx.fillText('BED',48,35);ctx.fillStyle='#ff9d78';ctx.fillText('WALL',104,35)}
 function refresh(){data=profile(p);data.forEach((d,i)=>{thermalMeshes[i].material.color.copy(tempColor(d.wall));thermalMeshes[i].material.opacity=.09+.31*clamp((d.wall-500)/700,0,1);bedMeshes[i].material.color.copy(tempColor(d.bed));bedMeshes[i].scale.y=.72+.65*d.conv});$('peakT').textContent=Math.max(...data.map(d=>d.bed)).toFixed(0);$('conversion').textContent=(data.at(-1).conv*100).toFixed(1);$('energy').textContent=(100*(p.fuel/100)*(100/p.feed)*(2/p.speed)).toFixed(1);hotLight.intensity=70+(p.fuel-80)*2.2;flame.scale.set(1+(p.fuel-100)*.01,1+(p.fuel-100)*.018,1+(p.fuel-100)*.01);selectCell(p.selected,false);drawProfile()}
-for(const id of ['fuel','feed','speed']){const el=$(id),out=$(id+'Out');el.addEventListener('input',()=>{p[id]=Number(el.value);out.textContent=el.value;refresh()})}$('axial').addEventListener('input',()=>selectCell(Number($('axial').value),false));
+function syncScenarioControls(){
+  for(const id of ['fuel','feed','speed']){$(id).value=p[id];$(id+'Out').textContent=p[id]}
+}
+for(const id of ['fuel','feed','speed']){const el=$(id),out=$(id+'Out');el.addEventListener('input',()=>{p[id]=Number(el.value);out.textContent=el.value;document.querySelectorAll('.preset').forEach(b=>b.classList.remove('active'));refresh()})}$('axial').addEventListener('input',()=>selectCell(Number($('axial').value),false));
+document.querySelectorAll('.preset').forEach(btn=>btn.addEventListener('click',()=>{const q=presets[btn.dataset.preset];if(!q)return;p.fuel=q.fuel;p.feed=q.feed;p.speed=q.speed;$('scenarioName').textContent=q.name;syncScenarioControls();document.querySelectorAll('.preset').forEach(b=>b.classList.toggle('active',b===btn));refresh()}));
+$('saveA').addEventListener('click',()=>{compareA={fuel:p.fuel,feed:p.feed,speed:p.speed,peak:Number($('peakT').textContent),conv:Number($('conversion').textContent),energy:Number($('energy').textContent)};$('compareSummary').textContent='A saved · adjust scenario'});
+$('compareB').addEventListener('click',()=>{if(!compareA){$('compareSummary').textContent='Save A first';return}const dPeak=Number($('peakT').textContent)-compareA.peak,dConv=Number($('conversion').textContent)-compareA.conv,dEnergy=Number($('energy').textContent)-compareA.energy;$('compareSummary').textContent='B−A: ΔT '+dPeak.toFixed(0)+' K · Δcalc '+dConv.toFixed(1)+'% · ΔE '+dEnergy.toFixed(1)});
+function downloadBlob(name,blob){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1200)}
+$('screenshot').addEventListener('click',()=>{renderer.render(scene,camera);renderer.domElement.toBlob(b=>b&&downloadBlob('kilnsim_v3_capture.png',b),'image/png')});
+$('exportReceipt').addEventListener('click',()=>{const receipt={schema:'kilnsim.web.evidence.v1',generated_at:new Date().toISOString(),mode:'L0_PREDICTION_NO_ACTUATION',plant_validation:'NOT_STARTED',asset_lane:manifest.generator_lane||null,asset_mode:manifest.mode,generated_assets:generatedCount,scenario:{fuel:p.fuel,feed:p.feed,speed:p.speed,selected_cell:p.selected},kpi:{peak_bed_K:Number($('peakT').textContent),calcination_pct:Number($('conversion').textContent),energy_index:Number($('energy').textContent)},comparison_A:compareA,disclaimer:'Client-side sensitivity visualization; not plant-validated prediction.'};downloadBlob('kilnsim_evidence_receipt.json',new Blob([JSON.stringify(receipt,null,2)],{type:'application/json'}))});
 
 const layerMap={thermal:thermalGroup,shell:kilnGroup,bed:bedGroup,equipment:equipmentGroup,particles:particleGroup,image:imageLayerGroup,grid:cellGrid};
 document.querySelectorAll('.layer').forEach(btn=>btn.addEventListener('click',()=>{btn.classList.toggle('active');const on=btn.classList.contains('active'),g=layerMap[btn.dataset.layer];if(btn.dataset.layer==='grid')edgeMeshes.forEach(e=>e.visible=on);else if(g)g.visible=on}));
