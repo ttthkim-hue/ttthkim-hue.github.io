@@ -1,35 +1,44 @@
 {
-  "schema": "kilnsim.visual.assets.v2",
-  "mode": "imagegen_ready_with_procedural_fallback",
+  "schema": "kilnsim.visual.assets.v3",
+  "mode": "kilnsim_dedicated_imagegen_lane",
+  "generator_lane": "KILNSIM_IMAGEGEN_V1",
   "assets": {
     "factory_backplate": {
-      "src": "./assets/factory_backplate.svg",
-      "type": "environment_backplate",
-      "replaceable_by": "imagegen_webp"
+      "src": "./assets/generated/01_factory_backplate.webp.b64",
+      "fallback_src": "./assets/factory_backplate.svg",
+      "type": "environment_backplate"
     },
     "ground_albedo": {
-      "src": "./assets/concrete_floor.svg",
-      "type": "tile_albedo",
-      "replaceable_by": "imagegen_webp"
+      "src": "./assets/generated/02_ground_albedo.webp.b64",
+      "fallback_src": "./assets/concrete_floor.svg",
+      "type": "tile_albedo"
     },
     "kiln_shell_surface": {
-      "src": "./assets/kiln_shell_surface.svg",
-      "type": "tile_albedo",
-      "replaceable_by": "imagegen_webp"
+      "src": "./assets/generated/03_kiln_shell_surface.webp.b64",
+      "fallback_src": "./assets/kiln_shell_surface.svg",
+      "type": "tile_albedo"
+    },
+    "refractory_inner_glow": {
+      "src": "./assets/generated/04_refractory_inner_glow.webp.b64",
+      "type": "tile_emissive"
+    },
+    "clinker_bed_surface": {
+      "src": "./assets/generated/05_clinker_bed_surface.webp.b64",
+      "type": "tile_albedo"
+    },
+    "dust_smoke_sprite": {
+      "src": "./assets/generated/06_dust_smoke_sprite.webp.b64",
+      "type": "rgba_sprite"
+    },
+    "ui_overlay_plate": {
+      "src": "./assets/generated/07_ui_overlay_plate.webp.b64",
+      "type": "ui_backing"
     }
   },
-  "recommended_imagegen_slots": [
-    {
-      "id": "factory_backplate",
-      "prompt_role": "wide photoreal cement plant dusk industrial environment, no people, no logos, orthographic-friendly background"
-    },
-    {
-      "id": "ground_albedo",
-      "prompt_role": "seamless realistic cement plant concrete floor texture, dust and tire marks, top-down, PBR-friendly"
-    },
-    {
-      "id": "kiln_shell_surface",
-      "prompt_role": "seamless aged rotary kiln steel shell texture, heat oxidation, dust, subtle weld seams, PBR-friendly"
-    }
-  ]
+  "generated_asset_count": 7,
+  "fallback_policy": "primary_generated_then_deterministic_fallback",
+  "safety": {
+    "plant_validation": "NOT_STARTED",
+    "actuation": false
+  }
 }
