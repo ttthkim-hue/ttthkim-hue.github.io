@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#081018" />
+  <title>KilnSim 3D Control Room</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="app">
+<header class="topbar">
+  <div><div class="eyebrow">KILAM · CEMENT AX DIGITAL TWIN</div><h1>KilnSim 3D Control Room <span>Public Demo</span></h1></div>
+  <div class="statusline"><span class="pill pass">PHYSICS GATE · PASS</span><span class="pill hold">PLANT VALIDATION · NOT STARTED</span><span class="pill safe">L0 · NO ACTUATION</span></div>
+</header>
+<main class="layout">
+<section class="viewport-card">
+  <div id="scene"></div>
+  <div class="scene-tools"><button data-view="overview">전체</button><button data-view="preheat">예열</button><button data-view="burning">소성</button><button data-view="cooler">냉각</button><button id="resetView">초기화</button></div>
+  <div class="legend"><span>300 K</span><div class="gradient"></div><span>1,200 K</span></div>
+  <div class="hint">드래그: 회전 · 휠: 확대/축소 · 우클릭: 이동 · 구간 클릭: 상세</div>
+</section>
+<aside class="right-panel">
+  <div class="panel-head"><div><span class="dot live"></span> Scenario Engine</div><small>Reference Shadow Scenario</small></div>
+  <div class="kpis">
+    <article><label>Peak bed T</label><strong id="peakT">—</strong><small>K</small></article>
+    <article><label>Calcination</label><strong id="conversion">—</strong><small>%</small></article>
+    <article><label>Energy index</label><strong id="energy">—</strong><small>demo</small></article>
+    <article><label>Selected cell</label><strong id="cellNo">—</strong><small>/ 48</small></article>
+  </div>
+  <div class="controls">
+    <label>연료 지수 <output id="fuelOut">100</output><input id="fuel" type="range" min="80" max="120" value="100" /></label>
+    <label>원료 투입 지수 <output id="feedOut">100</output><input id="feed" type="range" min="80" max="120" value="100" /></label>
+    <label>킬른 속도 <output id="speedOut">2.0</output><input id="speed" type="range" min="1.0" max="3.0" step="0.1" value="2.0" /></label>
+    <label>축방향 위치 <output id="axialOut">0</output><input id="axial" type="range" min="0" max="47" value="0" /></label>
+  </div>
+  <div class="layers"><button class="layer active" data-layer="thermal">열장</button><button class="layer active" data-layer="shell">쉘</button><button class="layer active" data-layer="bed">원료층</button><button class="layer" data-layer="grid">셀 경계</button></div>
+  <canvas id="profile" width="720" height="260"></canvas>
+  <div class="detail"><div><span>위치</span><b id="detailX">0.0 m</b></div><div><span>Bed T</span><b id="detailBed">—</b></div><div><span>Wall T</span><b id="detailWall">—</b></div><div><span>Conversion</span><b id="detailConv">—</b></div></div>
+  <div class="notice"><b>제안서용 기술 시연</b><p>검증된 KilnSim 계산 구조를 설명하기 위한 상호작용 프런트엔드입니다. 현재 공장 실증 데이터는 연결되지 않았으며 PLC/DCS 제어 기능은 없습니다.</p></div>
+</aside>
+</main>
+<footer><span>KilnSim tool layer: 9 project-local tools</span><span>historian → adapter → shadow model → validation</span><span>SIMULATION / READ-ONLY SHADOW</span></footer>
+</div>
+<script type="module" src="./app.js"></script>
+</body></html>
