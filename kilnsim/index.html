@@ -13,11 +13,11 @@
 <header class="topbar">
   <div class="brand">
     <div class="eyebrow">KILAM · CEMENT AX DIGITAL TWIN</div>
-    <h1>KilnSim <span>Industrial Control Room v2</span></h1>
+    <h1>KilnSim <span>Industrial Control Room v3</span></h1>
   </div>
   <div class="statusline">
     <span class="pill pass">PHYSICS CORE · PASS</span>
-    <span class="pill visual">VISUAL LAYER · V2</span>
+    <span class="pill visual">VISUAL LAYER · V3</span>
     <span class="pill hold">PLANT VALIDATION · NOT STARTED</span>
     <span class="pill safe">L0 · NO ACTUATION</span>
   </div>
@@ -36,7 +36,7 @@
   </div>
   <div class="view-actions">
     <button id="resetView" title="카메라 초기화">↺</button>
-    <button id="fullscreen" title="전체화면">⛶</button>
+    <button id="screenshot" title="화면 캡처">◉</button>\n    <button id="exportReceipt" title="Evidence receipt">⇩</button>\n    <button id="fullscreen" title="전체화면">⛶</button>
   </div>
   <div class="scene-badge" id="visualBadge"><b>AI IMAGE LAYER</b><span>manifest-ready / procedural fallback</span></div>
   <div class="legend"><span>300 K</span><div class="gradient"></div><span>1,200 K+</span></div>
@@ -65,12 +65,17 @@
     <article><label>Selected cell</label><strong id="cellNo">—</strong><small>/ 48</small></article>
   </div>
 
-  <div class="section-title"><span>운전 시나리오</span><small>visual sensitivity only</small></div>
+  <div class="section-title"><span>운전 시나리오</span><small>visual sensitivity only</small></div>\n  <div class="preset-bar"><button class="preset active" data-preset="base">BASE</button><button class="preset" data-preset="fuel_save">FUEL −5%</button><button class="preset" data-preset="throughput">FEED +8%</button><button class="preset" data-preset="efficient">EFFICIENCY</button></div>
   <div class="controls">
     <label>연료 지수 <output id="fuelOut">100</output><input id="fuel" type="range" min="80" max="120" value="100" /></label>
     <label>원료 투입 <output id="feedOut">100</output><input id="feed" type="range" min="80" max="120" value="100" /></label>
     <label>킬른 속도 <output id="speedOut">2.0</output><input id="speed" type="range" min="1.0" max="3.0" step="0.1" value="2.0" /></label>
     <label>축방향 셀 <output id="axialOut">0</output><input id="axial" type="range" min="0" max="47" value="0" /></label>
+  </div>
+  <div class="compare-bar">
+    <button id="saveA">A 저장</button>
+    <button id="compareB">B 비교</button>
+    <span id="compareSummary">A/B comparison ready</span>
   </div>
 
   <div class="section-title"><span>시각 레이어</span><small>independent overlays</small></div>
@@ -95,7 +100,7 @@
 
   <div class="asset-status">
     <div><b>IMAGE ASSET PIPELINE</b><span id="assetState">loading manifest…</span></div>
-    <p>현재는 내장 산업용 텍스처/백플레이트를 사용합니다. 향후 ImageGen·로컬 Qwen 이미지 결과를 동일 파일명으로 교체하면 3D 코드 변경 없이 반영됩니다.</p>
+    <p>KilnSim 전용 ImageGen lane의 7개 자산을 우선 로드하고, 누락 시 기존 결정론적 자산으로 자동 fallback합니다. 생성 seed·SHA·해상도는 evidence receipt로 관리합니다.</p>
   </div>
 
   <div class="notice">
@@ -106,7 +111,7 @@
 </main>
 
 <footer>
-  <span>KilnSim: 9 project-local tools · 80 test files PASS</span>
+  <span>KilnSim: 9 project-local tools · ImageGen lane V1</span>
   <span>Historian → Data Adapter → Physics/AI Shadow → Validation</span>
   <span>SIMULATION / READ-ONLY SHADOW</span>
 </footer>
